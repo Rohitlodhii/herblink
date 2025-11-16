@@ -1,0 +1,92 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+//Farmers Model
+
+
+model Farmer {
+  id String @id @default(uuid())
+  mobileNumber String @unique
+  mobileNumberVerified Boolean @default(false)
+
+  farmerID  String? @unique
+  password  String?
+
+  fullName  String?
+  dob       DateTime?
+  address   String?
+
+  
+  isVerified  Boolean @default(false)
+  isProfileCompleted Boolean @default(false)
+
+
+  landInfo  LandInfo[]
+  documents Document[]
+  crops Crop[]
+  
+
+  createdAt DateTime @default(now())
+  updateAt DateTime @default(now())
+}
+
+
+model LandInfo {
+  id String @id @default(uuid())
+  totalHectare  Float
+  khasraNumber  String
+  coordinates Json?
+
+  farmerID String @unique
+  famer Farmer @relation(fields: [farmerID] , references: [id])
+}
+
+enum DocumentType {
+  INCOME_CERTIFICATE
+  FARMER_PHOTOGRAPH
+  LAND_CERTIFICATE
+}
+
+
+model Document {
+  id String @id @default(uuid())
+  type DocumentType
+  url String
+
+  farmerID String 
+  famer Farmer @relation(fields: [farmerID] , references: [id])
+}
+
+model Crop {
+  id             String   @id @default(uuid())
+  name           String
+
+  farmerId       String
+  farmer         Farmer   @relation(fields: [farmerId], references: [id])
+}
+
+model OTP {
+  id         String   @id @default(uuid())
+  mobile     String
+  otp        String
+  expiresAt  DateTime
+  verified   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
+
+
+ 

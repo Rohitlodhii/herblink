@@ -1,0 +1,154 @@
+import * as runtime from "@prisma/client/runtime/index-browser";
+export type * from '../models.js';
+export type * from './prismaNamespace.js';
+export declare const Decimal: typeof runtime.Decimal;
+export declare const NullTypes: {
+    DbNull: (new (secret: never) => typeof runtime.objectEnumValues.instances.DbNull);
+    JsonNull: (new (secret: never) => typeof runtime.objectEnumValues.instances.JsonNull);
+    AnyNull: (new (secret: never) => typeof runtime.objectEnumValues.instances.AnyNull);
+};
+/**
+ * Helper for filtering JSON entries that have `null` on the database (empty on the db)
+ *
+ * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+ */
+export declare const DbNull: {
+    "__#private@#private": any;
+    _getNamespace(): string;
+    _getName(): string;
+    toString(): string;
+};
+/**
+ * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
+ *
+ * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+ */
+export declare const JsonNull: {
+    "__#private@#private": any;
+    _getNamespace(): string;
+    _getName(): string;
+    toString(): string;
+};
+/**
+ * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
+ *
+ * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+ */
+export declare const AnyNull: {
+    "__#private@#private": any;
+    _getNamespace(): string;
+    _getName(): string;
+    toString(): string;
+};
+export declare const ModelName: {
+    readonly Farmer: "Farmer";
+    readonly LandInfo: "LandInfo";
+    readonly Document: "Document";
+    readonly Crop: "Crop";
+    readonly OTP: "OTP";
+};
+export type ModelName = (typeof ModelName)[keyof typeof ModelName];
+export declare const TransactionIsolationLevel: {
+    readonly ReadUncommitted: "ReadUncommitted";
+    readonly ReadCommitted: "ReadCommitted";
+    readonly RepeatableRead: "RepeatableRead";
+    readonly Serializable: "Serializable";
+};
+export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel];
+export declare const FarmerScalarFieldEnum: {
+    readonly id: "id";
+    readonly mobileNumber: "mobileNumber";
+    readonly mobileNumberVerified: "mobileNumberVerified";
+    readonly farmerID: "farmerID";
+    readonly password: "password";
+    readonly fullName: "fullName";
+    readonly dob: "dob";
+    readonly address: "address";
+    readonly isVerified: "isVerified";
+    readonly isProfileCompleted: "isProfileCompleted";
+    readonly createdAt: "createdAt";
+    readonly updateAt: "updateAt";
+};
+export type FarmerScalarFieldEnum = (typeof FarmerScalarFieldEnum)[keyof typeof FarmerScalarFieldEnum];
+export declare const LandInfoScalarFieldEnum: {
+    readonly id: "id";
+    readonly totalHectare: "totalHectare";
+    readonly khasraNumber: "khasraNumber";
+    readonly coordinates: "coordinates";
+    readonly farmerID: "farmerID";
+};
+export type LandInfoScalarFieldEnum = (typeof LandInfoScalarFieldEnum)[keyof typeof LandInfoScalarFieldEnum];
+export declare const DocumentScalarFieldEnum: {
+    readonly id: "id";
+    readonly type: "type";
+    readonly url: "url";
+    readonly farmerID: "farmerID";
+};
+export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum];
+export declare const CropScalarFieldEnum: {
+    readonly id: "id";
+    readonly name: "name";
+    readonly farmerId: "farmerId";
+};
+export type CropScalarFieldEnum = (typeof CropScalarFieldEnum)[keyof typeof CropScalarFieldEnum];
+export declare const OTPScalarFieldEnum: {
+    readonly id: "id";
+    readonly mobile: "mobile";
+    readonly otp: "otp";
+    readonly expiresAt: "expiresAt";
+    readonly verified: "verified";
+    readonly createdAt: "createdAt";
+};
+export type OTPScalarFieldEnum = (typeof OTPScalarFieldEnum)[keyof typeof OTPScalarFieldEnum];
+export declare const SortOrder: {
+    readonly asc: "asc";
+    readonly desc: "desc";
+};
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+export declare const NullableJsonNullValueInput: {
+    readonly DbNull: {
+        "__#private@#private": any;
+        _getNamespace(): string;
+        _getName(): string;
+        toString(): string;
+    };
+    readonly JsonNull: {
+        "__#private@#private": any;
+        _getNamespace(): string;
+        _getName(): string;
+        toString(): string;
+    };
+};
+export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput];
+export declare const QueryMode: {
+    readonly default: "default";
+    readonly insensitive: "insensitive";
+};
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode];
+export declare const NullsOrder: {
+    readonly first: "first";
+    readonly last: "last";
+};
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder];
+export declare const JsonNullValueFilter: {
+    readonly DbNull: {
+        "__#private@#private": any;
+        _getNamespace(): string;
+        _getName(): string;
+        toString(): string;
+    };
+    readonly JsonNull: {
+        "__#private@#private": any;
+        _getNamespace(): string;
+        _getName(): string;
+        toString(): string;
+    };
+    readonly AnyNull: {
+        "__#private@#private": any;
+        _getNamespace(): string;
+        _getName(): string;
+        toString(): string;
+    };
+};
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter];
+//# sourceMappingURL=prismaNamespaceBrowser.d.ts.map

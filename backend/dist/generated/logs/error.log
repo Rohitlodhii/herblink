@@ -1,0 +1,8 @@
+2025-11-11 16:00:00 [[31merror[39m]: Error: Failed to verify Otp
+    at TwilioService.verifyOtp (file:///C:/herblinkpro/backend/dist/config/twilio.js:29:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async FarmerSignUpVerifyOtp (file:///C:/herblinkpro/backend/dist/controllers/farmer/auth.farmer.js:54:24)
+2025-11-13 16:26:28 [[31merror[39m]: Error: Failed to send Otp
+    at TwilioService.sendOTP (file:///C:/herblinkpro/backend/dist/config/twilio.js:17:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async FarmerSignUp (file:///C:/herblinkpro/backend/dist/controllers/farmer/auth.farmer.js:34:19)

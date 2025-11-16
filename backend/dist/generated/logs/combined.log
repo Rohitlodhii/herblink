@@ -1,0 +1,18 @@
+2025-11-11 16:00:00 [[31merror[39m]: Error: Failed to verify Otp
+    at TwilioService.verifyOtp (file:///C:/herblinkpro/backend/dist/config/twilio.js:29:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async FarmerSignUpVerifyOtp (file:///C:/herblinkpro/backend/dist/controllers/farmer/auth.farmer.js:54:24)
+2025-11-13 16:26:28 [[31merror[39m]: Error: Failed to send Otp
+    at TwilioService.sendOTP (file:///C:/herblinkpro/backend/dist/config/twilio.js:17:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async FarmerSignUp (file:///C:/herblinkpro/backend/dist/controllers/farmer/auth.farmer.js:34:19)
+2025-11-13 16:27:53 [[33mwarn[39m]: farmer_already_exist 9009908984
+2025-11-13 16:29:17 [[33mwarn[39m]: farmer_already_exist 9009908984
+2025-11-13 16:30:32 [[33mwarn[39m]: farmer_already_exist 9009908984
+2025-11-13 16:30:42 [[33mwarn[39m]: farmer_already_exist 9009908984
+2025-11-15 00:09:20 [[33mwarn[39m]: farmer_exists_but_unverified +919009908984
+2025-11-15 00:10:16 [[33mwarn[39m]: farmer_exists_but_unverified +919009908984
+2025-11-15 00:12:01 [[33mwarn[39m]: farmer_exists_but_unverified +919009908984
+2025-11-16 17:31:40 [[33mwarn[39m]: Farmer_invalid_credential_login : undefined
+2025-11-16 17:33:27 [[33mwarn[39m]: Farmer_invalid_credential_login : undefined
+2025-11-16 17:36:00 [[33mwarn[39m]: Farmer_not_exist +919009908984
