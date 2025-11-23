@@ -17,7 +17,7 @@ export type FarmerMinAggregateOutputType = {
     farmerID: string | null;
     password: string | null;
     fullName: string | null;
-    dob: Date | null;
+    dob: string | null;
     address: string | null;
     isVerified: boolean | null;
     isProfileCompleted: boolean | null;
@@ -31,7 +31,7 @@ export type FarmerMaxAggregateOutputType = {
     farmerID: string | null;
     password: string | null;
     fullName: string | null;
-    dob: Date | null;
+    dob: string | null;
     address: string | null;
     isVerified: boolean | null;
     isProfileCompleted: boolean | null;
@@ -165,7 +165,7 @@ export type FarmerGroupByOutputType = {
     farmerID: string | null;
     password: string | null;
     fullName: string | null;
-    dob: Date | null;
+    dob: string | null;
     address: string | null;
     isVerified: boolean;
     isProfileCompleted: boolean;
@@ -188,7 +188,7 @@ export type FarmerWhereInput = {
     farmerID?: Prisma.StringNullableFilter<"Farmer"> | string | null;
     password?: Prisma.StringNullableFilter<"Farmer"> | string | null;
     fullName?: Prisma.StringNullableFilter<"Farmer"> | string | null;
-    dob?: Prisma.DateTimeNullableFilter<"Farmer"> | Date | string | null;
+    dob?: Prisma.StringNullableFilter<"Farmer"> | string | null;
     address?: Prisma.StringNullableFilter<"Farmer"> | string | null;
     isVerified?: Prisma.BoolFilter<"Farmer"> | boolean;
     isProfileCompleted?: Prisma.BoolFilter<"Farmer"> | boolean;
@@ -225,7 +225,7 @@ export type FarmerWhereUniqueInput = Prisma.AtLeast<{
     mobileNumberVerified?: Prisma.BoolFilter<"Farmer"> | boolean;
     password?: Prisma.StringNullableFilter<"Farmer"> | string | null;
     fullName?: Prisma.StringNullableFilter<"Farmer"> | string | null;
-    dob?: Prisma.DateTimeNullableFilter<"Farmer"> | Date | string | null;
+    dob?: Prisma.StringNullableFilter<"Farmer"> | string | null;
     address?: Prisma.StringNullableFilter<"Farmer"> | string | null;
     isVerified?: Prisma.BoolFilter<"Farmer"> | boolean;
     isProfileCompleted?: Prisma.BoolFilter<"Farmer"> | boolean;
@@ -262,7 +262,7 @@ export type FarmerScalarWhereWithAggregatesInput = {
     farmerID?: Prisma.StringNullableWithAggregatesFilter<"Farmer"> | string | null;
     password?: Prisma.StringNullableWithAggregatesFilter<"Farmer"> | string | null;
     fullName?: Prisma.StringNullableWithAggregatesFilter<"Farmer"> | string | null;
-    dob?: Prisma.DateTimeNullableWithAggregatesFilter<"Farmer"> | Date | string | null;
+    dob?: Prisma.StringNullableWithAggregatesFilter<"Farmer"> | string | null;
     address?: Prisma.StringNullableWithAggregatesFilter<"Farmer"> | string | null;
     isVerified?: Prisma.BoolWithAggregatesFilter<"Farmer"> | boolean;
     isProfileCompleted?: Prisma.BoolWithAggregatesFilter<"Farmer"> | boolean;
@@ -276,7 +276,7 @@ export type FarmerCreateInput = {
     farmerID?: string | null;
     password?: string | null;
     fullName?: string | null;
-    dob?: Date | string | null;
+    dob?: string | null;
     address?: string | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
@@ -293,7 +293,7 @@ export type FarmerUncheckedCreateInput = {
     farmerID?: string | null;
     password?: string | null;
     fullName?: string | null;
-    dob?: Date | string | null;
+    dob?: string | null;
     address?: string | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
@@ -310,7 +310,7 @@ export type FarmerUpdateInput = {
     farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
@@ -327,7 +327,7 @@ export type FarmerUncheckedUpdateInput = {
     farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
@@ -344,7 +344,7 @@ export type FarmerCreateManyInput = {
     farmerID?: string | null;
     password?: string | null;
     fullName?: string | null;
-    dob?: Date | string | null;
+    dob?: string | null;
     address?: string | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
@@ -358,7 +358,7 @@ export type FarmerUpdateManyMutationInput = {
     farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
@@ -372,7 +372,7 @@ export type FarmerUncheckedUpdateManyInput = {
     farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
@@ -434,9 +434,6 @@ export type BoolFieldUpdateOperationsInput = {
 export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null;
 };
-export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null;
-};
 export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string;
 };
@@ -483,7 +480,7 @@ export type FarmerCreateWithoutLandInfoInput = {
     farmerID?: string | null;
     password?: string | null;
     fullName?: string | null;
-    dob?: Date | string | null;
+    dob?: string | null;
     address?: string | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
@@ -499,7 +496,7 @@ export type FarmerUncheckedCreateWithoutLandInfoInput = {
     farmerID?: string | null;
     password?: string | null;
     fullName?: string | null;
-    dob?: Date | string | null;
+    dob?: string | null;
     address?: string | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
@@ -528,7 +525,7 @@ export type FarmerUpdateWithoutLandInfoInput = {
     farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
@@ -544,7 +541,7 @@ export type FarmerUncheckedUpdateWithoutLandInfoInput = {
     farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
@@ -560,7 +557,7 @@ export type FarmerCreateWithoutDocumentsInput = {
     farmerID?: string | null;
     password?: string | null;
     fullName?: string | null;
-    dob?: Date | string | null;
+    dob?: string | null;
     address?: string | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
@@ -576,7 +573,7 @@ export type FarmerUncheckedCreateWithoutDocumentsInput = {
     farmerID?: string | null;
     password?: string | null;
     fullName?: string | null;
-    dob?: Date | string | null;
+    dob?: string | null;
     address?: string | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
@@ -605,7 +602,7 @@ export type FarmerUpdateWithoutDocumentsInput = {
     farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
@@ -621,7 +618,7 @@ export type FarmerUncheckedUpdateWithoutDocumentsInput = {
     farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
@@ -637,7 +634,7 @@ export type FarmerCreateWithoutCropsInput = {
     farmerID?: string | null;
     password?: string | null;
     fullName?: string | null;
-    dob?: Date | string | null;
+    dob?: string | null;
     address?: string | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
@@ -653,7 +650,7 @@ export type FarmerUncheckedCreateWithoutCropsInput = {
     farmerID?: string | null;
     password?: string | null;
     fullName?: string | null;
-    dob?: Date | string | null;
+    dob?: string | null;
     address?: string | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
@@ -682,7 +679,7 @@ export type FarmerUpdateWithoutCropsInput = {
     farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
@@ -698,7 +695,7 @@ export type FarmerUncheckedUpdateWithoutCropsInput = {
     farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
@@ -830,7 +827,7 @@ export type $FarmerPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
         farmerID: string | null;
         password: string | null;
         fullName: string | null;
-        dob: Date | null;
+        dob: string | null;
         address: string | null;
         isVerified: boolean;
         isProfileCompleted: boolean;
@@ -1199,7 +1196,7 @@ export interface FarmerFieldRefs {
     readonly farmerID: Prisma.FieldRef<"Farmer", 'String'>;
     readonly password: Prisma.FieldRef<"Farmer", 'String'>;
     readonly fullName: Prisma.FieldRef<"Farmer", 'String'>;
-    readonly dob: Prisma.FieldRef<"Farmer", 'DateTime'>;
+    readonly dob: Prisma.FieldRef<"Farmer", 'String'>;
     readonly address: Prisma.FieldRef<"Farmer", 'String'>;
     readonly isVerified: Prisma.FieldRef<"Farmer", 'Boolean'>;
     readonly isProfileCompleted: Prisma.FieldRef<"Farmer", 'Boolean'>;

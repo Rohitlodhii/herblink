@@ -3,5 +3,8 @@ export type * from './models/LandInfo.js';
 export type * from './models/Document.js';
 export type * from './models/Crop.js';
 export type * from './models/OTP.js';
+export type * from './models/Lab.js';
+export type * from './models/LabInfo.js';
+export type * from './models/LabWorker.js';
 export type * from './commonInputTypes.js';
 //# sourceMappingURL=models.d.ts.map

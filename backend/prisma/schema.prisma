@@ -11,7 +11,32 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+   url      = env("DATABASE_URL")
+}
+
+//enums
+
+enum RoleType {
+  ADMIN
+  WORKER
+}
+
+enum orgType {
+  GOVT 
+  PVT
+}
+
+enum DocumentType {
+  INCOME_CERTIFICATE
+  FARMER_PHOTOGRAPH
+  LAND_CERTIFICATE
+}
+
+enum StatusType {
+  pending
+  acknowledge
+  verified
+  rejected
 }
 
 
@@ -27,17 +52,17 @@ model Farmer {
   password  String?
 
   fullName  String?
-  dob       DateTime?
+  dob       String?
   address   String?
 
-  
+  status    StatusType?
   isVerified  Boolean @default(false)
   isProfileCompleted Boolean @default(false)
 
 
   landInfo  LandInfo[]
   documents Document[]
-  crops Crop[]
+
   
 
   createdAt DateTime @default(now())
@@ -51,15 +76,11 @@ model LandInfo {
   khasraNumber  String
   coordinates Json?
 
-  farmerID String @unique
+  farmerID String 
   famer Farmer @relation(fields: [farmerID] , references: [id])
 }
 
-enum DocumentType {
-  INCOME_CERTIFICATE
-  FARMER_PHOTOGRAPH
-  LAND_CERTIFICATE
-}
+
 
 
 model Document {
@@ -71,13 +92,7 @@ model Document {
   famer Farmer @relation(fields: [farmerID] , references: [id])
 }
 
-model Crop {
-  id             String   @id @default(uuid())
-  name           String
 
-  farmerId       String
-  farmer         Farmer   @relation(fields: [farmerId], references: [id])
-}
 
 model OTP {
   id         String   @id @default(uuid())
@@ -89,4 +104,39 @@ model OTP {
 }
 
 
+model Lab {
+  id  String @unique @default(uuid())
+  name String?
+  labId String? @unique
+  password  String @unique
+  email   String @unique
+  labinfo   LabInfo?
+
+
+  LabWorkers  LabWorker[] 
+}
+
+
+model LabInfo {
+  id String @unique @default(uuid())
+  labID String @unique
+
+  address String?
+  gstin   String?
+  type    orgType?
+
+  
+  labId Lab @relation(fields: [labID] , references: [id])
+}
  
+
+model LabWorker {
+  id String @unique @default(uuid())
+  name  String
+  workerId   String @unique
+  role    RoleType 
+  desc    String?
+  
+  labID   String
+  labId   Lab   @relation(fields: [labID] , references: [id])
+}

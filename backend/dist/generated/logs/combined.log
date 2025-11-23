@@ -16,3 +16,44 @@
 2025-11-16 17:31:40 [[33mwarn[39m]: Farmer_invalid_credential_login : undefined
 2025-11-16 17:33:27 [[33mwarn[39m]: Farmer_invalid_credential_login : undefined
 2025-11-16 17:36:00 [[33mwarn[39m]: Farmer_not_exist +919009908984
+2025-11-17 17:50:43 [[33mwarn[39m]: Farmer_not_exist +919009908984
+2025-11-17 17:51:01 [[33mwarn[39m]: farmer_exists_but_unverified +919009908984
+2025-11-17 17:55:48 [[33mwarn[39m]: Farmer_invalid_credential_otp  : undefined : 080403
+2025-11-17 17:56:21 [[33mwarn[39m]: farmer_exists_but_unverified +919009908984
+2025-11-17 17:56:40 [[33mwarn[39m]: Farmer_invalid_credential_otp  : undefined : 080403
+2025-11-17 17:58:04 [[31merror[39m]: Error: Failed to verify Otp
+    at TwilioService.verifyOtp (file:///C:/herblinkpro/backend/dist/config/twilio.js:29:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async FarmerSignUpVerifyOtp (file:///C:/herblinkpro/backend/dist/controllers/farmer/auth.farmer.js:100:24)
+2025-11-17 17:59:49 [[33mwarn[39m]: farmer_already_verified +919009908984
+2025-11-17 18:19:45 [[33mwarn[39m]: farmer_already_verified +919009908984
+2025-11-17 18:19:59 [[33mwarn[39m]: Farmer_not_exist +919009908984
+2025-11-22 16:08:16 [[33mwarn[39m]: JWT_Invalid_Or_Malformed_Token
+2025-11-22 16:10:40 [[31merror[39m]: ERROR_FARMER_AddInfo PrismaClientValidationError: 
+Invalid `prisma.farmer.update()` invocation:
+
+{
+  where: {
+    id: "728b6bd9-6de4-4814-b74e-a26e63b11421"
+  },
+  data: {
+    fullName: "Rohit Lodhi",
+    dob: "2025-11-03",
+         ~~~~~~~~~~~~
+    address: "Bhopal MP Bhopal MP Bhopal MP Bhopal MP",
+    password: "$2b$10$CQkOfeA8wpIDVJ0P.g3yOOgxB1.fbaYreC5kkEDAFfWho.XSrqbPK"
+  }
+}
+
+Invalid value for argument `dob`: premature end of input. Expected ISO-8601 DateTime.
+2025-11-22 16:20:41 [[32minfo[39m]: Farmer_AddLandInfo_Success 728b6bd9-6de4-4814-b74e-a26e63b11421
+2025-11-22 16:36:06 [[33mwarn[39m]: JWT_Invalid_Or_Malformed_Token
+2025-11-22 16:36:21 [[33mwarn[39m]: JWT_Missing_Authorization_Header
+2025-11-22 16:36:39 [[33mwarn[39m]: JWT_Invalid_Or_Malformed_Token
+2025-11-22 16:48:15 [[31merror[39m]: ERROR_FARMER_AddLandInfo PrismaClientKnownRequestError: 
+Invalid `prisma.landInfo.create()` invocation:
+
+
+Unique constraint failed on the fields: (`farmerID`)
+2025-11-22 16:51:57 [[32minfo[39m]: Farmer_AddLandInfo_Success 728b6bd9-6de4-4814-b74e-a26e63b11421
+2025-11-22 22:06:12 [[32minfo[39m]: Farmer_AddLandInfo_Success 728b6bd9-6de4-4814-b74e-a26e63b11421

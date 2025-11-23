@@ -70,20 +70,29 @@ export async function FarmerLogin(req, res) {
         let farmer = await db.farmer.findUnique({
             where: { mobileNumber }
         });
-        if (farmer) {
+        if (!farmer) {
             logger.warn(`Farmer_not_exist ${mobileNumber}`);
             return res.status(404).json({
                 msg: "Account not found"
             });
         }
         await otpController.sendOTP(mobileNumber);
+        return res.status(200).json({
+            msg: "OTP sent successfully"
+        });
     }
     catch (error) {
+        logger.error("Error in Farmer Login", {
+            error: error.message,
+            stack: error.stack
+        });
+        res.status(500).json({ error: "Internal Server Error" });
     }
 }
 export async function FarmerSignUpVerifyOtp(req, res) {
     try {
         const { mobileNumber, otp } = req.body;
+        console.log("hello");
         if (!mobileNumber || !otp) {
             logger.warn(`Farmer_invalid_credential_otp  : ${mobileNumber} : ${otp}`);
             return res.status(404).json({

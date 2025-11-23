@@ -7,6 +7,14 @@
 *
 * 🟢 You can import this file directly.
 */
+export const RoleType = {
+    ADMIN: 'ADMIN',
+    WORKER: 'WORKER'
+};
+export const orgType = {
+    GOVT: 'GOVT',
+    PVT: 'PVT'
+};
 export const DocumentType = {
     INCOME_CERTIFICATE: 'INCOME_CERTIFICATE',
     FARMER_PHOTOGRAPH: 'FARMER_PHOTOGRAPH',

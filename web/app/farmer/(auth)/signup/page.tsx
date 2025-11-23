@@ -16,7 +16,8 @@ import { toast } from "sonner"
 import { FarmerAuthService } from "@/services/farmer/auth.farmer"
 import { useTranslation } from "react-i18next"
 import "@/i18n/index"
-import { useAuthStore } from "@/store/useAuthStore"
+
+import { Auth } from "@/lib/auth"
 
 // ✅ Zod validation schema
 const SignupSchema = z.object({
@@ -90,7 +91,7 @@ export default function Page() {
     try {
       setLoading(true)
       const res = await FarmerAuthService.verifyOtp(mobile , values.otp);
-      useAuthStore().setToken(res.token);
+      Auth.setToken(res.token)
       toast.success("OTP verified successfully!")
       router.push("/dashboard") 
     } catch (err) {

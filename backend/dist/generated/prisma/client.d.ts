@@ -44,4 +44,19 @@ export type Crop = Prisma.CropModel;
  *
  */
 export type OTP = Prisma.OTPModel;
+/**
+ * Model Lab
+ *
+ */
+export type Lab = Prisma.LabModel;
+/**
+ * Model LabInfo
+ *
+ */
+export type LabInfo = Prisma.LabInfoModel;
+/**
+ * Model LabWorker
+ *
+ */
+export type LabWorker = Prisma.LabWorkerModel;
 //# sourceMappingURL=client.d.ts.map

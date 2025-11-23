@@ -258,6 +258,9 @@ export declare const ModelName: {
     readonly Document: "Document";
     readonly Crop: "Crop";
     readonly OTP: "OTP";
+    readonly Lab: "Lab";
+    readonly LabInfo: "LabInfo";
+    readonly LabWorker: "LabWorker";
 };
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 export interface TypeMapCb<GlobalOmitOptions = {}> extends runtime.Types.Utils.Fn<{
@@ -270,7 +273,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         omit: GlobalOmitOptions;
     };
     meta: {
-        modelProps: "farmer" | "landInfo" | "document" | "crop" | "oTP";
+        modelProps: "farmer" | "landInfo" | "document" | "crop" | "oTP" | "lab" | "labInfo" | "labWorker";
         txIsolationLevel: TransactionIsolationLevel;
     };
     model: {
@@ -644,6 +647,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
                 };
             };
         };
+        Lab: {
+            payload: Prisma.$LabPayload<ExtArgs>;
+            fields: Prisma.LabFieldRefs;
+            operations: {
+                findUnique: {
+                    args: Prisma.LabFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabPayload> | null;
+                };
+                findUniqueOrThrow: {
+                    args: Prisma.LabFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabPayload>;
+                };
+                findFirst: {
+                    args: Prisma.LabFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabPayload> | null;
+                };
+                findFirstOrThrow: {
+                    args: Prisma.LabFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabPayload>;
+                };
+                findMany: {
+                    args: Prisma.LabFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabPayload>[];
+                };
+                create: {
+                    args: Prisma.LabCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabPayload>;
+                };
+                createMany: {
+                    args: Prisma.LabCreateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                createManyAndReturn: {
+                    args: Prisma.LabCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabPayload>[];
+                };
+                delete: {
+                    args: Prisma.LabDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabPayload>;
+                };
+                update: {
+                    args: Prisma.LabUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabPayload>;
+                };
+                deleteMany: {
+                    args: Prisma.LabDeleteManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateMany: {
+                    args: Prisma.LabUpdateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateManyAndReturn: {
+                    args: Prisma.LabUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabPayload>[];
+                };
+                upsert: {
+                    args: Prisma.LabUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabPayload>;
+                };
+                aggregate: {
+                    args: Prisma.LabAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregateLab>;
+                };
+                groupBy: {
+                    args: Prisma.LabGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.LabGroupByOutputType>[];
+                };
+                count: {
+                    args: Prisma.LabCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.LabCountAggregateOutputType> | number;
+                };
+            };
+        };
+        LabInfo: {
+            payload: Prisma.$LabInfoPayload<ExtArgs>;
+            fields: Prisma.LabInfoFieldRefs;
+            operations: {
+                findUnique: {
+                    args: Prisma.LabInfoFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabInfoPayload> | null;
+                };
+                findUniqueOrThrow: {
+                    args: Prisma.LabInfoFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabInfoPayload>;
+                };
+                findFirst: {
+                    args: Prisma.LabInfoFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabInfoPayload> | null;
+                };
+                findFirstOrThrow: {
+                    args: Prisma.LabInfoFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabInfoPayload>;
+                };
+                findMany: {
+                    args: Prisma.LabInfoFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabInfoPayload>[];
+                };
+                create: {
+                    args: Prisma.LabInfoCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabInfoPayload>;
+                };
+                createMany: {
+                    args: Prisma.LabInfoCreateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                createManyAndReturn: {
+                    args: Prisma.LabInfoCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabInfoPayload>[];
+                };
+                delete: {
+                    args: Prisma.LabInfoDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabInfoPayload>;
+                };
+                update: {
+                    args: Prisma.LabInfoUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabInfoPayload>;
+                };
+                deleteMany: {
+                    args: Prisma.LabInfoDeleteManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateMany: {
+                    args: Prisma.LabInfoUpdateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateManyAndReturn: {
+                    args: Prisma.LabInfoUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabInfoPayload>[];
+                };
+                upsert: {
+                    args: Prisma.LabInfoUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabInfoPayload>;
+                };
+                aggregate: {
+                    args: Prisma.LabInfoAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregateLabInfo>;
+                };
+                groupBy: {
+                    args: Prisma.LabInfoGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.LabInfoGroupByOutputType>[];
+                };
+                count: {
+                    args: Prisma.LabInfoCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.LabInfoCountAggregateOutputType> | number;
+                };
+            };
+        };
+        LabWorker: {
+            payload: Prisma.$LabWorkerPayload<ExtArgs>;
+            fields: Prisma.LabWorkerFieldRefs;
+            operations: {
+                findUnique: {
+                    args: Prisma.LabWorkerFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabWorkerPayload> | null;
+                };
+                findUniqueOrThrow: {
+                    args: Prisma.LabWorkerFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabWorkerPayload>;
+                };
+                findFirst: {
+                    args: Prisma.LabWorkerFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabWorkerPayload> | null;
+                };
+                findFirstOrThrow: {
+                    args: Prisma.LabWorkerFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabWorkerPayload>;
+                };
+                findMany: {
+                    args: Prisma.LabWorkerFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabWorkerPayload>[];
+                };
+                create: {
+                    args: Prisma.LabWorkerCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabWorkerPayload>;
+                };
+                createMany: {
+                    args: Prisma.LabWorkerCreateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                createManyAndReturn: {
+                    args: Prisma.LabWorkerCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabWorkerPayload>[];
+                };
+                delete: {
+                    args: Prisma.LabWorkerDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabWorkerPayload>;
+                };
+                update: {
+                    args: Prisma.LabWorkerUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabWorkerPayload>;
+                };
+                deleteMany: {
+                    args: Prisma.LabWorkerDeleteManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateMany: {
+                    args: Prisma.LabWorkerUpdateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateManyAndReturn: {
+                    args: Prisma.LabWorkerUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabWorkerPayload>[];
+                };
+                upsert: {
+                    args: Prisma.LabWorkerUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$LabWorkerPayload>;
+                };
+                aggregate: {
+                    args: Prisma.LabWorkerAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregateLabWorker>;
+                };
+                groupBy: {
+                    args: Prisma.LabWorkerGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.LabWorkerGroupByOutputType>[];
+                };
+                count: {
+                    args: Prisma.LabWorkerCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.LabWorkerCountAggregateOutputType> | number;
+                };
+            };
+        };
     };
 } & {
     other: {
@@ -723,6 +948,31 @@ export declare const OTPScalarFieldEnum: {
     readonly createdAt: "createdAt";
 };
 export type OTPScalarFieldEnum = (typeof OTPScalarFieldEnum)[keyof typeof OTPScalarFieldEnum];
+export declare const LabScalarFieldEnum: {
+    readonly id: "id";
+    readonly name: "name";
+    readonly labId: "labId";
+    readonly password: "password";
+    readonly email: "email";
+};
+export type LabScalarFieldEnum = (typeof LabScalarFieldEnum)[keyof typeof LabScalarFieldEnum];
+export declare const LabInfoScalarFieldEnum: {
+    readonly id: "id";
+    readonly labID: "labID";
+    readonly address: "address";
+    readonly gstin: "gstin";
+    readonly type: "type";
+};
+export type LabInfoScalarFieldEnum = (typeof LabInfoScalarFieldEnum)[keyof typeof LabInfoScalarFieldEnum];
+export declare const LabWorkerScalarFieldEnum: {
+    readonly id: "id";
+    readonly name: "name";
+    readonly workerId: "workerId";
+    readonly role: "role";
+    readonly desc: "desc";
+    readonly labID: "labID";
+};
+export type LabWorkerScalarFieldEnum = (typeof LabWorkerScalarFieldEnum)[keyof typeof LabWorkerScalarFieldEnum];
 export declare const SortOrder: {
     readonly asc: "asc";
     readonly desc: "desc";
@@ -822,6 +1072,22 @@ export type EnumDocumentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$Pri
  */
 export type ListEnumDocumentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DocumentType[]'>;
 /**
+ * Reference to a field of type 'orgType'
+ */
+export type EnumorgTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'orgType'>;
+/**
+ * Reference to a field of type 'orgType[]'
+ */
+export type ListEnumorgTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'orgType[]'>;
+/**
+ * Reference to a field of type 'RoleType'
+ */
+export type EnumRoleTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RoleType'>;
+/**
+ * Reference to a field of type 'RoleType[]'
+ */
+export type ListEnumRoleTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RoleType[]'>;
+/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>;
@@ -918,6 +1184,9 @@ export type GlobalOmitConfig = {
     document?: Prisma.DocumentOmit;
     crop?: Prisma.CropOmit;
     oTP?: Prisma.OTPOmit;
+    lab?: Prisma.LabOmit;
+    labInfo?: Prisma.LabInfoOmit;
+    labWorker?: Prisma.LabWorkerOmit;
 };
 export type LogLevel = 'info' | 'query' | 'warn' | 'error';
 export type LogDefinition = {

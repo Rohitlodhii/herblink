@@ -176,15 +176,15 @@ export type LandInfoOrderByWithRelationInput = {
 };
 export type LandInfoWhereUniqueInput = Prisma.AtLeast<{
     id?: string;
-    farmerID?: string;
     AND?: Prisma.LandInfoWhereInput | Prisma.LandInfoWhereInput[];
     OR?: Prisma.LandInfoWhereInput[];
     NOT?: Prisma.LandInfoWhereInput | Prisma.LandInfoWhereInput[];
     totalHectare?: Prisma.FloatFilter<"LandInfo"> | number;
     khasraNumber?: Prisma.StringFilter<"LandInfo"> | string;
     coordinates?: Prisma.JsonNullableFilter<"LandInfo">;
+    farmerID?: Prisma.StringFilter<"LandInfo"> | string;
     famer?: Prisma.XOR<Prisma.FarmerScalarRelationFilter, Prisma.FarmerWhereInput>;
-}, "id" | "farmerID">;
+}, "id">;
 export type LandInfoOrderByWithAggregationInput = {
     id?: Prisma.SortOrder;
     totalHectare?: Prisma.SortOrder;

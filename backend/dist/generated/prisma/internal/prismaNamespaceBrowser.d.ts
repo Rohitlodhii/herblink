@@ -46,6 +46,9 @@ export declare const ModelName: {
     readonly Document: "Document";
     readonly Crop: "Crop";
     readonly OTP: "OTP";
+    readonly Lab: "Lab";
+    readonly LabInfo: "LabInfo";
+    readonly LabWorker: "LabWorker";
 };
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 export declare const TransactionIsolationLevel: {
@@ -100,6 +103,31 @@ export declare const OTPScalarFieldEnum: {
     readonly createdAt: "createdAt";
 };
 export type OTPScalarFieldEnum = (typeof OTPScalarFieldEnum)[keyof typeof OTPScalarFieldEnum];
+export declare const LabScalarFieldEnum: {
+    readonly id: "id";
+    readonly name: "name";
+    readonly labId: "labId";
+    readonly password: "password";
+    readonly email: "email";
+};
+export type LabScalarFieldEnum = (typeof LabScalarFieldEnum)[keyof typeof LabScalarFieldEnum];
+export declare const LabInfoScalarFieldEnum: {
+    readonly id: "id";
+    readonly labID: "labID";
+    readonly address: "address";
+    readonly gstin: "gstin";
+    readonly type: "type";
+};
+export type LabInfoScalarFieldEnum = (typeof LabInfoScalarFieldEnum)[keyof typeof LabInfoScalarFieldEnum];
+export declare const LabWorkerScalarFieldEnum: {
+    readonly id: "id";
+    readonly name: "name";
+    readonly workerId: "workerId";
+    readonly role: "role";
+    readonly desc: "desc";
+    readonly labID: "labID";
+};
+export type LabWorkerScalarFieldEnum = (typeof LabWorkerScalarFieldEnum)[keyof typeof LabWorkerScalarFieldEnum];
 export declare const SortOrder: {
     readonly asc: "asc";
     readonly desc: "desc";

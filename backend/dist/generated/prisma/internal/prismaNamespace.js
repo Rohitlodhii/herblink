@@ -71,7 +71,10 @@ export const ModelName = {
     LandInfo: 'LandInfo',
     Document: 'Document',
     Crop: 'Crop',
-    OTP: 'OTP'
+    OTP: 'OTP',
+    Lab: 'Lab',
+    LabInfo: 'LabInfo',
+    LabWorker: 'LabWorker'
 };
 /**
  * Enums
@@ -121,6 +124,28 @@ export const OTPScalarFieldEnum = {
     expiresAt: 'expiresAt',
     verified: 'verified',
     createdAt: 'createdAt'
+};
+export const LabScalarFieldEnum = {
+    id: 'id',
+    name: 'name',
+    labId: 'labId',
+    password: 'password',
+    email: 'email'
+};
+export const LabInfoScalarFieldEnum = {
+    id: 'id',
+    labID: 'labID',
+    address: 'address',
+    gstin: 'gstin',
+    type: 'type'
+};
+export const LabWorkerScalarFieldEnum = {
+    id: 'id',
+    name: 'name',
+    workerId: 'workerId',
+    role: 'role',
+    desc: 'desc',
+    labID: 'labID'
 };
 export const SortOrder = {
     asc: 'asc',

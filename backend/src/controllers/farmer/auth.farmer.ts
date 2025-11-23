@@ -89,7 +89,7 @@ export async function FarmerLogin(req :Request , res: Response){
             where : {mobileNumber}
         });
 
-        if( farmer ){
+        if(!farmer){
             logger.warn(`Farmer_not_exist ${mobileNumber}`);
             return res.status(404).json({
                 msg: "Account not found"
@@ -98,9 +98,17 @@ export async function FarmerLogin(req :Request , res: Response){
         
         await otpController.sendOTP(mobileNumber);
 
+        return res.status(200).json({
+            msg: "OTP sent successfully"
+        });
+
 
     } catch (error) {
-        
+        logger.error("Error in Farmer Login", { 
+            error: (error as Error).message, 
+            stack: (error as Error).stack 
+        });
+        res.status(500).json({ error: "Internal Server Error" });
     }
 }
 
@@ -108,6 +116,7 @@ export async function FarmerLogin(req :Request , res: Response){
 export async function FarmerSignUpVerifyOtp(req:Request , res:Response){
     try {
         const { mobileNumber , otp} = req.body;
+        console.log("hello")
 
         if(!mobileNumber || !otp ){
             logger.warn(`Farmer_invalid_credential_otp  : ${mobileNumber} : ${otp}`)

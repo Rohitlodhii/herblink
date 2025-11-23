@@ -166,6 +166,39 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
     get oTP(): Prisma.OTPDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
+    /**
+     * `prisma.lab`: Exposes CRUD operations for the **Lab** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Labs
+      * const labs = await prisma.lab.findMany()
+      * ```
+      */
+    get lab(): Prisma.LabDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.labInfo`: Exposes CRUD operations for the **LabInfo** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more LabInfos
+      * const labInfos = await prisma.labInfo.findMany()
+      * ```
+      */
+    get labInfo(): Prisma.LabInfoDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.labWorker`: Exposes CRUD operations for the **LabWorker** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more LabWorkers
+      * const labWorkers = await prisma.labWorker.findMany()
+      * ```
+      */
+    get labWorker(): Prisma.LabWorkerDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
 }
 export declare function getPrismaClientClass(dirname: string): PrismaClientConstructor;
 //# sourceMappingURL=class.d.ts.map

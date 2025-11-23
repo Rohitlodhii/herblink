@@ -17,6 +17,7 @@ import { FarmerAuthService } from "@/services/farmer/auth.farmer"
 import { useAuthStore } from "@/store/useAuthStore"
 import { useTranslation } from "react-i18next"
 import "@/i18n/index"
+import { Auth } from "@/lib/auth"
 
 // ---- SCHEMAS ----
 const LoginSchema = z.object({
@@ -31,7 +32,9 @@ export default function Page() {
   const { t } = useTranslation("common")
   const router = useRouter()
   const [activeTab, setActiveTab] = useState<"login" | "otp">("login")
-  const [loading, setLoading] = useState(false)
+  const [sendingOtp, setSendingOtp] = useState(false)
+const [verifyingOtp, setVerifyingOtp] = useState(false)
+
   const [mobile, setMobile] = useState("")
 
   // LOGIN FORM
@@ -51,46 +54,44 @@ export default function Page() {
   })
 
   // ---- SEND OTP ----
-  const handleSendOtp = async (values: z.infer<typeof LoginSchema>) => {
+  const handleSendOtp = async (values : z.infer<typeof LoginSchema>) => {
     try {
-      setLoading(true)
+      setSendingOtp(true)
+  
       const mobileNumber = "+91" + values.mobileNumber
       setMobile(mobileNumber)
-
+  
       const res = await FarmerAuthService.loginFarmer(mobileNumber)
-
+  
       toast.success(res?.msg || "OTP sent!")
-
-      setActiveTab("otp")
-    } catch (err: any) {
-      toast.error(
-        err?.response?.data?.msg ||
-        err?.message ||
-        "Failed to send OTP"
-      )
+  
+      setActiveTab("otp")   // <-- This was not reached due to backend error
+    } catch (err) {
+      toast.error("Failed to send OTP");
+      setSendingOtp(false);
     } finally {
-      setLoading(false)
+      setSendingOtp(false)
     }
   }
+  
 
   // ---- VERIFY OTP ----
-  const handleVerifyOtp = async (values: z.infer<typeof OtpSchema>) => {
+  const handleVerifyOtp = async (values : z.infer<typeof OtpSchema>) => {
     try {
-      setLoading(true)
-
+      setVerifyingOtp(true)
+  
       const res = await FarmerAuthService.verifyOtp(mobile, values.otp)
-      useAuthStore().setToken(res.token)
-
+  
+      Auth.setToken(res.token)
       toast.success("OTP verified!")
-
-      router.push("/dashboard")
+      router.push("farmer/dashboard")
     } catch (err) {
       toast.error("Invalid OTP, try again.")
     } finally {
-      setLoading(false)
+      setVerifyingOtp(false)
     }
   }
-
+  
   return (
     <div className="flex flex-col w-full mx-auto max-w-6xl border-l border-r border-border">
       <Accessbility />
@@ -121,7 +122,13 @@ export default function Page() {
               </CardHeader>
 
               <CardContent>
-                <Tabs value={activeTab} className="w-full">
+              <Tabs
+                value={activeTab}
+                onValueChange={(v) => setActiveTab(v as "login" | "otp")}
+                className="w-full"
+              >
+
+
 
                   {/* LOGIN TAB */}
                   <TabsContent value="login">
@@ -142,9 +149,10 @@ export default function Page() {
                           )}
                         />
 
-                        <Button type="submit" className="w-full" disabled={loading}>
-                          {loading ? <Loader2 className="size-4 animate-spin" /> : "Send OTP"}
-                        </Button>
+              <Button type="submit" className="w-full" disabled={sendingOtp}>
+                {sendingOtp ? <Loader2 className="size-4 animate-spin" /> : "Send OTP"}
+              </Button>
+
                       </form>
                     </Form>
                   </TabsContent>
@@ -167,9 +175,10 @@ export default function Page() {
                           )}
                         />
 
-                        <Button type="submit" className="w-full" disabled={loading}>
-                          {loading ? <Loader2 className="size-4 animate-spin" /> : "Verify OTP"}
-                        </Button>
+<Button type="submit" className="w-full" disabled={verifyingOtp}>
+  {verifyingOtp ? <Loader2 className="size-4 animate-spin" /> : "Verify OTP"}
+</Button>
+
                       </form>
                     </Form>
                   </TabsContent>

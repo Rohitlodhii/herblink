@@ -2,7 +2,7 @@ import api from "@/lib/axios";
 import { FarmerService } from "./index.farmer";
 
 
-export class FarmerAuthService extends FarmerService {
+export class FarmerAuthService  {
   private static base = "/farmer/auth";
 
   static async signupFarmer(fullname: string, phoneNumber: string): Promise<any> {
@@ -37,9 +37,9 @@ export class FarmerAuthService extends FarmerService {
     }
   }
 
-  static async verifyOtp(phoneNumber: string, otp: string): Promise<any> {
+  static async verifyOtp(mobileNumber: string, otp: string): Promise<any> {
     try {
-      const res = await api.post(`${this.base}/verify-otp`, { phoneNumber, otp });
+      const res = await api.post(`${this.base}/verifyOtp`, { mobileNumber, otp });
       return res.data; 
     } catch (error: any) {
       console.error("Error verifying OTP:", error.response?.data || error.message);
