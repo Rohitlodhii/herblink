@@ -1,9 +1,11 @@
 import { Router } from "express";
+import { loginLab, signUpLab } from "../../controllers/lab/auth.lab.js";
 
 
 const labAuthRouter = Router();
 
 
-labAuthRouter.use('/');
+labAuthRouter.post('/signup' , signUpLab);
+labAuthRouter.post('/login' , loginLab);
 
 export default labAuthRouter;

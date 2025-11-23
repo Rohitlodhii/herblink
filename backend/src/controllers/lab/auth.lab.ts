@@ -7,7 +7,7 @@ import logger from "../../config/logger.js";
 
 const pshash = new PasswordHash();
 const JwtTokenInstance = new JwtToken();
-async function signUpLab( req :Request ,res :Response ){
+export async function signUpLab( req :Request ,res :Response ){
     try {
         const { email , password } = req.body;
 
@@ -54,7 +54,7 @@ async function signUpLab( req :Request ,res :Response ){
     }
 }
 
-async function loginLab( req :Request ,res : Response ) {
+export async function loginLab( req :Request ,res : Response ) {
     try {
         const { email , password } = req.body;
 
