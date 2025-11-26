@@ -69,8 +69,8 @@ export const AnyNull = runtime.objectEnumValues.instances.AnyNull;
 export const ModelName = {
     Farmer: 'Farmer',
     LandInfo: 'LandInfo',
+    HerbData: 'HerbData',
     Document: 'Document',
-    Crop: 'Crop',
     OTP: 'OTP',
     Lab: 'Lab',
     LabInfo: 'LabInfo',
@@ -94,6 +94,7 @@ export const FarmerScalarFieldEnum = {
     fullName: 'fullName',
     dob: 'dob',
     address: 'address',
+    status: 'status',
     isVerified: 'isVerified',
     isProfileCompleted: 'isProfileCompleted',
     createdAt: 'createdAt',
@@ -106,16 +107,21 @@ export const LandInfoScalarFieldEnum = {
     coordinates: 'coordinates',
     farmerID: 'farmerID'
 };
+export const HerbDataScalarFieldEnum = {
+    id: 'id',
+    herbname: 'herbname',
+    harvestDate: 'harvestDate',
+    coordinates: 'coordinates',
+    pesticidesUsed: 'pesticidesUsed',
+    quantity: 'quantity',
+    desc: 'desc',
+    farmerID: 'farmerID'
+};
 export const DocumentScalarFieldEnum = {
     id: 'id',
     type: 'type',
     url: 'url',
     farmerID: 'farmerID'
-};
-export const CropScalarFieldEnum = {
-    id: 'id',
-    name: 'name',
-    farmerId: 'farmerId'
 };
 export const OTPScalarFieldEnum = {
     id: 'id',
@@ -127,7 +133,6 @@ export const OTPScalarFieldEnum = {
 };
 export const LabScalarFieldEnum = {
     id: 'id',
-    name: 'name',
     labId: 'labId',
     password: 'password',
     email: 'email'
@@ -136,8 +141,13 @@ export const LabInfoScalarFieldEnum = {
     id: 'id',
     labID: 'labID',
     address: 'address',
-    gstin: 'gstin',
-    type: 'type'
+    type: 'type',
+    labName: 'labName',
+    nablCertificateNo: 'nablCertificateNo',
+    nablExp: 'nablExp',
+    isFssaiReg: 'isFssaiReg',
+    fssaiRegNo: 'fssaiRegNo',
+    about: 'about'
 };
 export const LabWorkerScalarFieldEnum = {
     id: 'id',

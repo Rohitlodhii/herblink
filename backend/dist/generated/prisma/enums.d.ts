@@ -14,4 +14,11 @@ export declare const DocumentType: {
     readonly LAND_CERTIFICATE: "LAND_CERTIFICATE";
 };
 export type DocumentType = (typeof DocumentType)[keyof typeof DocumentType];
+export declare const StatusType: {
+    readonly pending: "pending";
+    readonly acknowledge: "acknowledge";
+    readonly verified: "verified";
+    readonly rejected: "rejected";
+};
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 //# sourceMappingURL=enums.d.ts.map

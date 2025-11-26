@@ -134,6 +134,17 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
         omit: OmitOpts;
     }>;
     /**
+     * `prisma.herbData`: Exposes CRUD operations for the **HerbData** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more HerbData
+      * const herbData = await prisma.herbData.findMany()
+      * ```
+      */
+    get herbData(): Prisma.HerbDataDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
      * `prisma.document`: Exposes CRUD operations for the **Document** model.
       * Example usage:
       * ```ts
@@ -142,17 +153,6 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
       * ```
       */
     get document(): Prisma.DocumentDelegate<ExtArgs, {
-        omit: OmitOpts;
-    }>;
-    /**
-     * `prisma.crop`: Exposes CRUD operations for the **Crop** model.
-      * Example usage:
-      * ```ts
-      * // Fetch zero or more Crops
-      * const crops = await prisma.crop.findMany()
-      * ```
-      */
-    get crop(): Prisma.CropDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
     /**

@@ -1,4 +1,5 @@
 import type * as runtime from "@prisma/client/runtime/library";
+import type * as $Enums from "../enums.js";
 import type * as Prisma from "../internal/prismaNamespace.js";
 /**
  * Model Farmer
@@ -19,6 +20,7 @@ export type FarmerMinAggregateOutputType = {
     fullName: string | null;
     dob: string | null;
     address: string | null;
+    status: $Enums.StatusType | null;
     isVerified: boolean | null;
     isProfileCompleted: boolean | null;
     createdAt: Date | null;
@@ -33,6 +35,7 @@ export type FarmerMaxAggregateOutputType = {
     fullName: string | null;
     dob: string | null;
     address: string | null;
+    status: $Enums.StatusType | null;
     isVerified: boolean | null;
     isProfileCompleted: boolean | null;
     createdAt: Date | null;
@@ -47,6 +50,7 @@ export type FarmerCountAggregateOutputType = {
     fullName: number;
     dob: number;
     address: number;
+    status: number;
     isVerified: number;
     isProfileCompleted: number;
     createdAt: number;
@@ -62,6 +66,7 @@ export type FarmerMinAggregateInputType = {
     fullName?: true;
     dob?: true;
     address?: true;
+    status?: true;
     isVerified?: true;
     isProfileCompleted?: true;
     createdAt?: true;
@@ -76,6 +81,7 @@ export type FarmerMaxAggregateInputType = {
     fullName?: true;
     dob?: true;
     address?: true;
+    status?: true;
     isVerified?: true;
     isProfileCompleted?: true;
     createdAt?: true;
@@ -90,6 +96,7 @@ export type FarmerCountAggregateInputType = {
     fullName?: true;
     dob?: true;
     address?: true;
+    status?: true;
     isVerified?: true;
     isProfileCompleted?: true;
     createdAt?: true;
@@ -167,6 +174,7 @@ export type FarmerGroupByOutputType = {
     fullName: string | null;
     dob: string | null;
     address: string | null;
+    status: $Enums.StatusType | null;
     isVerified: boolean;
     isProfileCompleted: boolean;
     createdAt: Date;
@@ -190,13 +198,14 @@ export type FarmerWhereInput = {
     fullName?: Prisma.StringNullableFilter<"Farmer"> | string | null;
     dob?: Prisma.StringNullableFilter<"Farmer"> | string | null;
     address?: Prisma.StringNullableFilter<"Farmer"> | string | null;
+    status?: Prisma.EnumStatusTypeNullableFilter<"Farmer"> | $Enums.StatusType | null;
     isVerified?: Prisma.BoolFilter<"Farmer"> | boolean;
     isProfileCompleted?: Prisma.BoolFilter<"Farmer"> | boolean;
     createdAt?: Prisma.DateTimeFilter<"Farmer"> | Date | string;
     updateAt?: Prisma.DateTimeFilter<"Farmer"> | Date | string;
     landInfo?: Prisma.LandInfoListRelationFilter;
     documents?: Prisma.DocumentListRelationFilter;
-    crops?: Prisma.CropListRelationFilter;
+    herbData?: Prisma.HerbDataListRelationFilter;
 };
 export type FarmerOrderByWithRelationInput = {
     id?: Prisma.SortOrder;
@@ -207,13 +216,14 @@ export type FarmerOrderByWithRelationInput = {
     fullName?: Prisma.SortOrderInput | Prisma.SortOrder;
     dob?: Prisma.SortOrderInput | Prisma.SortOrder;
     address?: Prisma.SortOrderInput | Prisma.SortOrder;
+    status?: Prisma.SortOrderInput | Prisma.SortOrder;
     isVerified?: Prisma.SortOrder;
     isProfileCompleted?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updateAt?: Prisma.SortOrder;
     landInfo?: Prisma.LandInfoOrderByRelationAggregateInput;
     documents?: Prisma.DocumentOrderByRelationAggregateInput;
-    crops?: Prisma.CropOrderByRelationAggregateInput;
+    herbData?: Prisma.HerbDataOrderByRelationAggregateInput;
 };
 export type FarmerWhereUniqueInput = Prisma.AtLeast<{
     id?: string;
@@ -227,13 +237,14 @@ export type FarmerWhereUniqueInput = Prisma.AtLeast<{
     fullName?: Prisma.StringNullableFilter<"Farmer"> | string | null;
     dob?: Prisma.StringNullableFilter<"Farmer"> | string | null;
     address?: Prisma.StringNullableFilter<"Farmer"> | string | null;
+    status?: Prisma.EnumStatusTypeNullableFilter<"Farmer"> | $Enums.StatusType | null;
     isVerified?: Prisma.BoolFilter<"Farmer"> | boolean;
     isProfileCompleted?: Prisma.BoolFilter<"Farmer"> | boolean;
     createdAt?: Prisma.DateTimeFilter<"Farmer"> | Date | string;
     updateAt?: Prisma.DateTimeFilter<"Farmer"> | Date | string;
     landInfo?: Prisma.LandInfoListRelationFilter;
     documents?: Prisma.DocumentListRelationFilter;
-    crops?: Prisma.CropListRelationFilter;
+    herbData?: Prisma.HerbDataListRelationFilter;
 }, "id" | "mobileNumber" | "farmerID">;
 export type FarmerOrderByWithAggregationInput = {
     id?: Prisma.SortOrder;
@@ -244,6 +255,7 @@ export type FarmerOrderByWithAggregationInput = {
     fullName?: Prisma.SortOrderInput | Prisma.SortOrder;
     dob?: Prisma.SortOrderInput | Prisma.SortOrder;
     address?: Prisma.SortOrderInput | Prisma.SortOrder;
+    status?: Prisma.SortOrderInput | Prisma.SortOrder;
     isVerified?: Prisma.SortOrder;
     isProfileCompleted?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
@@ -264,6 +276,7 @@ export type FarmerScalarWhereWithAggregatesInput = {
     fullName?: Prisma.StringNullableWithAggregatesFilter<"Farmer"> | string | null;
     dob?: Prisma.StringNullableWithAggregatesFilter<"Farmer"> | string | null;
     address?: Prisma.StringNullableWithAggregatesFilter<"Farmer"> | string | null;
+    status?: Prisma.EnumStatusTypeNullableWithAggregatesFilter<"Farmer"> | $Enums.StatusType | null;
     isVerified?: Prisma.BoolWithAggregatesFilter<"Farmer"> | boolean;
     isProfileCompleted?: Prisma.BoolWithAggregatesFilter<"Farmer"> | boolean;
     createdAt?: Prisma.DateTimeWithAggregatesFilter<"Farmer"> | Date | string;
@@ -278,13 +291,14 @@ export type FarmerCreateInput = {
     fullName?: string | null;
     dob?: string | null;
     address?: string | null;
+    status?: $Enums.StatusType | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
     createdAt?: Date | string;
     updateAt?: Date | string;
     landInfo?: Prisma.LandInfoCreateNestedManyWithoutFamerInput;
     documents?: Prisma.DocumentCreateNestedManyWithoutFamerInput;
-    crops?: Prisma.CropCreateNestedManyWithoutFarmerInput;
+    herbData?: Prisma.HerbDataCreateNestedManyWithoutFarmerInput;
 };
 export type FarmerUncheckedCreateInput = {
     id?: string;
@@ -295,13 +309,14 @@ export type FarmerUncheckedCreateInput = {
     fullName?: string | null;
     dob?: string | null;
     address?: string | null;
+    status?: $Enums.StatusType | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
     createdAt?: Date | string;
     updateAt?: Date | string;
     landInfo?: Prisma.LandInfoUncheckedCreateNestedManyWithoutFamerInput;
     documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutFamerInput;
-    crops?: Prisma.CropUncheckedCreateNestedManyWithoutFarmerInput;
+    herbData?: Prisma.HerbDataUncheckedCreateNestedManyWithoutFarmerInput;
 };
 export type FarmerUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -312,13 +327,14 @@ export type FarmerUpdateInput = {
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     landInfo?: Prisma.LandInfoUpdateManyWithoutFamerNestedInput;
     documents?: Prisma.DocumentUpdateManyWithoutFamerNestedInput;
-    crops?: Prisma.CropUpdateManyWithoutFarmerNestedInput;
+    herbData?: Prisma.HerbDataUpdateManyWithoutFarmerNestedInput;
 };
 export type FarmerUncheckedUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -329,13 +345,14 @@ export type FarmerUncheckedUpdateInput = {
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     landInfo?: Prisma.LandInfoUncheckedUpdateManyWithoutFamerNestedInput;
     documents?: Prisma.DocumentUncheckedUpdateManyWithoutFamerNestedInput;
-    crops?: Prisma.CropUncheckedUpdateManyWithoutFarmerNestedInput;
+    herbData?: Prisma.HerbDataUncheckedUpdateManyWithoutFarmerNestedInput;
 };
 export type FarmerCreateManyInput = {
     id?: string;
@@ -346,6 +363,7 @@ export type FarmerCreateManyInput = {
     fullName?: string | null;
     dob?: string | null;
     address?: string | null;
+    status?: $Enums.StatusType | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
     createdAt?: Date | string;
@@ -360,6 +378,7 @@ export type FarmerUpdateManyMutationInput = {
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
@@ -374,6 +393,7 @@ export type FarmerUncheckedUpdateManyInput = {
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
@@ -388,6 +408,7 @@ export type FarmerCountOrderByAggregateInput = {
     fullName?: Prisma.SortOrder;
     dob?: Prisma.SortOrder;
     address?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
     isVerified?: Prisma.SortOrder;
     isProfileCompleted?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
@@ -402,6 +423,7 @@ export type FarmerMaxOrderByAggregateInput = {
     fullName?: Prisma.SortOrder;
     dob?: Prisma.SortOrder;
     address?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
     isVerified?: Prisma.SortOrder;
     isProfileCompleted?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
@@ -416,6 +438,7 @@ export type FarmerMinOrderByAggregateInput = {
     fullName?: Prisma.SortOrder;
     dob?: Prisma.SortOrder;
     address?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
     isVerified?: Prisma.SortOrder;
     isProfileCompleted?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
@@ -434,6 +457,9 @@ export type BoolFieldUpdateOperationsInput = {
 export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null;
 };
+export type NullableEnumStatusTypeFieldUpdateOperationsInput = {
+    set?: $Enums.StatusType | null;
+};
 export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string;
 };
@@ -449,6 +475,18 @@ export type FarmerUpdateOneRequiredWithoutLandInfoNestedInput = {
     connect?: Prisma.FarmerWhereUniqueInput;
     update?: Prisma.XOR<Prisma.XOR<Prisma.FarmerUpdateToOneWithWhereWithoutLandInfoInput, Prisma.FarmerUpdateWithoutLandInfoInput>, Prisma.FarmerUncheckedUpdateWithoutLandInfoInput>;
 };
+export type FarmerCreateNestedOneWithoutHerbDataInput = {
+    create?: Prisma.XOR<Prisma.FarmerCreateWithoutHerbDataInput, Prisma.FarmerUncheckedCreateWithoutHerbDataInput>;
+    connectOrCreate?: Prisma.FarmerCreateOrConnectWithoutHerbDataInput;
+    connect?: Prisma.FarmerWhereUniqueInput;
+};
+export type FarmerUpdateOneRequiredWithoutHerbDataNestedInput = {
+    create?: Prisma.XOR<Prisma.FarmerCreateWithoutHerbDataInput, Prisma.FarmerUncheckedCreateWithoutHerbDataInput>;
+    connectOrCreate?: Prisma.FarmerCreateOrConnectWithoutHerbDataInput;
+    upsert?: Prisma.FarmerUpsertWithoutHerbDataInput;
+    connect?: Prisma.FarmerWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.FarmerUpdateToOneWithWhereWithoutHerbDataInput, Prisma.FarmerUpdateWithoutHerbDataInput>, Prisma.FarmerUncheckedUpdateWithoutHerbDataInput>;
+};
 export type FarmerCreateNestedOneWithoutDocumentsInput = {
     create?: Prisma.XOR<Prisma.FarmerCreateWithoutDocumentsInput, Prisma.FarmerUncheckedCreateWithoutDocumentsInput>;
     connectOrCreate?: Prisma.FarmerCreateOrConnectWithoutDocumentsInput;
@@ -461,18 +499,6 @@ export type FarmerUpdateOneRequiredWithoutDocumentsNestedInput = {
     connect?: Prisma.FarmerWhereUniqueInput;
     update?: Prisma.XOR<Prisma.XOR<Prisma.FarmerUpdateToOneWithWhereWithoutDocumentsInput, Prisma.FarmerUpdateWithoutDocumentsInput>, Prisma.FarmerUncheckedUpdateWithoutDocumentsInput>;
 };
-export type FarmerCreateNestedOneWithoutCropsInput = {
-    create?: Prisma.XOR<Prisma.FarmerCreateWithoutCropsInput, Prisma.FarmerUncheckedCreateWithoutCropsInput>;
-    connectOrCreate?: Prisma.FarmerCreateOrConnectWithoutCropsInput;
-    connect?: Prisma.FarmerWhereUniqueInput;
-};
-export type FarmerUpdateOneRequiredWithoutCropsNestedInput = {
-    create?: Prisma.XOR<Prisma.FarmerCreateWithoutCropsInput, Prisma.FarmerUncheckedCreateWithoutCropsInput>;
-    connectOrCreate?: Prisma.FarmerCreateOrConnectWithoutCropsInput;
-    upsert?: Prisma.FarmerUpsertWithoutCropsInput;
-    connect?: Prisma.FarmerWhereUniqueInput;
-    update?: Prisma.XOR<Prisma.XOR<Prisma.FarmerUpdateToOneWithWhereWithoutCropsInput, Prisma.FarmerUpdateWithoutCropsInput>, Prisma.FarmerUncheckedUpdateWithoutCropsInput>;
-};
 export type FarmerCreateWithoutLandInfoInput = {
     id?: string;
     mobileNumber: string;
@@ -482,12 +508,13 @@ export type FarmerCreateWithoutLandInfoInput = {
     fullName?: string | null;
     dob?: string | null;
     address?: string | null;
+    status?: $Enums.StatusType | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
     createdAt?: Date | string;
     updateAt?: Date | string;
     documents?: Prisma.DocumentCreateNestedManyWithoutFamerInput;
-    crops?: Prisma.CropCreateNestedManyWithoutFarmerInput;
+    herbData?: Prisma.HerbDataCreateNestedManyWithoutFarmerInput;
 };
 export type FarmerUncheckedCreateWithoutLandInfoInput = {
     id?: string;
@@ -498,12 +525,13 @@ export type FarmerUncheckedCreateWithoutLandInfoInput = {
     fullName?: string | null;
     dob?: string | null;
     address?: string | null;
+    status?: $Enums.StatusType | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
     createdAt?: Date | string;
     updateAt?: Date | string;
     documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutFamerInput;
-    crops?: Prisma.CropUncheckedCreateNestedManyWithoutFarmerInput;
+    herbData?: Prisma.HerbDataUncheckedCreateNestedManyWithoutFarmerInput;
 };
 export type FarmerCreateOrConnectWithoutLandInfoInput = {
     where: Prisma.FarmerWhereUniqueInput;
@@ -527,12 +555,13 @@ export type FarmerUpdateWithoutLandInfoInput = {
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     documents?: Prisma.DocumentUpdateManyWithoutFamerNestedInput;
-    crops?: Prisma.CropUpdateManyWithoutFarmerNestedInput;
+    herbData?: Prisma.HerbDataUpdateManyWithoutFarmerNestedInput;
 };
 export type FarmerUncheckedUpdateWithoutLandInfoInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -543,12 +572,94 @@ export type FarmerUncheckedUpdateWithoutLandInfoInput = {
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     documents?: Prisma.DocumentUncheckedUpdateManyWithoutFamerNestedInput;
-    crops?: Prisma.CropUncheckedUpdateManyWithoutFarmerNestedInput;
+    herbData?: Prisma.HerbDataUncheckedUpdateManyWithoutFarmerNestedInput;
+};
+export type FarmerCreateWithoutHerbDataInput = {
+    id?: string;
+    mobileNumber: string;
+    mobileNumberVerified?: boolean;
+    farmerID?: string | null;
+    password?: string | null;
+    fullName?: string | null;
+    dob?: string | null;
+    address?: string | null;
+    status?: $Enums.StatusType | null;
+    isVerified?: boolean;
+    isProfileCompleted?: boolean;
+    createdAt?: Date | string;
+    updateAt?: Date | string;
+    landInfo?: Prisma.LandInfoCreateNestedManyWithoutFamerInput;
+    documents?: Prisma.DocumentCreateNestedManyWithoutFamerInput;
+};
+export type FarmerUncheckedCreateWithoutHerbDataInput = {
+    id?: string;
+    mobileNumber: string;
+    mobileNumberVerified?: boolean;
+    farmerID?: string | null;
+    password?: string | null;
+    fullName?: string | null;
+    dob?: string | null;
+    address?: string | null;
+    status?: $Enums.StatusType | null;
+    isVerified?: boolean;
+    isProfileCompleted?: boolean;
+    createdAt?: Date | string;
+    updateAt?: Date | string;
+    landInfo?: Prisma.LandInfoUncheckedCreateNestedManyWithoutFamerInput;
+    documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutFamerInput;
+};
+export type FarmerCreateOrConnectWithoutHerbDataInput = {
+    where: Prisma.FarmerWhereUniqueInput;
+    create: Prisma.XOR<Prisma.FarmerCreateWithoutHerbDataInput, Prisma.FarmerUncheckedCreateWithoutHerbDataInput>;
+};
+export type FarmerUpsertWithoutHerbDataInput = {
+    update: Prisma.XOR<Prisma.FarmerUpdateWithoutHerbDataInput, Prisma.FarmerUncheckedUpdateWithoutHerbDataInput>;
+    create: Prisma.XOR<Prisma.FarmerCreateWithoutHerbDataInput, Prisma.FarmerUncheckedCreateWithoutHerbDataInput>;
+    where?: Prisma.FarmerWhereInput;
+};
+export type FarmerUpdateToOneWithWhereWithoutHerbDataInput = {
+    where?: Prisma.FarmerWhereInput;
+    data: Prisma.XOR<Prisma.FarmerUpdateWithoutHerbDataInput, Prisma.FarmerUncheckedUpdateWithoutHerbDataInput>;
+};
+export type FarmerUpdateWithoutHerbDataInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    mobileNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+    mobileNumberVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
+    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    landInfo?: Prisma.LandInfoUpdateManyWithoutFamerNestedInput;
+    documents?: Prisma.DocumentUpdateManyWithoutFamerNestedInput;
+};
+export type FarmerUncheckedUpdateWithoutHerbDataInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    mobileNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+    mobileNumberVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
+    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    landInfo?: Prisma.LandInfoUncheckedUpdateManyWithoutFamerNestedInput;
+    documents?: Prisma.DocumentUncheckedUpdateManyWithoutFamerNestedInput;
 };
 export type FarmerCreateWithoutDocumentsInput = {
     id?: string;
@@ -559,12 +670,13 @@ export type FarmerCreateWithoutDocumentsInput = {
     fullName?: string | null;
     dob?: string | null;
     address?: string | null;
+    status?: $Enums.StatusType | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
     createdAt?: Date | string;
     updateAt?: Date | string;
     landInfo?: Prisma.LandInfoCreateNestedManyWithoutFamerInput;
-    crops?: Prisma.CropCreateNestedManyWithoutFarmerInput;
+    herbData?: Prisma.HerbDataCreateNestedManyWithoutFarmerInput;
 };
 export type FarmerUncheckedCreateWithoutDocumentsInput = {
     id?: string;
@@ -575,12 +687,13 @@ export type FarmerUncheckedCreateWithoutDocumentsInput = {
     fullName?: string | null;
     dob?: string | null;
     address?: string | null;
+    status?: $Enums.StatusType | null;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
     createdAt?: Date | string;
     updateAt?: Date | string;
     landInfo?: Prisma.LandInfoUncheckedCreateNestedManyWithoutFamerInput;
-    crops?: Prisma.CropUncheckedCreateNestedManyWithoutFarmerInput;
+    herbData?: Prisma.HerbDataUncheckedCreateNestedManyWithoutFarmerInput;
 };
 export type FarmerCreateOrConnectWithoutDocumentsInput = {
     where: Prisma.FarmerWhereUniqueInput;
@@ -604,12 +717,13 @@ export type FarmerUpdateWithoutDocumentsInput = {
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     landInfo?: Prisma.LandInfoUpdateManyWithoutFamerNestedInput;
-    crops?: Prisma.CropUpdateManyWithoutFarmerNestedInput;
+    herbData?: Prisma.HerbDataUpdateManyWithoutFarmerNestedInput;
 };
 export type FarmerUncheckedUpdateWithoutDocumentsInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -620,89 +734,13 @@ export type FarmerUncheckedUpdateWithoutDocumentsInput = {
     fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
     isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     landInfo?: Prisma.LandInfoUncheckedUpdateManyWithoutFamerNestedInput;
-    crops?: Prisma.CropUncheckedUpdateManyWithoutFarmerNestedInput;
-};
-export type FarmerCreateWithoutCropsInput = {
-    id?: string;
-    mobileNumber: string;
-    mobileNumberVerified?: boolean;
-    farmerID?: string | null;
-    password?: string | null;
-    fullName?: string | null;
-    dob?: string | null;
-    address?: string | null;
-    isVerified?: boolean;
-    isProfileCompleted?: boolean;
-    createdAt?: Date | string;
-    updateAt?: Date | string;
-    landInfo?: Prisma.LandInfoCreateNestedManyWithoutFamerInput;
-    documents?: Prisma.DocumentCreateNestedManyWithoutFamerInput;
-};
-export type FarmerUncheckedCreateWithoutCropsInput = {
-    id?: string;
-    mobileNumber: string;
-    mobileNumberVerified?: boolean;
-    farmerID?: string | null;
-    password?: string | null;
-    fullName?: string | null;
-    dob?: string | null;
-    address?: string | null;
-    isVerified?: boolean;
-    isProfileCompleted?: boolean;
-    createdAt?: Date | string;
-    updateAt?: Date | string;
-    landInfo?: Prisma.LandInfoUncheckedCreateNestedManyWithoutFamerInput;
-    documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutFamerInput;
-};
-export type FarmerCreateOrConnectWithoutCropsInput = {
-    where: Prisma.FarmerWhereUniqueInput;
-    create: Prisma.XOR<Prisma.FarmerCreateWithoutCropsInput, Prisma.FarmerUncheckedCreateWithoutCropsInput>;
-};
-export type FarmerUpsertWithoutCropsInput = {
-    update: Prisma.XOR<Prisma.FarmerUpdateWithoutCropsInput, Prisma.FarmerUncheckedUpdateWithoutCropsInput>;
-    create: Prisma.XOR<Prisma.FarmerCreateWithoutCropsInput, Prisma.FarmerUncheckedCreateWithoutCropsInput>;
-    where?: Prisma.FarmerWhereInput;
-};
-export type FarmerUpdateToOneWithWhereWithoutCropsInput = {
-    where?: Prisma.FarmerWhereInput;
-    data: Prisma.XOR<Prisma.FarmerUpdateWithoutCropsInput, Prisma.FarmerUncheckedUpdateWithoutCropsInput>;
-};
-export type FarmerUpdateWithoutCropsInput = {
-    id?: Prisma.StringFieldUpdateOperationsInput | string;
-    mobileNumber?: Prisma.StringFieldUpdateOperationsInput | string;
-    mobileNumberVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
-    farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
-    isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
-    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    landInfo?: Prisma.LandInfoUpdateManyWithoutFamerNestedInput;
-    documents?: Prisma.DocumentUpdateManyWithoutFamerNestedInput;
-};
-export type FarmerUncheckedUpdateWithoutCropsInput = {
-    id?: Prisma.StringFieldUpdateOperationsInput | string;
-    mobileNumber?: Prisma.StringFieldUpdateOperationsInput | string;
-    mobileNumberVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
-    farmerID?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    dob?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
-    isProfileCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
-    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    landInfo?: Prisma.LandInfoUncheckedUpdateManyWithoutFamerNestedInput;
-    documents?: Prisma.DocumentUncheckedUpdateManyWithoutFamerNestedInput;
+    herbData?: Prisma.HerbDataUncheckedUpdateManyWithoutFarmerNestedInput;
 };
 /**
  * Count Type FarmerCountOutputType
@@ -710,12 +748,12 @@ export type FarmerUncheckedUpdateWithoutCropsInput = {
 export type FarmerCountOutputType = {
     landInfo: number;
     documents: number;
-    crops: number;
+    herbData: number;
 };
 export type FarmerCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     landInfo?: boolean | FarmerCountOutputTypeCountLandInfoArgs;
     documents?: boolean | FarmerCountOutputTypeCountDocumentsArgs;
-    crops?: boolean | FarmerCountOutputTypeCountCropsArgs;
+    herbData?: boolean | FarmerCountOutputTypeCountHerbDataArgs;
 };
 /**
  * FarmerCountOutputType without action
@@ -741,8 +779,8 @@ export type FarmerCountOutputTypeCountDocumentsArgs<ExtArgs extends runtime.Type
 /**
  * FarmerCountOutputType without action
  */
-export type FarmerCountOutputTypeCountCropsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-    where?: Prisma.CropWhereInput;
+export type FarmerCountOutputTypeCountHerbDataArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.HerbDataWhereInput;
 };
 export type FarmerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
@@ -753,13 +791,14 @@ export type FarmerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     fullName?: boolean;
     dob?: boolean;
     address?: boolean;
+    status?: boolean;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
     createdAt?: boolean;
     updateAt?: boolean;
     landInfo?: boolean | Prisma.Farmer$landInfoArgs<ExtArgs>;
     documents?: boolean | Prisma.Farmer$documentsArgs<ExtArgs>;
-    crops?: boolean | Prisma.Farmer$cropsArgs<ExtArgs>;
+    herbData?: boolean | Prisma.Farmer$herbDataArgs<ExtArgs>;
     _count?: boolean | Prisma.FarmerCountOutputTypeDefaultArgs<ExtArgs>;
 }, ExtArgs["result"]["farmer"]>;
 export type FarmerSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -771,6 +810,7 @@ export type FarmerSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
     fullName?: boolean;
     dob?: boolean;
     address?: boolean;
+    status?: boolean;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
     createdAt?: boolean;
@@ -785,6 +825,7 @@ export type FarmerSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
     fullName?: boolean;
     dob?: boolean;
     address?: boolean;
+    status?: boolean;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
     createdAt?: boolean;
@@ -799,16 +840,17 @@ export type FarmerSelectScalar = {
     fullName?: boolean;
     dob?: boolean;
     address?: boolean;
+    status?: boolean;
     isVerified?: boolean;
     isProfileCompleted?: boolean;
     createdAt?: boolean;
     updateAt?: boolean;
 };
-export type FarmerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "mobileNumber" | "mobileNumberVerified" | "farmerID" | "password" | "fullName" | "dob" | "address" | "isVerified" | "isProfileCompleted" | "createdAt" | "updateAt", ExtArgs["result"]["farmer"]>;
+export type FarmerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "mobileNumber" | "mobileNumberVerified" | "farmerID" | "password" | "fullName" | "dob" | "address" | "status" | "isVerified" | "isProfileCompleted" | "createdAt" | "updateAt", ExtArgs["result"]["farmer"]>;
 export type FarmerInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     landInfo?: boolean | Prisma.Farmer$landInfoArgs<ExtArgs>;
     documents?: boolean | Prisma.Farmer$documentsArgs<ExtArgs>;
-    crops?: boolean | Prisma.Farmer$cropsArgs<ExtArgs>;
+    herbData?: boolean | Prisma.Farmer$herbDataArgs<ExtArgs>;
     _count?: boolean | Prisma.FarmerCountOutputTypeDefaultArgs<ExtArgs>;
 };
 export type FarmerIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {};
@@ -818,7 +860,7 @@ export type $FarmerPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     objects: {
         landInfo: Prisma.$LandInfoPayload<ExtArgs>[];
         documents: Prisma.$DocumentPayload<ExtArgs>[];
-        crops: Prisma.$CropPayload<ExtArgs>[];
+        herbData: Prisma.$HerbDataPayload<ExtArgs>[];
     };
     scalars: runtime.Types.Extensions.GetPayloadResult<{
         id: string;
@@ -829,6 +871,7 @@ export type $FarmerPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
         fullName: string | null;
         dob: string | null;
         address: string | null;
+        status: $Enums.StatusType | null;
         isVerified: boolean;
         isProfileCompleted: boolean;
         createdAt: Date;
@@ -1164,7 +1207,7 @@ export interface Prisma__FarmerClient<T, Null = never, ExtArgs extends runtime.T
     readonly [Symbol.toStringTag]: "PrismaPromise";
     landInfo<T extends Prisma.Farmer$landInfoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Farmer$landInfoArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LandInfoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
     documents<T extends Prisma.Farmer$documentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Farmer$documentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
-    crops<T extends Prisma.Farmer$cropsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Farmer$cropsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CropPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    herbData<T extends Prisma.Farmer$herbDataArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Farmer$herbDataArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HerbDataPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1198,6 +1241,7 @@ export interface FarmerFieldRefs {
     readonly fullName: Prisma.FieldRef<"Farmer", 'String'>;
     readonly dob: Prisma.FieldRef<"Farmer", 'String'>;
     readonly address: Prisma.FieldRef<"Farmer", 'String'>;
+    readonly status: Prisma.FieldRef<"Farmer", 'StatusType'>;
     readonly isVerified: Prisma.FieldRef<"Farmer", 'Boolean'>;
     readonly isProfileCompleted: Prisma.FieldRef<"Farmer", 'Boolean'>;
     readonly createdAt: Prisma.FieldRef<"Farmer", 'DateTime'>;
@@ -1619,27 +1663,27 @@ export type Farmer$documentsArgs<ExtArgs extends runtime.Types.Extensions.Intern
     distinct?: Prisma.DocumentScalarFieldEnum | Prisma.DocumentScalarFieldEnum[];
 };
 /**
- * Farmer.crops
+ * Farmer.herbData
  */
-export type Farmer$cropsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Farmer$herbDataArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Crop
+     * Select specific fields to fetch from the HerbData
      */
-    select?: Prisma.CropSelect<ExtArgs> | null;
+    select?: Prisma.HerbDataSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the Crop
+     * Omit specific fields from the HerbData
      */
-    omit?: Prisma.CropOmit<ExtArgs> | null;
+    omit?: Prisma.HerbDataOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Prisma.CropInclude<ExtArgs> | null;
-    where?: Prisma.CropWhereInput;
-    orderBy?: Prisma.CropOrderByWithRelationInput | Prisma.CropOrderByWithRelationInput[];
-    cursor?: Prisma.CropWhereUniqueInput;
+    include?: Prisma.HerbDataInclude<ExtArgs> | null;
+    where?: Prisma.HerbDataWhereInput;
+    orderBy?: Prisma.HerbDataOrderByWithRelationInput | Prisma.HerbDataOrderByWithRelationInput[];
+    cursor?: Prisma.HerbDataWhereUniqueInput;
     take?: number;
     skip?: number;
-    distinct?: Prisma.CropScalarFieldEnum | Prisma.CropScalarFieldEnum[];
+    distinct?: Prisma.HerbDataScalarFieldEnum | Prisma.HerbDataScalarFieldEnum[];
 };
 /**
  * Farmer without action

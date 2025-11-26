@@ -89,45 +89,82 @@ export async function addLandInfo(req, res) {
         });
     }
 }
-export async function addCrops(req, res) {
+// export async function addCrops(req: AuthenticatedRequest, res: Response) {
+//         try {
+//           const { crops } = req.body; // Expecting crops: ["Wheat", "Corn", "Rice"]
+//           const userId = req.userId;
+//           // Validate input
+//           if (!userId || !crops || !Array.isArray(crops) || crops.length === 0) {
+//             logger.warn(`Farmer_AddCrops_InvalidInput ${userId || "unknown"}`);
+//             return res.status(400).json({
+//               msg: "Invalid input. Provide an array of crop names.",
+//             });
+//           }
+//           // Check if the farmer exists and is verified
+//           const farmer = await db.farmer.findUnique({
+//             where: { id: userId },
+//           });
+//           if (!farmer || !farmer.mobileNumberVerified) {
+//             logger.warn(`Farmer_AddCrops_Unauthorized ${userId || "unknown"}`);
+//             return res.status(401).json({
+//               msg: "No farmer found or mobile number not verified",
+//             });
+//           }
+//           // Prepare crop data
+//           const cropData = crops.map((name: string) => ({
+//             name: name.trim(),
+//             farmerId: userId,
+//           }));
+//           // Insert all crops in one go
+//           const result = await db.crop.createMany({
+//             data: cropData,
+//             skipDuplicates: true, // Optional: skips duplicate crop names if any
+//           });
+//           logger.info(`Farmer_AddCrops_Success ${userId}`);
+//           res.status(201).json({
+//             msg: "Crops added successfully",
+//             addedCount: result.count,
+//           });
+//         } catch (error) {
+//           logger.error(`ERROR_FARMER_AddCrops ${error}`);
+//           res.status(500).json({
+//             msg: "Internal server error, please try again",
+//           });
+//         }
+// }
+export async function applyFarmerLicense(req, res) {
+    const userId = req.userId;
     try {
-        const { crops } = req.body; // Expecting crops: ["Wheat", "Corn", "Rice"]
-        const userId = req.userId;
-        // Validate input
-        if (!userId || !crops || !Array.isArray(crops) || crops.length === 0) {
-            logger.warn(`Farmer_AddCrops_InvalidInput ${userId || "unknown"}`);
+        if (!userId) {
+            logger.warn(`Farmer_Apply_License_id_nf ${userId || "unknownuser"}`);
             return res.status(400).json({
-                msg: "Invalid input. Provide an array of crop names.",
+                msg: "Token id not found",
             });
         }
-        // Check if the farmer exists and is verified
-        const farmer = await db.farmer.findUnique({
-            where: { id: userId },
+        const response = await db.farmer.findFirst({
+            where: {
+                id: userId
+            }
         });
-        if (!farmer || !farmer.mobileNumberVerified) {
-            logger.warn(`Farmer_AddCrops_Unauthorized ${userId || "unknown"}`);
-            return res.status(401).json({
-                msg: "No farmer found or mobile number not verified",
+        if (!response?.isProfileCompleted) {
+            return res.status(400).json({
+                msg: "Complete the profile"
             });
         }
-        // Prepare crop data
-        const cropData = crops.map((name) => ({
-            name: name.trim(),
-            farmerId: userId,
-        }));
-        // Insert all crops in one go
-        const result = await db.crop.createMany({
-            data: cropData,
-            skipDuplicates: true, // Optional: skips duplicate crop names if any
+        await db.farmer.update({
+            where: {
+                id: userId
+            },
+            data: {
+                status: "pending"
+            }
         });
-        logger.info(`Farmer_AddCrops_Success ${userId}`);
-        res.status(201).json({
-            msg: "Crops added successfully",
-            addedCount: result.count,
+        res.status(200).json({
+            msg: "Application sucessfull"
         });
     }
     catch (error) {
-        logger.error(`ERROR_FARMER_AddCrops ${error}`);
+        logger.error(`ERROR_FARMER_ApplyLicense ${error}`);
         res.status(500).json({
             msg: "Internal server error, please try again",
         });

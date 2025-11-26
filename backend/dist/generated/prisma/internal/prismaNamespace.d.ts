@@ -255,8 +255,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export declare const ModelName: {
     readonly Farmer: "Farmer";
     readonly LandInfo: "LandInfo";
+    readonly HerbData: "HerbData";
     readonly Document: "Document";
-    readonly Crop: "Crop";
     readonly OTP: "OTP";
     readonly Lab: "Lab";
     readonly LabInfo: "LabInfo";
@@ -273,7 +273,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         omit: GlobalOmitOptions;
     };
     meta: {
-        modelProps: "farmer" | "landInfo" | "document" | "crop" | "oTP" | "lab" | "labInfo" | "labWorker";
+        modelProps: "farmer" | "landInfo" | "herbData" | "document" | "oTP" | "lab" | "labInfo" | "labWorker";
         txIsolationLevel: TransactionIsolationLevel;
     };
     model: {
@@ -425,6 +425,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
                 };
             };
         };
+        HerbData: {
+            payload: Prisma.$HerbDataPayload<ExtArgs>;
+            fields: Prisma.HerbDataFieldRefs;
+            operations: {
+                findUnique: {
+                    args: Prisma.HerbDataFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$HerbDataPayload> | null;
+                };
+                findUniqueOrThrow: {
+                    args: Prisma.HerbDataFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$HerbDataPayload>;
+                };
+                findFirst: {
+                    args: Prisma.HerbDataFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$HerbDataPayload> | null;
+                };
+                findFirstOrThrow: {
+                    args: Prisma.HerbDataFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$HerbDataPayload>;
+                };
+                findMany: {
+                    args: Prisma.HerbDataFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$HerbDataPayload>[];
+                };
+                create: {
+                    args: Prisma.HerbDataCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$HerbDataPayload>;
+                };
+                createMany: {
+                    args: Prisma.HerbDataCreateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                createManyAndReturn: {
+                    args: Prisma.HerbDataCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$HerbDataPayload>[];
+                };
+                delete: {
+                    args: Prisma.HerbDataDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$HerbDataPayload>;
+                };
+                update: {
+                    args: Prisma.HerbDataUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$HerbDataPayload>;
+                };
+                deleteMany: {
+                    args: Prisma.HerbDataDeleteManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateMany: {
+                    args: Prisma.HerbDataUpdateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateManyAndReturn: {
+                    args: Prisma.HerbDataUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$HerbDataPayload>[];
+                };
+                upsert: {
+                    args: Prisma.HerbDataUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$HerbDataPayload>;
+                };
+                aggregate: {
+                    args: Prisma.HerbDataAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregateHerbData>;
+                };
+                groupBy: {
+                    args: Prisma.HerbDataGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.HerbDataGroupByOutputType>[];
+                };
+                count: {
+                    args: Prisma.HerbDataCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.HerbDataCountAggregateOutputType> | number;
+                };
+            };
+        };
         Document: {
             payload: Prisma.$DocumentPayload<ExtArgs>;
             fields: Prisma.DocumentFieldRefs;
@@ -496,80 +570,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
                 count: {
                     args: Prisma.DocumentCountArgs<ExtArgs>;
                     result: runtime.Types.Utils.Optional<Prisma.DocumentCountAggregateOutputType> | number;
-                };
-            };
-        };
-        Crop: {
-            payload: Prisma.$CropPayload<ExtArgs>;
-            fields: Prisma.CropFieldRefs;
-            operations: {
-                findUnique: {
-                    args: Prisma.CropFindUniqueArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$CropPayload> | null;
-                };
-                findUniqueOrThrow: {
-                    args: Prisma.CropFindUniqueOrThrowArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$CropPayload>;
-                };
-                findFirst: {
-                    args: Prisma.CropFindFirstArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$CropPayload> | null;
-                };
-                findFirstOrThrow: {
-                    args: Prisma.CropFindFirstOrThrowArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$CropPayload>;
-                };
-                findMany: {
-                    args: Prisma.CropFindManyArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$CropPayload>[];
-                };
-                create: {
-                    args: Prisma.CropCreateArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$CropPayload>;
-                };
-                createMany: {
-                    args: Prisma.CropCreateManyArgs<ExtArgs>;
-                    result: BatchPayload;
-                };
-                createManyAndReturn: {
-                    args: Prisma.CropCreateManyAndReturnArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$CropPayload>[];
-                };
-                delete: {
-                    args: Prisma.CropDeleteArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$CropPayload>;
-                };
-                update: {
-                    args: Prisma.CropUpdateArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$CropPayload>;
-                };
-                deleteMany: {
-                    args: Prisma.CropDeleteManyArgs<ExtArgs>;
-                    result: BatchPayload;
-                };
-                updateMany: {
-                    args: Prisma.CropUpdateManyArgs<ExtArgs>;
-                    result: BatchPayload;
-                };
-                updateManyAndReturn: {
-                    args: Prisma.CropUpdateManyAndReturnArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$CropPayload>[];
-                };
-                upsert: {
-                    args: Prisma.CropUpsertArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$CropPayload>;
-                };
-                aggregate: {
-                    args: Prisma.CropAggregateArgs<ExtArgs>;
-                    result: runtime.Types.Utils.Optional<Prisma.AggregateCrop>;
-                };
-                groupBy: {
-                    args: Prisma.CropGroupByArgs<ExtArgs>;
-                    result: runtime.Types.Utils.Optional<Prisma.CropGroupByOutputType>[];
-                };
-                count: {
-                    args: Prisma.CropCountArgs<ExtArgs>;
-                    result: runtime.Types.Utils.Optional<Prisma.CropCountAggregateOutputType> | number;
                 };
             };
         };
@@ -912,6 +912,7 @@ export declare const FarmerScalarFieldEnum: {
     readonly fullName: "fullName";
     readonly dob: "dob";
     readonly address: "address";
+    readonly status: "status";
     readonly isVerified: "isVerified";
     readonly isProfileCompleted: "isProfileCompleted";
     readonly createdAt: "createdAt";
@@ -926,6 +927,17 @@ export declare const LandInfoScalarFieldEnum: {
     readonly farmerID: "farmerID";
 };
 export type LandInfoScalarFieldEnum = (typeof LandInfoScalarFieldEnum)[keyof typeof LandInfoScalarFieldEnum];
+export declare const HerbDataScalarFieldEnum: {
+    readonly id: "id";
+    readonly herbname: "herbname";
+    readonly harvestDate: "harvestDate";
+    readonly coordinates: "coordinates";
+    readonly pesticidesUsed: "pesticidesUsed";
+    readonly quantity: "quantity";
+    readonly desc: "desc";
+    readonly farmerID: "farmerID";
+};
+export type HerbDataScalarFieldEnum = (typeof HerbDataScalarFieldEnum)[keyof typeof HerbDataScalarFieldEnum];
 export declare const DocumentScalarFieldEnum: {
     readonly id: "id";
     readonly type: "type";
@@ -933,12 +945,6 @@ export declare const DocumentScalarFieldEnum: {
     readonly farmerID: "farmerID";
 };
 export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum];
-export declare const CropScalarFieldEnum: {
-    readonly id: "id";
-    readonly name: "name";
-    readonly farmerId: "farmerId";
-};
-export type CropScalarFieldEnum = (typeof CropScalarFieldEnum)[keyof typeof CropScalarFieldEnum];
 export declare const OTPScalarFieldEnum: {
     readonly id: "id";
     readonly mobile: "mobile";
@@ -950,7 +956,6 @@ export declare const OTPScalarFieldEnum: {
 export type OTPScalarFieldEnum = (typeof OTPScalarFieldEnum)[keyof typeof OTPScalarFieldEnum];
 export declare const LabScalarFieldEnum: {
     readonly id: "id";
-    readonly name: "name";
     readonly labId: "labId";
     readonly password: "password";
     readonly email: "email";
@@ -960,8 +965,13 @@ export declare const LabInfoScalarFieldEnum: {
     readonly id: "id";
     readonly labID: "labID";
     readonly address: "address";
-    readonly gstin: "gstin";
     readonly type: "type";
+    readonly labName: "labName";
+    readonly nablCertificateNo: "nablCertificateNo";
+    readonly nablExp: "nablExp";
+    readonly isFssaiReg: "isFssaiReg";
+    readonly fssaiRegNo: "fssaiRegNo";
+    readonly about: "about";
 };
 export type LabInfoScalarFieldEnum = (typeof LabInfoScalarFieldEnum)[keyof typeof LabInfoScalarFieldEnum];
 export declare const LabWorkerScalarFieldEnum: {
@@ -1039,6 +1049,14 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
  * Reference to a field of type 'Boolean'
  */
 export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>;
+/**
+ * Reference to a field of type 'StatusType'
+ */
+export type EnumStatusTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusType'>;
+/**
+ * Reference to a field of type 'StatusType[]'
+ */
+export type ListEnumStatusTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusType[]'>;
 /**
  * Reference to a field of type 'DateTime'
  */
@@ -1181,8 +1199,8 @@ export interface PrismaClientOptions {
 export type GlobalOmitConfig = {
     farmer?: Prisma.FarmerOmit;
     landInfo?: Prisma.LandInfoOmit;
+    herbData?: Prisma.HerbDataOmit;
     document?: Prisma.DocumentOmit;
-    crop?: Prisma.CropOmit;
     oTP?: Prisma.OTPOmit;
     lab?: Prisma.LabOmit;
     labInfo?: Prisma.LabInfoOmit;

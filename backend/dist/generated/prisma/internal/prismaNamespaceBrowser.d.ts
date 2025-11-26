@@ -43,8 +43,8 @@ export declare const AnyNull: {
 export declare const ModelName: {
     readonly Farmer: "Farmer";
     readonly LandInfo: "LandInfo";
+    readonly HerbData: "HerbData";
     readonly Document: "Document";
-    readonly Crop: "Crop";
     readonly OTP: "OTP";
     readonly Lab: "Lab";
     readonly LabInfo: "LabInfo";
@@ -67,6 +67,7 @@ export declare const FarmerScalarFieldEnum: {
     readonly fullName: "fullName";
     readonly dob: "dob";
     readonly address: "address";
+    readonly status: "status";
     readonly isVerified: "isVerified";
     readonly isProfileCompleted: "isProfileCompleted";
     readonly createdAt: "createdAt";
@@ -81,6 +82,17 @@ export declare const LandInfoScalarFieldEnum: {
     readonly farmerID: "farmerID";
 };
 export type LandInfoScalarFieldEnum = (typeof LandInfoScalarFieldEnum)[keyof typeof LandInfoScalarFieldEnum];
+export declare const HerbDataScalarFieldEnum: {
+    readonly id: "id";
+    readonly herbname: "herbname";
+    readonly harvestDate: "harvestDate";
+    readonly coordinates: "coordinates";
+    readonly pesticidesUsed: "pesticidesUsed";
+    readonly quantity: "quantity";
+    readonly desc: "desc";
+    readonly farmerID: "farmerID";
+};
+export type HerbDataScalarFieldEnum = (typeof HerbDataScalarFieldEnum)[keyof typeof HerbDataScalarFieldEnum];
 export declare const DocumentScalarFieldEnum: {
     readonly id: "id";
     readonly type: "type";
@@ -88,12 +100,6 @@ export declare const DocumentScalarFieldEnum: {
     readonly farmerID: "farmerID";
 };
 export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum];
-export declare const CropScalarFieldEnum: {
-    readonly id: "id";
-    readonly name: "name";
-    readonly farmerId: "farmerId";
-};
-export type CropScalarFieldEnum = (typeof CropScalarFieldEnum)[keyof typeof CropScalarFieldEnum];
 export declare const OTPScalarFieldEnum: {
     readonly id: "id";
     readonly mobile: "mobile";
@@ -105,7 +111,6 @@ export declare const OTPScalarFieldEnum: {
 export type OTPScalarFieldEnum = (typeof OTPScalarFieldEnum)[keyof typeof OTPScalarFieldEnum];
 export declare const LabScalarFieldEnum: {
     readonly id: "id";
-    readonly name: "name";
     readonly labId: "labId";
     readonly password: "password";
     readonly email: "email";
@@ -115,8 +120,13 @@ export declare const LabInfoScalarFieldEnum: {
     readonly id: "id";
     readonly labID: "labID";
     readonly address: "address";
-    readonly gstin: "gstin";
     readonly type: "type";
+    readonly labName: "labName";
+    readonly nablCertificateNo: "nablCertificateNo";
+    readonly nablExp: "nablExp";
+    readonly isFssaiReg: "isFssaiReg";
+    readonly fssaiRegNo: "fssaiRegNo";
+    readonly about: "about";
 };
 export type LabInfoScalarFieldEnum = (typeof LabInfoScalarFieldEnum)[keyof typeof LabInfoScalarFieldEnum];
 export declare const LabWorkerScalarFieldEnum: {

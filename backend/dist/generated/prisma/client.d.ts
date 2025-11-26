@@ -30,15 +30,15 @@ export type Farmer = Prisma.FarmerModel;
  */
 export type LandInfo = Prisma.LandInfoModel;
 /**
+ * Model HerbData
+ *
+ */
+export type HerbData = Prisma.HerbDataModel;
+/**
  * Model Document
  *
  */
 export type Document = Prisma.DocumentModel;
-/**
- * Model Crop
- *
- */
-export type Crop = Prisma.CropModel;
 /**
  * Model OTP
  *

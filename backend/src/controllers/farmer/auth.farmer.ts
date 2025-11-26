@@ -78,6 +78,7 @@ export async function FarmerSignUp(req: Request, res: Response) {
 export async function FarmerLogin(req :Request , res: Response){
     try {
         const { mobileNumber } = req.body;
+        console.log("new req : " + mobileNumber)
         if(!mobileNumber){
             logger.warn(`Farmer_invalid_credential_login : ${mobileNumber}`);
             return res.status(404).json({

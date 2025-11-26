@@ -62,6 +62,7 @@ model Farmer {
 
   landInfo  LandInfo[]
   documents Document[]
+  herbData  HerbData[]
 
   
 
@@ -80,6 +81,18 @@ model LandInfo {
   famer Farmer @relation(fields: [farmerID] , references: [id])
 }
 
+model HerbData {
+  id String @id @default(uuid())
+  herbname String
+  harvestDate String
+  coordinates String
+  pesticidesUsed  Boolean @default(false)
+  quantity  String
+  desc  String
+
+  farmerID String 
+  farmer Farmer @relation(fields: [farmerID], references: [id])
+}
 
 
 
@@ -143,3 +156,77 @@ model LabWorker {
   labID   String
   labId   Lab   @relation(fields: [labID] , references: [id])
 }
+
+
+// Processor Model
+model Processor {
+  id           String   @id @default(uuid())
+  processorId  String   @unique
+  email        String   @unique
+  password     String
+
+  name         String?
+  address      String?
+  organization String?
+
+  isVerified   Boolean   @default(false)
+  status       StatusType? 
+
+  inventory     ProcessorInventory[]
+  plantInfo     ProcessingPlantInfo?
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model ProcessingPlantInfo {
+  id           String   @id @default(uuid())
+  processorID   String   @unique
+  processorid   Processor @relation(fields: [processorID] ,references: [id])
+
+  estb  String
+  GSTIN String
+  Storage String
+  herbs   String
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+
+model ProcessorInventory {
+  id  String @id @default(uuid())
+  processorID   String
+  processorid   Processor @relation(fields: [processorID] ,references: [id])
+
+  inventoryName String
+  assignedGrade String
+  isprocessingDone  Boolean @default(false)
+  processinglist  String?
+
+  Items ProcessorFarmerInput[]
+  specie       String
+  
+  finalQuantity String
+  
+  sendedToLab   String
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt 
+  
+}
+
+model ProcessorFarmerInput {
+   id String @id @default(uuid())
+   inventoryID   String
+   inventory     ProcessorInventory @relation(fields: [inventoryID] ,references: [id])
+  quantity  String
+  eventId   String  @unique
+  specie  String
+
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+} 
+

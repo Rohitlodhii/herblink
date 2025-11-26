@@ -32,3 +32,11 @@ Invalid `prisma.landInfo.create()` invocation:
 
 
 Unique constraint failed on the fields: (`farmerID`)
+2025-11-25 16:19:32 [[31merror[39m]: Error: Failed to send Otp
+    at TwilioService.sendOTP (file:///C:/herblinkpro/backend/dist/config/twilio.js:17:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async FarmerLogin (file:///C:/herblinkpro/backend/dist/controllers/farmer/auth.farmer.js:80:9)
+2025-11-25 16:26:08 [[31merror[39m]: Error: Failed to send Otp
+    at TwilioService.sendOTP (file:///C:/herblinkpro/backend/dist/config/twilio.js:17:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async FarmerLogin (file:///C:/herblinkpro/backend/dist/controllers/farmer/auth.farmer.js:80:9)

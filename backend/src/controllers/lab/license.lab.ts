@@ -3,7 +3,7 @@ import { AuthenticatedRequest } from "../../middlewares/jwt.verify.js";
 import { Response } from "express";
 import logger from "../../config/logger.js";
 
-async function addLabInfo( req : AuthenticatedRequest , res  : Response){
+export async function addLabInfo( req : AuthenticatedRequest , res  : Response){
     
     const id = req.userId;
        
@@ -87,4 +87,3 @@ async function addLabInfo( req : AuthenticatedRequest , res  : Response){
     }
 }
 
-export default addLabInfo;

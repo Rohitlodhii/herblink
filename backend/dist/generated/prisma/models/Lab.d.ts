@@ -12,21 +12,18 @@ export type AggregateLab = {
 };
 export type LabMinAggregateOutputType = {
     id: string | null;
-    name: string | null;
     labId: string | null;
     password: string | null;
     email: string | null;
 };
 export type LabMaxAggregateOutputType = {
     id: string | null;
-    name: string | null;
     labId: string | null;
     password: string | null;
     email: string | null;
 };
 export type LabCountAggregateOutputType = {
     id: number;
-    name: number;
     labId: number;
     password: number;
     email: number;
@@ -34,21 +31,18 @@ export type LabCountAggregateOutputType = {
 };
 export type LabMinAggregateInputType = {
     id?: true;
-    name?: true;
     labId?: true;
     password?: true;
     email?: true;
 };
 export type LabMaxAggregateInputType = {
     id?: true;
-    name?: true;
     labId?: true;
     password?: true;
     email?: true;
 };
 export type LabCountAggregateInputType = {
     id?: true;
-    name?: true;
     labId?: true;
     password?: true;
     email?: true;
@@ -118,7 +112,6 @@ export type LabGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
 };
 export type LabGroupByOutputType = {
     id: string;
-    name: string | null;
     labId: string | null;
     password: string;
     email: string;
@@ -134,7 +127,6 @@ export type LabWhereInput = {
     OR?: Prisma.LabWhereInput[];
     NOT?: Prisma.LabWhereInput | Prisma.LabWhereInput[];
     id?: Prisma.StringFilter<"Lab"> | string;
-    name?: Prisma.StringNullableFilter<"Lab"> | string | null;
     labId?: Prisma.StringNullableFilter<"Lab"> | string | null;
     password?: Prisma.StringFilter<"Lab"> | string;
     email?: Prisma.StringFilter<"Lab"> | string;
@@ -143,7 +135,6 @@ export type LabWhereInput = {
 };
 export type LabOrderByWithRelationInput = {
     id?: Prisma.SortOrder;
-    name?: Prisma.SortOrderInput | Prisma.SortOrder;
     labId?: Prisma.SortOrderInput | Prisma.SortOrder;
     password?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
@@ -158,13 +149,11 @@ export type LabWhereUniqueInput = Prisma.AtLeast<{
     AND?: Prisma.LabWhereInput | Prisma.LabWhereInput[];
     OR?: Prisma.LabWhereInput[];
     NOT?: Prisma.LabWhereInput | Prisma.LabWhereInput[];
-    name?: Prisma.StringNullableFilter<"Lab"> | string | null;
     labinfo?: Prisma.XOR<Prisma.LabInfoNullableScalarRelationFilter, Prisma.LabInfoWhereInput> | null;
     LabWorkers?: Prisma.LabWorkerListRelationFilter;
 }, "id" | "labId" | "password" | "email">;
 export type LabOrderByWithAggregationInput = {
     id?: Prisma.SortOrder;
-    name?: Prisma.SortOrderInput | Prisma.SortOrder;
     labId?: Prisma.SortOrderInput | Prisma.SortOrder;
     password?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
@@ -177,14 +166,12 @@ export type LabScalarWhereWithAggregatesInput = {
     OR?: Prisma.LabScalarWhereWithAggregatesInput[];
     NOT?: Prisma.LabScalarWhereWithAggregatesInput | Prisma.LabScalarWhereWithAggregatesInput[];
     id?: Prisma.StringWithAggregatesFilter<"Lab"> | string;
-    name?: Prisma.StringNullableWithAggregatesFilter<"Lab"> | string | null;
     labId?: Prisma.StringNullableWithAggregatesFilter<"Lab"> | string | null;
     password?: Prisma.StringWithAggregatesFilter<"Lab"> | string;
     email?: Prisma.StringWithAggregatesFilter<"Lab"> | string;
 };
 export type LabCreateInput = {
     id?: string;
-    name?: string | null;
     labId?: string | null;
     password: string;
     email: string;
@@ -193,7 +180,6 @@ export type LabCreateInput = {
 };
 export type LabUncheckedCreateInput = {
     id?: string;
-    name?: string | null;
     labId?: string | null;
     password: string;
     email: string;
@@ -202,7 +188,6 @@ export type LabUncheckedCreateInput = {
 };
 export type LabUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -211,7 +196,6 @@ export type LabUpdateInput = {
 };
 export type LabUncheckedUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -220,42 +204,36 @@ export type LabUncheckedUpdateInput = {
 };
 export type LabCreateManyInput = {
     id?: string;
-    name?: string | null;
     labId?: string | null;
     password: string;
     email: string;
 };
 export type LabUpdateManyMutationInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
 };
 export type LabUncheckedUpdateManyInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
 };
 export type LabCountOrderByAggregateInput = {
     id?: Prisma.SortOrder;
-    name?: Prisma.SortOrder;
     labId?: Prisma.SortOrder;
     password?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
 };
 export type LabMaxOrderByAggregateInput = {
     id?: Prisma.SortOrder;
-    name?: Prisma.SortOrder;
     labId?: Prisma.SortOrder;
     password?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
 };
 export type LabMinOrderByAggregateInput = {
     id?: Prisma.SortOrder;
-    name?: Prisma.SortOrder;
     labId?: Prisma.SortOrder;
     password?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
@@ -290,7 +268,6 @@ export type LabUpdateOneRequiredWithoutLabWorkersNestedInput = {
 };
 export type LabCreateWithoutLabinfoInput = {
     id?: string;
-    name?: string | null;
     labId?: string | null;
     password: string;
     email: string;
@@ -298,7 +275,6 @@ export type LabCreateWithoutLabinfoInput = {
 };
 export type LabUncheckedCreateWithoutLabinfoInput = {
     id?: string;
-    name?: string | null;
     labId?: string | null;
     password: string;
     email: string;
@@ -319,7 +295,6 @@ export type LabUpdateToOneWithWhereWithoutLabinfoInput = {
 };
 export type LabUpdateWithoutLabinfoInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -327,7 +302,6 @@ export type LabUpdateWithoutLabinfoInput = {
 };
 export type LabUncheckedUpdateWithoutLabinfoInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -335,7 +309,6 @@ export type LabUncheckedUpdateWithoutLabinfoInput = {
 };
 export type LabCreateWithoutLabWorkersInput = {
     id?: string;
-    name?: string | null;
     labId?: string | null;
     password: string;
     email: string;
@@ -343,7 +316,6 @@ export type LabCreateWithoutLabWorkersInput = {
 };
 export type LabUncheckedCreateWithoutLabWorkersInput = {
     id?: string;
-    name?: string | null;
     labId?: string | null;
     password: string;
     email: string;
@@ -364,7 +336,6 @@ export type LabUpdateToOneWithWhereWithoutLabWorkersInput = {
 };
 export type LabUpdateWithoutLabWorkersInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -372,7 +343,6 @@ export type LabUpdateWithoutLabWorkersInput = {
 };
 export type LabUncheckedUpdateWithoutLabWorkersInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -404,7 +374,6 @@ export type LabCountOutputTypeCountLabWorkersArgs<ExtArgs extends runtime.Types.
 };
 export type LabSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
-    name?: boolean;
     labId?: boolean;
     password?: boolean;
     email?: boolean;
@@ -414,26 +383,23 @@ export type LabSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = ru
 }, ExtArgs["result"]["lab"]>;
 export type LabSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
-    name?: boolean;
     labId?: boolean;
     password?: boolean;
     email?: boolean;
 }, ExtArgs["result"]["lab"]>;
 export type LabSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
-    name?: boolean;
     labId?: boolean;
     password?: boolean;
     email?: boolean;
 }, ExtArgs["result"]["lab"]>;
 export type LabSelectScalar = {
     id?: boolean;
-    name?: boolean;
     labId?: boolean;
     password?: boolean;
     email?: boolean;
 };
-export type LabOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "labId" | "password" | "email", ExtArgs["result"]["lab"]>;
+export type LabOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "labId" | "password" | "email", ExtArgs["result"]["lab"]>;
 export type LabInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     labinfo?: boolean | Prisma.Lab$labinfoArgs<ExtArgs>;
     LabWorkers?: boolean | Prisma.Lab$LabWorkersArgs<ExtArgs>;
@@ -449,7 +415,6 @@ export type $LabPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
     };
     scalars: runtime.Types.Extensions.GetPayloadResult<{
         id: string;
-        name: string | null;
         labId: string | null;
         password: string;
         email: string;
@@ -810,7 +775,6 @@ export interface Prisma__LabClient<T, Null = never, ExtArgs extends runtime.Type
  */
 export interface LabFieldRefs {
     readonly id: Prisma.FieldRef<"Lab", 'String'>;
-    readonly name: Prisma.FieldRef<"Lab", 'String'>;
     readonly labId: Prisma.FieldRef<"Lab", 'String'>;
     readonly password: Prisma.FieldRef<"Lab", 'String'>;
     readonly email: Prisma.FieldRef<"Lab", 'String'>;

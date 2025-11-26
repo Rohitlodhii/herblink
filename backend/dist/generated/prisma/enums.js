@@ -20,4 +20,10 @@ export const DocumentType = {
     FARMER_PHOTOGRAPH: 'FARMER_PHOTOGRAPH',
     LAND_CERTIFICATE: 'LAND_CERTIFICATE'
 };
+export const StatusType = {
+    pending: 'pending',
+    acknowledge: 'acknowledge',
+    verified: 'verified',
+    rejected: 'rejected'
+};
 //# sourceMappingURL=enums.js.map
