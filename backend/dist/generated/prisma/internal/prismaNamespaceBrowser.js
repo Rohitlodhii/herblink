@@ -46,7 +46,11 @@ export const ModelName = {
     OTP: 'OTP',
     Lab: 'Lab',
     LabInfo: 'LabInfo',
-    LabWorker: 'LabWorker'
+    LabWorker: 'LabWorker',
+    Processor: 'Processor',
+    ProcessingPlantInfo: 'ProcessingPlantInfo',
+    ProcessorInventory: 'ProcessorInventory',
+    ProcessorFarmerInput: 'ProcessorFarmerInput'
 };
 /*
  * Enums
@@ -128,6 +132,51 @@ export const LabWorkerScalarFieldEnum = {
     role: 'role',
     desc: 'desc',
     labID: 'labID'
+};
+export const ProcessorScalarFieldEnum = {
+    id: 'id',
+    processorId: 'processorId',
+    email: 'email',
+    password: 'password',
+    name: 'name',
+    address: 'address',
+    organization: 'organization',
+    isVerified: 'isVerified',
+    status: 'status',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+};
+export const ProcessingPlantInfoScalarFieldEnum = {
+    id: 'id',
+    processorID: 'processorID',
+    estb: 'estb',
+    GSTIN: 'GSTIN',
+    Storage: 'Storage',
+    herbs: 'herbs',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+};
+export const ProcessorInventoryScalarFieldEnum = {
+    id: 'id',
+    processorID: 'processorID',
+    inventoryName: 'inventoryName',
+    assignedGrade: 'assignedGrade',
+    isprocessingDone: 'isprocessingDone',
+    processinglist: 'processinglist',
+    specie: 'specie',
+    finalQuantity: 'finalQuantity',
+    sendedToLab: 'sendedToLab',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+};
+export const ProcessorFarmerInputScalarFieldEnum = {
+    id: 'id',
+    inventoryID: 'inventoryID',
+    quantity: 'quantity',
+    eventId: 'eventId',
+    specie: 'specie',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
 };
 export const SortOrder = {
     asc: 'asc',

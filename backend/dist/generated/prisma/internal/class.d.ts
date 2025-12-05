@@ -199,6 +199,50 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
     get labWorker(): Prisma.LabWorkerDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
+    /**
+     * `prisma.processor`: Exposes CRUD operations for the **Processor** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Processors
+      * const processors = await prisma.processor.findMany()
+      * ```
+      */
+    get processor(): Prisma.ProcessorDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.processingPlantInfo`: Exposes CRUD operations for the **ProcessingPlantInfo** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more ProcessingPlantInfos
+      * const processingPlantInfos = await prisma.processingPlantInfo.findMany()
+      * ```
+      */
+    get processingPlantInfo(): Prisma.ProcessingPlantInfoDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.processorInventory`: Exposes CRUD operations for the **ProcessorInventory** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more ProcessorInventories
+      * const processorInventories = await prisma.processorInventory.findMany()
+      * ```
+      */
+    get processorInventory(): Prisma.ProcessorInventoryDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.processorFarmerInput`: Exposes CRUD operations for the **ProcessorFarmerInput** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more ProcessorFarmerInputs
+      * const processorFarmerInputs = await prisma.processorFarmerInput.findMany()
+      * ```
+      */
+    get processorFarmerInput(): Prisma.ProcessorFarmerInputDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
 }
 export declare function getPrismaClientClass(dirname: string): PrismaClientConstructor;
 //# sourceMappingURL=class.d.ts.map

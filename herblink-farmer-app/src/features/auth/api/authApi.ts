@@ -1,45 +1,13 @@
-import { Platform } from "react-native";
-
-const LOCAL_NETWORK_IP = "192.168.1.2";
-
-const API_BASE_URL =
-  Platform.OS === "android"
-    ? `http://${LOCAL_NETWORK_IP}:8000/api/farmer/auth`
-    : `http://${LOCAL_NETWORK_IP}:8000/api/farmer/auth`;
-
-type ApiError = {
-  message?: string;
-  msg?: string;
-};
+import { AUTH_API_BASE_URL } from "../../../config/network";
+import { handleResponse } from "../../../lib/apiClient";
 
 type VerifyResponse = {
   token: string;
 };
 
-const isApiError = (value: unknown): value is ApiError =>
-  typeof value === "object" &&
-  value !== null &&
-  (("message" in value && typeof (value as ApiError).message === "string") ||
-    ("msg" in value && typeof (value as ApiError).msg === "string"));
-
-const handleResponse = async <T>(response: Response): Promise<T> => {
-  const text = await response.text();
-  const data = text ? (JSON.parse(text) as T | ApiError) : ({} as T);
-
-  if (!response.ok) {
-    const message =
-      isApiError(data) && (data.message || data.msg)
-        ? data.message ?? data.msg ?? "Something went wrong. Please try again."
-        : "Something went wrong. Please try again.";
-    throw new Error(message);
-  }
-
-  return data as T;
-};
-
 export const requestOtp = async (phoneNumber: string) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/login`, {
+    const response = await fetch(`${AUTH_API_BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +26,7 @@ export const requestOtp = async (phoneNumber: string) => {
 };
 
 export const verifyOtp = async (phoneNumber: string, otp: string) => {
-  const response = await fetch(`${API_BASE_URL}/verifyOtp`, {
+  const response = await fetch(`${AUTH_API_BASE_URL}/verifyOtp`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

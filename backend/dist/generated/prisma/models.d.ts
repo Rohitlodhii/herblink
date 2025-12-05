@@ -6,5 +6,9 @@ export type * from './models/OTP.js';
 export type * from './models/Lab.js';
 export type * from './models/LabInfo.js';
 export type * from './models/LabWorker.js';
+export type * from './models/Processor.js';
+export type * from './models/ProcessingPlantInfo.js';
+export type * from './models/ProcessorInventory.js';
+export type * from './models/ProcessorFarmerInput.js';
 export type * from './commonInputTypes.js';
 //# sourceMappingURL=models.d.ts.map

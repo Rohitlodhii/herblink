@@ -42,4 +42,24 @@ export type LabInfo = Prisma.LabInfoModel;
  *
  */
 export type LabWorker = Prisma.LabWorkerModel;
+/**
+ * Model Processor
+ *
+ */
+export type Processor = Prisma.ProcessorModel;
+/**
+ * Model ProcessingPlantInfo
+ *
+ */
+export type ProcessingPlantInfo = Prisma.ProcessingPlantInfoModel;
+/**
+ * Model ProcessorInventory
+ *
+ */
+export type ProcessorInventory = Prisma.ProcessorInventoryModel;
+/**
+ * Model ProcessorFarmerInput
+ *
+ */
+export type ProcessorFarmerInput = Prisma.ProcessorFarmerInputModel;
 //# sourceMappingURL=browser.d.ts.map

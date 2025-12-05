@@ -92,8 +92,12 @@ export async function getInventoryById(
       return res.status(401).json({ msg: "Unauthorized" });
     }
 
+    if (!id) {
+      return res.status(400).json({ msg: "id is required" });
+    }
+
     const inventory = await db.processorInventory.findFirst({
-      where: { id, processorID: userId },
+      where: { id: id as string, processorID: userId },
       include: {
         Items: true,
       },

@@ -261,6 +261,10 @@ export declare const ModelName: {
     readonly Lab: "Lab";
     readonly LabInfo: "LabInfo";
     readonly LabWorker: "LabWorker";
+    readonly Processor: "Processor";
+    readonly ProcessingPlantInfo: "ProcessingPlantInfo";
+    readonly ProcessorInventory: "ProcessorInventory";
+    readonly ProcessorFarmerInput: "ProcessorFarmerInput";
 };
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 export interface TypeMapCb<GlobalOmitOptions = {}> extends runtime.Types.Utils.Fn<{
@@ -273,7 +277,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         omit: GlobalOmitOptions;
     };
     meta: {
-        modelProps: "farmer" | "landInfo" | "herbData" | "document" | "oTP" | "lab" | "labInfo" | "labWorker";
+        modelProps: "farmer" | "landInfo" | "herbData" | "document" | "oTP" | "lab" | "labInfo" | "labWorker" | "processor" | "processingPlantInfo" | "processorInventory" | "processorFarmerInput";
         txIsolationLevel: TransactionIsolationLevel;
     };
     model: {
@@ -869,6 +873,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
                 };
             };
         };
+        Processor: {
+            payload: Prisma.$ProcessorPayload<ExtArgs>;
+            fields: Prisma.ProcessorFieldRefs;
+            operations: {
+                findUnique: {
+                    args: Prisma.ProcessorFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorPayload> | null;
+                };
+                findUniqueOrThrow: {
+                    args: Prisma.ProcessorFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorPayload>;
+                };
+                findFirst: {
+                    args: Prisma.ProcessorFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorPayload> | null;
+                };
+                findFirstOrThrow: {
+                    args: Prisma.ProcessorFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorPayload>;
+                };
+                findMany: {
+                    args: Prisma.ProcessorFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorPayload>[];
+                };
+                create: {
+                    args: Prisma.ProcessorCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorPayload>;
+                };
+                createMany: {
+                    args: Prisma.ProcessorCreateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                createManyAndReturn: {
+                    args: Prisma.ProcessorCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorPayload>[];
+                };
+                delete: {
+                    args: Prisma.ProcessorDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorPayload>;
+                };
+                update: {
+                    args: Prisma.ProcessorUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorPayload>;
+                };
+                deleteMany: {
+                    args: Prisma.ProcessorDeleteManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateMany: {
+                    args: Prisma.ProcessorUpdateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateManyAndReturn: {
+                    args: Prisma.ProcessorUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorPayload>[];
+                };
+                upsert: {
+                    args: Prisma.ProcessorUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorPayload>;
+                };
+                aggregate: {
+                    args: Prisma.ProcessorAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregateProcessor>;
+                };
+                groupBy: {
+                    args: Prisma.ProcessorGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.ProcessorGroupByOutputType>[];
+                };
+                count: {
+                    args: Prisma.ProcessorCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.ProcessorCountAggregateOutputType> | number;
+                };
+            };
+        };
+        ProcessingPlantInfo: {
+            payload: Prisma.$ProcessingPlantInfoPayload<ExtArgs>;
+            fields: Prisma.ProcessingPlantInfoFieldRefs;
+            operations: {
+                findUnique: {
+                    args: Prisma.ProcessingPlantInfoFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessingPlantInfoPayload> | null;
+                };
+                findUniqueOrThrow: {
+                    args: Prisma.ProcessingPlantInfoFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessingPlantInfoPayload>;
+                };
+                findFirst: {
+                    args: Prisma.ProcessingPlantInfoFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessingPlantInfoPayload> | null;
+                };
+                findFirstOrThrow: {
+                    args: Prisma.ProcessingPlantInfoFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessingPlantInfoPayload>;
+                };
+                findMany: {
+                    args: Prisma.ProcessingPlantInfoFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessingPlantInfoPayload>[];
+                };
+                create: {
+                    args: Prisma.ProcessingPlantInfoCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessingPlantInfoPayload>;
+                };
+                createMany: {
+                    args: Prisma.ProcessingPlantInfoCreateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                createManyAndReturn: {
+                    args: Prisma.ProcessingPlantInfoCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessingPlantInfoPayload>[];
+                };
+                delete: {
+                    args: Prisma.ProcessingPlantInfoDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessingPlantInfoPayload>;
+                };
+                update: {
+                    args: Prisma.ProcessingPlantInfoUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessingPlantInfoPayload>;
+                };
+                deleteMany: {
+                    args: Prisma.ProcessingPlantInfoDeleteManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateMany: {
+                    args: Prisma.ProcessingPlantInfoUpdateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateManyAndReturn: {
+                    args: Prisma.ProcessingPlantInfoUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessingPlantInfoPayload>[];
+                };
+                upsert: {
+                    args: Prisma.ProcessingPlantInfoUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessingPlantInfoPayload>;
+                };
+                aggregate: {
+                    args: Prisma.ProcessingPlantInfoAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregateProcessingPlantInfo>;
+                };
+                groupBy: {
+                    args: Prisma.ProcessingPlantInfoGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.ProcessingPlantInfoGroupByOutputType>[];
+                };
+                count: {
+                    args: Prisma.ProcessingPlantInfoCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.ProcessingPlantInfoCountAggregateOutputType> | number;
+                };
+            };
+        };
+        ProcessorInventory: {
+            payload: Prisma.$ProcessorInventoryPayload<ExtArgs>;
+            fields: Prisma.ProcessorInventoryFieldRefs;
+            operations: {
+                findUnique: {
+                    args: Prisma.ProcessorInventoryFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorInventoryPayload> | null;
+                };
+                findUniqueOrThrow: {
+                    args: Prisma.ProcessorInventoryFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorInventoryPayload>;
+                };
+                findFirst: {
+                    args: Prisma.ProcessorInventoryFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorInventoryPayload> | null;
+                };
+                findFirstOrThrow: {
+                    args: Prisma.ProcessorInventoryFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorInventoryPayload>;
+                };
+                findMany: {
+                    args: Prisma.ProcessorInventoryFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorInventoryPayload>[];
+                };
+                create: {
+                    args: Prisma.ProcessorInventoryCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorInventoryPayload>;
+                };
+                createMany: {
+                    args: Prisma.ProcessorInventoryCreateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                createManyAndReturn: {
+                    args: Prisma.ProcessorInventoryCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorInventoryPayload>[];
+                };
+                delete: {
+                    args: Prisma.ProcessorInventoryDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorInventoryPayload>;
+                };
+                update: {
+                    args: Prisma.ProcessorInventoryUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorInventoryPayload>;
+                };
+                deleteMany: {
+                    args: Prisma.ProcessorInventoryDeleteManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateMany: {
+                    args: Prisma.ProcessorInventoryUpdateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateManyAndReturn: {
+                    args: Prisma.ProcessorInventoryUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorInventoryPayload>[];
+                };
+                upsert: {
+                    args: Prisma.ProcessorInventoryUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorInventoryPayload>;
+                };
+                aggregate: {
+                    args: Prisma.ProcessorInventoryAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregateProcessorInventory>;
+                };
+                groupBy: {
+                    args: Prisma.ProcessorInventoryGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.ProcessorInventoryGroupByOutputType>[];
+                };
+                count: {
+                    args: Prisma.ProcessorInventoryCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.ProcessorInventoryCountAggregateOutputType> | number;
+                };
+            };
+        };
+        ProcessorFarmerInput: {
+            payload: Prisma.$ProcessorFarmerInputPayload<ExtArgs>;
+            fields: Prisma.ProcessorFarmerInputFieldRefs;
+            operations: {
+                findUnique: {
+                    args: Prisma.ProcessorFarmerInputFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorFarmerInputPayload> | null;
+                };
+                findUniqueOrThrow: {
+                    args: Prisma.ProcessorFarmerInputFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorFarmerInputPayload>;
+                };
+                findFirst: {
+                    args: Prisma.ProcessorFarmerInputFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorFarmerInputPayload> | null;
+                };
+                findFirstOrThrow: {
+                    args: Prisma.ProcessorFarmerInputFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorFarmerInputPayload>;
+                };
+                findMany: {
+                    args: Prisma.ProcessorFarmerInputFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorFarmerInputPayload>[];
+                };
+                create: {
+                    args: Prisma.ProcessorFarmerInputCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorFarmerInputPayload>;
+                };
+                createMany: {
+                    args: Prisma.ProcessorFarmerInputCreateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                createManyAndReturn: {
+                    args: Prisma.ProcessorFarmerInputCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorFarmerInputPayload>[];
+                };
+                delete: {
+                    args: Prisma.ProcessorFarmerInputDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorFarmerInputPayload>;
+                };
+                update: {
+                    args: Prisma.ProcessorFarmerInputUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorFarmerInputPayload>;
+                };
+                deleteMany: {
+                    args: Prisma.ProcessorFarmerInputDeleteManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateMany: {
+                    args: Prisma.ProcessorFarmerInputUpdateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateManyAndReturn: {
+                    args: Prisma.ProcessorFarmerInputUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorFarmerInputPayload>[];
+                };
+                upsert: {
+                    args: Prisma.ProcessorFarmerInputUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcessorFarmerInputPayload>;
+                };
+                aggregate: {
+                    args: Prisma.ProcessorFarmerInputAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregateProcessorFarmerInput>;
+                };
+                groupBy: {
+                    args: Prisma.ProcessorFarmerInputGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.ProcessorFarmerInputGroupByOutputType>[];
+                };
+                count: {
+                    args: Prisma.ProcessorFarmerInputCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.ProcessorFarmerInputCountAggregateOutputType> | number;
+                };
+            };
+        };
     };
 } & {
     other: {
@@ -983,6 +1283,55 @@ export declare const LabWorkerScalarFieldEnum: {
     readonly labID: "labID";
 };
 export type LabWorkerScalarFieldEnum = (typeof LabWorkerScalarFieldEnum)[keyof typeof LabWorkerScalarFieldEnum];
+export declare const ProcessorScalarFieldEnum: {
+    readonly id: "id";
+    readonly processorId: "processorId";
+    readonly email: "email";
+    readonly password: "password";
+    readonly name: "name";
+    readonly address: "address";
+    readonly organization: "organization";
+    readonly isVerified: "isVerified";
+    readonly status: "status";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type ProcessorScalarFieldEnum = (typeof ProcessorScalarFieldEnum)[keyof typeof ProcessorScalarFieldEnum];
+export declare const ProcessingPlantInfoScalarFieldEnum: {
+    readonly id: "id";
+    readonly processorID: "processorID";
+    readonly estb: "estb";
+    readonly GSTIN: "GSTIN";
+    readonly Storage: "Storage";
+    readonly herbs: "herbs";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type ProcessingPlantInfoScalarFieldEnum = (typeof ProcessingPlantInfoScalarFieldEnum)[keyof typeof ProcessingPlantInfoScalarFieldEnum];
+export declare const ProcessorInventoryScalarFieldEnum: {
+    readonly id: "id";
+    readonly processorID: "processorID";
+    readonly inventoryName: "inventoryName";
+    readonly assignedGrade: "assignedGrade";
+    readonly isprocessingDone: "isprocessingDone";
+    readonly processinglist: "processinglist";
+    readonly specie: "specie";
+    readonly finalQuantity: "finalQuantity";
+    readonly sendedToLab: "sendedToLab";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type ProcessorInventoryScalarFieldEnum = (typeof ProcessorInventoryScalarFieldEnum)[keyof typeof ProcessorInventoryScalarFieldEnum];
+export declare const ProcessorFarmerInputScalarFieldEnum: {
+    readonly id: "id";
+    readonly inventoryID: "inventoryID";
+    readonly quantity: "quantity";
+    readonly eventId: "eventId";
+    readonly specie: "specie";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type ProcessorFarmerInputScalarFieldEnum = (typeof ProcessorFarmerInputScalarFieldEnum)[keyof typeof ProcessorFarmerInputScalarFieldEnum];
 export declare const SortOrder: {
     readonly asc: "asc";
     readonly desc: "desc";
@@ -1205,6 +1554,10 @@ export type GlobalOmitConfig = {
     lab?: Prisma.LabOmit;
     labInfo?: Prisma.LabInfoOmit;
     labWorker?: Prisma.LabWorkerOmit;
+    processor?: Prisma.ProcessorOmit;
+    processingPlantInfo?: Prisma.ProcessingPlantInfoOmit;
+    processorInventory?: Prisma.ProcessorInventoryOmit;
+    processorFarmerInput?: Prisma.ProcessorFarmerInputOmit;
 };
 export type LogLevel = 'info' | 'query' | 'warn' | 'error';
 export type LogDefinition = {

@@ -63,8 +63,12 @@ export async function listFarmerInputsByInventory(
       return res.status(401).json({ msg: "Unauthorized" });
     }
 
+    if (!inventoryId) {
+      return res.status(400).json({ msg: "inventoryId is required" });
+    }
+
     const inventory = await db.processorInventory.findFirst({
-      where: { id: inventoryId, processorID: userId },
+      where: { id: inventoryId as string, processorID: userId },
     });
 
     if (!inventory) {
@@ -72,7 +76,7 @@ export async function listFarmerInputsByInventory(
     }
 
     const items = await db.processorFarmerInput.findMany({
-      where: { inventoryID: inventoryId },
+      where: { inventoryID: inventoryId as string },
       orderBy: { createdAt: "desc" },
     });
 
@@ -101,8 +105,12 @@ export async function getFarmerInputByEventId(
       return res.status(401).json({ msg: "Unauthorized" });
     }
 
-    const item = await db.processorFarmerInput.findUnique({
-      where: { eventId },
+    if (!eventId) {
+      return res.status(400).json({ msg: "eventId is required" });
+    }
+
+    const item = await db.processorFarmerInput.findFirst({
+      where: { eventId: eventId as string },
     });
 
     if (!item) {
