@@ -1,6 +1,8 @@
 import { Router } from "express";
-// import addLabInfo from "../../controllers/lab/license.lab.js";
+import { verifyJwt } from "../../middlewares/jwt.verify.js";
+import { addLabInfo } from "../../controllers/lab/license.lab.js";
 const labLicenseRouter = Router();
-// labLicenseRouter.post('/createlicense' , verifyJwt , addLabInfo);
+// Add or update lab info (license/profile details)
+labLicenseRouter.post("/info", verifyJwt, addLabInfo);
 export default labLicenseRouter;
 //# sourceMappingURL=lab.license.route.js.map
