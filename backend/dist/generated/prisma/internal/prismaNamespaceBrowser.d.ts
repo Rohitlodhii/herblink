@@ -55,8 +55,9 @@ export declare const ModelName: {
     readonly ProcessorInventory: "ProcessorInventory";
     readonly ProcessorFarmerInput: "ProcessorFarmerInput";
     readonly Manufacturer: "Manufacturer";
-    readonly ManufacturerProduct: "ManufacturerProduct";
-    readonly ManufacturerInventory: "ManufacturerInventory";
+    readonly Product: "Product";
+    readonly ProductInventory: "ProductInventory";
+    readonly HerbInventory: "HerbInventory";
 };
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 export declare const TransactionIsolationLevel: {
@@ -212,6 +213,7 @@ export declare const ProcessorFarmerInputScalarFieldEnum: {
 export type ProcessorFarmerInputScalarFieldEnum = (typeof ProcessorFarmerInputScalarFieldEnum)[keyof typeof ProcessorFarmerInputScalarFieldEnum];
 export declare const ManufacturerScalarFieldEnum: {
     readonly id: "id";
+    readonly manufacturerId: "manufacturerId";
     readonly email: "email";
     readonly password: "password";
     readonly name: "name";
@@ -223,23 +225,35 @@ export declare const ManufacturerScalarFieldEnum: {
     readonly updatedAt: "updatedAt";
 };
 export type ManufacturerScalarFieldEnum = (typeof ManufacturerScalarFieldEnum)[keyof typeof ManufacturerScalarFieldEnum];
-export declare const ManufacturerProductScalarFieldEnum: {
+export declare const ProductScalarFieldEnum: {
     readonly id: "id";
     readonly manufacturerId: "manufacturerId";
+    readonly productName: "productName";
+    readonly productDescription: "productDescription";
+    readonly productImage: "productImage";
+    readonly productionDate: "productionDate";
+    readonly productionBatch: "productionBatch";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
 };
-export type ManufacturerProductScalarFieldEnum = (typeof ManufacturerProductScalarFieldEnum)[keyof typeof ManufacturerProductScalarFieldEnum];
-export declare const ManufacturerInventoryScalarFieldEnum: {
+export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum];
+export declare const ProductInventoryScalarFieldEnum: {
     readonly id: "id";
-    readonly manufacturerId: "manufacturerId";
-    readonly inventoryName: "inventoryName";
-    readonly assignedGrade: "assignedGrade";
-    readonly isprocessingDone: "isprocessingDone";
-    readonly processinglist: "processinglist";
-    readonly specie: "specie";
-    readonly finalQuantity: "finalQuantity";
-    readonly sendedToLab: "sendedToLab";
+    readonly productId: "productId";
+    readonly HerbName: "HerbName";
+    readonly herbInventoryId: "herbInventoryId";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
 };
-export type ManufacturerInventoryScalarFieldEnum = (typeof ManufacturerInventoryScalarFieldEnum)[keyof typeof ManufacturerInventoryScalarFieldEnum];
+export type ProductInventoryScalarFieldEnum = (typeof ProductInventoryScalarFieldEnum)[keyof typeof ProductInventoryScalarFieldEnum];
+export declare const HerbInventoryScalarFieldEnum: {
+    readonly id: "id";
+    readonly processorInventoryId: "processorInventoryId";
+    readonly quantityReceived: "quantityReceived";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type HerbInventoryScalarFieldEnum = (typeof HerbInventoryScalarFieldEnum)[keyof typeof HerbInventoryScalarFieldEnum];
 export declare const SortOrder: {
     readonly asc: "asc";
     readonly desc: "desc";

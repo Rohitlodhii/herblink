@@ -266,25 +266,36 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
         omit: OmitOpts;
     }>;
     /**
-     * `prisma.manufacturerProduct`: Exposes CRUD operations for the **ManufacturerProduct** model.
+     * `prisma.product`: Exposes CRUD operations for the **Product** model.
       * Example usage:
       * ```ts
-      * // Fetch zero or more ManufacturerProducts
-      * const manufacturerProducts = await prisma.manufacturerProduct.findMany()
+      * // Fetch zero or more Products
+      * const products = await prisma.product.findMany()
       * ```
       */
-    get manufacturerProduct(): Prisma.ManufacturerProductDelegate<ExtArgs, {
+    get product(): Prisma.ProductDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
     /**
-     * `prisma.manufacturerInventory`: Exposes CRUD operations for the **ManufacturerInventory** model.
+     * `prisma.productInventory`: Exposes CRUD operations for the **ProductInventory** model.
       * Example usage:
       * ```ts
-      * // Fetch zero or more ManufacturerInventories
-      * const manufacturerInventories = await prisma.manufacturerInventory.findMany()
+      * // Fetch zero or more ProductInventories
+      * const productInventories = await prisma.productInventory.findMany()
       * ```
       */
-    get manufacturerInventory(): Prisma.ManufacturerInventoryDelegate<ExtArgs, {
+    get productInventory(): Prisma.ProductInventoryDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.herbInventory`: Exposes CRUD operations for the **HerbInventory** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more HerbInventories
+      * const herbInventories = await prisma.herbInventory.findMany()
+      * ```
+      */
+    get herbInventory(): Prisma.HerbInventoryDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
 }

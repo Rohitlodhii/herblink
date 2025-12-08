@@ -53,8 +53,9 @@ export const ModelName = {
     ProcessorInventory: 'ProcessorInventory',
     ProcessorFarmerInput: 'ProcessorFarmerInput',
     Manufacturer: 'Manufacturer',
-    ManufacturerProduct: 'ManufacturerProduct',
-    ManufacturerInventory: 'ManufacturerInventory'
+    Product: 'Product',
+    ProductInventory: 'ProductInventory',
+    HerbInventory: 'HerbInventory'
 };
 /*
  * Enums
@@ -198,6 +199,7 @@ export const ProcessorFarmerInputScalarFieldEnum = {
 };
 export const ManufacturerScalarFieldEnum = {
     id: 'id',
+    manufacturerId: 'manufacturerId',
     email: 'email',
     password: 'password',
     name: 'name',
@@ -208,20 +210,31 @@ export const ManufacturerScalarFieldEnum = {
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
 };
-export const ManufacturerProductScalarFieldEnum = {
-    id: 'id',
-    manufacturerId: 'manufacturerId'
-};
-export const ManufacturerInventoryScalarFieldEnum = {
+export const ProductScalarFieldEnum = {
     id: 'id',
     manufacturerId: 'manufacturerId',
-    inventoryName: 'inventoryName',
-    assignedGrade: 'assignedGrade',
-    isprocessingDone: 'isprocessingDone',
-    processinglist: 'processinglist',
-    specie: 'specie',
-    finalQuantity: 'finalQuantity',
-    sendedToLab: 'sendedToLab'
+    productName: 'productName',
+    productDescription: 'productDescription',
+    productImage: 'productImage',
+    productionDate: 'productionDate',
+    productionBatch: 'productionBatch',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+};
+export const ProductInventoryScalarFieldEnum = {
+    id: 'id',
+    productId: 'productId',
+    HerbName: 'HerbName',
+    herbInventoryId: 'herbInventoryId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+};
+export const HerbInventoryScalarFieldEnum = {
+    id: 'id',
+    processorInventoryId: 'processorInventoryId',
+    quantityReceived: 'quantityReceived',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
 };
 export const SortOrder = {
     asc: 'asc',

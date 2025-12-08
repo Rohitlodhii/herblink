@@ -13,6 +13,7 @@ export type AggregateManufacturer = {
 };
 export type ManufacturerMinAggregateOutputType = {
     id: string | null;
+    manufacturerId: string | null;
     email: string | null;
     password: string | null;
     name: string | null;
@@ -25,6 +26,7 @@ export type ManufacturerMinAggregateOutputType = {
 };
 export type ManufacturerMaxAggregateOutputType = {
     id: string | null;
+    manufacturerId: string | null;
     email: string | null;
     password: string | null;
     name: string | null;
@@ -37,6 +39,7 @@ export type ManufacturerMaxAggregateOutputType = {
 };
 export type ManufacturerCountAggregateOutputType = {
     id: number;
+    manufacturerId: number;
     email: number;
     password: number;
     name: number;
@@ -50,6 +53,7 @@ export type ManufacturerCountAggregateOutputType = {
 };
 export type ManufacturerMinAggregateInputType = {
     id?: true;
+    manufacturerId?: true;
     email?: true;
     password?: true;
     name?: true;
@@ -62,6 +66,7 @@ export type ManufacturerMinAggregateInputType = {
 };
 export type ManufacturerMaxAggregateInputType = {
     id?: true;
+    manufacturerId?: true;
     email?: true;
     password?: true;
     name?: true;
@@ -74,6 +79,7 @@ export type ManufacturerMaxAggregateInputType = {
 };
 export type ManufacturerCountAggregateInputType = {
     id?: true;
+    manufacturerId?: true;
     email?: true;
     password?: true;
     name?: true;
@@ -149,6 +155,7 @@ export type ManufacturerGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 };
 export type ManufacturerGroupByOutputType = {
     id: string;
+    manufacturerId: string;
     email: string;
     password: string;
     name: string | null;
@@ -170,6 +177,7 @@ export type ManufacturerWhereInput = {
     OR?: Prisma.ManufacturerWhereInput[];
     NOT?: Prisma.ManufacturerWhereInput | Prisma.ManufacturerWhereInput[];
     id?: Prisma.StringFilter<"Manufacturer"> | string;
+    manufacturerId?: Prisma.StringFilter<"Manufacturer"> | string;
     email?: Prisma.StringFilter<"Manufacturer"> | string;
     password?: Prisma.StringFilter<"Manufacturer"> | string;
     name?: Prisma.StringNullableFilter<"Manufacturer"> | string | null;
@@ -179,11 +187,11 @@ export type ManufacturerWhereInput = {
     status?: Prisma.EnumStatusTypeNullableFilter<"Manufacturer"> | $Enums.StatusType | null;
     createdAt?: Prisma.DateTimeFilter<"Manufacturer"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"Manufacturer"> | Date | string;
-    products?: Prisma.ManufacturerProductListRelationFilter;
-    inventories?: Prisma.ManufacturerInventoryListRelationFilter;
+    products?: Prisma.ProductListRelationFilter;
 };
 export type ManufacturerOrderByWithRelationInput = {
     id?: Prisma.SortOrder;
+    manufacturerId?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
     password?: Prisma.SortOrder;
     name?: Prisma.SortOrderInput | Prisma.SortOrder;
@@ -193,11 +201,11 @@ export type ManufacturerOrderByWithRelationInput = {
     status?: Prisma.SortOrderInput | Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
-    products?: Prisma.ManufacturerProductOrderByRelationAggregateInput;
-    inventories?: Prisma.ManufacturerInventoryOrderByRelationAggregateInput;
+    products?: Prisma.ProductOrderByRelationAggregateInput;
 };
 export type ManufacturerWhereUniqueInput = Prisma.AtLeast<{
     id?: string;
+    manufacturerId?: string;
     email?: string;
     AND?: Prisma.ManufacturerWhereInput | Prisma.ManufacturerWhereInput[];
     OR?: Prisma.ManufacturerWhereInput[];
@@ -210,11 +218,11 @@ export type ManufacturerWhereUniqueInput = Prisma.AtLeast<{
     status?: Prisma.EnumStatusTypeNullableFilter<"Manufacturer"> | $Enums.StatusType | null;
     createdAt?: Prisma.DateTimeFilter<"Manufacturer"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"Manufacturer"> | Date | string;
-    products?: Prisma.ManufacturerProductListRelationFilter;
-    inventories?: Prisma.ManufacturerInventoryListRelationFilter;
-}, "id" | "email">;
+    products?: Prisma.ProductListRelationFilter;
+}, "id" | "manufacturerId" | "email">;
 export type ManufacturerOrderByWithAggregationInput = {
     id?: Prisma.SortOrder;
+    manufacturerId?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
     password?: Prisma.SortOrder;
     name?: Prisma.SortOrderInput | Prisma.SortOrder;
@@ -233,6 +241,7 @@ export type ManufacturerScalarWhereWithAggregatesInput = {
     OR?: Prisma.ManufacturerScalarWhereWithAggregatesInput[];
     NOT?: Prisma.ManufacturerScalarWhereWithAggregatesInput | Prisma.ManufacturerScalarWhereWithAggregatesInput[];
     id?: Prisma.StringWithAggregatesFilter<"Manufacturer"> | string;
+    manufacturerId?: Prisma.StringWithAggregatesFilter<"Manufacturer"> | string;
     email?: Prisma.StringWithAggregatesFilter<"Manufacturer"> | string;
     password?: Prisma.StringWithAggregatesFilter<"Manufacturer"> | string;
     name?: Prisma.StringNullableWithAggregatesFilter<"Manufacturer"> | string | null;
@@ -245,6 +254,7 @@ export type ManufacturerScalarWhereWithAggregatesInput = {
 };
 export type ManufacturerCreateInput = {
     id?: string;
+    manufacturerId: string;
     email: string;
     password: string;
     name?: string | null;
@@ -254,11 +264,11 @@ export type ManufacturerCreateInput = {
     status?: $Enums.StatusType | null;
     createdAt?: Date | string;
     updatedAt?: Date | string;
-    products?: Prisma.ManufacturerProductCreateNestedManyWithoutManufacturerInput;
-    inventories?: Prisma.ManufacturerInventoryCreateNestedManyWithoutManufacturerInput;
+    products?: Prisma.ProductCreateNestedManyWithoutManufacturerInput;
 };
 export type ManufacturerUncheckedCreateInput = {
     id?: string;
+    manufacturerId: string;
     email: string;
     password: string;
     name?: string | null;
@@ -268,11 +278,11 @@ export type ManufacturerUncheckedCreateInput = {
     status?: $Enums.StatusType | null;
     createdAt?: Date | string;
     updatedAt?: Date | string;
-    products?: Prisma.ManufacturerProductUncheckedCreateNestedManyWithoutManufacturerInput;
-    inventories?: Prisma.ManufacturerInventoryUncheckedCreateNestedManyWithoutManufacturerInput;
+    products?: Prisma.ProductUncheckedCreateNestedManyWithoutManufacturerInput;
 };
 export type ManufacturerUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
+    manufacturerId?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -282,11 +292,11 @@ export type ManufacturerUpdateInput = {
     status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    products?: Prisma.ManufacturerProductUpdateManyWithoutManufacturerNestedInput;
-    inventories?: Prisma.ManufacturerInventoryUpdateManyWithoutManufacturerNestedInput;
+    products?: Prisma.ProductUpdateManyWithoutManufacturerNestedInput;
 };
 export type ManufacturerUncheckedUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
+    manufacturerId?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -296,11 +306,11 @@ export type ManufacturerUncheckedUpdateInput = {
     status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    products?: Prisma.ManufacturerProductUncheckedUpdateManyWithoutManufacturerNestedInput;
-    inventories?: Prisma.ManufacturerInventoryUncheckedUpdateManyWithoutManufacturerNestedInput;
+    products?: Prisma.ProductUncheckedUpdateManyWithoutManufacturerNestedInput;
 };
 export type ManufacturerCreateManyInput = {
     id?: string;
+    manufacturerId: string;
     email: string;
     password: string;
     name?: string | null;
@@ -313,6 +323,7 @@ export type ManufacturerCreateManyInput = {
 };
 export type ManufacturerUpdateManyMutationInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
+    manufacturerId?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -325,6 +336,7 @@ export type ManufacturerUpdateManyMutationInput = {
 };
 export type ManufacturerUncheckedUpdateManyInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
+    manufacturerId?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -337,6 +349,7 @@ export type ManufacturerUncheckedUpdateManyInput = {
 };
 export type ManufacturerCountOrderByAggregateInput = {
     id?: Prisma.SortOrder;
+    manufacturerId?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
     password?: Prisma.SortOrder;
     name?: Prisma.SortOrder;
@@ -349,6 +362,7 @@ export type ManufacturerCountOrderByAggregateInput = {
 };
 export type ManufacturerMaxOrderByAggregateInput = {
     id?: Prisma.SortOrder;
+    manufacturerId?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
     password?: Prisma.SortOrder;
     name?: Prisma.SortOrder;
@@ -361,6 +375,7 @@ export type ManufacturerMaxOrderByAggregateInput = {
 };
 export type ManufacturerMinOrderByAggregateInput = {
     id?: Prisma.SortOrder;
+    manufacturerId?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
     password?: Prisma.SortOrder;
     name?: Prisma.SortOrder;
@@ -387,20 +402,9 @@ export type ManufacturerUpdateOneRequiredWithoutProductsNestedInput = {
     connect?: Prisma.ManufacturerWhereUniqueInput;
     update?: Prisma.XOR<Prisma.XOR<Prisma.ManufacturerUpdateToOneWithWhereWithoutProductsInput, Prisma.ManufacturerUpdateWithoutProductsInput>, Prisma.ManufacturerUncheckedUpdateWithoutProductsInput>;
 };
-export type ManufacturerCreateNestedOneWithoutInventoriesInput = {
-    create?: Prisma.XOR<Prisma.ManufacturerCreateWithoutInventoriesInput, Prisma.ManufacturerUncheckedCreateWithoutInventoriesInput>;
-    connectOrCreate?: Prisma.ManufacturerCreateOrConnectWithoutInventoriesInput;
-    connect?: Prisma.ManufacturerWhereUniqueInput;
-};
-export type ManufacturerUpdateOneRequiredWithoutInventoriesNestedInput = {
-    create?: Prisma.XOR<Prisma.ManufacturerCreateWithoutInventoriesInput, Prisma.ManufacturerUncheckedCreateWithoutInventoriesInput>;
-    connectOrCreate?: Prisma.ManufacturerCreateOrConnectWithoutInventoriesInput;
-    upsert?: Prisma.ManufacturerUpsertWithoutInventoriesInput;
-    connect?: Prisma.ManufacturerWhereUniqueInput;
-    update?: Prisma.XOR<Prisma.XOR<Prisma.ManufacturerUpdateToOneWithWhereWithoutInventoriesInput, Prisma.ManufacturerUpdateWithoutInventoriesInput>, Prisma.ManufacturerUncheckedUpdateWithoutInventoriesInput>;
-};
 export type ManufacturerCreateWithoutProductsInput = {
     id?: string;
+    manufacturerId: string;
     email: string;
     password: string;
     name?: string | null;
@@ -410,10 +414,10 @@ export type ManufacturerCreateWithoutProductsInput = {
     status?: $Enums.StatusType | null;
     createdAt?: Date | string;
     updatedAt?: Date | string;
-    inventories?: Prisma.ManufacturerInventoryCreateNestedManyWithoutManufacturerInput;
 };
 export type ManufacturerUncheckedCreateWithoutProductsInput = {
     id?: string;
+    manufacturerId: string;
     email: string;
     password: string;
     name?: string | null;
@@ -423,7 +427,6 @@ export type ManufacturerUncheckedCreateWithoutProductsInput = {
     status?: $Enums.StatusType | null;
     createdAt?: Date | string;
     updatedAt?: Date | string;
-    inventories?: Prisma.ManufacturerInventoryUncheckedCreateNestedManyWithoutManufacturerInput;
 };
 export type ManufacturerCreateOrConnectWithoutProductsInput = {
     where: Prisma.ManufacturerWhereUniqueInput;
@@ -440,6 +443,7 @@ export type ManufacturerUpdateToOneWithWhereWithoutProductsInput = {
 };
 export type ManufacturerUpdateWithoutProductsInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
+    manufacturerId?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -449,10 +453,10 @@ export type ManufacturerUpdateWithoutProductsInput = {
     status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    inventories?: Prisma.ManufacturerInventoryUpdateManyWithoutManufacturerNestedInput;
 };
 export type ManufacturerUncheckedUpdateWithoutProductsInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
+    manufacturerId?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -462,83 +466,15 @@ export type ManufacturerUncheckedUpdateWithoutProductsInput = {
     status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    inventories?: Prisma.ManufacturerInventoryUncheckedUpdateManyWithoutManufacturerNestedInput;
-};
-export type ManufacturerCreateWithoutInventoriesInput = {
-    id?: string;
-    email: string;
-    password: string;
-    name?: string | null;
-    address?: string | null;
-    organization?: string | null;
-    isVerified?: boolean;
-    status?: $Enums.StatusType | null;
-    createdAt?: Date | string;
-    updatedAt?: Date | string;
-    products?: Prisma.ManufacturerProductCreateNestedManyWithoutManufacturerInput;
-};
-export type ManufacturerUncheckedCreateWithoutInventoriesInput = {
-    id?: string;
-    email: string;
-    password: string;
-    name?: string | null;
-    address?: string | null;
-    organization?: string | null;
-    isVerified?: boolean;
-    status?: $Enums.StatusType | null;
-    createdAt?: Date | string;
-    updatedAt?: Date | string;
-    products?: Prisma.ManufacturerProductUncheckedCreateNestedManyWithoutManufacturerInput;
-};
-export type ManufacturerCreateOrConnectWithoutInventoriesInput = {
-    where: Prisma.ManufacturerWhereUniqueInput;
-    create: Prisma.XOR<Prisma.ManufacturerCreateWithoutInventoriesInput, Prisma.ManufacturerUncheckedCreateWithoutInventoriesInput>;
-};
-export type ManufacturerUpsertWithoutInventoriesInput = {
-    update: Prisma.XOR<Prisma.ManufacturerUpdateWithoutInventoriesInput, Prisma.ManufacturerUncheckedUpdateWithoutInventoriesInput>;
-    create: Prisma.XOR<Prisma.ManufacturerCreateWithoutInventoriesInput, Prisma.ManufacturerUncheckedCreateWithoutInventoriesInput>;
-    where?: Prisma.ManufacturerWhereInput;
-};
-export type ManufacturerUpdateToOneWithWhereWithoutInventoriesInput = {
-    where?: Prisma.ManufacturerWhereInput;
-    data: Prisma.XOR<Prisma.ManufacturerUpdateWithoutInventoriesInput, Prisma.ManufacturerUncheckedUpdateWithoutInventoriesInput>;
-};
-export type ManufacturerUpdateWithoutInventoriesInput = {
-    id?: Prisma.StringFieldUpdateOperationsInput | string;
-    email?: Prisma.StringFieldUpdateOperationsInput | string;
-    password?: Prisma.StringFieldUpdateOperationsInput | string;
-    name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    organization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
-    status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
-    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    products?: Prisma.ManufacturerProductUpdateManyWithoutManufacturerNestedInput;
-};
-export type ManufacturerUncheckedUpdateWithoutInventoriesInput = {
-    id?: Prisma.StringFieldUpdateOperationsInput | string;
-    email?: Prisma.StringFieldUpdateOperationsInput | string;
-    password?: Prisma.StringFieldUpdateOperationsInput | string;
-    name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    organization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
-    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
-    status?: Prisma.NullableEnumStatusTypeFieldUpdateOperationsInput | $Enums.StatusType | null;
-    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    products?: Prisma.ManufacturerProductUncheckedUpdateManyWithoutManufacturerNestedInput;
 };
 /**
  * Count Type ManufacturerCountOutputType
  */
 export type ManufacturerCountOutputType = {
     products: number;
-    inventories: number;
 };
 export type ManufacturerCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     products?: boolean | ManufacturerCountOutputTypeCountProductsArgs;
-    inventories?: boolean | ManufacturerCountOutputTypeCountInventoriesArgs;
 };
 /**
  * ManufacturerCountOutputType without action
@@ -553,16 +489,11 @@ export type ManufacturerCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types
  * ManufacturerCountOutputType without action
  */
 export type ManufacturerCountOutputTypeCountProductsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-    where?: Prisma.ManufacturerProductWhereInput;
-};
-/**
- * ManufacturerCountOutputType without action
- */
-export type ManufacturerCountOutputTypeCountInventoriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-    where?: Prisma.ManufacturerInventoryWhereInput;
+    where?: Prisma.ProductWhereInput;
 };
 export type ManufacturerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
+    manufacturerId?: boolean;
     email?: boolean;
     password?: boolean;
     name?: boolean;
@@ -573,11 +504,11 @@ export type ManufacturerSelect<ExtArgs extends runtime.Types.Extensions.Internal
     createdAt?: boolean;
     updatedAt?: boolean;
     products?: boolean | Prisma.Manufacturer$productsArgs<ExtArgs>;
-    inventories?: boolean | Prisma.Manufacturer$inventoriesArgs<ExtArgs>;
     _count?: boolean | Prisma.ManufacturerCountOutputTypeDefaultArgs<ExtArgs>;
 }, ExtArgs["result"]["manufacturer"]>;
 export type ManufacturerSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
+    manufacturerId?: boolean;
     email?: boolean;
     password?: boolean;
     name?: boolean;
@@ -590,6 +521,7 @@ export type ManufacturerSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
 }, ExtArgs["result"]["manufacturer"]>;
 export type ManufacturerSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
+    manufacturerId?: boolean;
     email?: boolean;
     password?: boolean;
     name?: boolean;
@@ -602,6 +534,7 @@ export type ManufacturerSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
 }, ExtArgs["result"]["manufacturer"]>;
 export type ManufacturerSelectScalar = {
     id?: boolean;
+    manufacturerId?: boolean;
     email?: boolean;
     password?: boolean;
     name?: boolean;
@@ -612,10 +545,9 @@ export type ManufacturerSelectScalar = {
     createdAt?: boolean;
     updatedAt?: boolean;
 };
-export type ManufacturerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password" | "name" | "address" | "organization" | "isVerified" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["manufacturer"]>;
+export type ManufacturerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "manufacturerId" | "email" | "password" | "name" | "address" | "organization" | "isVerified" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["manufacturer"]>;
 export type ManufacturerInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     products?: boolean | Prisma.Manufacturer$productsArgs<ExtArgs>;
-    inventories?: boolean | Prisma.Manufacturer$inventoriesArgs<ExtArgs>;
     _count?: boolean | Prisma.ManufacturerCountOutputTypeDefaultArgs<ExtArgs>;
 };
 export type ManufacturerIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {};
@@ -623,11 +555,11 @@ export type ManufacturerIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types
 export type $ManufacturerPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     name: "Manufacturer";
     objects: {
-        products: Prisma.$ManufacturerProductPayload<ExtArgs>[];
-        inventories: Prisma.$ManufacturerInventoryPayload<ExtArgs>[];
+        products: Prisma.$ProductPayload<ExtArgs>[];
     };
     scalars: runtime.Types.Extensions.GetPayloadResult<{
         id: string;
+        manufacturerId: string;
         email: string;
         password: string;
         name: string | null;
@@ -966,8 +898,7 @@ export interface ManufacturerDelegate<ExtArgs extends runtime.Types.Extensions.I
  */
 export interface Prisma__ManufacturerClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise";
-    products<T extends Prisma.Manufacturer$productsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Manufacturer$productsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ManufacturerProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
-    inventories<T extends Prisma.Manufacturer$inventoriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Manufacturer$inventoriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ManufacturerInventoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    products<T extends Prisma.Manufacturer$productsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Manufacturer$productsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -994,6 +925,7 @@ export interface Prisma__ManufacturerClient<T, Null = never, ExtArgs extends run
  */
 export interface ManufacturerFieldRefs {
     readonly id: Prisma.FieldRef<"Manufacturer", 'String'>;
+    readonly manufacturerId: Prisma.FieldRef<"Manufacturer", 'String'>;
     readonly email: Prisma.FieldRef<"Manufacturer", 'String'>;
     readonly password: Prisma.FieldRef<"Manufacturer", 'String'>;
     readonly name: Prisma.FieldRef<"Manufacturer", 'String'>;
@@ -1378,46 +1310,23 @@ export type ManufacturerDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.
  */
 export type Manufacturer$productsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ManufacturerProduct
+     * Select specific fields to fetch from the Product
      */
-    select?: Prisma.ManufacturerProductSelect<ExtArgs> | null;
+    select?: Prisma.ProductSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the ManufacturerProduct
+     * Omit specific fields from the Product
      */
-    omit?: Prisma.ManufacturerProductOmit<ExtArgs> | null;
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: Prisma.ManufacturerProductInclude<ExtArgs> | null;
-    where?: Prisma.ManufacturerProductWhereInput;
-    orderBy?: Prisma.ManufacturerProductOrderByWithRelationInput | Prisma.ManufacturerProductOrderByWithRelationInput[];
-    cursor?: Prisma.ManufacturerProductWhereUniqueInput;
-    take?: number;
-    skip?: number;
-    distinct?: Prisma.ManufacturerProductScalarFieldEnum | Prisma.ManufacturerProductScalarFieldEnum[];
-};
-/**
- * Manufacturer.inventories
- */
-export type Manufacturer$inventoriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ManufacturerInventory
-     */
-    select?: Prisma.ManufacturerInventorySelect<ExtArgs> | null;
-    /**
-     * Omit specific fields from the ManufacturerInventory
-     */
-    omit?: Prisma.ManufacturerInventoryOmit<ExtArgs> | null;
+    omit?: Prisma.ProductOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Prisma.ManufacturerInventoryInclude<ExtArgs> | null;
-    where?: Prisma.ManufacturerInventoryWhereInput;
-    orderBy?: Prisma.ManufacturerInventoryOrderByWithRelationInput | Prisma.ManufacturerInventoryOrderByWithRelationInput[];
-    cursor?: Prisma.ManufacturerInventoryWhereUniqueInput;
+    include?: Prisma.ProductInclude<ExtArgs> | null;
+    where?: Prisma.ProductWhereInput;
+    orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[];
+    cursor?: Prisma.ProductWhereUniqueInput;
     take?: number;
     skip?: number;
-    distinct?: Prisma.ManufacturerInventoryScalarFieldEnum | Prisma.ManufacturerInventoryScalarFieldEnum[];
+    distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[];
 };
 /**
  * Manufacturer without action

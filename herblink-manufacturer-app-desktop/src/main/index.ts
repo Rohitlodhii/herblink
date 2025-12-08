@@ -1,6 +1,7 @@
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import { promises as fs } from 'fs'
 import icon from '../../resources/icon.png?asset'
 
 function createWindow(): void {
@@ -28,10 +29,14 @@ function createWindow(): void {
 
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
+  // For now, load login.html initially
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
-    mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
+    // In dev mode, load from source directory
+    const appPath = app.getAppPath()
+    mainWindow.loadFile(join(appPath, 'src/renderer/login.html'))
   } else {
-    mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
+    // In production, load from the built renderer directory
+    mainWindow.loadFile(join(__dirname, '../renderer/login.html'))
   }
 }
 
@@ -51,6 +56,32 @@ app.whenReady().then(() => {
 
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
+
+  // IPC handlers for token storage
+  ipcMain.handle('save-token', async (_event, token: string) => {
+    try {
+      const userDataPath = app.getPath('userData')
+      const tokenPath = join(userDataPath, 'auth-token.json')
+      await fs.writeFile(tokenPath, JSON.stringify({ token }), 'utf8')
+      return { success: true }
+    } catch (error) {
+      console.error('Error saving token:', error)
+      return { success: false, error: error instanceof Error ? error.message : 'Unknown error' }
+    }
+  })
+
+  ipcMain.handle('get-token', async () => {
+    try {
+      const userDataPath = app.getPath('userData')
+      const tokenPath = join(userDataPath, 'auth-token.json')
+      const data = await fs.readFile(tokenPath, 'utf8')
+      const parsed = JSON.parse(data)
+      return { success: true, token: parsed.token }
+    } catch (error) {
+      // File doesn't exist or other error
+      return { success: false, error: error instanceof Error ? error.message : 'Unknown error' }
+    }
+  })
 
   createWindow()
 

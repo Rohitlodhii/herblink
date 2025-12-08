@@ -11,7 +11,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-   url      = env("DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
 //enums
@@ -22,7 +22,7 @@ enum RoleType {
 }
 
 enum orgType {
-  GOVT 
+  GOVT
   PVT
 }
 
@@ -44,270 +44,248 @@ enum FarmerType {
   FARMER
 }
 
-
 //Farmers Model
 
-
 model Farmer {
-  id String @id @default(uuid())
-  mobileNumber String @unique
+  id                   String  @id @default(uuid())
+  mobileNumber         String  @unique
   mobileNumberVerified Boolean @default(false)
 
-  farmerID  String? @unique
-  password  String?
+  farmerID String? @unique
+  password String?
 
-  fullName  String?
-  dob       String?
-  address   String?
-  fatherName String?
-  gender String?
-  aadharNumber String? @unique
+  fullName     String?
+  dob          String?
+  address      String?
+  fatherName   String?
+  gender       String?
+  aadharNumber String?    @unique
   annualIncome String?
-  farmerType FarmerType @default(FARMER)
+  farmerType   FarmerType @default(FARMER)
 
-
-  status    StatusType?
-  isVerified  Boolean @default(false)
-  isProfileCompleted Boolean @default(false)
-
+  status             StatusType?
+  isVerified         Boolean     @default(false)
+  isProfileCompleted Boolean     @default(false)
 
   landInfo  LandInfo[]
   documents Document[]
   herbData  HerbData[]
 
-  
-
   createdAt DateTime @default(now())
-  updateAt DateTime @default(now())
+  updateAt  DateTime @default(now())
 }
 
-
 model LandInfo {
-  id String @id @default(uuid())
-  totalHectare  Float
-  khasraNumber  String
-  coordinates Json?
+  id              String  @id @default(uuid())
+  totalHectare    Float
+  khasraNumber    String
+  coordinates     Json?
   kisanCardNumber String? @unique
 
-  farmerID String 
-  famer Farmer @relation(fields: [farmerID] , references: [id])
+  farmerID String
+  famer    Farmer @relation(fields: [farmerID], references: [id])
 }
 
 model HerbData {
-  id String @id @default(uuid())
-  herbname String
-  harvestDate String
-  coordinates String
-  pesticidesUsed  Boolean @default(false)
-  quantity  String
-  desc  String
+  id             String  @id @default(uuid())
+  herbname       String
+  harvestDate    String
+  coordinates    String
+  pesticidesUsed Boolean @default(false)
+  quantity       String
+  desc           String
 
-  farmerID String 
-  farmer Farmer @relation(fields: [farmerID], references: [id])
+  farmerID String
+  farmer   Farmer @relation(fields: [farmerID], references: [id])
 }
-
-
 
 model Document {
-  id String @id @default(uuid())
+  id   String       @id @default(uuid())
   type DocumentType
-  url String
+  url  String
 
-  farmerID String 
-  famer Farmer @relation(fields: [farmerID] , references: [id])
+  farmerID String
+  famer    Farmer @relation(fields: [farmerID], references: [id])
 }
-
-
 
 model OTP {
-  id         String   @id @default(uuid())
-  mobile     String
-  otp        String
-  expiresAt  DateTime
-  verified   Boolean  @default(false)
-  createdAt  DateTime @default(now())
+  id        String   @id @default(uuid())
+  mobile    String
+  otp       String
+  expiresAt DateTime
+  verified  Boolean  @default(false)
+  createdAt DateTime @default(now())
 }
 
-
 model Lab {
-  id  String @unique @default(uuid())
-  labId String? @unique
-  password  String @unique
-  email   String @unique
-  labinfo   LabInfo?
+  id       String   @unique @default(uuid())
+  labId    String?  @unique
+  password String   @unique
+  email    String   @unique
+  labinfo  LabInfo?
 
-  LabWorkers  LabWorker[] 
+  LabWorkers         LabWorker[]
   LabProcessorInputs LabProcessorInput[]
 }
 
-
 model LabInfo {
-  id String @unique @default(uuid())
+  id    String @unique @default(uuid())
   labID String @unique
 
-  address String?
-  type    orgType?
-  labName String?
-  nablCertificateNo String? @unique
-  nablExp   String?
-  isFssaiReg  Boolean @default(false)
-  fssaiRegNo  String? @unique
-  
-  about     String?
-  labId Lab @relation(fields: [labID] , references: [id])
+  address           String?
+  type              orgType?
+  labName           String?
+  nablCertificateNo String?  @unique
+  nablExp           String?
+  isFssaiReg        Boolean  @default(false)
+  fssaiRegNo        String?  @unique
+
+  about String?
+  labId Lab     @relation(fields: [labID], references: [id])
 }
- 
 
 model LabWorker {
-  id String @unique @default(uuid())
-  name  String
-  workerId   String @unique
-  role    RoleType 
-  desc    String?
-  
-  labID   String
-  labId   Lab   @relation(fields: [labID] , references: [id])
+  id       String   @unique @default(uuid())
+  name     String
+  workerId String   @unique
+  role     RoleType
+  desc     String?
+
+  labID String
+  labId Lab    @relation(fields: [labID], references: [id])
 }
 
 model LabProcessorInput {
-  id String @id @default(uuid())
-  labId String
-  lab Lab @relation(fields: [labId] , references: [id])
+  id                   String             @id @default(uuid())
+  labId                String
+  lab                  Lab                @relation(fields: [labId], references: [id])
   processorInventoryId String
-  processorInventory ProcessorInventory @relation(fields: [processorInventoryId] , references: [id])
-  
+  processorInventory   ProcessorInventory @relation(fields: [processorInventoryId], references: [id])
 
   reportpath String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
-
-
 
 // Processor Model
 model Processor {
-  id           String   @id @default(uuid())
-  processorId  String   @unique
-  email        String   @unique
-  password     String
+  id          String @id @default(uuid())
+  processorId String @unique
+  email       String @unique
+  password    String
 
   name         String?
   address      String?
   organization String?
 
-  isVerified   Boolean   @default(false)
-  status       StatusType? 
+  isVerified Boolean     @default(false)
+  status     StatusType?
 
-  inventory     ProcessorInventory[]
-  plantInfo     ProcessingPlantInfo?
+  inventory ProcessorInventory[]
+  plantInfo ProcessingPlantInfo?
 
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-}
-
-model ProcessingPlantInfo {
-  id           String   @id @default(uuid())
-  processorID   String   @unique
-  processorid   Processor @relation(fields: [processorID] ,references: [id])
-
-  estb  String
-  GSTIN String
-  Storage String
-  herbs   String
-
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-}
-
-
-model ProcessorInventory {
-  id  String @id @default(uuid())
-  processorID   String
-  processorid   Processor @relation(fields: [processorID] ,references: [id])
-
-  inventoryName String
-  assignedGrade String
-  isprocessingDone  Boolean @default(false)
-  processinglist  String?
-
-  Items ProcessorFarmerInput[]
-  specie       String
-  
-  finalQuantity String
-  
-  sendedToLab   String
-
-  LabProcessorInputs LabProcessorInput[]
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt 
-  
-}
-
-model ProcessorFarmerInput {
-   id String @id @default(uuid())
-   inventoryID   String
-   inventory     ProcessorInventory @relation(fields: [inventoryID] ,references: [id])
-  quantity  String
-  eventId   String  @unique
-  specie  String
-
-
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-
-} 
-
-
-
-model Manufacturer {
-  id String @id @default(uuid())
-  manufacturerId String @unique
-  email String @unique
-  password String
-  name String?
-  address String?
-  organization String?
-  isVerified Boolean @default(false)
-  status StatusType?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
+model ProcessingPlantInfo {
+  id          String    @id @default(uuid())
+  processorID String    @unique
+  processorid Processor @relation(fields: [processorID], references: [id])
+
+  estb    String
+  GSTIN   String
+  Storage String
+  herbs   String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ProcessorInventory {
+  id          String    @id @default(uuid())
+  processorID String
+  processorid Processor @relation(fields: [processorID], references: [id])
+
+  inventoryName    String
+  assignedGrade    String
+  isprocessingDone Boolean @default(false)
+  processinglist   String?
+
+  Items  ProcessorFarmerInput[]
+  specie String
+
+  finalQuantity String
+
+  sendedToLab String
+
+  LabProcessorInputs LabProcessorInput[]
+  HerbInventories    HerbInventory[]
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+}
+
+model ProcessorFarmerInput {
+  id          String             @id @default(uuid())
+  inventoryID String
+  inventory   ProcessorInventory @relation(fields: [inventoryID], references: [id])
+  quantity    String
+  eventId     String             @unique
+  specie      String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Manufacturer {
+  id             String      @id @default(uuid())
+  manufacturerId String      @unique
+  email          String      @unique
+  password       String
+  name           String?
+  address        String?
+  organization   String?
+  isVerified     Boolean     @default(false)
+  status         StatusType?
+  products       Product[]
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+}
+
 model Product {
-  id String @id @default(uuid())
-  manufacturerId String
-  manufacturer Manufacturer @relation(fields: [manufacturerId] , references: [id])
-  productName String
+  id                 String             @id @default(uuid())
+  manufacturerId     String
+  manufacturer       Manufacturer       @relation(fields: [manufacturerId], references: [id])
+  productName        String
   productDescription String?
-  productImage String?
-  productionDate String?
-  productionBatch String?
-  Inventories ProductInventory[]
-  
+  productImage       String?
+  productionDate     String?
+  productionBatch    String?
+  Inventories        ProductInventory[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model ProductInventory {
-  id String @id @default(uuid())
+  id        String  @id @default(uuid())
   productId String
-  product Product @relation(fields: [productId] , references: [id])
-  HerbName String
+  product   Product @relation(fields: [productId], references: [id])
+  HerbName  String
 
-  herbInventoryId String
+  herbInventoryId String        @unique
+  herbInventory   HerbInventory @relation(fields: [herbInventoryId], references: [id])
 
-  
-  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model HerbInventory {
-  id String @id @default(uuid())
+  id                   String             @id @default(uuid())
   processorInventoryId String
-  processorInventory ProcessorInventory @relation(fields: [processorInventoryId] , references: [id])
-  quantityReceived String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  processorInventory   ProcessorInventory @relation(fields: [processorInventoryId], references: [id])
+  quantityReceived     String
+  productInventory     ProductInventory?
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
 }

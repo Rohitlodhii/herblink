@@ -1,0 +1,225 @@
+import db from "../../config/db.js";
+import logger from "../../config/logger.js";
+export async function createProductInventory(req, res) {
+    try {
+        const userId = req.userId;
+        if (!userId) {
+            return res.status(401).json({ msg: "Unauthorized" });
+        }
+        const { productId, HerbName, herbInventoryId } = req.body;
+        if (!productId || !HerbName || !herbInventoryId) {
+            return res.status(400).json({
+                msg: "productId, HerbName, and herbInventoryId are required",
+            });
+        }
+        // Verify product belongs to manufacturer
+        const product = await db.product.findFirst({
+            where: { id: productId, manufacturerId: userId },
+        });
+        if (!product) {
+            return res.status(404).json({ msg: "Product not found for manufacturer" });
+        }
+        // Verify herbInventory exists
+        const herbInventory = await db.herbInventory.findUnique({
+            where: { id: herbInventoryId },
+        });
+        if (!herbInventory) {
+            return res.status(404).json({ msg: "HerbInventory not found" });
+        }
+        const result = await db.productInventory.create({
+            data: {
+                productId,
+                HerbName,
+                herbInventoryId,
+            },
+        });
+        return res.status(201).json({
+            msg: "Product inventory created successfully",
+            data: result,
+        });
+    }
+    catch (error) {
+        logger.error("manufacturer_productinventory_create_error", {
+            error: error.message,
+            stack: error.stack,
+        });
+        return res.status(500).json({ msg: "Internal Server error" });
+    }
+}
+export async function listProductInventories(req, res) {
+    try {
+        const userId = req.userId;
+        const { productId } = req.params;
+        if (!userId) {
+            return res.status(401).json({ msg: "Unauthorized" });
+        }
+        if (!productId) {
+            return res.status(400).json({ msg: "productId is required" });
+        }
+        // Verify product belongs to manufacturer
+        const product = await db.product.findFirst({
+            where: { id: productId, manufacturerId: userId },
+        });
+        if (!product) {
+            return res.status(404).json({ msg: "Product not found for manufacturer" });
+        }
+        const inventories = await db.productInventory.findMany({
+            where: { productId: productId },
+            include: {
+                herbInventory: {
+                    include: {
+                        processorInventory: true,
+                    },
+                },
+            },
+            orderBy: { createdAt: "desc" },
+        });
+        return res.status(200).json({
+            msg: "Product inventories fetched successfully",
+            data: inventories,
+        });
+    }
+    catch (error) {
+        logger.error("manufacturer_productinventory_list_error", {
+            error: error.message,
+            stack: error.stack,
+        });
+        return res.status(500).json({ msg: "Internal Server error" });
+    }
+}
+export async function getProductInventoryById(req, res) {
+    try {
+        const userId = req.userId;
+        const { id } = req.params;
+        if (!userId) {
+            return res.status(401).json({ msg: "Unauthorized" });
+        }
+        if (!id) {
+            return res.status(400).json({ msg: "id is required" });
+        }
+        const inventory = await db.productInventory.findUnique({
+            where: { id: id },
+            include: {
+                product: true,
+                herbInventory: {
+                    include: {
+                        processorInventory: true,
+                    },
+                },
+            },
+        });
+        if (!inventory) {
+            return res.status(404).json({ msg: "Product inventory not found" });
+        }
+        // Verify product belongs to manufacturer
+        if (inventory.product.manufacturerId !== userId) {
+            return res.status(403).json({
+                msg: "You are not authorized to view this product inventory",
+            });
+        }
+        return res.status(200).json({
+            msg: "Product inventory fetched successfully",
+            data: inventory,
+        });
+    }
+    catch (error) {
+        logger.error("manufacturer_productinventory_get_error", {
+            error: error.message,
+            stack: error.stack,
+        });
+        return res.status(500).json({ msg: "Internal Server error" });
+    }
+}
+export async function updateProductInventory(req, res) {
+    try {
+        const userId = req.userId;
+        const { id } = req.params;
+        const { HerbName, herbInventoryId } = req.body;
+        if (!userId) {
+            return res.status(401).json({ msg: "Unauthorized" });
+        }
+        if (!id) {
+            return res.status(400).json({ msg: "id is required" });
+        }
+        const inventory = await db.productInventory.findUnique({
+            where: { id: id },
+            include: { product: true },
+        });
+        if (!inventory) {
+            return res.status(404).json({ msg: "Product inventory not found" });
+        }
+        // Verify product belongs to manufacturer
+        if (inventory.product.manufacturerId !== userId) {
+            return res.status(403).json({
+                msg: "You are not authorized to update this product inventory",
+            });
+        }
+        const updateData = {};
+        if (HerbName !== undefined)
+            updateData.HerbName = HerbName;
+        if (herbInventoryId !== undefined) {
+            // Verify herbInventory exists
+            const herbInventory = await db.herbInventory.findUnique({
+                where: { id: herbInventoryId },
+            });
+            if (!herbInventory) {
+                return res.status(404).json({ msg: "HerbInventory not found" });
+            }
+            updateData.herbInventoryId = herbInventoryId;
+        }
+        const result = await db.productInventory.update({
+            where: { id: id },
+            data: updateData,
+        });
+        return res.status(200).json({
+            msg: "Product inventory updated successfully",
+            data: result,
+        });
+    }
+    catch (error) {
+        logger.error("manufacturer_productinventory_update_error", {
+            error: error.message,
+            stack: error.stack,
+        });
+        return res.status(500).json({ msg: "Internal Server error" });
+    }
+}
+export async function deleteProductInventory(req, res) {
+    try {
+        const userId = req.userId;
+        const { id } = req.params;
+        if (!userId) {
+            return res.status(401).json({ msg: "Unauthorized" });
+        }
+        if (!id) {
+            return res.status(400).json({ msg: "id is required" });
+        }
+        const inventory = await db.productInventory.findUnique({
+            where: { id: id },
+            include: { product: true },
+        });
+        if (!inventory) {
+            return res.status(404).json({ msg: "Product inventory not found" });
+        }
+        // Verify product belongs to manufacturer
+        if (inventory.product.manufacturerId !== userId) {
+            return res.status(403).json({
+                msg: "You are not authorized to delete this product inventory",
+            });
+        }
+        await db.productInventory.delete({
+            where: { id: id },
+        });
+        return res.status(200).json({
+            msg: "Product inventory deleted successfully",
+        });
+    }
+    catch (error) {
+        logger.error("manufacturer_productinventory_delete_error", {
+            error: error.message,
+            stack: error.stack,
+        });
+        return res.status(500).json({ msg: "Internal Server error" });
+    }
+}
+//# sourceMappingURL=manufacturer.productInventory.js.map

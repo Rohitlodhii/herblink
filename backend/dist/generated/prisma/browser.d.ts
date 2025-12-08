@@ -73,13 +73,18 @@ export type ProcessorFarmerInput = Prisma.ProcessorFarmerInputModel;
  */
 export type Manufacturer = Prisma.ManufacturerModel;
 /**
- * Model ManufacturerProduct
+ * Model Product
  *
  */
-export type ManufacturerProduct = Prisma.ManufacturerProductModel;
+export type Product = Prisma.ProductModel;
 /**
- * Model ManufacturerInventory
+ * Model ProductInventory
  *
  */
-export type ManufacturerInventory = Prisma.ManufacturerInventoryModel;
+export type ProductInventory = Prisma.ProductInventoryModel;
+/**
+ * Model HerbInventory
+ *
+ */
+export type HerbInventory = Prisma.HerbInventoryModel;
 //# sourceMappingURL=browser.d.ts.map
