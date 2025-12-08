@@ -68,3 +68,4 @@ Unique constraint failed on the fields: (`farmerID`)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async FarmerLogin (file:///C:/herblinkpro/backend/dist/controllers/farmer/auth.farmer.js:80:9)
 2025-11-25 16:26:49 [[33mwarn[39m]: Farmer_not_exist 919009908984
+2025-12-08 10:08:59 [[32minfo[39m]: Farmer_AddLandInfo_Success 728b6bd9-6de4-4814-b74e-a26e63b11421

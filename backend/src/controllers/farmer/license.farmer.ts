@@ -9,13 +9,23 @@ const bcryptHash = new PasswordHash() ;
 
 export async function addPersonalInfoFarmer(req : AuthenticatedRequest ,res :Response) {
     try {
-        const { fullname , dob, address , password  } = req.body;  
+        const { 
+            fullname, 
+            dob, 
+            address, 
+            password,
+            fatherName,
+            gender,
+            aadharNumber,
+            annualIncome,
+            farmerType
+        } = req.body;  
         const userId = req.userId;
 
-        if(!userId || !fullname || !dob || !password || !address ){
+        if(!userId || !fullname || !dob || !password || !address || !farmerType){
             logger.warn(`Farmer_AddPersonalInfo_Field_Not_Found ${userId || "unknownuser"}`);
             return res.status(404).json({
-                msg : "All fields are required"
+                msg : "All required fields are missing (fullname, dob, address, password, farmerType)"
             })
         };
 
@@ -43,6 +53,11 @@ export async function addPersonalInfoFarmer(req : AuthenticatedRequest ,res :Res
                 dob : dob ,
                 address : address ,
                 password : hashedPassword ,
+                fatherName : fatherName || null,
+                gender : gender || null,
+                aadharNumber : aadharNumber || null,
+                annualIncome : annualIncome || null,
+                farmerType : farmerType,
             }
         })
 

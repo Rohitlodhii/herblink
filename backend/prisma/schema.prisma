@@ -39,6 +39,11 @@ enum StatusType {
   rejected
 }
 
+enum FarmerType {
+  WILDCOLLECTOR
+  FARMER
+}
+
 
 //Farmers Model
 
@@ -54,6 +59,12 @@ model Farmer {
   fullName  String?
   dob       String?
   address   String?
+  fatherName String?
+  gender String?
+  aadharNumber String? @unique
+  annualIncome String?
+  farmerType FarmerType
+
 
   status    StatusType?
   isVerified  Boolean @default(false)
@@ -76,6 +87,7 @@ model LandInfo {
   totalHectare  Float
   khasraNumber  String
   coordinates Json?
+  kisanCardNumber String? @unique
 
   farmerID String 
   famer Farmer @relation(fields: [farmerID] , references: [id])

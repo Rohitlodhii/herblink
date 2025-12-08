@@ -11,10 +11,17 @@ export class FarmerLicense  {
     static async addPersonalInfo( values : z.infer<typeof PersonalInfoSchema>) {
         try {
             const res = await api.post(`${this.base}/personalInfo` , {
+                // Required fields
                 fullname : values.fullname,
                 dob : values.dob,
                 address : values.address,
-                password : values.password
+                password : values.password,
+                farmerType : values.farmerType,
+                // Optional fields
+                ...(values.fatherName && { fatherName: values.fatherName }),
+                ...(values.gender && { gender: values.gender }),
+                ...(values.aadharNumber && { aadharNumber: values.aadharNumber }),
+                ...(values.annualIncome && { annualIncome: values.annualIncome }),
             });
 
             return res.data;

@@ -23,7 +23,7 @@ const FarmerDashboardMain = ({ user }: SidebarProps) => {
             } Content={FarmerDrawer} />
              
        </div>
-       <div className="h-full w-full p-4 overflow-y-scroll thin-scrollbar mb-20 ">
+       <div className="h-full w-full p-4 overflow-y-scroll thin-scrollbar pt-20 ">
        {activeSection === "home" && <FarmerHomePage />}
        {activeSection === "personal" && <PersonalInfoForm />}
        {activeSection === "land" && <LandInfoSection />}
