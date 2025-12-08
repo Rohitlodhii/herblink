@@ -63,7 +63,7 @@ model Farmer {
   gender String?
   aadharNumber String? @unique
   annualIncome String?
-  farmerType FarmerType
+  farmerType FarmerType @default(FARMER)
 
 
   status    StatusType?
@@ -136,8 +136,8 @@ model Lab {
   email   String @unique
   labinfo   LabInfo?
 
-
   LabWorkers  LabWorker[] 
+  LabProcessorInputs LabProcessorInput[]
 }
 
 
@@ -168,6 +168,20 @@ model LabWorker {
   labID   String
   labId   Lab   @relation(fields: [labID] , references: [id])
 }
+
+model LabProcessorInput {
+  id String @id @default(uuid())
+  labId String
+  lab Lab @relation(fields: [labId] , references: [id])
+  processorInventoryId String
+  processorInventory ProcessorInventory @relation(fields: [processorInventoryId] , references: [id])
+  
+
+  reportpath String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 
 
 // Processor Model
@@ -223,6 +237,7 @@ model ProcessorInventory {
   
   sendedToLab   String
 
+  LabProcessorInputs LabProcessorInput[]
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt 
   
@@ -242,3 +257,45 @@ model ProcessorFarmerInput {
 
 } 
 
+
+model Manufacturer { 
+  id String @id @default(uuid())
+  manufacturerId String @unique
+  email String @unique
+  password String
+  name String?
+  address String?
+  organization String?
+  isVerified Boolean @default(false)
+  status StatusType?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ManufacturerInventory {
+  id String @id @default(uuid())
+  manufacturerId String
+  manufacturer Manufacturer @relation(fields: [manufacturerId] , references: [id])
+  inventoryName String
+  assignedGrade String
+  isprocessingDone Boolean @default(false)
+  processinglist String?
+}
+
+model ManufacturerFarmerInput {
+  id String @id @default(uuid())
+  manufacturerInventoryId String
+  manufacturerInventory ManufacturerInventory @relation(fields: [manufacturerInventoryId] , references: [id])
+  quantity String
+  eventId String @unique
+  specie String
+}
+
+model ManufacturerProcessorInput {
+  id String @id @default(uuid())
+  manufacturerInventoryId String
+  manufacturerInventory ManufacturerInventory @relation(fields: [manufacturerInventoryId] , references: [id])
+  quantity String
+  eventId String @unique
+  specie String
+}

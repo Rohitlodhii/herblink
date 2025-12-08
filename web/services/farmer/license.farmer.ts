@@ -8,6 +8,59 @@ import z from "zod";
 export class FarmerLicense  {
     private static base = '/farmer/license' 
 
+    static async applyLicense() {
+      try {
+        const res = await api.post(`${this.base}/apply`);
+    
+        return res.data;
+      } catch (error: any) {
+        console.error("Error applying for farmer license:", error.response?.data || error.message);
+    
+        if (error.response?.data?.msg) {
+          return { msg: error.response.data.msg };
+        }
+    
+        throw new Error("Failed to apply for farmer license");
+      }
+    }
+    
+
+    static async checkProfileCompleted() {
+      try {
+        const res = await api.get(`${this.base}/checkProfileCompleted`);
+    
+        return res.data; 
+      } catch (error: any) {
+        console.error("Error checking profile completion:", error.response?.data || error.message);
+    
+        if (error.response?.data?.msg) {
+          return { msg: error.response.data.msg };
+        }
+    
+        throw new Error("Failed to check profile completion status");
+      }
+    }
+    static async checkVerificationStatus() {
+      try {
+        const res = await api.get(`${this.base}/checkProfileCompleted`);
+    
+        return res.data; 
+      } catch (error: any) {
+        console.error("Error checking profile completion:", error.response?.data || error.message);
+    
+        if (error.response?.data?.msg) {
+          return { msg: error.response.data.msg };
+        }
+    
+        throw new Error("Failed to check profile completion status");
+      }
+    }
+
+    
+    
+
+    
+
     static async addPersonalInfo( values : z.infer<typeof PersonalInfoSchema>) {
         try {
             const res = await api.post(`${this.base}/personalInfo` , {
@@ -60,7 +113,23 @@ static async addLandInfo( values : z.infer<typeof FarmSchema>){
     }
   }
 
+  static async getVerificationStatus(farmerId: string) {
+    try {
+      const res = await api.get(`${this.base}/verificationStatus/${farmerId}`);
+  
+      return res.data;
+    } catch (error: any) {
+      console.error("Error fetching verification status:", error.response?.data || error.message);
+  
+      if (error.response?.data?.msg) {
+        return { msg: error.response.data.msg };
+      }
+  
+      throw new Error("Failed to fetch verification status");
+    }
+  }
 
 
 
 } 
+

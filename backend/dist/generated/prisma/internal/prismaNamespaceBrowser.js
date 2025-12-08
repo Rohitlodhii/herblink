@@ -70,6 +70,11 @@ export const FarmerScalarFieldEnum = {
     fullName: 'fullName',
     dob: 'dob',
     address: 'address',
+    fatherName: 'fatherName',
+    gender: 'gender',
+    aadharNumber: 'aadharNumber',
+    annualIncome: 'annualIncome',
+    farmerType: 'farmerType',
     status: 'status',
     isVerified: 'isVerified',
     isProfileCompleted: 'isProfileCompleted',
@@ -81,6 +86,7 @@ export const LandInfoScalarFieldEnum = {
     totalHectare: 'totalHectare',
     khasraNumber: 'khasraNumber',
     coordinates: 'coordinates',
+    kisanCardNumber: 'kisanCardNumber',
     farmerID: 'farmerID'
 };
 export const HerbDataScalarFieldEnum = {

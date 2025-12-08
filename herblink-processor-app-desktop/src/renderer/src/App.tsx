@@ -1,34 +1,44 @@
-import Versions from './components/Versions'
-import electronLogo from './assets/electron.svg'
+import type { ReactElement } from 'react'
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { AuthProvider, useAuth } from './context/AuthContext'
+import InventoryDetailPage from './pages/InventoryDetailPage'
+import InventoryPage from './pages/InventoryPage'
+import LoginPage from './pages/LoginPage'
 
-function App(): React.JSX.Element {
-  const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
+function ProtectedRoute({ children }: { children: ReactElement }): ReactElement {
+  const { token } = useAuth()
+  if (!token) {
+    return <Navigate to="/" replace />
+  }
+  return children
+}
 
+function App(): ReactElement {
   return (
-    <>
-      <img alt="logo" className="logo" src={electronLogo} />
-      <div className="creator">Powered by electron-vite</div>
-      <div className="text">
-        Build an Electron app with <span className="react">React</span>
-        &nbsp;and <span className="ts">TypeScript</span>
-      </div>
-      <p className="tip">
-        Please try pressing <code>F12</code> to open the devTool
-      </p>
-      <div className="actions">
-        <div className="action">
-          <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">
-            Documentation
-          </a>
-        </div>
-        <div className="action">
-          <a target="_blank" rel="noreferrer" onClick={ipcHandle}>
-            Send IPC
-          </a>
-        </div>
-      </div>
-      <Versions></Versions>
-    </>
+    <AuthProvider>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route
+            path="/inventory"
+            element={
+              <ProtectedRoute>
+                <InventoryPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/inventory/:id"
+            element={
+              <ProtectedRoute>
+                <InventoryDetailPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </HashRouter>
+    </AuthProvider>
   )
 }
 

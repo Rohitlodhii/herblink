@@ -22,12 +22,14 @@ export type LandInfoMinAggregateOutputType = {
     id: string | null;
     totalHectare: number | null;
     khasraNumber: string | null;
+    kisanCardNumber: string | null;
     farmerID: string | null;
 };
 export type LandInfoMaxAggregateOutputType = {
     id: string | null;
     totalHectare: number | null;
     khasraNumber: string | null;
+    kisanCardNumber: string | null;
     farmerID: string | null;
 };
 export type LandInfoCountAggregateOutputType = {
@@ -35,6 +37,7 @@ export type LandInfoCountAggregateOutputType = {
     totalHectare: number;
     khasraNumber: number;
     coordinates: number;
+    kisanCardNumber: number;
     farmerID: number;
     _all: number;
 };
@@ -48,12 +51,14 @@ export type LandInfoMinAggregateInputType = {
     id?: true;
     totalHectare?: true;
     khasraNumber?: true;
+    kisanCardNumber?: true;
     farmerID?: true;
 };
 export type LandInfoMaxAggregateInputType = {
     id?: true;
     totalHectare?: true;
     khasraNumber?: true;
+    kisanCardNumber?: true;
     farmerID?: true;
 };
 export type LandInfoCountAggregateInputType = {
@@ -61,6 +66,7 @@ export type LandInfoCountAggregateInputType = {
     totalHectare?: true;
     khasraNumber?: true;
     coordinates?: true;
+    kisanCardNumber?: true;
     farmerID?: true;
     _all?: true;
 };
@@ -145,6 +151,7 @@ export type LandInfoGroupByOutputType = {
     totalHectare: number;
     khasraNumber: string;
     coordinates: runtime.JsonValue | null;
+    kisanCardNumber: string | null;
     farmerID: string;
     _count: LandInfoCountAggregateOutputType | null;
     _avg: LandInfoAvgAggregateOutputType | null;
@@ -163,6 +170,7 @@ export type LandInfoWhereInput = {
     totalHectare?: Prisma.FloatFilter<"LandInfo"> | number;
     khasraNumber?: Prisma.StringFilter<"LandInfo"> | string;
     coordinates?: Prisma.JsonNullableFilter<"LandInfo">;
+    kisanCardNumber?: Prisma.StringNullableFilter<"LandInfo"> | string | null;
     farmerID?: Prisma.StringFilter<"LandInfo"> | string;
     famer?: Prisma.XOR<Prisma.FarmerScalarRelationFilter, Prisma.FarmerWhereInput>;
 };
@@ -171,11 +179,13 @@ export type LandInfoOrderByWithRelationInput = {
     totalHectare?: Prisma.SortOrder;
     khasraNumber?: Prisma.SortOrder;
     coordinates?: Prisma.SortOrderInput | Prisma.SortOrder;
+    kisanCardNumber?: Prisma.SortOrderInput | Prisma.SortOrder;
     farmerID?: Prisma.SortOrder;
     famer?: Prisma.FarmerOrderByWithRelationInput;
 };
 export type LandInfoWhereUniqueInput = Prisma.AtLeast<{
     id?: string;
+    kisanCardNumber?: string;
     AND?: Prisma.LandInfoWhereInput | Prisma.LandInfoWhereInput[];
     OR?: Prisma.LandInfoWhereInput[];
     NOT?: Prisma.LandInfoWhereInput | Prisma.LandInfoWhereInput[];
@@ -184,12 +194,13 @@ export type LandInfoWhereUniqueInput = Prisma.AtLeast<{
     coordinates?: Prisma.JsonNullableFilter<"LandInfo">;
     farmerID?: Prisma.StringFilter<"LandInfo"> | string;
     famer?: Prisma.XOR<Prisma.FarmerScalarRelationFilter, Prisma.FarmerWhereInput>;
-}, "id">;
+}, "id" | "kisanCardNumber">;
 export type LandInfoOrderByWithAggregationInput = {
     id?: Prisma.SortOrder;
     totalHectare?: Prisma.SortOrder;
     khasraNumber?: Prisma.SortOrder;
     coordinates?: Prisma.SortOrderInput | Prisma.SortOrder;
+    kisanCardNumber?: Prisma.SortOrderInput | Prisma.SortOrder;
     farmerID?: Prisma.SortOrder;
     _count?: Prisma.LandInfoCountOrderByAggregateInput;
     _avg?: Prisma.LandInfoAvgOrderByAggregateInput;
@@ -205,6 +216,7 @@ export type LandInfoScalarWhereWithAggregatesInput = {
     totalHectare?: Prisma.FloatWithAggregatesFilter<"LandInfo"> | number;
     khasraNumber?: Prisma.StringWithAggregatesFilter<"LandInfo"> | string;
     coordinates?: Prisma.JsonNullableWithAggregatesFilter<"LandInfo">;
+    kisanCardNumber?: Prisma.StringNullableWithAggregatesFilter<"LandInfo"> | string | null;
     farmerID?: Prisma.StringWithAggregatesFilter<"LandInfo"> | string;
 };
 export type LandInfoCreateInput = {
@@ -212,6 +224,7 @@ export type LandInfoCreateInput = {
     totalHectare: number;
     khasraNumber: string;
     coordinates?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue;
+    kisanCardNumber?: string | null;
     famer: Prisma.FarmerCreateNestedOneWithoutLandInfoInput;
 };
 export type LandInfoUncheckedCreateInput = {
@@ -219,6 +232,7 @@ export type LandInfoUncheckedCreateInput = {
     totalHectare: number;
     khasraNumber: string;
     coordinates?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue;
+    kisanCardNumber?: string | null;
     farmerID: string;
 };
 export type LandInfoUpdateInput = {
@@ -226,6 +240,7 @@ export type LandInfoUpdateInput = {
     totalHectare?: Prisma.FloatFieldUpdateOperationsInput | number;
     khasraNumber?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue;
+    kisanCardNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     famer?: Prisma.FarmerUpdateOneRequiredWithoutLandInfoNestedInput;
 };
 export type LandInfoUncheckedUpdateInput = {
@@ -233,6 +248,7 @@ export type LandInfoUncheckedUpdateInput = {
     totalHectare?: Prisma.FloatFieldUpdateOperationsInput | number;
     khasraNumber?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue;
+    kisanCardNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     farmerID?: Prisma.StringFieldUpdateOperationsInput | string;
 };
 export type LandInfoCreateManyInput = {
@@ -240,6 +256,7 @@ export type LandInfoCreateManyInput = {
     totalHectare: number;
     khasraNumber: string;
     coordinates?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue;
+    kisanCardNumber?: string | null;
     farmerID: string;
 };
 export type LandInfoUpdateManyMutationInput = {
@@ -247,12 +264,14 @@ export type LandInfoUpdateManyMutationInput = {
     totalHectare?: Prisma.FloatFieldUpdateOperationsInput | number;
     khasraNumber?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue;
+    kisanCardNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
 };
 export type LandInfoUncheckedUpdateManyInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     totalHectare?: Prisma.FloatFieldUpdateOperationsInput | number;
     khasraNumber?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue;
+    kisanCardNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     farmerID?: Prisma.StringFieldUpdateOperationsInput | string;
 };
 export type LandInfoListRelationFilter = {
@@ -268,6 +287,7 @@ export type LandInfoCountOrderByAggregateInput = {
     totalHectare?: Prisma.SortOrder;
     khasraNumber?: Prisma.SortOrder;
     coordinates?: Prisma.SortOrder;
+    kisanCardNumber?: Prisma.SortOrder;
     farmerID?: Prisma.SortOrder;
 };
 export type LandInfoAvgOrderByAggregateInput = {
@@ -277,12 +297,14 @@ export type LandInfoMaxOrderByAggregateInput = {
     id?: Prisma.SortOrder;
     totalHectare?: Prisma.SortOrder;
     khasraNumber?: Prisma.SortOrder;
+    kisanCardNumber?: Prisma.SortOrder;
     farmerID?: Prisma.SortOrder;
 };
 export type LandInfoMinOrderByAggregateInput = {
     id?: Prisma.SortOrder;
     totalHectare?: Prisma.SortOrder;
     khasraNumber?: Prisma.SortOrder;
+    kisanCardNumber?: Prisma.SortOrder;
     farmerID?: Prisma.SortOrder;
 };
 export type LandInfoSumOrderByAggregateInput = {
@@ -338,12 +360,14 @@ export type LandInfoCreateWithoutFamerInput = {
     totalHectare: number;
     khasraNumber: string;
     coordinates?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue;
+    kisanCardNumber?: string | null;
 };
 export type LandInfoUncheckedCreateWithoutFamerInput = {
     id?: string;
     totalHectare: number;
     khasraNumber: string;
     coordinates?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue;
+    kisanCardNumber?: string | null;
 };
 export type LandInfoCreateOrConnectWithoutFamerInput = {
     where: Prisma.LandInfoWhereUniqueInput;
@@ -374,6 +398,7 @@ export type LandInfoScalarWhereInput = {
     totalHectare?: Prisma.FloatFilter<"LandInfo"> | number;
     khasraNumber?: Prisma.StringFilter<"LandInfo"> | string;
     coordinates?: Prisma.JsonNullableFilter<"LandInfo">;
+    kisanCardNumber?: Prisma.StringNullableFilter<"LandInfo"> | string | null;
     farmerID?: Prisma.StringFilter<"LandInfo"> | string;
 };
 export type LandInfoCreateManyFamerInput = {
@@ -381,30 +406,35 @@ export type LandInfoCreateManyFamerInput = {
     totalHectare: number;
     khasraNumber: string;
     coordinates?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue;
+    kisanCardNumber?: string | null;
 };
 export type LandInfoUpdateWithoutFamerInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     totalHectare?: Prisma.FloatFieldUpdateOperationsInput | number;
     khasraNumber?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue;
+    kisanCardNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
 };
 export type LandInfoUncheckedUpdateWithoutFamerInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     totalHectare?: Prisma.FloatFieldUpdateOperationsInput | number;
     khasraNumber?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue;
+    kisanCardNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
 };
 export type LandInfoUncheckedUpdateManyWithoutFamerInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     totalHectare?: Prisma.FloatFieldUpdateOperationsInput | number;
     khasraNumber?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue;
+    kisanCardNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
 };
 export type LandInfoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
     totalHectare?: boolean;
     khasraNumber?: boolean;
     coordinates?: boolean;
+    kisanCardNumber?: boolean;
     farmerID?: boolean;
     famer?: boolean | Prisma.FarmerDefaultArgs<ExtArgs>;
 }, ExtArgs["result"]["landInfo"]>;
@@ -413,6 +443,7 @@ export type LandInfoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
     totalHectare?: boolean;
     khasraNumber?: boolean;
     coordinates?: boolean;
+    kisanCardNumber?: boolean;
     farmerID?: boolean;
     famer?: boolean | Prisma.FarmerDefaultArgs<ExtArgs>;
 }, ExtArgs["result"]["landInfo"]>;
@@ -421,6 +452,7 @@ export type LandInfoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
     totalHectare?: boolean;
     khasraNumber?: boolean;
     coordinates?: boolean;
+    kisanCardNumber?: boolean;
     farmerID?: boolean;
     famer?: boolean | Prisma.FarmerDefaultArgs<ExtArgs>;
 }, ExtArgs["result"]["landInfo"]>;
@@ -429,9 +461,10 @@ export type LandInfoSelectScalar = {
     totalHectare?: boolean;
     khasraNumber?: boolean;
     coordinates?: boolean;
+    kisanCardNumber?: boolean;
     farmerID?: boolean;
 };
-export type LandInfoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "totalHectare" | "khasraNumber" | "coordinates" | "farmerID", ExtArgs["result"]["landInfo"]>;
+export type LandInfoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "totalHectare" | "khasraNumber" | "coordinates" | "kisanCardNumber" | "farmerID", ExtArgs["result"]["landInfo"]>;
 export type LandInfoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     famer?: boolean | Prisma.FarmerDefaultArgs<ExtArgs>;
 };
@@ -451,6 +484,7 @@ export type $LandInfoPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
         totalHectare: number;
         khasraNumber: string;
         coordinates: runtime.JsonValue | null;
+        kisanCardNumber: string | null;
         farmerID: string;
     }, ExtArgs["result"]["landInfo"]>;
     composites: {};
@@ -811,6 +845,7 @@ export interface LandInfoFieldRefs {
     readonly totalHectare: Prisma.FieldRef<"LandInfo", 'Float'>;
     readonly khasraNumber: Prisma.FieldRef<"LandInfo", 'String'>;
     readonly coordinates: Prisma.FieldRef<"LandInfo", 'Json'>;
+    readonly kisanCardNumber: Prisma.FieldRef<"LandInfo", 'String'>;
     readonly farmerID: Prisma.FieldRef<"LandInfo", 'String'>;
 }
 /**

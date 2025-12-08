@@ -1,6 +1,6 @@
 import { Platform } from "react-native";
 
-const LOCAL_NETWORK_IP = "192.168.1.2";
+const LOCAL_NETWORK_IP = "192.168.50.211";
 
 const buildBaseUrl = () =>
   Platform.OS === "android"

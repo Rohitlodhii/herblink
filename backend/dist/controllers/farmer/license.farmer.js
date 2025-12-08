@@ -4,12 +4,12 @@ import { PasswordHash } from '../../config/passwordhash.js';
 const bcryptHash = new PasswordHash();
 export async function addPersonalInfoFarmer(req, res) {
     try {
-        const { fullname, dob, address, password } = req.body;
+        const { fullname, dob, address, password, fatherName, gender, aadharNumber, annualIncome, farmerType } = req.body;
         const userId = req.userId;
-        if (!userId || !fullname || !dob || !password || !address) {
+        if (!userId || !fullname || !dob || !password || !address || !farmerType) {
             logger.warn(`Farmer_AddPersonalInfo_Field_Not_Found ${userId || "unknownuser"}`);
             return res.status(404).json({
-                msg: "All fields are required"
+                msg: "All required fields are missing (fullname, dob, address, password, farmerType)"
             });
         }
         ;
@@ -35,6 +35,11 @@ export async function addPersonalInfoFarmer(req, res) {
                 dob: dob,
                 address: address,
                 password: hashedPassword,
+                fatherName: fatherName || null,
+                gender: gender || null,
+                aadharNumber: aadharNumber || null,
+                annualIncome: annualIncome || null,
+                farmerType: farmerType,
             }
         });
         res.status(200).json({
@@ -141,32 +146,63 @@ export async function applyFarmerLicense(req, res) {
                 msg: "Token id not found",
             });
         }
-        const response = await db.farmer.findFirst({
-            where: {
-                id: userId
-            }
+        // 1. Fetch farmer details
+        const farmer = await db.farmer.findUnique({
+            where: { id: userId },
         });
-        if (!response?.isProfileCompleted) {
-            return res.status(400).json({
-                msg: "Complete the profile"
+        if (!farmer) {
+            return res.status(404).json({
+                msg: "Farmer not found",
             });
         }
+        // 2. Force mark profile as completed
+        // 3. Set status as pending
         await db.farmer.update({
-            where: {
-                id: userId
-            },
+            where: { id: userId },
             data: {
-                status: "pending"
-            }
+                isProfileCompleted: true,
+                status: "pending",
+            },
         });
-        res.status(200).json({
-            msg: "Application sucessfull"
+        return res.status(200).json({
+            msg: "Application submitted successfully",
         });
     }
     catch (error) {
         logger.error(`ERROR_FARMER_ApplyLicense ${error}`);
-        res.status(500).json({
+        return res.status(500).json({
             msg: "Internal server error, please try again",
+        });
+    }
+}
+export async function checkProfileCompleted(req, res) {
+    const userId = req.userId;
+    try {
+        if (!userId) {
+            return res.status(400).json({
+                msg: "Token id not found"
+            });
+        }
+        const farmer = await db.farmer.findUnique({
+            where: { id: userId },
+            select: {
+                isProfileCompleted: true
+            }
+        });
+        if (!farmer) {
+            return res.status(404).json({
+                msg: "Farmer not found"
+            });
+        }
+        return res.status(200).json({
+            success: true,
+            isProfileCompleted: farmer.isProfileCompleted
+        });
+    }
+    catch (error) {
+        logger.error(`ERROR_CHECK_PROFILE_COMPLETED ${error}`);
+        return res.status(500).json({
+            msg: "Internal server error"
         });
     }
 }

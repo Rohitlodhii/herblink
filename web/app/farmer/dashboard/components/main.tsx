@@ -9,6 +9,7 @@ import { useFarmerDashboard } from "@/store/farmerStore"
 import FarmerHomePage from "./homepage"
 
 import LandInfoSection from "./addLandInfo"
+import ConfirmPageFarmer from "./confirmPage"
 
 const FarmerDashboardMain = ({ user }: SidebarProps) => {
 
@@ -23,10 +24,12 @@ const FarmerDashboardMain = ({ user }: SidebarProps) => {
             } Content={FarmerDrawer} />
              
        </div>
-       <div className="h-full w-full p-4 overflow-y-scroll thin-scrollbar pt-20 ">
+       <div className="h-full w-full p-4 overflow-y-scroll thin-scrollbar  ">
        {activeSection === "home" && <FarmerHomePage />}
        {activeSection === "personal" && <PersonalInfoForm />}
        {activeSection === "land" && <LandInfoSection />}
+       {activeSection === "license" && <ConfirmPageFarmer />}
+
 
       
        </div>

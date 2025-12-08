@@ -1212,6 +1212,11 @@ export declare const FarmerScalarFieldEnum: {
     readonly fullName: "fullName";
     readonly dob: "dob";
     readonly address: "address";
+    readonly fatherName: "fatherName";
+    readonly gender: "gender";
+    readonly aadharNumber: "aadharNumber";
+    readonly annualIncome: "annualIncome";
+    readonly farmerType: "farmerType";
     readonly status: "status";
     readonly isVerified: "isVerified";
     readonly isProfileCompleted: "isProfileCompleted";
@@ -1224,6 +1229,7 @@ export declare const LandInfoScalarFieldEnum: {
     readonly totalHectare: "totalHectare";
     readonly khasraNumber: "khasraNumber";
     readonly coordinates: "coordinates";
+    readonly kisanCardNumber: "kisanCardNumber";
     readonly farmerID: "farmerID";
 };
 export type LandInfoScalarFieldEnum = (typeof LandInfoScalarFieldEnum)[keyof typeof LandInfoScalarFieldEnum];
@@ -1398,6 +1404,14 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
  * Reference to a field of type 'Boolean'
  */
 export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>;
+/**
+ * Reference to a field of type 'FarmerType'
+ */
+export type EnumFarmerTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FarmerType'>;
+/**
+ * Reference to a field of type 'FarmerType[]'
+ */
+export type ListEnumFarmerTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FarmerType[]'>;
 /**
  * Reference to a field of type 'StatusType'
  */

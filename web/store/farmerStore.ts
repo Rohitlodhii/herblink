@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-type Section = "home" | "personal" | "land" | "crops";
+type Section = "home" | "personal" | "land" | "crops" | "license";
 
 interface FarmerDashboardState {
   activeSection: Section;

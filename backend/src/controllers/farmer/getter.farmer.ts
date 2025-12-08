@@ -143,3 +143,43 @@ export async function checkFarmerDataCompleted(req: AuthenticatedRequest, res: R
   }
   
   
+
+  export const getVerificationStatus = async (req: Request, res: Response) => {
+    try {
+      const { farmerId } = req.params;
+  
+      if (!farmerId) {
+        return res.status(400).json({
+          msg: "Missing farmer id, please re-login",
+        });
+      }
+  
+      const farmer = await db.farmer.findUnique({
+        where: { id: farmerId },
+        select: {
+          status: true,
+          isVerified: true,
+          isProfileCompleted: true,
+        },
+      });
+  
+      if (!farmer) {
+        return res.status(404).json({
+          msg: "Farmer not found",
+        });
+      }
+  
+      return res.status(200).json({
+        success: true,
+        status: farmer.status,
+        isVerified: farmer.isVerified,
+        isProfileCompleted: farmer.isProfileCompleted,
+      });
+  
+    } catch (error: any) {
+      return res.status(500).json({
+        msg: error.message || "Failed to fetch verification status",
+      });
+    }
+  };
+  

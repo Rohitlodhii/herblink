@@ -4,19 +4,7 @@ All processor routes are prefixed with `/api/processor`.
 
 ### Auth
 
-- **Sign up**
-  - **Method**: `POST`
-  - **Path**: `/api/processor/auth/signup`
-  - **Body** (JSON):
-    - `email` (string, required)
-    - `password` (string, required)
-    - `name` (string, optional)
-    - `address` (string, optional)
-    - `organization` (string, optional)
-    - `processorId` (string, required/unique logical ID)
-  - **Response** (200):
-    - `msg`: `"Processor account created successfully"`
-    - `token`: JWT string
+
 
 - **Login**
   - **Method**: `POST`
@@ -28,28 +16,7 @@ All processor routes are prefixed with `/api/processor`.
     - `msg`: `"Processor account login successfully"`
     - `token`: JWT string
 
-### Processing Plant Info
 
-- **Create/Update plant info**
-  - **Method**: `POST`
-  - **Path**: `/api/processor/plant`
-  - **Auth**: `Authorization: Bearer <JWT>`
-  - **Body** (JSON):
-    - `estb` (string)
-    - `GSTIN` (string)
-    - `Storage` (string)
-    - `herbs` (string)
-  - **Response** (200):
-    - `msg`: `"Processing plant info saved successfully"`
-    - `data`: `ProcessingPlantInfo` object
-
-- **Get plant info**
-  - **Method**: `GET`
-  - **Path**: `/api/processor/plant`
-  - **Auth**: `Authorization: Bearer <JWT>`
-  - **Response** (200):
-    - `msg`: `"Processing plant info fetched successfully"`
-    - `data`: `ProcessingPlantInfo` object
 
 ### Inventory
 
@@ -122,3 +89,41 @@ All processor routes are prefixed with `/api/processor`.
     - `data`: `ProcessorFarmerInput` object
 
 
+
+
+### Processing Plant Info
+
+- **Create/Update plant info**
+  - **Method**: `POST`
+  - **Path**: `/api/processor/plant`
+  - **Auth**: `Authorization: Bearer <JWT>`
+  - **Body** (JSON):
+    - `estb` (string)
+    - `GSTIN` (string)
+    - `Storage` (string)
+    - `herbs` (string)
+  - **Response** (200):
+    - `msg`: `"Processing plant info saved successfully"`
+    - `data`: `ProcessingPlantInfo` object
+
+- **Get plant info**
+  - **Method**: `GET`
+  - **Path**: `/api/processor/plant`
+  - **Auth**: `Authorization: Bearer <JWT>`
+  - **Response** (200):
+    - `msg`: `"Processing plant info fetched successfully"`
+    - `data`: `ProcessingPlantInfo` object
+
+    - **Sign up**
+  - **Method**: `POST`
+  - **Path**: `/api/processor/auth/signup`
+  - **Body** (JSON):
+    - `email` (string, required)
+    - `password` (string, required)
+    - `name` (string, optional)
+    - `address` (string, optional)
+    - `organization` (string, optional)
+    - `processorId` (string, required/unique logical ID)
+  - **Response** (200):
+    - `msg`: `"Processor account created successfully"`
+    - `token`: JWT string

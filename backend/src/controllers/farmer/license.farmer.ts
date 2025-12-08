@@ -172,44 +172,84 @@ export async function addLandInfo(req:AuthenticatedRequest , res:Response){
 // }
 
 
-export async function applyFarmerLicense( req : AuthenticatedRequest , res : Response ) {
+export async function applyFarmerLicense(req: AuthenticatedRequest, res: Response) {
   const userId = req.userId;
+
   try {
     if (!userId) {
       logger.warn(`Farmer_Apply_License_id_nf ${userId || "unknownuser"}`);
       return res.status(400).json({
         msg: "Token id not found",
       });
-      }
-      const response = await db.farmer.findFirst({
-        where : {
-          id : userId
-        }
+    }
+
+    // 1. Fetch farmer details
+    const farmer = await db.farmer.findUnique({
+      where: { id: userId },
+    });
+
+    if (!farmer) {
+      return res.status(404).json({
+        msg: "Farmer not found",
       });
+    }
 
-      if( !response?.isProfileCompleted){
-        return res.status(400).json({
-          msg : "Complete the profile"
-        });
-      }
+    // 2. Force mark profile as completed
+    // 3. Set status as pending
+    await db.farmer.update({
+      where: { id: userId },
+      data: {
+        isProfileCompleted: true,
+        status: "pending",
+      },
+    });
 
-      await db.farmer.update({
-        where : { 
-          id : userId
-        },
-        data : {
-          status : "pending"
-        }
-      })
+    return res.status(200).json({
+      msg: "Application submitted successfully",
+    });
 
-      res.status(200).json({
-        msg : "Application sucessfull"
-      })
-      
   } catch (error) {
     logger.error(`ERROR_FARMER_ApplyLicense ${error}`);
-          res.status(500).json({
-            msg: "Internal server error, please try again",
-          });
+    return res.status(500).json({
+      msg: "Internal server error, please try again",
+    });
+  }
+}
+
+
+
+export async function checkProfileCompleted(req: AuthenticatedRequest, res: Response) {
+  const userId = req.userId;
+
+  try {
+    if (!userId) {
+      return res.status(400).json({
+        msg: "Token id not found"
+      });
+    }
+
+    const farmer = await db.farmer.findUnique({
+      where: { id: userId },
+      select: {
+        isProfileCompleted: true
+      }
+    });
+
+    if (!farmer) {
+      return res.status(404).json({
+        msg: "Farmer not found"
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      isProfileCompleted: farmer.isProfileCompleted
+    });
+
+  } catch (error) {
+    logger.error(`ERROR_CHECK_PROFILE_COMPLETED ${error}`);
+    return res.status(500).json({
+      msg: "Internal server error"
+    });
   }
 }

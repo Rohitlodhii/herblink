@@ -26,4 +26,8 @@ export const StatusType = {
     verified: 'verified',
     rejected: 'rejected'
 };
+export const FarmerType = {
+    WILDCOLLECTOR: 'WILDCOLLECTOR',
+    FARMER: 'FARMER'
+};
 //# sourceMappingURL=enums.js.map

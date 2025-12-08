@@ -38,7 +38,7 @@ export type SidebarProps = {
                     <ChevronRight className='group-hover:translate-x-2 transition ease-in h-5 w-5'/>
                 </span>
             </div>
-            <div className='h-10 bg-primary text-secondary cursor-pointer transition ease-in group flex justify-between items-center w-full px-4  border-b border-primary/30'>
+            <div onClick={() => setActiveSection("license")} className='h-10 bg-primary text-secondary cursor-pointer transition ease-in group flex justify-between items-center w-full px-4  border-b border-primary/30'>
                 <span>Apply For license</span>
                 <span>
                     <ChevronRight className='group-hover:translate-x-2 transition ease-in h-5 w-5'/>

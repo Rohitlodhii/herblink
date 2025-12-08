@@ -21,4 +21,9 @@ export declare const StatusType: {
     readonly rejected: "rejected";
 };
 export type StatusType = (typeof StatusType)[keyof typeof StatusType];
+export declare const FarmerType: {
+    readonly WILDCOLLECTOR: "WILDCOLLECTOR";
+    readonly FARMER: "FARMER";
+};
+export type FarmerType = (typeof FarmerType)[keyof typeof FarmerType];
 //# sourceMappingURL=enums.d.ts.map

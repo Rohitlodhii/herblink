@@ -71,6 +71,11 @@ export declare const FarmerScalarFieldEnum: {
     readonly fullName: "fullName";
     readonly dob: "dob";
     readonly address: "address";
+    readonly fatherName: "fatherName";
+    readonly gender: "gender";
+    readonly aadharNumber: "aadharNumber";
+    readonly annualIncome: "annualIncome";
+    readonly farmerType: "farmerType";
     readonly status: "status";
     readonly isVerified: "isVerified";
     readonly isProfileCompleted: "isProfileCompleted";
@@ -83,6 +88,7 @@ export declare const LandInfoScalarFieldEnum: {
     readonly totalHectare: "totalHectare";
     readonly khasraNumber: "khasraNumber";
     readonly coordinates: "coordinates";
+    readonly kisanCardNumber: "kisanCardNumber";
     readonly farmerID: "farmerID";
 };
 export type LandInfoScalarFieldEnum = (typeof LandInfoScalarFieldEnum)[keyof typeof LandInfoScalarFieldEnum];

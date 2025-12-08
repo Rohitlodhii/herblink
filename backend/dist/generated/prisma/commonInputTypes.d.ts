@@ -33,6 +33,12 @@ export type StringNullableFilter<$PrismaModel = never> = {
     mode?: Prisma.QueryMode;
     not?: Prisma.NestedStringNullableFilter<$PrismaModel> | string | null;
 };
+export type EnumFarmerTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.FarmerType | Prisma.EnumFarmerTypeFieldRefInput<$PrismaModel>;
+    in?: $Enums.FarmerType[] | Prisma.ListEnumFarmerTypeFieldRefInput<$PrismaModel>;
+    notIn?: $Enums.FarmerType[] | Prisma.ListEnumFarmerTypeFieldRefInput<$PrismaModel>;
+    not?: Prisma.NestedEnumFarmerTypeFilter<$PrismaModel> | $Enums.FarmerType;
+};
 export type EnumStatusTypeNullableFilter<$PrismaModel = never> = {
     equals?: $Enums.StatusType | Prisma.EnumStatusTypeFieldRefInput<$PrismaModel> | null;
     in?: $Enums.StatusType[] | Prisma.ListEnumStatusTypeFieldRefInput<$PrismaModel> | null;
@@ -93,6 +99,15 @@ export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     _count?: Prisma.NestedIntNullableFilter<$PrismaModel>;
     _min?: Prisma.NestedStringNullableFilter<$PrismaModel>;
     _max?: Prisma.NestedStringNullableFilter<$PrismaModel>;
+};
+export type EnumFarmerTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.FarmerType | Prisma.EnumFarmerTypeFieldRefInput<$PrismaModel>;
+    in?: $Enums.FarmerType[] | Prisma.ListEnumFarmerTypeFieldRefInput<$PrismaModel>;
+    notIn?: $Enums.FarmerType[] | Prisma.ListEnumFarmerTypeFieldRefInput<$PrismaModel>;
+    not?: Prisma.NestedEnumFarmerTypeWithAggregatesFilter<$PrismaModel> | $Enums.FarmerType;
+    _count?: Prisma.NestedIntFilter<$PrismaModel>;
+    _min?: Prisma.NestedEnumFarmerTypeFilter<$PrismaModel>;
+    _max?: Prisma.NestedEnumFarmerTypeFilter<$PrismaModel>;
 };
 export type EnumStatusTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.StatusType | Prisma.EnumStatusTypeFieldRefInput<$PrismaModel> | null;
@@ -253,6 +268,12 @@ export type NestedStringNullableFilter<$PrismaModel = never> = {
     endsWith?: string | Prisma.StringFieldRefInput<$PrismaModel>;
     not?: Prisma.NestedStringNullableFilter<$PrismaModel> | string | null;
 };
+export type NestedEnumFarmerTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.FarmerType | Prisma.EnumFarmerTypeFieldRefInput<$PrismaModel>;
+    in?: $Enums.FarmerType[] | Prisma.ListEnumFarmerTypeFieldRefInput<$PrismaModel>;
+    notIn?: $Enums.FarmerType[] | Prisma.ListEnumFarmerTypeFieldRefInput<$PrismaModel>;
+    not?: Prisma.NestedEnumFarmerTypeFilter<$PrismaModel> | $Enums.FarmerType;
+};
 export type NestedEnumStatusTypeNullableFilter<$PrismaModel = never> = {
     equals?: $Enums.StatusType | Prisma.EnumStatusTypeFieldRefInput<$PrismaModel> | null;
     in?: $Enums.StatusType[] | Prisma.ListEnumStatusTypeFieldRefInput<$PrismaModel> | null;
@@ -327,6 +348,15 @@ export type NestedIntNullableFilter<$PrismaModel = never> = {
     gt?: number | Prisma.IntFieldRefInput<$PrismaModel>;
     gte?: number | Prisma.IntFieldRefInput<$PrismaModel>;
     not?: Prisma.NestedIntNullableFilter<$PrismaModel> | number | null;
+};
+export type NestedEnumFarmerTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.FarmerType | Prisma.EnumFarmerTypeFieldRefInput<$PrismaModel>;
+    in?: $Enums.FarmerType[] | Prisma.ListEnumFarmerTypeFieldRefInput<$PrismaModel>;
+    notIn?: $Enums.FarmerType[] | Prisma.ListEnumFarmerTypeFieldRefInput<$PrismaModel>;
+    not?: Prisma.NestedEnumFarmerTypeWithAggregatesFilter<$PrismaModel> | $Enums.FarmerType;
+    _count?: Prisma.NestedIntFilter<$PrismaModel>;
+    _min?: Prisma.NestedEnumFarmerTypeFilter<$PrismaModel>;
+    _max?: Prisma.NestedEnumFarmerTypeFilter<$PrismaModel>;
 };
 export type NestedEnumStatusTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.StatusType | Prisma.EnumStatusTypeFieldRefInput<$PrismaModel> | null;
