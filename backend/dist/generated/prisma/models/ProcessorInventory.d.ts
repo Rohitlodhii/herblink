@@ -188,6 +188,7 @@ export type ProcessorInventoryWhereInput = {
     updatedAt?: Prisma.DateTimeFilter<"ProcessorInventory"> | Date | string;
     processorid?: Prisma.XOR<Prisma.ProcessorScalarRelationFilter, Prisma.ProcessorWhereInput>;
     Items?: Prisma.ProcessorFarmerInputListRelationFilter;
+    LabProcessorInputs?: Prisma.LabProcessorInputListRelationFilter;
 };
 export type ProcessorInventoryOrderByWithRelationInput = {
     id?: Prisma.SortOrder;
@@ -203,6 +204,7 @@ export type ProcessorInventoryOrderByWithRelationInput = {
     updatedAt?: Prisma.SortOrder;
     processorid?: Prisma.ProcessorOrderByWithRelationInput;
     Items?: Prisma.ProcessorFarmerInputOrderByRelationAggregateInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputOrderByRelationAggregateInput;
 };
 export type ProcessorInventoryWhereUniqueInput = Prisma.AtLeast<{
     id?: string;
@@ -221,6 +223,7 @@ export type ProcessorInventoryWhereUniqueInput = Prisma.AtLeast<{
     updatedAt?: Prisma.DateTimeFilter<"ProcessorInventory"> | Date | string;
     processorid?: Prisma.XOR<Prisma.ProcessorScalarRelationFilter, Prisma.ProcessorWhereInput>;
     Items?: Prisma.ProcessorFarmerInputListRelationFilter;
+    LabProcessorInputs?: Prisma.LabProcessorInputListRelationFilter;
 }, "id">;
 export type ProcessorInventoryOrderByWithAggregationInput = {
     id?: Prisma.SortOrder;
@@ -267,6 +270,7 @@ export type ProcessorInventoryCreateInput = {
     updatedAt?: Date | string;
     processorid: Prisma.ProcessorCreateNestedOneWithoutInventoryInput;
     Items?: Prisma.ProcessorFarmerInputCreateNestedManyWithoutInventoryInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputCreateNestedManyWithoutProcessorInventoryInput;
 };
 export type ProcessorInventoryUncheckedCreateInput = {
     id?: string;
@@ -281,6 +285,7 @@ export type ProcessorInventoryUncheckedCreateInput = {
     createdAt?: Date | string;
     updatedAt?: Date | string;
     Items?: Prisma.ProcessorFarmerInputUncheckedCreateNestedManyWithoutInventoryInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUncheckedCreateNestedManyWithoutProcessorInventoryInput;
 };
 export type ProcessorInventoryUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -295,6 +300,7 @@ export type ProcessorInventoryUpdateInput = {
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     processorid?: Prisma.ProcessorUpdateOneRequiredWithoutInventoryNestedInput;
     Items?: Prisma.ProcessorFarmerInputUpdateManyWithoutInventoryNestedInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUpdateManyWithoutProcessorInventoryNestedInput;
 };
 export type ProcessorInventoryUncheckedUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -309,6 +315,7 @@ export type ProcessorInventoryUncheckedUpdateInput = {
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     Items?: Prisma.ProcessorFarmerInputUncheckedUpdateManyWithoutInventoryNestedInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUncheckedUpdateManyWithoutProcessorInventoryNestedInput;
 };
 export type ProcessorInventoryCreateManyInput = {
     id?: string;
@@ -347,6 +354,10 @@ export type ProcessorInventoryUncheckedUpdateManyInput = {
     sendedToLab?: Prisma.StringFieldUpdateOperationsInput | string;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type ProcessorInventoryScalarRelationFilter = {
+    is?: Prisma.ProcessorInventoryWhereInput;
+    isNot?: Prisma.ProcessorInventoryWhereInput;
 };
 export type ProcessorInventoryListRelationFilter = {
     every?: Prisma.ProcessorInventoryWhereInput;
@@ -395,9 +406,17 @@ export type ProcessorInventoryMinOrderByAggregateInput = {
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
 };
-export type ProcessorInventoryScalarRelationFilter = {
-    is?: Prisma.ProcessorInventoryWhereInput;
-    isNot?: Prisma.ProcessorInventoryWhereInput;
+export type ProcessorInventoryCreateNestedOneWithoutLabProcessorInputsInput = {
+    create?: Prisma.XOR<Prisma.ProcessorInventoryCreateWithoutLabProcessorInputsInput, Prisma.ProcessorInventoryUncheckedCreateWithoutLabProcessorInputsInput>;
+    connectOrCreate?: Prisma.ProcessorInventoryCreateOrConnectWithoutLabProcessorInputsInput;
+    connect?: Prisma.ProcessorInventoryWhereUniqueInput;
+};
+export type ProcessorInventoryUpdateOneRequiredWithoutLabProcessorInputsNestedInput = {
+    create?: Prisma.XOR<Prisma.ProcessorInventoryCreateWithoutLabProcessorInputsInput, Prisma.ProcessorInventoryUncheckedCreateWithoutLabProcessorInputsInput>;
+    connectOrCreate?: Prisma.ProcessorInventoryCreateOrConnectWithoutLabProcessorInputsInput;
+    upsert?: Prisma.ProcessorInventoryUpsertWithoutLabProcessorInputsInput;
+    connect?: Prisma.ProcessorInventoryWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.ProcessorInventoryUpdateToOneWithWhereWithoutLabProcessorInputsInput, Prisma.ProcessorInventoryUpdateWithoutLabProcessorInputsInput>, Prisma.ProcessorInventoryUncheckedUpdateWithoutLabProcessorInputsInput>;
 };
 export type ProcessorInventoryCreateNestedManyWithoutProcessoridInput = {
     create?: Prisma.XOR<Prisma.ProcessorInventoryCreateWithoutProcessoridInput, Prisma.ProcessorInventoryUncheckedCreateWithoutProcessoridInput> | Prisma.ProcessorInventoryCreateWithoutProcessoridInput[] | Prisma.ProcessorInventoryUncheckedCreateWithoutProcessoridInput[];
@@ -449,6 +468,75 @@ export type ProcessorInventoryUpdateOneRequiredWithoutItemsNestedInput = {
     connect?: Prisma.ProcessorInventoryWhereUniqueInput;
     update?: Prisma.XOR<Prisma.XOR<Prisma.ProcessorInventoryUpdateToOneWithWhereWithoutItemsInput, Prisma.ProcessorInventoryUpdateWithoutItemsInput>, Prisma.ProcessorInventoryUncheckedUpdateWithoutItemsInput>;
 };
+export type ProcessorInventoryCreateWithoutLabProcessorInputsInput = {
+    id?: string;
+    inventoryName: string;
+    assignedGrade: string;
+    isprocessingDone?: boolean;
+    processinglist?: string | null;
+    specie: string;
+    finalQuantity: string;
+    sendedToLab: string;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    processorid: Prisma.ProcessorCreateNestedOneWithoutInventoryInput;
+    Items?: Prisma.ProcessorFarmerInputCreateNestedManyWithoutInventoryInput;
+};
+export type ProcessorInventoryUncheckedCreateWithoutLabProcessorInputsInput = {
+    id?: string;
+    processorID: string;
+    inventoryName: string;
+    assignedGrade: string;
+    isprocessingDone?: boolean;
+    processinglist?: string | null;
+    specie: string;
+    finalQuantity: string;
+    sendedToLab: string;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    Items?: Prisma.ProcessorFarmerInputUncheckedCreateNestedManyWithoutInventoryInput;
+};
+export type ProcessorInventoryCreateOrConnectWithoutLabProcessorInputsInput = {
+    where: Prisma.ProcessorInventoryWhereUniqueInput;
+    create: Prisma.XOR<Prisma.ProcessorInventoryCreateWithoutLabProcessorInputsInput, Prisma.ProcessorInventoryUncheckedCreateWithoutLabProcessorInputsInput>;
+};
+export type ProcessorInventoryUpsertWithoutLabProcessorInputsInput = {
+    update: Prisma.XOR<Prisma.ProcessorInventoryUpdateWithoutLabProcessorInputsInput, Prisma.ProcessorInventoryUncheckedUpdateWithoutLabProcessorInputsInput>;
+    create: Prisma.XOR<Prisma.ProcessorInventoryCreateWithoutLabProcessorInputsInput, Prisma.ProcessorInventoryUncheckedCreateWithoutLabProcessorInputsInput>;
+    where?: Prisma.ProcessorInventoryWhereInput;
+};
+export type ProcessorInventoryUpdateToOneWithWhereWithoutLabProcessorInputsInput = {
+    where?: Prisma.ProcessorInventoryWhereInput;
+    data: Prisma.XOR<Prisma.ProcessorInventoryUpdateWithoutLabProcessorInputsInput, Prisma.ProcessorInventoryUncheckedUpdateWithoutLabProcessorInputsInput>;
+};
+export type ProcessorInventoryUpdateWithoutLabProcessorInputsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    inventoryName?: Prisma.StringFieldUpdateOperationsInput | string;
+    assignedGrade?: Prisma.StringFieldUpdateOperationsInput | string;
+    isprocessingDone?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    processinglist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    specie?: Prisma.StringFieldUpdateOperationsInput | string;
+    finalQuantity?: Prisma.StringFieldUpdateOperationsInput | string;
+    sendedToLab?: Prisma.StringFieldUpdateOperationsInput | string;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    processorid?: Prisma.ProcessorUpdateOneRequiredWithoutInventoryNestedInput;
+    Items?: Prisma.ProcessorFarmerInputUpdateManyWithoutInventoryNestedInput;
+};
+export type ProcessorInventoryUncheckedUpdateWithoutLabProcessorInputsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    processorID?: Prisma.StringFieldUpdateOperationsInput | string;
+    inventoryName?: Prisma.StringFieldUpdateOperationsInput | string;
+    assignedGrade?: Prisma.StringFieldUpdateOperationsInput | string;
+    isprocessingDone?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    processinglist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    specie?: Prisma.StringFieldUpdateOperationsInput | string;
+    finalQuantity?: Prisma.StringFieldUpdateOperationsInput | string;
+    sendedToLab?: Prisma.StringFieldUpdateOperationsInput | string;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    Items?: Prisma.ProcessorFarmerInputUncheckedUpdateManyWithoutInventoryNestedInput;
+};
 export type ProcessorInventoryCreateWithoutProcessoridInput = {
     id?: string;
     inventoryName: string;
@@ -461,6 +549,7 @@ export type ProcessorInventoryCreateWithoutProcessoridInput = {
     createdAt?: Date | string;
     updatedAt?: Date | string;
     Items?: Prisma.ProcessorFarmerInputCreateNestedManyWithoutInventoryInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputCreateNestedManyWithoutProcessorInventoryInput;
 };
 export type ProcessorInventoryUncheckedCreateWithoutProcessoridInput = {
     id?: string;
@@ -474,6 +563,7 @@ export type ProcessorInventoryUncheckedCreateWithoutProcessoridInput = {
     createdAt?: Date | string;
     updatedAt?: Date | string;
     Items?: Prisma.ProcessorFarmerInputUncheckedCreateNestedManyWithoutInventoryInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUncheckedCreateNestedManyWithoutProcessorInventoryInput;
 };
 export type ProcessorInventoryCreateOrConnectWithoutProcessoridInput = {
     where: Prisma.ProcessorInventoryWhereUniqueInput;
@@ -524,6 +614,7 @@ export type ProcessorInventoryCreateWithoutItemsInput = {
     createdAt?: Date | string;
     updatedAt?: Date | string;
     processorid: Prisma.ProcessorCreateNestedOneWithoutInventoryInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputCreateNestedManyWithoutProcessorInventoryInput;
 };
 export type ProcessorInventoryUncheckedCreateWithoutItemsInput = {
     id?: string;
@@ -537,6 +628,7 @@ export type ProcessorInventoryUncheckedCreateWithoutItemsInput = {
     sendedToLab: string;
     createdAt?: Date | string;
     updatedAt?: Date | string;
+    LabProcessorInputs?: Prisma.LabProcessorInputUncheckedCreateNestedManyWithoutProcessorInventoryInput;
 };
 export type ProcessorInventoryCreateOrConnectWithoutItemsInput = {
     where: Prisma.ProcessorInventoryWhereUniqueInput;
@@ -563,6 +655,7 @@ export type ProcessorInventoryUpdateWithoutItemsInput = {
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     processorid?: Prisma.ProcessorUpdateOneRequiredWithoutInventoryNestedInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUpdateManyWithoutProcessorInventoryNestedInput;
 };
 export type ProcessorInventoryUncheckedUpdateWithoutItemsInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -576,6 +669,7 @@ export type ProcessorInventoryUncheckedUpdateWithoutItemsInput = {
     sendedToLab?: Prisma.StringFieldUpdateOperationsInput | string;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    LabProcessorInputs?: Prisma.LabProcessorInputUncheckedUpdateManyWithoutProcessorInventoryNestedInput;
 };
 export type ProcessorInventoryCreateManyProcessoridInput = {
     id?: string;
@@ -601,6 +695,7 @@ export type ProcessorInventoryUpdateWithoutProcessoridInput = {
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     Items?: Prisma.ProcessorFarmerInputUpdateManyWithoutInventoryNestedInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUpdateManyWithoutProcessorInventoryNestedInput;
 };
 export type ProcessorInventoryUncheckedUpdateWithoutProcessoridInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -614,6 +709,7 @@ export type ProcessorInventoryUncheckedUpdateWithoutProcessoridInput = {
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     Items?: Prisma.ProcessorFarmerInputUncheckedUpdateManyWithoutInventoryNestedInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUncheckedUpdateManyWithoutProcessorInventoryNestedInput;
 };
 export type ProcessorInventoryUncheckedUpdateManyWithoutProcessoridInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -632,9 +728,11 @@ export type ProcessorInventoryUncheckedUpdateManyWithoutProcessoridInput = {
  */
 export type ProcessorInventoryCountOutputType = {
     Items: number;
+    LabProcessorInputs: number;
 };
 export type ProcessorInventoryCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     Items?: boolean | ProcessorInventoryCountOutputTypeCountItemsArgs;
+    LabProcessorInputs?: boolean | ProcessorInventoryCountOutputTypeCountLabProcessorInputsArgs;
 };
 /**
  * ProcessorInventoryCountOutputType without action
@@ -651,6 +749,12 @@ export type ProcessorInventoryCountOutputTypeDefaultArgs<ExtArgs extends runtime
 export type ProcessorInventoryCountOutputTypeCountItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     where?: Prisma.ProcessorFarmerInputWhereInput;
 };
+/**
+ * ProcessorInventoryCountOutputType without action
+ */
+export type ProcessorInventoryCountOutputTypeCountLabProcessorInputsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.LabProcessorInputWhereInput;
+};
 export type ProcessorInventorySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
     processorID?: boolean;
@@ -665,6 +769,7 @@ export type ProcessorInventorySelect<ExtArgs extends runtime.Types.Extensions.In
     updatedAt?: boolean;
     processorid?: boolean | Prisma.ProcessorDefaultArgs<ExtArgs>;
     Items?: boolean | Prisma.ProcessorInventory$ItemsArgs<ExtArgs>;
+    LabProcessorInputs?: boolean | Prisma.ProcessorInventory$LabProcessorInputsArgs<ExtArgs>;
     _count?: boolean | Prisma.ProcessorInventoryCountOutputTypeDefaultArgs<ExtArgs>;
 }, ExtArgs["result"]["processorInventory"]>;
 export type ProcessorInventorySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -712,6 +817,7 @@ export type ProcessorInventoryOmit<ExtArgs extends runtime.Types.Extensions.Inte
 export type ProcessorInventoryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     processorid?: boolean | Prisma.ProcessorDefaultArgs<ExtArgs>;
     Items?: boolean | Prisma.ProcessorInventory$ItemsArgs<ExtArgs>;
+    LabProcessorInputs?: boolean | Prisma.ProcessorInventory$LabProcessorInputsArgs<ExtArgs>;
     _count?: boolean | Prisma.ProcessorInventoryCountOutputTypeDefaultArgs<ExtArgs>;
 };
 export type ProcessorInventoryIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -725,6 +831,7 @@ export type $ProcessorInventoryPayload<ExtArgs extends runtime.Types.Extensions.
     objects: {
         processorid: Prisma.$ProcessorPayload<ExtArgs>;
         Items: Prisma.$ProcessorFarmerInputPayload<ExtArgs>[];
+        LabProcessorInputs: Prisma.$LabProcessorInputPayload<ExtArgs>[];
     };
     scalars: runtime.Types.Extensions.GetPayloadResult<{
         id: string;
@@ -1069,6 +1176,7 @@ export interface Prisma__ProcessorInventoryClient<T, Null = never, ExtArgs exten
     readonly [Symbol.toStringTag]: "PrismaPromise";
     processorid<T extends Prisma.ProcessorDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProcessorDefaultArgs<ExtArgs>>): Prisma.Prisma__ProcessorClient<runtime.Types.Result.GetResult<Prisma.$ProcessorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
     Items<T extends Prisma.ProcessorInventory$ItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProcessorInventory$ItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProcessorFarmerInputPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    LabProcessorInputs<T extends Prisma.ProcessorInventory$LabProcessorInputsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProcessorInventory$LabProcessorInputsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LabProcessorInputPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1505,6 +1613,29 @@ export type ProcessorInventory$ItemsArgs<ExtArgs extends runtime.Types.Extension
     take?: number;
     skip?: number;
     distinct?: Prisma.ProcessorFarmerInputScalarFieldEnum | Prisma.ProcessorFarmerInputScalarFieldEnum[];
+};
+/**
+ * ProcessorInventory.LabProcessorInputs
+ */
+export type ProcessorInventory$LabProcessorInputsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabProcessorInput
+     */
+    select?: Prisma.LabProcessorInputSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the LabProcessorInput
+     */
+    omit?: Prisma.LabProcessorInputOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.LabProcessorInputInclude<ExtArgs> | null;
+    where?: Prisma.LabProcessorInputWhereInput;
+    orderBy?: Prisma.LabProcessorInputOrderByWithRelationInput | Prisma.LabProcessorInputOrderByWithRelationInput[];
+    cursor?: Prisma.LabProcessorInputWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.LabProcessorInputScalarFieldEnum | Prisma.LabProcessorInputScalarFieldEnum[];
 };
 /**
  * ProcessorInventory without action

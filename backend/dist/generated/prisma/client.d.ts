@@ -60,6 +60,11 @@ export type LabInfo = Prisma.LabInfoModel;
  */
 export type LabWorker = Prisma.LabWorkerModel;
 /**
+ * Model LabProcessorInput
+ *
+ */
+export type LabProcessorInput = Prisma.LabProcessorInputModel;
+/**
  * Model Processor
  *
  */
@@ -79,4 +84,19 @@ export type ProcessorInventory = Prisma.ProcessorInventoryModel;
  *
  */
 export type ProcessorFarmerInput = Prisma.ProcessorFarmerInputModel;
+/**
+ * Model Manufacturer
+ *
+ */
+export type Manufacturer = Prisma.ManufacturerModel;
+/**
+ * Model ManufacturerProduct
+ *
+ */
+export type ManufacturerProduct = Prisma.ManufacturerProductModel;
+/**
+ * Model ManufacturerInventory
+ *
+ */
+export type ManufacturerInventory = Prisma.ManufacturerInventoryModel;
 //# sourceMappingURL=client.d.ts.map

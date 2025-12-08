@@ -49,10 +49,14 @@ export declare const ModelName: {
     readonly Lab: "Lab";
     readonly LabInfo: "LabInfo";
     readonly LabWorker: "LabWorker";
+    readonly LabProcessorInput: "LabProcessorInput";
     readonly Processor: "Processor";
     readonly ProcessingPlantInfo: "ProcessingPlantInfo";
     readonly ProcessorInventory: "ProcessorInventory";
     readonly ProcessorFarmerInput: "ProcessorFarmerInput";
+    readonly Manufacturer: "Manufacturer";
+    readonly ManufacturerProduct: "ManufacturerProduct";
+    readonly ManufacturerInventory: "ManufacturerInventory";
 };
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 export declare const TransactionIsolationLevel: {
@@ -148,6 +152,15 @@ export declare const LabWorkerScalarFieldEnum: {
     readonly labID: "labID";
 };
 export type LabWorkerScalarFieldEnum = (typeof LabWorkerScalarFieldEnum)[keyof typeof LabWorkerScalarFieldEnum];
+export declare const LabProcessorInputScalarFieldEnum: {
+    readonly id: "id";
+    readonly labId: "labId";
+    readonly processorInventoryId: "processorInventoryId";
+    readonly reportpath: "reportpath";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type LabProcessorInputScalarFieldEnum = (typeof LabProcessorInputScalarFieldEnum)[keyof typeof LabProcessorInputScalarFieldEnum];
 export declare const ProcessorScalarFieldEnum: {
     readonly id: "id";
     readonly processorId: "processorId";
@@ -197,6 +210,36 @@ export declare const ProcessorFarmerInputScalarFieldEnum: {
     readonly updatedAt: "updatedAt";
 };
 export type ProcessorFarmerInputScalarFieldEnum = (typeof ProcessorFarmerInputScalarFieldEnum)[keyof typeof ProcessorFarmerInputScalarFieldEnum];
+export declare const ManufacturerScalarFieldEnum: {
+    readonly id: "id";
+    readonly email: "email";
+    readonly password: "password";
+    readonly name: "name";
+    readonly address: "address";
+    readonly organization: "organization";
+    readonly isVerified: "isVerified";
+    readonly status: "status";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type ManufacturerScalarFieldEnum = (typeof ManufacturerScalarFieldEnum)[keyof typeof ManufacturerScalarFieldEnum];
+export declare const ManufacturerProductScalarFieldEnum: {
+    readonly id: "id";
+    readonly manufacturerId: "manufacturerId";
+};
+export type ManufacturerProductScalarFieldEnum = (typeof ManufacturerProductScalarFieldEnum)[keyof typeof ManufacturerProductScalarFieldEnum];
+export declare const ManufacturerInventoryScalarFieldEnum: {
+    readonly id: "id";
+    readonly manufacturerId: "manufacturerId";
+    readonly inventoryName: "inventoryName";
+    readonly assignedGrade: "assignedGrade";
+    readonly isprocessingDone: "isprocessingDone";
+    readonly processinglist: "processinglist";
+    readonly specie: "specie";
+    readonly finalQuantity: "finalQuantity";
+    readonly sendedToLab: "sendedToLab";
+};
+export type ManufacturerInventoryScalarFieldEnum = (typeof ManufacturerInventoryScalarFieldEnum)[keyof typeof ManufacturerInventoryScalarFieldEnum];
 export declare const SortOrder: {
     readonly asc: "asc";
     readonly desc: "desc";

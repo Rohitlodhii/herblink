@@ -69,3 +69,15 @@ Unique constraint failed on the fields: (`farmerID`)
     at async FarmerLogin (file:///C:/herblinkpro/backend/dist/controllers/farmer/auth.farmer.js:80:9)
 2025-11-25 16:26:49 [[33mwarn[39m]: Farmer_not_exist 919009908984
 2025-12-08 10:08:59 [[32minfo[39m]: Farmer_AddLandInfo_Success 728b6bd9-6de4-4814-b74e-a26e63b11421
+2025-12-08 16:59:53 [[31merror[39m]: Cant GET 728b6bd9-6de4-4814-b74e-a26e63b11421 Data
+2025-12-08 16:59:56 [[31merror[39m]: Cant GET 728b6bd9-6de4-4814-b74e-a26e63b11421 Data
+2025-12-08 16:59:56 [[31merror[39m]: Cant GET 728b6bd9-6de4-4814-b74e-a26e63b11421 Data
+2025-12-08 16:59:59 [[31merror[39m]: Cant GET 728b6bd9-6de4-4814-b74e-a26e63b11421 Data
+2025-12-08 17:00:00 [[31merror[39m]: Cant GET 728b6bd9-6de4-4814-b74e-a26e63b11421 Data
+2025-12-08 17:00:00 [[31merror[39m]: Cant GET 728b6bd9-6de4-4814-b74e-a26e63b11421 Data
+2025-12-08 17:00:00 [[31merror[39m]: Cant GET 728b6bd9-6de4-4814-b74e-a26e63b11421 Data
+2025-12-08 17:00:05 [[31merror[39m]: Cant GET 728b6bd9-6de4-4814-b74e-a26e63b11421 Data
+2025-12-08 17:00:06 [[31merror[39m]: Cant GET 728b6bd9-6de4-4814-b74e-a26e63b11421 Data
+2025-12-08 17:06:06 [[33mwarn[39m]: Farmer_not_exist +919009908984
+2025-12-08 17:09:07 [[32minfo[39m]: Farmer_AddLandInfo_Success 1e2da1c2-1874-4516-8434-4fea1a5af0f4
+2025-12-08 17:31:14 [[32minfo[39m]: Farmer_AddLandInfo_Success 1e2da1c2-1874-4516-8434-4fea1a5af0f4

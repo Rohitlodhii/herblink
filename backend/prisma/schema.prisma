@@ -257,14 +257,15 @@ model ProcessorFarmerInput {
 
 } 
 
+
+
 model Manufacturer {
   id String @id @default(uuid())
-  
+  manufacturerId String @unique
   email String @unique
   password String
   name String?
   address String?
-
   organization String?
   isVerified Boolean @default(false)
   status StatusType?
@@ -272,21 +273,41 @@ model Manufacturer {
   updatedAt DateTime @updatedAt
 }
 
-model ManufacturerProduct {
+model Product {
   id String @id @default(uuid())
   manufacturerId String
   manufacturer Manufacturer @relation(fields: [manufacturerId] , references: [id])
+  productName String
+  productDescription String?
+  productImage String?
+  productionDate String?
+  productionBatch String?
+  Inventories ProductInventory[]
+  
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-model ManufacturerInventory {
+model ProductInventory {
   id String @id @default(uuid())
-  manufacturerId String
-  manufacturer Manufacturer @relation(fields: [manufacturerId] , references: [id])
-  inventoryName String
-  assignedGrade String
-  isprocessingDone Boolean @default(false)
-  processinglist ProcessorInventory[]
-  specie String
-  finalQuantity String
-  sendedToLab String
+  productId String
+  product Product @relation(fields: [productId] , references: [id])
+  HerbName String
+
+  herbInventoryId String
+
+  
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model HerbInventory {
+  id String @id @default(uuid())
+  processorInventoryId String
+  processorInventory ProcessorInventory @relation(fields: [processorInventoryId] , references: [id])
+  quantityReceived String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

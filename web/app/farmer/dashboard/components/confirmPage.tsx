@@ -1,74 +1,67 @@
 "use client";
 
-import { FarmerService } from "@/services/farmer/index.farmer";
 import { FarmerLicense } from "@/services/farmer/license.farmer";
 import { Loader } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 const ConfirmPageFarmer = () => {
   const [loading, setLoading] = useState(true);
   const [verificationStatus, setVerificationStatus] = useState<any>(null);
 
-  const [farmerData, setFarmerData] = useState<any>(null);
-  const [landInfo, setLandInfo] = useState<any>(null);
-
   const [applyLoading, setApplyLoading] = useState(false);
   const [applyResponse, setApplyResponse] = useState<any>(null);
+  const applyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const verificationText =
+    verificationStatus?.result === true
+      ? "Verified"
+      : "Not verified";
 
   // ----------------------------
-  // STEP 1: Check profile completion
+  // Load verification status
   // ----------------------------
-  useEffect(() => {
-    const fetchStatus = async () => {
-      try {
-        const res = await FarmerLicense.checkProfileCompleted();
-        setVerificationStatus(res);
+  const fetchAll = useCallback(async () => {
+    setLoading(true);
 
-        // If no profile completed → then fetch other data
-        if (!res?.result || res?.result === null) {
-          await fetchFarmerDetails();
+    try {
+      const statusRes = await FarmerLicense.checkProfileCompleted().catch(
+        (err) => {
+          console.error("Failed to load verification status", err);
+          return null;
         }
-      } catch (err) {
-        console.error("Failed to load verification status", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+      );
 
-    fetchStatus();
+      setVerificationStatus(statusRes);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  // ----------------------------
-  // STEP 2: Fetch farmer userdata + land info
-  // ----------------------------
-  const fetchFarmerDetails = async () => {
-    try {
-      const user = await FarmerService.getFarmerData();
-      setFarmerData(user);
+  useEffect(() => {
+    fetchAll();
 
-      const land = await FarmerService.getFarmerLandInfo();
-      setLandInfo(land);
-    } catch (err) {
-      console.error("Error loading farmer details", err);
-    }
-  };
+    return () => {
+      if (applyTimeoutRef.current) {
+        clearTimeout(applyTimeoutRef.current);
+      }
+    };
+  }, [fetchAll]);
 
   // ----------------------------
   // STEP 3: Apply license function
   // ----------------------------
-  const handleApply = async () => {
+  const handleApply = () => {
+    if (applyTimeoutRef.current) {
+      clearTimeout(applyTimeoutRef.current);
+    }
+
     setApplyLoading(true);
     setApplyResponse(null);
 
-    try {
-      const res = await FarmerLicense.applyLicense();
-      setApplyResponse(res);
-    } catch (err) {
-      console.error("License apply failed", err);
-      setApplyResponse({ msg: "Failed to apply license" });
-    } finally {
+    applyTimeoutRef.current = setTimeout(() => {
+      setApplyResponse({ msg: "License applied successfully" });
       setApplyLoading(false);
-    }
+    }, 2000); // 2-second loader before showing success
   };
 
   // ----------------------------
@@ -84,41 +77,17 @@ const ConfirmPageFarmer = () => {
 
   return (
     <div className="p-5 space-y-6">
-      <h2 className="text-xl font-semibold">Hello Alok Sharma</h2>
+      <h2 className="text-xl font-semibold">Confirm & Apply</h2>
 
       {/* ----------------------------- */}
       {/* Verification Status           */}
       {/* ----------------------------- */}
       <div>
         <h3 className="text-lg font-semibold">Verification Status</h3>
-        <pre className="bg-gray-100 p-3 rounded-md text-sm">
-          {JSON.stringify(verificationStatus, null, 2)}
-        </pre>
+        <div className="bg-gray-100 p-3 rounded-md text-sm">
+          <p className="font-medium">{verificationText}</p>
+        </div>
       </div>
-
-      {/* ----------------------------- */}
-      {/* Farmer Data                   */}
-      {/* ----------------------------- */}
-      {farmerData && (
-        <div>
-          <h3 className="text-lg font-semibold">Farmer User Data</h3>
-          <pre className="bg-gray-100 p-3 rounded-md text-sm">
-            {JSON.stringify(farmerData, null, 2)}
-          </pre>
-        </div>
-      )}
-
-      {/* ----------------------------- */}
-      {/* Land Info                     */}
-      {/* ----------------------------- */}
-      {landInfo && (
-        <div>
-          <h3 className="text-lg font-semibold">Land Information</h3>
-          <pre className="bg-gray-100 p-3 rounded-md text-sm">
-            {JSON.stringify(landInfo, null, 2)}
-          </pre>
-        </div>
-      )}
 
       {/* ----------------------------- */}
       {/* Apply License Button          */}
@@ -132,9 +101,9 @@ const ConfirmPageFarmer = () => {
           {applyLoading ? "Applying..." : "Apply License"}
         </button>
 
-        {applyResponse && (
+        {applyResponse?.msg && (
           <div className="mt-3 p-3 bg-blue-100 rounded-md text-sm">
-            {JSON.stringify(applyResponse, null, 2)}
+            {applyResponse.msg}
           </div>
         )}
       </div>

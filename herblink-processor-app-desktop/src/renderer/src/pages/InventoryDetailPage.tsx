@@ -1,6 +1,14 @@
 import { FormEvent, useEffect, useState, type ReactElement } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { addFarmerInput, getInventory, listFarmerInputs, type FarmerInput, type Inventory } from '../api'
+import {
+  addFarmerInput,
+  deleteFarmerInput,
+  deleteInventory,
+  getInventory,
+  listFarmerInputs,
+  type FarmerInput,
+  type Inventory
+} from '../api'
 import { useAuth } from '../context/AuthContext'
 
 const emptyInput = {
@@ -19,6 +27,14 @@ export default function InventoryDetailPage(): ReactElement {
   const [error, setError] = useState<string | null>(null)
   const [inputForm, setInputForm] = useState(emptyInput)
   const [submitting, setSubmitting] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [txHash, setTxHash] = useState<string | null>(null)
+  const [deletingInventory, setDeletingInventory] = useState(false)
+  const [deletingInputId, setDeletingInputId] = useState<string | null>(null)
+  const computedFinalQuantity = inputs.reduce((sum, input) => {
+    const qty = Number(input.quantity)
+    return sum + (Number.isFinite(qty) ? qty : 0)
+  }, 0)
 
   useEffect(() => {
     if (!token || !id) return
@@ -60,6 +76,58 @@ export default function InventoryDetailPage(): ReactElement {
   const handleLogout = (): void => {
     logout()
     navigate('/')
+  }
+
+  const handleSendToChain = (): void => {
+    if (sending) return
+    setSending(true)
+    setTxHash(null)
+    setTimeout(() => {
+      const hash = Math.random().toString(36).slice(2, 17) // 15-char sample hash
+      setTxHash(hash)
+      setSending(false)
+    }, 3000)
+  }
+
+  const handleCopyHash = async (): Promise<void> => {
+    if (!txHash) return
+    try {
+      await navigator.clipboard.writeText(txHash)
+    } catch {
+      // ignore copy failures silently
+    }
+  }
+
+  const handleDeleteInventory = async (): Promise<void> => {
+    if (!token || !id || deletingInventory) return
+    const confirmed = window.confirm('Delete this inventory and its inputs?')
+    if (!confirmed) return
+    setDeletingInventory(true)
+    setError(null)
+    try {
+      await deleteInventory(id, token)
+      navigate('/inventory')
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to delete inventory'
+      setError(message)
+    } finally {
+      setDeletingInventory(false)
+    }
+  }
+
+  const handleDeleteInput = async (inputId: string): Promise<void> => {
+    if (!token || !id || deletingInputId) return
+    setDeletingInputId(inputId)
+    setError(null)
+    try {
+      await deleteFarmerInput(inputId, token)
+      setInputs((prev) => prev.filter((input) => input._id !== inputId))
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to delete input'
+      setError(message)
+    } finally {
+      setDeletingInputId(null)
+    }
   }
 
   if (loading) {
@@ -105,6 +173,9 @@ export default function InventoryDetailPage(): ReactElement {
           <button className="secondary" onClick={() => navigate(0)}>
             Refresh
           </button>
+          <button className="secondary" onClick={handleDeleteInventory} disabled={deletingInventory}>
+            {deletingInventory ? 'Deleting...' : 'Delete'}
+          </button>
           <button onClick={handleLogout}>Logout</button>
         </div>
       </header>
@@ -123,17 +194,26 @@ export default function InventoryDetailPage(): ReactElement {
             </div>
             <div>
               <dt>Final quantity</dt>
-              <dd>{inventory.finalQuantity || '—'}</dd>
+              <dd>{computedFinalQuantity || '—'}</dd>
             </div>
             <div>
-              <dt>Processing list</dt>
-              <dd>{inventory.processinglist || '—'}</dd>
-            </div>
-            <div>
-              <dt>Sent to lab</dt>
-              <dd>{inventory.sendedToLab || '—'}</dd>
+              <dt>Verification status</dt>
+            <dd>Not verified</dd>
             </div>
           </dl>
+          <div className="card-actions" style={{ marginTop: '1rem', gap: '0.5rem' }}>
+            <button onClick={handleSendToChain} disabled={sending}>
+              {sending ? 'Sending to chain...' : 'Send to blockchain'}
+            </button>
+            {txHash ? (
+              <div className="muted" style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                <span>Tx hash: {txHash}</span>
+                <button className="secondary" onClick={handleCopyHash}>
+                  Copy
+                </button>
+              </div>
+            ) : null}
+          </div>
         </section>
 
         <section className="card">
@@ -191,6 +271,13 @@ export default function InventoryDetailPage(): ReactElement {
                     {input.specie ? ` • Specie ${input.specie}` : ''}
                   </div>
                 </div>
+                <button
+                  className="secondary"
+                  onClick={() => handleDeleteInput(input._id)}
+                  disabled={deletingInputId === input._id}
+                >
+                  {deletingInputId === input._id ? 'Deleting...' : 'Delete'}
+                </button>
               </li>
             ))}
           </ul>

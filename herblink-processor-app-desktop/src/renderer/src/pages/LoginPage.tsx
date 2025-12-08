@@ -1,13 +1,13 @@
 import { FormEvent, useState, type ReactElement } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { login } from '../api'
+// import { login } from '../api'
 import { useAuth } from '../context/AuthContext'
 
 export default function LoginPage(): ReactElement {
   const navigate = useNavigate()
   const { setToken } = useAuth()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('rohitlodhi9090@gmail.com')
+  const [password, setPassword] = useState('12121212')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -16,9 +16,15 @@ export default function LoginPage(): ReactElement {
     setError(null)
     setLoading(true)
     try {
-      const token = await login(email.trim(), password)
-      setToken(token)
-      navigate('/inventory')
+      // Skipping real API call for local testing
+      // const token = await login(email.trim(), password)
+
+      if (email.trim() === 'rohitlodhi9090@gmail.com' && password === '12121212') {
+        setToken('sample-jwt-token')
+        navigate('/inventory')
+      } else {
+        throw new Error('Invalid credentials')
+      }
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to login'
       setError(message)

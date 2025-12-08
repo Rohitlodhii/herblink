@@ -200,6 +200,17 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
         omit: OmitOpts;
     }>;
     /**
+     * `prisma.labProcessorInput`: Exposes CRUD operations for the **LabProcessorInput** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more LabProcessorInputs
+      * const labProcessorInputs = await prisma.labProcessorInput.findMany()
+      * ```
+      */
+    get labProcessorInput(): Prisma.LabProcessorInputDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
      * `prisma.processor`: Exposes CRUD operations for the **Processor** model.
       * Example usage:
       * ```ts
@@ -241,6 +252,39 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
       * ```
       */
     get processorFarmerInput(): Prisma.ProcessorFarmerInputDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.manufacturer`: Exposes CRUD operations for the **Manufacturer** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Manufacturers
+      * const manufacturers = await prisma.manufacturer.findMany()
+      * ```
+      */
+    get manufacturer(): Prisma.ManufacturerDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.manufacturerProduct`: Exposes CRUD operations for the **ManufacturerProduct** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more ManufacturerProducts
+      * const manufacturerProducts = await prisma.manufacturerProduct.findMany()
+      * ```
+      */
+    get manufacturerProduct(): Prisma.ManufacturerProductDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.manufacturerInventory`: Exposes CRUD operations for the **ManufacturerInventory** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more ManufacturerInventories
+      * const manufacturerInventories = await prisma.manufacturerInventory.findMany()
+      * ```
+      */
+    get manufacturerInventory(): Prisma.ManufacturerInventoryDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
 }

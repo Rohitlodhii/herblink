@@ -132,6 +132,7 @@ export type LabWhereInput = {
     email?: Prisma.StringFilter<"Lab"> | string;
     labinfo?: Prisma.XOR<Prisma.LabInfoNullableScalarRelationFilter, Prisma.LabInfoWhereInput> | null;
     LabWorkers?: Prisma.LabWorkerListRelationFilter;
+    LabProcessorInputs?: Prisma.LabProcessorInputListRelationFilter;
 };
 export type LabOrderByWithRelationInput = {
     id?: Prisma.SortOrder;
@@ -140,6 +141,7 @@ export type LabOrderByWithRelationInput = {
     email?: Prisma.SortOrder;
     labinfo?: Prisma.LabInfoOrderByWithRelationInput;
     LabWorkers?: Prisma.LabWorkerOrderByRelationAggregateInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputOrderByRelationAggregateInput;
 };
 export type LabWhereUniqueInput = Prisma.AtLeast<{
     id?: string;
@@ -151,6 +153,7 @@ export type LabWhereUniqueInput = Prisma.AtLeast<{
     NOT?: Prisma.LabWhereInput | Prisma.LabWhereInput[];
     labinfo?: Prisma.XOR<Prisma.LabInfoNullableScalarRelationFilter, Prisma.LabInfoWhereInput> | null;
     LabWorkers?: Prisma.LabWorkerListRelationFilter;
+    LabProcessorInputs?: Prisma.LabProcessorInputListRelationFilter;
 }, "id" | "labId" | "password" | "email">;
 export type LabOrderByWithAggregationInput = {
     id?: Prisma.SortOrder;
@@ -177,6 +180,7 @@ export type LabCreateInput = {
     email: string;
     labinfo?: Prisma.LabInfoCreateNestedOneWithoutLabIdInput;
     LabWorkers?: Prisma.LabWorkerCreateNestedManyWithoutLabIdInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputCreateNestedManyWithoutLabInput;
 };
 export type LabUncheckedCreateInput = {
     id?: string;
@@ -185,6 +189,7 @@ export type LabUncheckedCreateInput = {
     email: string;
     labinfo?: Prisma.LabInfoUncheckedCreateNestedOneWithoutLabIdInput;
     LabWorkers?: Prisma.LabWorkerUncheckedCreateNestedManyWithoutLabIdInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUncheckedCreateNestedManyWithoutLabInput;
 };
 export type LabUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -193,6 +198,7 @@ export type LabUpdateInput = {
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     labinfo?: Prisma.LabInfoUpdateOneWithoutLabIdNestedInput;
     LabWorkers?: Prisma.LabWorkerUpdateManyWithoutLabIdNestedInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUpdateManyWithoutLabNestedInput;
 };
 export type LabUncheckedUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -201,6 +207,7 @@ export type LabUncheckedUpdateInput = {
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     labinfo?: Prisma.LabInfoUncheckedUpdateOneWithoutLabIdNestedInput;
     LabWorkers?: Prisma.LabWorkerUncheckedUpdateManyWithoutLabIdNestedInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUncheckedUpdateManyWithoutLabNestedInput;
 };
 export type LabCreateManyInput = {
     id?: string;
@@ -266,12 +273,25 @@ export type LabUpdateOneRequiredWithoutLabWorkersNestedInput = {
     connect?: Prisma.LabWhereUniqueInput;
     update?: Prisma.XOR<Prisma.XOR<Prisma.LabUpdateToOneWithWhereWithoutLabWorkersInput, Prisma.LabUpdateWithoutLabWorkersInput>, Prisma.LabUncheckedUpdateWithoutLabWorkersInput>;
 };
+export type LabCreateNestedOneWithoutLabProcessorInputsInput = {
+    create?: Prisma.XOR<Prisma.LabCreateWithoutLabProcessorInputsInput, Prisma.LabUncheckedCreateWithoutLabProcessorInputsInput>;
+    connectOrCreate?: Prisma.LabCreateOrConnectWithoutLabProcessorInputsInput;
+    connect?: Prisma.LabWhereUniqueInput;
+};
+export type LabUpdateOneRequiredWithoutLabProcessorInputsNestedInput = {
+    create?: Prisma.XOR<Prisma.LabCreateWithoutLabProcessorInputsInput, Prisma.LabUncheckedCreateWithoutLabProcessorInputsInput>;
+    connectOrCreate?: Prisma.LabCreateOrConnectWithoutLabProcessorInputsInput;
+    upsert?: Prisma.LabUpsertWithoutLabProcessorInputsInput;
+    connect?: Prisma.LabWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.LabUpdateToOneWithWhereWithoutLabProcessorInputsInput, Prisma.LabUpdateWithoutLabProcessorInputsInput>, Prisma.LabUncheckedUpdateWithoutLabProcessorInputsInput>;
+};
 export type LabCreateWithoutLabinfoInput = {
     id?: string;
     labId?: string | null;
     password: string;
     email: string;
     LabWorkers?: Prisma.LabWorkerCreateNestedManyWithoutLabIdInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputCreateNestedManyWithoutLabInput;
 };
 export type LabUncheckedCreateWithoutLabinfoInput = {
     id?: string;
@@ -279,6 +299,7 @@ export type LabUncheckedCreateWithoutLabinfoInput = {
     password: string;
     email: string;
     LabWorkers?: Prisma.LabWorkerUncheckedCreateNestedManyWithoutLabIdInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUncheckedCreateNestedManyWithoutLabInput;
 };
 export type LabCreateOrConnectWithoutLabinfoInput = {
     where: Prisma.LabWhereUniqueInput;
@@ -299,6 +320,7 @@ export type LabUpdateWithoutLabinfoInput = {
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     LabWorkers?: Prisma.LabWorkerUpdateManyWithoutLabIdNestedInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUpdateManyWithoutLabNestedInput;
 };
 export type LabUncheckedUpdateWithoutLabinfoInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -306,6 +328,7 @@ export type LabUncheckedUpdateWithoutLabinfoInput = {
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     LabWorkers?: Prisma.LabWorkerUncheckedUpdateManyWithoutLabIdNestedInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUncheckedUpdateManyWithoutLabNestedInput;
 };
 export type LabCreateWithoutLabWorkersInput = {
     id?: string;
@@ -313,6 +336,7 @@ export type LabCreateWithoutLabWorkersInput = {
     password: string;
     email: string;
     labinfo?: Prisma.LabInfoCreateNestedOneWithoutLabIdInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputCreateNestedManyWithoutLabInput;
 };
 export type LabUncheckedCreateWithoutLabWorkersInput = {
     id?: string;
@@ -320,6 +344,7 @@ export type LabUncheckedCreateWithoutLabWorkersInput = {
     password: string;
     email: string;
     labinfo?: Prisma.LabInfoUncheckedCreateNestedOneWithoutLabIdInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUncheckedCreateNestedManyWithoutLabInput;
 };
 export type LabCreateOrConnectWithoutLabWorkersInput = {
     where: Prisma.LabWhereUniqueInput;
@@ -340,6 +365,7 @@ export type LabUpdateWithoutLabWorkersInput = {
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     labinfo?: Prisma.LabInfoUpdateOneWithoutLabIdNestedInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUpdateManyWithoutLabNestedInput;
 };
 export type LabUncheckedUpdateWithoutLabWorkersInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -347,15 +373,63 @@ export type LabUncheckedUpdateWithoutLabWorkersInput = {
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     labinfo?: Prisma.LabInfoUncheckedUpdateOneWithoutLabIdNestedInput;
+    LabProcessorInputs?: Prisma.LabProcessorInputUncheckedUpdateManyWithoutLabNestedInput;
+};
+export type LabCreateWithoutLabProcessorInputsInput = {
+    id?: string;
+    labId?: string | null;
+    password: string;
+    email: string;
+    labinfo?: Prisma.LabInfoCreateNestedOneWithoutLabIdInput;
+    LabWorkers?: Prisma.LabWorkerCreateNestedManyWithoutLabIdInput;
+};
+export type LabUncheckedCreateWithoutLabProcessorInputsInput = {
+    id?: string;
+    labId?: string | null;
+    password: string;
+    email: string;
+    labinfo?: Prisma.LabInfoUncheckedCreateNestedOneWithoutLabIdInput;
+    LabWorkers?: Prisma.LabWorkerUncheckedCreateNestedManyWithoutLabIdInput;
+};
+export type LabCreateOrConnectWithoutLabProcessorInputsInput = {
+    where: Prisma.LabWhereUniqueInput;
+    create: Prisma.XOR<Prisma.LabCreateWithoutLabProcessorInputsInput, Prisma.LabUncheckedCreateWithoutLabProcessorInputsInput>;
+};
+export type LabUpsertWithoutLabProcessorInputsInput = {
+    update: Prisma.XOR<Prisma.LabUpdateWithoutLabProcessorInputsInput, Prisma.LabUncheckedUpdateWithoutLabProcessorInputsInput>;
+    create: Prisma.XOR<Prisma.LabCreateWithoutLabProcessorInputsInput, Prisma.LabUncheckedCreateWithoutLabProcessorInputsInput>;
+    where?: Prisma.LabWhereInput;
+};
+export type LabUpdateToOneWithWhereWithoutLabProcessorInputsInput = {
+    where?: Prisma.LabWhereInput;
+    data: Prisma.XOR<Prisma.LabUpdateWithoutLabProcessorInputsInput, Prisma.LabUncheckedUpdateWithoutLabProcessorInputsInput>;
+};
+export type LabUpdateWithoutLabProcessorInputsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    password?: Prisma.StringFieldUpdateOperationsInput | string;
+    email?: Prisma.StringFieldUpdateOperationsInput | string;
+    labinfo?: Prisma.LabInfoUpdateOneWithoutLabIdNestedInput;
+    LabWorkers?: Prisma.LabWorkerUpdateManyWithoutLabIdNestedInput;
+};
+export type LabUncheckedUpdateWithoutLabProcessorInputsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    password?: Prisma.StringFieldUpdateOperationsInput | string;
+    email?: Prisma.StringFieldUpdateOperationsInput | string;
+    labinfo?: Prisma.LabInfoUncheckedUpdateOneWithoutLabIdNestedInput;
+    LabWorkers?: Prisma.LabWorkerUncheckedUpdateManyWithoutLabIdNestedInput;
 };
 /**
  * Count Type LabCountOutputType
  */
 export type LabCountOutputType = {
     LabWorkers: number;
+    LabProcessorInputs: number;
 };
 export type LabCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     LabWorkers?: boolean | LabCountOutputTypeCountLabWorkersArgs;
+    LabProcessorInputs?: boolean | LabCountOutputTypeCountLabProcessorInputsArgs;
 };
 /**
  * LabCountOutputType without action
@@ -372,6 +446,12 @@ export type LabCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensio
 export type LabCountOutputTypeCountLabWorkersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     where?: Prisma.LabWorkerWhereInput;
 };
+/**
+ * LabCountOutputType without action
+ */
+export type LabCountOutputTypeCountLabProcessorInputsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.LabProcessorInputWhereInput;
+};
 export type LabSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
     labId?: boolean;
@@ -379,6 +459,7 @@ export type LabSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = ru
     email?: boolean;
     labinfo?: boolean | Prisma.Lab$labinfoArgs<ExtArgs>;
     LabWorkers?: boolean | Prisma.Lab$LabWorkersArgs<ExtArgs>;
+    LabProcessorInputs?: boolean | Prisma.Lab$LabProcessorInputsArgs<ExtArgs>;
     _count?: boolean | Prisma.LabCountOutputTypeDefaultArgs<ExtArgs>;
 }, ExtArgs["result"]["lab"]>;
 export type LabSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -403,6 +484,7 @@ export type LabOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
 export type LabInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     labinfo?: boolean | Prisma.Lab$labinfoArgs<ExtArgs>;
     LabWorkers?: boolean | Prisma.Lab$LabWorkersArgs<ExtArgs>;
+    LabProcessorInputs?: boolean | Prisma.Lab$LabProcessorInputsArgs<ExtArgs>;
     _count?: boolean | Prisma.LabCountOutputTypeDefaultArgs<ExtArgs>;
 };
 export type LabIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {};
@@ -412,6 +494,7 @@ export type $LabPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
     objects: {
         labinfo: Prisma.$LabInfoPayload<ExtArgs> | null;
         LabWorkers: Prisma.$LabWorkerPayload<ExtArgs>[];
+        LabProcessorInputs: Prisma.$LabProcessorInputPayload<ExtArgs>[];
     };
     scalars: runtime.Types.Extensions.GetPayloadResult<{
         id: string;
@@ -749,6 +832,7 @@ export interface Prisma__LabClient<T, Null = never, ExtArgs extends runtime.Type
     readonly [Symbol.toStringTag]: "PrismaPromise";
     labinfo<T extends Prisma.Lab$labinfoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Lab$labinfoArgs<ExtArgs>>): Prisma.Prisma__LabInfoClient<runtime.Types.Result.GetResult<Prisma.$LabInfoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
     LabWorkers<T extends Prisma.Lab$LabWorkersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Lab$LabWorkersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LabWorkerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    LabProcessorInputs<T extends Prisma.Lab$LabProcessorInputsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Lab$LabProcessorInputsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LabProcessorInputPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1188,6 +1272,29 @@ export type Lab$LabWorkersArgs<ExtArgs extends runtime.Types.Extensions.Internal
     take?: number;
     skip?: number;
     distinct?: Prisma.LabWorkerScalarFieldEnum | Prisma.LabWorkerScalarFieldEnum[];
+};
+/**
+ * Lab.LabProcessorInputs
+ */
+export type Lab$LabProcessorInputsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LabProcessorInput
+     */
+    select?: Prisma.LabProcessorInputSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the LabProcessorInput
+     */
+    omit?: Prisma.LabProcessorInputOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.LabProcessorInputInclude<ExtArgs> | null;
+    where?: Prisma.LabProcessorInputWhereInput;
+    orderBy?: Prisma.LabProcessorInputOrderByWithRelationInput | Prisma.LabProcessorInputOrderByWithRelationInput[];
+    cursor?: Prisma.LabProcessorInputWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.LabProcessorInputScalarFieldEnum | Prisma.LabProcessorInputScalarFieldEnum[];
 };
 /**
  * Lab without action
