@@ -40,7 +40,7 @@ export const OrganisationPopover = ( ) => {
                         {t("primary.org2")}
                     </span>
                 </div>
-                <div className='border border-border cursor-pointer hover:bg-secondary rounded-md h-8 w-full flex items-center p-1 gap-2'>
+                <div onClick={()=>router.push('/lab/login')} className='border border-border cursor-pointer hover:bg-secondary rounded-md h-8 w-full flex items-center p-1 gap-2'>
                     <div className='border border-border p-1 rounded-sm'>
                         <Beaker className='size-4'/>
                     </div>
@@ -48,7 +48,7 @@ export const OrganisationPopover = ( ) => {
                         {t("primary.org3")}
                     </span>
                 </div>
-                <div className='border border-border cursor-pointer hover:bg-secondary rounded-md h-8 w-full flex items-center p-1 gap-2'>
+                <div onClick={()=>router.push('/manufacturer/login')} className='border border-border cursor-pointer hover:bg-secondary rounded-md h-8 w-full flex items-center p-1 gap-2'>
                     <div className='border border-border p-1 rounded-sm'>
                         <Factory className='size-4'/>
                     </div>

@@ -16,7 +16,7 @@ import { toast } from "sonner";
 const workerSchema = z.object({
   name: z.string().min(1, "Name is required"),
   workerId: z.string().min(1, "Worker ID is required"),
-  role: z.enum(["ADMIN", "WORKER"], { errorMap: () => ({ message: "Role must be ADMIN or WORKER" }) }),
+  role: z.enum(["ADMIN", "WORKER"], { error: "Role must be ADMIN or WORKER" }),
   desc: z.string().optional(),
 });
 

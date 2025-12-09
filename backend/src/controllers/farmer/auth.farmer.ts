@@ -3,10 +3,10 @@ import db from "../../config/db.js";
 import { JwtToken } from "../../config/jwt.js";
 import logger from "../../config/logger.js";
 import { log } from "console";
-import { TwilioService } from "../../config/twilio.js";
+// import { TwilioService } from "../../config/twilio.js"; // temporarily disabled
 
 
-const otpController = new TwilioService();
+// const otpController = new TwilioService(); // temporarily disabled
 const JwtTokenInstance = new JwtToken();
 
 
@@ -35,7 +35,7 @@ export async function FarmerSignUp(req: Request, res: Response) {
                 data: { fullName: fullname }
             });
 
-            await otpController.sendOTP(mobileNumber);
+            // await otpController.sendOTP(mobileNumber); // Twilio disabled
 
             return res.status(200).json({
                 msg: "OTP resent to existing unverified account"
@@ -60,7 +60,7 @@ export async function FarmerSignUp(req: Request, res: Response) {
             }
         });
 
-        await otpController.sendOTP(mobileNumber);
+        // await otpController.sendOTP(mobileNumber); // Twilio disabled
 
         res.status(200).json({
             msg: "OTP sent successfully"
@@ -97,14 +97,7 @@ export async function FarmerLogin(req :Request , res: Response){
             })
         }
         
-        try {
-            await otpController.sendOTP(mobileNumber);
-        } catch (err) {
-            logger.error("Farmer_login_sendOTP_failed", { error: (err as Error).message, stack: (err as Error).stack });
-            return res.status(500).json({
-                msg: "Failed to send OTP. Please try again shortly."
-            });
-        }
+        // Twilio disabled: skip sending OTP, accept any 6-digit during verification
 
         return res.status(200).json({
             msg: "OTP sent successfully"
@@ -135,8 +128,8 @@ export async function FarmerSignUpVerifyOtp(req:Request , res:Response){
 
         
 
-        let otpcheck = await otpController.verifyOtp(mobileNumber , otp);
-        if( !otpcheck ){
+        const isSixDigit = /^\d{6}$/.test(otp);
+        if( !isSixDigit ){
             logger.warn(`Farmer_otp_not_verify ${mobileNumber}`)
             return res.status(401).json({
                 msg : "OTP verification failed"
