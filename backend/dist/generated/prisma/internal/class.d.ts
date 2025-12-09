@@ -156,6 +156,17 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
         omit: OmitOpts;
     }>;
     /**
+     * `prisma.complaint`: Exposes CRUD operations for the **Complaint** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Complaints
+      * const complaints = await prisma.complaint.findMany()
+      * ```
+      */
+    get complaint(): Prisma.ComplaintDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
      * `prisma.oTP`: Exposes CRUD operations for the **OTP** model.
       * Example usage:
       * ```ts

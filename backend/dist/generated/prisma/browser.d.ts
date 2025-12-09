@@ -23,6 +23,11 @@ export type HerbData = Prisma.HerbDataModel;
  */
 export type Document = Prisma.DocumentModel;
 /**
+ * Model Complaint
+ *
+ */
+export type Complaint = Prisma.ComplaintModel;
+/**
  * Model OTP
  *
  */

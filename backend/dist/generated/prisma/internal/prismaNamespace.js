@@ -71,6 +71,7 @@ export const ModelName = {
     LandInfo: 'LandInfo',
     HerbData: 'HerbData',
     Document: 'Document',
+    Complaint: 'Complaint',
     OTP: 'OTP',
     Lab: 'Lab',
     LabInfo: 'LabInfo',
@@ -137,6 +138,15 @@ export const DocumentScalarFieldEnum = {
     type: 'type',
     url: 'url',
     farmerID: 'farmerID'
+};
+export const ComplaintScalarFieldEnum = {
+    id: 'id',
+    name: 'name',
+    complaintType: 'complaintType',
+    complaintImage: 'complaintImage',
+    description: 'description',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
 };
 export const OTPScalarFieldEnum = {
     id: 'id',

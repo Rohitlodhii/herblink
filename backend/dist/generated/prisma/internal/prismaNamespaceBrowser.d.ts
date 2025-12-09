@@ -45,6 +45,7 @@ export declare const ModelName: {
     readonly LandInfo: "LandInfo";
     readonly HerbData: "HerbData";
     readonly Document: "Document";
+    readonly Complaint: "Complaint";
     readonly OTP: "OTP";
     readonly Lab: "Lab";
     readonly LabInfo: "LabInfo";
@@ -115,6 +116,16 @@ export declare const DocumentScalarFieldEnum: {
     readonly farmerID: "farmerID";
 };
 export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum];
+export declare const ComplaintScalarFieldEnum: {
+    readonly id: "id";
+    readonly name: "name";
+    readonly complaintType: "complaintType";
+    readonly complaintImage: "complaintImage";
+    readonly description: "description";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type ComplaintScalarFieldEnum = (typeof ComplaintScalarFieldEnum)[keyof typeof ComplaintScalarFieldEnum];
 export declare const OTPScalarFieldEnum: {
     readonly id: "id";
     readonly mobile: "mobile";

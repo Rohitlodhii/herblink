@@ -257,6 +257,7 @@ export declare const ModelName: {
     readonly LandInfo: "LandInfo";
     readonly HerbData: "HerbData";
     readonly Document: "Document";
+    readonly Complaint: "Complaint";
     readonly OTP: "OTP";
     readonly Lab: "Lab";
     readonly LabInfo: "LabInfo";
@@ -282,7 +283,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         omit: GlobalOmitOptions;
     };
     meta: {
-        modelProps: "farmer" | "landInfo" | "herbData" | "document" | "oTP" | "lab" | "labInfo" | "labWorker" | "labProcessorInput" | "processor" | "processingPlantInfo" | "processorInventory" | "processorFarmerInput" | "manufacturer" | "product" | "productInventory" | "herbInventory";
+        modelProps: "farmer" | "landInfo" | "herbData" | "document" | "complaint" | "oTP" | "lab" | "labInfo" | "labWorker" | "labProcessorInput" | "processor" | "processingPlantInfo" | "processorInventory" | "processorFarmerInput" | "manufacturer" | "product" | "productInventory" | "herbInventory";
         txIsolationLevel: TransactionIsolationLevel;
     };
     model: {
@@ -579,6 +580,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
                 count: {
                     args: Prisma.DocumentCountArgs<ExtArgs>;
                     result: runtime.Types.Utils.Optional<Prisma.DocumentCountAggregateOutputType> | number;
+                };
+            };
+        };
+        Complaint: {
+            payload: Prisma.$ComplaintPayload<ExtArgs>;
+            fields: Prisma.ComplaintFieldRefs;
+            operations: {
+                findUnique: {
+                    args: Prisma.ComplaintFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplaintPayload> | null;
+                };
+                findUniqueOrThrow: {
+                    args: Prisma.ComplaintFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplaintPayload>;
+                };
+                findFirst: {
+                    args: Prisma.ComplaintFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplaintPayload> | null;
+                };
+                findFirstOrThrow: {
+                    args: Prisma.ComplaintFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplaintPayload>;
+                };
+                findMany: {
+                    args: Prisma.ComplaintFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplaintPayload>[];
+                };
+                create: {
+                    args: Prisma.ComplaintCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplaintPayload>;
+                };
+                createMany: {
+                    args: Prisma.ComplaintCreateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                createManyAndReturn: {
+                    args: Prisma.ComplaintCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplaintPayload>[];
+                };
+                delete: {
+                    args: Prisma.ComplaintDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplaintPayload>;
+                };
+                update: {
+                    args: Prisma.ComplaintUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplaintPayload>;
+                };
+                deleteMany: {
+                    args: Prisma.ComplaintDeleteManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateMany: {
+                    args: Prisma.ComplaintUpdateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateManyAndReturn: {
+                    args: Prisma.ComplaintUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplaintPayload>[];
+                };
+                upsert: {
+                    args: Prisma.ComplaintUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplaintPayload>;
+                };
+                aggregate: {
+                    args: Prisma.ComplaintAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregateComplaint>;
+                };
+                groupBy: {
+                    args: Prisma.ComplaintGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.ComplaintGroupByOutputType>[];
+                };
+                count: {
+                    args: Prisma.ComplaintCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.ComplaintCountAggregateOutputType> | number;
                 };
             };
         };
@@ -1626,6 +1701,16 @@ export declare const DocumentScalarFieldEnum: {
     readonly farmerID: "farmerID";
 };
 export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum];
+export declare const ComplaintScalarFieldEnum: {
+    readonly id: "id";
+    readonly name: "name";
+    readonly complaintType: "complaintType";
+    readonly complaintImage: "complaintImage";
+    readonly description: "description";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type ComplaintScalarFieldEnum = (typeof ComplaintScalarFieldEnum)[keyof typeof ComplaintScalarFieldEnum];
 export declare const OTPScalarFieldEnum: {
     readonly id: "id";
     readonly mobile: "mobile";
@@ -1999,6 +2084,7 @@ export type GlobalOmitConfig = {
     landInfo?: Prisma.LandInfoOmit;
     herbData?: Prisma.HerbDataOmit;
     document?: Prisma.DocumentOmit;
+    complaint?: Prisma.ComplaintOmit;
     oTP?: Prisma.OTPOmit;
     lab?: Prisma.LabOmit;
     labInfo?: Prisma.LabInfoOmit;
