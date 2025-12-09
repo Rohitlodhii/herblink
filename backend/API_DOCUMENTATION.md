@@ -375,7 +375,10 @@ All lab routes are prefixed with `/api/lab`.
 - **Body** (JSON):
   ```json
   {
-    "processorInventoryId": "string (required)"
+    "processorInventoryId": "string (required)",
+    "reportpath": "string (optional)",
+    "description": "string (optional)",
+    "isDone": "boolean (optional, default: false)"
   }
   ```
 - **Response** (201):
@@ -385,6 +388,9 @@ All lab routes are prefixed with `/api/lab`.
     "data": "LabProcessorInput object"
   }
   ```
+- **Error Responses**:
+  - `400`: Missing processorInventoryId
+  - `404`: Processor inventory not found
 
 #### List All Lab Processor Inputs
 - **Method**: `GET`
@@ -409,6 +415,32 @@ All lab routes are prefixed with `/api/lab`.
     "data": "LabProcessorInput[] array where reportpath is null or empty"
   }
   ```
+
+#### Update Lab Processor Input
+- **Method**: `PUT`
+- **Path**: `/api/lab/processor-input/:id`
+- **Auth**: Required
+- **Params**:
+  - `id` (string, lab processor input ID)
+- **Body** (JSON, all fields optional):
+  ```json
+  {
+    "reportpath": "string (optional)",
+    "description": "string (optional)",
+    "isDone": "boolean (optional)"
+  }
+  ```
+- **Response** (200):
+  ```json
+  {
+    "msg": "Lab processor input updated successfully",
+    "data": "LabProcessorInput object"
+  }
+  ```
+- **Error Responses**:
+  - `400`: Missing id parameter
+  - `404`: Lab processor input not found or doesn't belong to the lab
+- **Note**: Only the lab that owns the processor input can update it. Use this endpoint to attach reports, add descriptions, and mark the report as done.
 
 ---
 
@@ -471,10 +503,12 @@ All processor routes are prefixed with `/api/processor`.
   {
     "inventoryName": "string (required)",
     "assignedGrade": "string (required)",
-    "processinglist": "string (optional)",
     "specie": "string (required)",
-    "finalQuantity": "string (required)",
-    "sendedToLab": "string (optional)"
+    "moisture": "string (optional)",
+    "soilType": "string (optional)",
+    "WaterType": "string (optional)",
+    "Season": "string (optional)",
+    "Location": "string (optional)"
   }
   ```
 - **Response** (201):
@@ -484,6 +518,8 @@ All processor routes are prefixed with `/api/processor`.
     "data": "ProcessorInventory object"
   }
   ```
+- **Error Responses**:
+  - `400`: Missing required fields (inventoryName, assignedGrade, or specie)
 
 #### List Inventories
 - **Method**: `GET`
@@ -510,6 +546,38 @@ All processor routes are prefixed with `/api/processor`.
     "data": "ProcessorInventory object with Items (farmer inputs)"
   }
   ```
+
+#### Update Inventory
+- **Method**: `PUT`
+- **Path**: `/api/processor/inventory/:id`
+- **Auth**: Required
+- **Params**:
+  - `id` (string, inventory ID)
+- **Body** (JSON, all fields optional):
+  ```json
+  {
+    "inventoryName": "string (optional)",
+    "assignedGrade": "string (optional)",
+    "processinglist": "string (optional)",
+    "specie": "string (optional)",
+    "finalQuantity": "string (optional)",
+    "sendedToLab": "string (optional)",
+    "isprocessingDone": "boolean (optional)",
+    "moisture": "string (optional)",
+    "soilType": "string (optional)",
+    "WaterType": "string (optional)",
+    "Season": "string (optional)",
+    "Location": "string (optional)"
+  }
+  ```
+- **Response** (200 if updated, 201 if created):
+  ```json
+  {
+    "msg": "Inventory updated successfully" | "Inventory created successfully",
+    "data": "ProcessorInventory object"
+  }
+  ```
+- **Note**: If the inventory with the given ID doesn't exist, a new inventory will be created with the provided data. Only fields that are provided in the request body will be updated.
 
 ### Farmer Inputs
 

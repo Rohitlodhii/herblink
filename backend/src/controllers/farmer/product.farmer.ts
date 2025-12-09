@@ -15,7 +15,7 @@ export async function addHerb(req: AuthenticatedRequest, res: Response) {
       herbname,
       harvestDate,
       coordinates,
-      pesticidesUsed = false,
+      pesticidesUsed,
       quantity,
       desc,
     } = req.body;
@@ -40,6 +40,7 @@ export async function addHerb(req: AuthenticatedRequest, res: Response) {
 
     return res.status(201).json({
       msg: "Herb added successfully",
+      id: herb.id,
       data: herb,
     });
   } catch (error) {

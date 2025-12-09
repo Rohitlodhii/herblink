@@ -56,6 +56,7 @@ export async function signUpLab( req :Request ,res :Response ){
 
 export async function loginLab( req :Request ,res : Response ) {
     try {
+        console.log("Reached here")
         const { email , password } = req.body;
 
         if(!email  || !password ) {

@@ -177,6 +177,8 @@ export const LabProcessorInputScalarFieldEnum = {
     labId: 'labId',
     processorInventoryId: 'processorInventoryId',
     reportpath: 'reportpath',
+    description: 'description',
+    isDone: 'isDone',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
 };
@@ -213,6 +215,11 @@ export const ProcessorInventoryScalarFieldEnum = {
     specie: 'specie',
     finalQuantity: 'finalQuantity',
     sendedToLab: 'sendedToLab',
+    moisture: 'moisture',
+    soilType: 'soilType',
+    WaterType: 'WaterType',
+    Season: 'Season',
+    Location: 'Location',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
 };
@@ -253,7 +260,6 @@ export const ProductInventoryScalarFieldEnum = {
     id: 'id',
     productId: 'productId',
     HerbName: 'HerbName',
-    herbInventoryId: 'herbInventoryId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
 };
@@ -261,6 +267,7 @@ export const HerbInventoryScalarFieldEnum = {
     id: 'id',
     processorInventoryId: 'processorInventoryId',
     quantityReceived: 'quantityReceived',
+    productInventoryId: 'productInventoryId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
 };

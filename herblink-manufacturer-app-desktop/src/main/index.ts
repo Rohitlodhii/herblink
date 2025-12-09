@@ -29,14 +29,12 @@ function createWindow(): void {
 
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
-  // For now, load login.html initially
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
-    // In dev mode, load from source directory
-    const appPath = app.getAppPath()
-    mainWindow.loadFile(join(appPath, 'src/renderer/login.html'))
+    // In dev mode, load from Vite dev server
+    mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
   } else {
     // In production, load from the built renderer directory
-    mainWindow.loadFile(join(__dirname, '../renderer/login.html'))
+    mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
 }
 

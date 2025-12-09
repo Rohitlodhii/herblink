@@ -27,13 +27,17 @@ All processor routes are prefixed with `/api/processor`.
   - **Body** (JSON):
     - `inventoryName` (string, required)
     - `assignedGrade` (string, required)
-    - `processinglist` (string, optional)
     - `specie` (string, required)
-    - `finalQuantity` (string, required)
-    - `sendedToLab` (string, optional)
+    - `moisture` (string, optional)
+    - `soilType` (string, optional)
+    - `WaterType` (string, optional)
+    - `Season` (string, optional)
+    - `Location` (string, optional)
   - **Response** (201):
     - `msg`: `"Inventory created successfully"`
     - `data`: `ProcessorInventory` object
+  - **Error Responses**:
+    - `400`: Missing required fields (inventoryName, assignedGrade, or specie)
 
 - **List inventories**
   - **Method**: `GET`
@@ -52,6 +56,30 @@ All processor routes are prefixed with `/api/processor`.
   - **Response** (200):
     - `msg`: `"Inventory fetched successfully"`
     - `data`: `ProcessorInventory` object including `Items` (farmer inputs)
+
+- **Update inventory**
+  - **Method**: `PUT`
+  - **Path**: `/api/processor/inventory/:id`
+  - **Auth**: `Authorization: Bearer <JWT>`
+  - **Params**:
+    - `id` (string, inventory ID)
+  - **Body** (JSON, all fields optional):
+    - `inventoryName` (string, optional)
+    - `assignedGrade` (string, optional)
+    - `processinglist` (string, optional)
+    - `specie` (string, optional)
+    - `finalQuantity` (string, optional)
+    - `sendedToLab` (string, optional)
+    - `isprocessingDone` (boolean, optional)
+    - `moisture` (string, optional)
+    - `soilType` (string, optional)
+    - `WaterType` (string, optional)
+    - `Season` (string, optional)
+    - `Location` (string, optional)
+  - **Response** (200 if updated, 201 if created):
+    - `msg`: `"Inventory updated successfully"` | `"Inventory created successfully"`
+    - `data`: `ProcessorInventory` object
+  - **Note**: If the inventory with the given ID doesn't exist, a new inventory will be created with the provided data. Only fields that are provided in the request body will be updated.
 
 ### Farmer Inputs
 

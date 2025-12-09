@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { ChevronLeft, Loader2 } from "lucide-react"
+import { ChevronLeft, Loader2, CheckCircle2 } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { useRouter } from "next/navigation"
@@ -31,6 +32,7 @@ export default function Page() {
   const { t } = useTranslation("common")
   const router = useRouter()
   const [loading, setLoading] = useState(false)
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false)
 
   const form = useForm<z.infer<typeof SignupSchema>>({
     resolver: zodResolver(SignupSchema),
@@ -56,11 +58,13 @@ export default function Page() {
         manufacturerId: values.manufacturerId,
       })
       
+      // Show success dialog and reset form
+      setShowSuccessDialog(true)
+      form.reset()
+      
+      // Store token if provided (though user may need to wait for verification)
       if (res?.token) {
         Auth.setToken(res.token)
-        toast.success(res.msg || "Manufacturer account created successfully!")
-        // Redirect to dashboard or appropriate page
-        router.push("/manufacturer/dashboard")
       }
     } catch (err: any) {
       console.error(err)
@@ -212,6 +216,35 @@ export default function Page() {
           </div>
         </div>
       </div>
+
+      {/* Success Dialog */}
+      <Dialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <div className="flex items-center justify-center mb-4">
+              <div className="rounded-full bg-green-100 dark:bg-green-900 p-3">
+                <CheckCircle2 className="h-8 w-8 text-green-600 dark:text-green-400" />
+              </div>
+            </div>
+            <DialogTitle className="text-center">Registration Successful!</DialogTitle>
+            <DialogDescription className="text-center pt-2">
+              Your manufacturer account registration has been completed successfully. 
+              You can login to the app once your account is verified by the administrator.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="sm:justify-center">
+            <Button 
+              onClick={() => {
+                setShowSuccessDialog(false)
+                router.push("/manufacturer/login")
+              }}
+              className="w-full sm:w-auto"
+            >
+              Go to Login
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

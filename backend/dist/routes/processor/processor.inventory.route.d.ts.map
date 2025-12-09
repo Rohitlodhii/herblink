@@ -1,1 +1,1 @@
-{"version":3,"file":"processor.inventory.route.d.ts","sourceRoot":"","sources":["../../../src/routes/processor/processor.inventory.route.ts"],"names":[],"mappings":"AAQA,QAAA,MAAM,wBAAwB,4CAAW,CAAC;AAM1C,eAAe,wBAAwB,CAAC"}
+{"version":3,"file":"processor.inventory.route.d.ts","sourceRoot":"","sources":["../../../src/routes/processor/processor.inventory.route.ts"],"names":[],"mappings":"AASA,QAAA,MAAM,wBAAwB,4CAAW,CAAC;AAO1C,eAAe,wBAAwB,CAAC"}

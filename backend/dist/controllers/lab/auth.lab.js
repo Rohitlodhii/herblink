@@ -45,6 +45,7 @@ export async function signUpLab(req, res) {
 }
 export async function loginLab(req, res) {
     try {
+        console.log("Reached here");
         const { email, password } = req.body;
         if (!email || !password) {
             return res.status(404).json({

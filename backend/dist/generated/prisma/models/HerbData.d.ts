@@ -15,7 +15,7 @@ export type HerbDataMinAggregateOutputType = {
     herbname: string | null;
     harvestDate: string | null;
     coordinates: string | null;
-    pesticidesUsed: boolean | null;
+    pesticidesUsed: string | null;
     quantity: string | null;
     desc: string | null;
     farmerID: string | null;
@@ -25,7 +25,7 @@ export type HerbDataMaxAggregateOutputType = {
     herbname: string | null;
     harvestDate: string | null;
     coordinates: string | null;
-    pesticidesUsed: boolean | null;
+    pesticidesUsed: string | null;
     quantity: string | null;
     desc: string | null;
     farmerID: string | null;
@@ -139,7 +139,7 @@ export type HerbDataGroupByOutputType = {
     herbname: string;
     harvestDate: string;
     coordinates: string;
-    pesticidesUsed: boolean;
+    pesticidesUsed: string | null;
     quantity: string;
     desc: string;
     farmerID: string;
@@ -158,7 +158,7 @@ export type HerbDataWhereInput = {
     herbname?: Prisma.StringFilter<"HerbData"> | string;
     harvestDate?: Prisma.StringFilter<"HerbData"> | string;
     coordinates?: Prisma.StringFilter<"HerbData"> | string;
-    pesticidesUsed?: Prisma.BoolFilter<"HerbData"> | boolean;
+    pesticidesUsed?: Prisma.StringNullableFilter<"HerbData"> | string | null;
     quantity?: Prisma.StringFilter<"HerbData"> | string;
     desc?: Prisma.StringFilter<"HerbData"> | string;
     farmerID?: Prisma.StringFilter<"HerbData"> | string;
@@ -169,7 +169,7 @@ export type HerbDataOrderByWithRelationInput = {
     herbname?: Prisma.SortOrder;
     harvestDate?: Prisma.SortOrder;
     coordinates?: Prisma.SortOrder;
-    pesticidesUsed?: Prisma.SortOrder;
+    pesticidesUsed?: Prisma.SortOrderInput | Prisma.SortOrder;
     quantity?: Prisma.SortOrder;
     desc?: Prisma.SortOrder;
     farmerID?: Prisma.SortOrder;
@@ -183,7 +183,7 @@ export type HerbDataWhereUniqueInput = Prisma.AtLeast<{
     herbname?: Prisma.StringFilter<"HerbData"> | string;
     harvestDate?: Prisma.StringFilter<"HerbData"> | string;
     coordinates?: Prisma.StringFilter<"HerbData"> | string;
-    pesticidesUsed?: Prisma.BoolFilter<"HerbData"> | boolean;
+    pesticidesUsed?: Prisma.StringNullableFilter<"HerbData"> | string | null;
     quantity?: Prisma.StringFilter<"HerbData"> | string;
     desc?: Prisma.StringFilter<"HerbData"> | string;
     farmerID?: Prisma.StringFilter<"HerbData"> | string;
@@ -194,7 +194,7 @@ export type HerbDataOrderByWithAggregationInput = {
     herbname?: Prisma.SortOrder;
     harvestDate?: Prisma.SortOrder;
     coordinates?: Prisma.SortOrder;
-    pesticidesUsed?: Prisma.SortOrder;
+    pesticidesUsed?: Prisma.SortOrderInput | Prisma.SortOrder;
     quantity?: Prisma.SortOrder;
     desc?: Prisma.SortOrder;
     farmerID?: Prisma.SortOrder;
@@ -210,7 +210,7 @@ export type HerbDataScalarWhereWithAggregatesInput = {
     herbname?: Prisma.StringWithAggregatesFilter<"HerbData"> | string;
     harvestDate?: Prisma.StringWithAggregatesFilter<"HerbData"> | string;
     coordinates?: Prisma.StringWithAggregatesFilter<"HerbData"> | string;
-    pesticidesUsed?: Prisma.BoolWithAggregatesFilter<"HerbData"> | boolean;
+    pesticidesUsed?: Prisma.StringNullableWithAggregatesFilter<"HerbData"> | string | null;
     quantity?: Prisma.StringWithAggregatesFilter<"HerbData"> | string;
     desc?: Prisma.StringWithAggregatesFilter<"HerbData"> | string;
     farmerID?: Prisma.StringWithAggregatesFilter<"HerbData"> | string;
@@ -220,7 +220,7 @@ export type HerbDataCreateInput = {
     herbname: string;
     harvestDate: string;
     coordinates: string;
-    pesticidesUsed?: boolean;
+    pesticidesUsed?: string | null;
     quantity: string;
     desc: string;
     farmer: Prisma.FarmerCreateNestedOneWithoutHerbDataInput;
@@ -230,7 +230,7 @@ export type HerbDataUncheckedCreateInput = {
     herbname: string;
     harvestDate: string;
     coordinates: string;
-    pesticidesUsed?: boolean;
+    pesticidesUsed?: string | null;
     quantity: string;
     desc: string;
     farmerID: string;
@@ -240,7 +240,7 @@ export type HerbDataUpdateInput = {
     herbname?: Prisma.StringFieldUpdateOperationsInput | string;
     harvestDate?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.StringFieldUpdateOperationsInput | string;
-    pesticidesUsed?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    pesticidesUsed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     quantity?: Prisma.StringFieldUpdateOperationsInput | string;
     desc?: Prisma.StringFieldUpdateOperationsInput | string;
     farmer?: Prisma.FarmerUpdateOneRequiredWithoutHerbDataNestedInput;
@@ -250,7 +250,7 @@ export type HerbDataUncheckedUpdateInput = {
     herbname?: Prisma.StringFieldUpdateOperationsInput | string;
     harvestDate?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.StringFieldUpdateOperationsInput | string;
-    pesticidesUsed?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    pesticidesUsed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     quantity?: Prisma.StringFieldUpdateOperationsInput | string;
     desc?: Prisma.StringFieldUpdateOperationsInput | string;
     farmerID?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -260,7 +260,7 @@ export type HerbDataCreateManyInput = {
     herbname: string;
     harvestDate: string;
     coordinates: string;
-    pesticidesUsed?: boolean;
+    pesticidesUsed?: string | null;
     quantity: string;
     desc: string;
     farmerID: string;
@@ -270,7 +270,7 @@ export type HerbDataUpdateManyMutationInput = {
     herbname?: Prisma.StringFieldUpdateOperationsInput | string;
     harvestDate?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.StringFieldUpdateOperationsInput | string;
-    pesticidesUsed?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    pesticidesUsed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     quantity?: Prisma.StringFieldUpdateOperationsInput | string;
     desc?: Prisma.StringFieldUpdateOperationsInput | string;
 };
@@ -279,7 +279,7 @@ export type HerbDataUncheckedUpdateManyInput = {
     herbname?: Prisma.StringFieldUpdateOperationsInput | string;
     harvestDate?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.StringFieldUpdateOperationsInput | string;
-    pesticidesUsed?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    pesticidesUsed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     quantity?: Prisma.StringFieldUpdateOperationsInput | string;
     desc?: Prisma.StringFieldUpdateOperationsInput | string;
     farmerID?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -365,7 +365,7 @@ export type HerbDataCreateWithoutFarmerInput = {
     herbname: string;
     harvestDate: string;
     coordinates: string;
-    pesticidesUsed?: boolean;
+    pesticidesUsed?: string | null;
     quantity: string;
     desc: string;
 };
@@ -374,7 +374,7 @@ export type HerbDataUncheckedCreateWithoutFarmerInput = {
     herbname: string;
     harvestDate: string;
     coordinates: string;
-    pesticidesUsed?: boolean;
+    pesticidesUsed?: string | null;
     quantity: string;
     desc: string;
 };
@@ -407,7 +407,7 @@ export type HerbDataScalarWhereInput = {
     herbname?: Prisma.StringFilter<"HerbData"> | string;
     harvestDate?: Prisma.StringFilter<"HerbData"> | string;
     coordinates?: Prisma.StringFilter<"HerbData"> | string;
-    pesticidesUsed?: Prisma.BoolFilter<"HerbData"> | boolean;
+    pesticidesUsed?: Prisma.StringNullableFilter<"HerbData"> | string | null;
     quantity?: Prisma.StringFilter<"HerbData"> | string;
     desc?: Prisma.StringFilter<"HerbData"> | string;
     farmerID?: Prisma.StringFilter<"HerbData"> | string;
@@ -417,7 +417,7 @@ export type HerbDataCreateManyFarmerInput = {
     herbname: string;
     harvestDate: string;
     coordinates: string;
-    pesticidesUsed?: boolean;
+    pesticidesUsed?: string | null;
     quantity: string;
     desc: string;
 };
@@ -426,7 +426,7 @@ export type HerbDataUpdateWithoutFarmerInput = {
     herbname?: Prisma.StringFieldUpdateOperationsInput | string;
     harvestDate?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.StringFieldUpdateOperationsInput | string;
-    pesticidesUsed?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    pesticidesUsed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     quantity?: Prisma.StringFieldUpdateOperationsInput | string;
     desc?: Prisma.StringFieldUpdateOperationsInput | string;
 };
@@ -435,7 +435,7 @@ export type HerbDataUncheckedUpdateWithoutFarmerInput = {
     herbname?: Prisma.StringFieldUpdateOperationsInput | string;
     harvestDate?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.StringFieldUpdateOperationsInput | string;
-    pesticidesUsed?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    pesticidesUsed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     quantity?: Prisma.StringFieldUpdateOperationsInput | string;
     desc?: Prisma.StringFieldUpdateOperationsInput | string;
 };
@@ -444,7 +444,7 @@ export type HerbDataUncheckedUpdateManyWithoutFarmerInput = {
     herbname?: Prisma.StringFieldUpdateOperationsInput | string;
     harvestDate?: Prisma.StringFieldUpdateOperationsInput | string;
     coordinates?: Prisma.StringFieldUpdateOperationsInput | string;
-    pesticidesUsed?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    pesticidesUsed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     quantity?: Prisma.StringFieldUpdateOperationsInput | string;
     desc?: Prisma.StringFieldUpdateOperationsInput | string;
 };
@@ -511,7 +511,7 @@ export type $HerbDataPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
         herbname: string;
         harvestDate: string;
         coordinates: string;
-        pesticidesUsed: boolean;
+        pesticidesUsed: string | null;
         quantity: string;
         desc: string;
         farmerID: string;
@@ -874,7 +874,7 @@ export interface HerbDataFieldRefs {
     readonly herbname: Prisma.FieldRef<"HerbData", 'String'>;
     readonly harvestDate: Prisma.FieldRef<"HerbData", 'String'>;
     readonly coordinates: Prisma.FieldRef<"HerbData", 'String'>;
-    readonly pesticidesUsed: Prisma.FieldRef<"HerbData", 'Boolean'>;
+    readonly pesticidesUsed: Prisma.FieldRef<"HerbData", 'String'>;
     readonly quantity: Prisma.FieldRef<"HerbData", 'String'>;
     readonly desc: Prisma.FieldRef<"HerbData", 'String'>;
     readonly farmerID: Prisma.FieldRef<"HerbData", 'String'>;

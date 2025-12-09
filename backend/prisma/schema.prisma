@@ -91,7 +91,7 @@ model HerbData {
   herbname       String
   harvestDate    String
   coordinates    String
-  pesticidesUsed Boolean @default(false)
+  pesticidesUsed String?
   quantity       String
   desc           String
 
@@ -162,15 +162,17 @@ model LabProcessorInput {
   processorInventoryId String
   processorInventory   ProcessorInventory @relation(fields: [processorInventoryId], references: [id])
 
-  reportpath String?
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  reportpath  String?
+  description String?
+  isDone      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 // Processor Model
 model Processor {
   id          String @id @default(uuid())
-  processorId String @unique
+  processorId String? @unique
   email       String @unique
   password    String
 
@@ -218,6 +220,13 @@ model ProcessorInventory {
   finalQuantity String
 
   sendedToLab String
+  moisture String?
+  soilType String?
+  WaterType String?
+  Season String?
+  Location String?
+  
+
 
   LabProcessorInputs LabProcessorInput[]
   HerbInventories    HerbInventory[]
@@ -273,8 +282,7 @@ model ProductInventory {
   product   Product @relation(fields: [productId], references: [id])
   HerbName  String
 
-  herbInventoryId String        @unique
-  herbInventory   HerbInventory @relation(fields: [herbInventoryId], references: [id])
+  HerbInventories HerbInventory[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -285,7 +293,8 @@ model HerbInventory {
   processorInventoryId String
   processorInventory   ProcessorInventory @relation(fields: [processorInventoryId], references: [id])
   quantityReceived     String
-  productInventory     ProductInventory?
+  productInventoryId   String?
+  productInventory     ProductInventory?   @relation(fields: [productInventoryId], references: [id])
   createdAt            DateTime           @default(now())
   updatedAt            DateTime           @updatedAt
 }

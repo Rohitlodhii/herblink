@@ -1,4 +1,4 @@
-import { Response } from "express";
+import { Request, Response } from "express";
 import db from "../../config/db.js";
 import logger from "../../config/logger.js";
 import { AuthenticatedRequest } from "../../middlewares/jwt.verify.js";
@@ -43,6 +43,54 @@ export async function createProduct(req: AuthenticatedRequest, res: Response) {
     });
   } catch (error) {
     logger.error("manufacturer_product_create_error", {
+      error: (error as Error).message,
+      stack: (error as Error).stack,
+    });
+    return res.status(500).json({ msg: "Internal Server error" });
+  }
+}
+
+export async function getFullProductDetails(req: Request, res: Response) {
+  try {
+    // Accept id from URL param or request body (for QR code POST payload)
+    const id = req.body;
+
+    if (!id) {
+      return res.status(400).json({ msg: "Product ID is required" });
+    }
+
+    const product = await db.product.findUnique({
+      where: { id },
+      include: {
+        manufacturer: true,
+        Inventories: {
+          include: {
+            HerbInventories: {
+              include: {
+                processorInventory: {
+                  include: {
+                    processorid: true,
+                    Items: true,
+                    HerbInventories: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+
+    if (!product) {
+      return res.status(404).json({ msg: "Product not found" });
+    }
+
+    return res.status(200).json({
+      msg: "Product details retrieved successfully",
+      data: product,
+    });
+  } catch (error) {
+    logger.error("manufacturer_product_get_full_error", {
       error: (error as Error).message,
       stack: (error as Error).stack,
     });
@@ -104,7 +152,7 @@ export async function getProductById(req: AuthenticatedRequest, res: Response) {
       include: {
         Inventories: {
           include: {
-            herbInventory: {
+            HerbInventories: {
               include: {
                 processorInventory: true,
               },

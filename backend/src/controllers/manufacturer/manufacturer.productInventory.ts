@@ -10,11 +10,11 @@ export async function createProductInventory(req: AuthenticatedRequest, res: Res
       return res.status(401).json({ msg: "Unauthorized" });
     }
 
-    const { productId, HerbName, herbInventoryId } = req.body;
+    const { productId, HerbName } = req.body;
 
-    if (!productId || !HerbName || !herbInventoryId) {
+    if (!productId || !HerbName) {
       return res.status(400).json({
-        msg: "productId, HerbName, and herbInventoryId are required",
+        msg: "productId and HerbName are required",
       });
     }
 
@@ -27,20 +27,10 @@ export async function createProductInventory(req: AuthenticatedRequest, res: Res
       return res.status(404).json({ msg: "Product not found for manufacturer" });
     }
 
-    // Verify herbInventory exists
-    const herbInventory = await db.herbInventory.findUnique({
-      where: { id: herbInventoryId },
-    });
-
-    if (!herbInventory) {
-      return res.status(404).json({ msg: "HerbInventory not found" });
-    }
-
     const result = await db.productInventory.create({
       data: {
         productId,
         HerbName,
-        herbInventoryId,
       },
     });
 
@@ -82,7 +72,7 @@ export async function listProductInventories(req: AuthenticatedRequest, res: Res
     const inventories = await db.productInventory.findMany({
       where: { productId: productId as string },
       include: {
-        herbInventory: {
+        HerbInventories: {
           include: {
             processorInventory: true,
           },
@@ -121,7 +111,7 @@ export async function getProductInventoryById(req: AuthenticatedRequest, res: Re
       where: { id: id as string },
       include: {
         product: true,
-        herbInventory: {
+        HerbInventories: {
           include: {
             processorInventory: true,
           },
@@ -157,7 +147,7 @@ export async function updateProductInventory(req: AuthenticatedRequest, res: Res
   try {
     const userId = req.userId;
     const { id } = req.params;
-    const { HerbName, herbInventoryId } = req.body;
+    const { HerbName } = req.body;
 
     if (!userId) {
       return res.status(401).json({ msg: "Unauthorized" });
@@ -185,21 +175,9 @@ export async function updateProductInventory(req: AuthenticatedRequest, res: Res
 
     const updateData: {
       HerbName?: string;
-      herbInventoryId?: string;
     } = {};
 
     if (HerbName !== undefined) updateData.HerbName = HerbName;
-    if (herbInventoryId !== undefined) {
-      // Verify herbInventory exists
-      const herbInventory = await db.herbInventory.findUnique({
-        where: { id: herbInventoryId },
-      });
-
-      if (!herbInventory) {
-        return res.status(404).json({ msg: "HerbInventory not found" });
-      }
-      updateData.herbInventoryId = herbInventoryId;
-    }
 
     const result = await db.productInventory.update({
       where: { id: id as string },

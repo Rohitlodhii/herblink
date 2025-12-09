@@ -6,7 +6,7 @@ export async function addHerb(req, res) {
         if (!userId) {
             return res.status(401).json({ msg: "Unauthorized" });
         }
-        const { herbname, harvestDate, coordinates, pesticidesUsed = false, quantity, desc, } = req.body;
+        const { herbname, harvestDate, coordinates, pesticidesUsed, quantity, desc, } = req.body;
         if (!herbname || !harvestDate || !coordinates || !quantity || !desc) {
             return res.status(400).json({
                 msg: "herbname, harvestDate, coordinates, quantity and desc are required",
@@ -25,6 +25,7 @@ export async function addHerb(req, res) {
         });
         return res.status(201).json({
             msg: "Herb added successfully",
+            id: herb.id,
             data: herb,
         });
     }

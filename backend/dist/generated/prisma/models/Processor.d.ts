@@ -155,7 +155,7 @@ export type ProcessorGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 };
 export type ProcessorGroupByOutputType = {
     id: string;
-    processorId: string;
+    processorId: string | null;
     email: string;
     password: string;
     name: string | null;
@@ -177,7 +177,7 @@ export type ProcessorWhereInput = {
     OR?: Prisma.ProcessorWhereInput[];
     NOT?: Prisma.ProcessorWhereInput | Prisma.ProcessorWhereInput[];
     id?: Prisma.StringFilter<"Processor"> | string;
-    processorId?: Prisma.StringFilter<"Processor"> | string;
+    processorId?: Prisma.StringNullableFilter<"Processor"> | string | null;
     email?: Prisma.StringFilter<"Processor"> | string;
     password?: Prisma.StringFilter<"Processor"> | string;
     name?: Prisma.StringNullableFilter<"Processor"> | string | null;
@@ -192,7 +192,7 @@ export type ProcessorWhereInput = {
 };
 export type ProcessorOrderByWithRelationInput = {
     id?: Prisma.SortOrder;
-    processorId?: Prisma.SortOrder;
+    processorId?: Prisma.SortOrderInput | Prisma.SortOrder;
     email?: Prisma.SortOrder;
     password?: Prisma.SortOrder;
     name?: Prisma.SortOrderInput | Prisma.SortOrder;
@@ -225,7 +225,7 @@ export type ProcessorWhereUniqueInput = Prisma.AtLeast<{
 }, "id" | "processorId" | "email">;
 export type ProcessorOrderByWithAggregationInput = {
     id?: Prisma.SortOrder;
-    processorId?: Prisma.SortOrder;
+    processorId?: Prisma.SortOrderInput | Prisma.SortOrder;
     email?: Prisma.SortOrder;
     password?: Prisma.SortOrder;
     name?: Prisma.SortOrderInput | Prisma.SortOrder;
@@ -244,7 +244,7 @@ export type ProcessorScalarWhereWithAggregatesInput = {
     OR?: Prisma.ProcessorScalarWhereWithAggregatesInput[];
     NOT?: Prisma.ProcessorScalarWhereWithAggregatesInput | Prisma.ProcessorScalarWhereWithAggregatesInput[];
     id?: Prisma.StringWithAggregatesFilter<"Processor"> | string;
-    processorId?: Prisma.StringWithAggregatesFilter<"Processor"> | string;
+    processorId?: Prisma.StringNullableWithAggregatesFilter<"Processor"> | string | null;
     email?: Prisma.StringWithAggregatesFilter<"Processor"> | string;
     password?: Prisma.StringWithAggregatesFilter<"Processor"> | string;
     name?: Prisma.StringNullableWithAggregatesFilter<"Processor"> | string | null;
@@ -257,7 +257,7 @@ export type ProcessorScalarWhereWithAggregatesInput = {
 };
 export type ProcessorCreateInput = {
     id?: string;
-    processorId: string;
+    processorId?: string | null;
     email: string;
     password: string;
     name?: string | null;
@@ -272,7 +272,7 @@ export type ProcessorCreateInput = {
 };
 export type ProcessorUncheckedCreateInput = {
     id?: string;
-    processorId: string;
+    processorId?: string | null;
     email: string;
     password: string;
     name?: string | null;
@@ -287,7 +287,7 @@ export type ProcessorUncheckedCreateInput = {
 };
 export type ProcessorUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    processorId?: Prisma.StringFieldUpdateOperationsInput | string;
+    processorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -302,7 +302,7 @@ export type ProcessorUpdateInput = {
 };
 export type ProcessorUncheckedUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    processorId?: Prisma.StringFieldUpdateOperationsInput | string;
+    processorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -317,7 +317,7 @@ export type ProcessorUncheckedUpdateInput = {
 };
 export type ProcessorCreateManyInput = {
     id?: string;
-    processorId: string;
+    processorId?: string | null;
     email: string;
     password: string;
     name?: string | null;
@@ -330,7 +330,7 @@ export type ProcessorCreateManyInput = {
 };
 export type ProcessorUpdateManyMutationInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    processorId?: Prisma.StringFieldUpdateOperationsInput | string;
+    processorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -343,7 +343,7 @@ export type ProcessorUpdateManyMutationInput = {
 };
 export type ProcessorUncheckedUpdateManyInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    processorId?: Prisma.StringFieldUpdateOperationsInput | string;
+    processorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -423,7 +423,7 @@ export type ProcessorUpdateOneRequiredWithoutInventoryNestedInput = {
 };
 export type ProcessorCreateWithoutPlantInfoInput = {
     id?: string;
-    processorId: string;
+    processorId?: string | null;
     email: string;
     password: string;
     name?: string | null;
@@ -437,7 +437,7 @@ export type ProcessorCreateWithoutPlantInfoInput = {
 };
 export type ProcessorUncheckedCreateWithoutPlantInfoInput = {
     id?: string;
-    processorId: string;
+    processorId?: string | null;
     email: string;
     password: string;
     name?: string | null;
@@ -464,7 +464,7 @@ export type ProcessorUpdateToOneWithWhereWithoutPlantInfoInput = {
 };
 export type ProcessorUpdateWithoutPlantInfoInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    processorId?: Prisma.StringFieldUpdateOperationsInput | string;
+    processorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -478,7 +478,7 @@ export type ProcessorUpdateWithoutPlantInfoInput = {
 };
 export type ProcessorUncheckedUpdateWithoutPlantInfoInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    processorId?: Prisma.StringFieldUpdateOperationsInput | string;
+    processorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -492,7 +492,7 @@ export type ProcessorUncheckedUpdateWithoutPlantInfoInput = {
 };
 export type ProcessorCreateWithoutInventoryInput = {
     id?: string;
-    processorId: string;
+    processorId?: string | null;
     email: string;
     password: string;
     name?: string | null;
@@ -506,7 +506,7 @@ export type ProcessorCreateWithoutInventoryInput = {
 };
 export type ProcessorUncheckedCreateWithoutInventoryInput = {
     id?: string;
-    processorId: string;
+    processorId?: string | null;
     email: string;
     password: string;
     name?: string | null;
@@ -533,7 +533,7 @@ export type ProcessorUpdateToOneWithWhereWithoutInventoryInput = {
 };
 export type ProcessorUpdateWithoutInventoryInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    processorId?: Prisma.StringFieldUpdateOperationsInput | string;
+    processorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -547,7 +547,7 @@ export type ProcessorUpdateWithoutInventoryInput = {
 };
 export type ProcessorUncheckedUpdateWithoutInventoryInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    processorId?: Prisma.StringFieldUpdateOperationsInput | string;
+    processorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
@@ -654,7 +654,7 @@ export type $ProcessorPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     };
     scalars: runtime.Types.Extensions.GetPayloadResult<{
         id: string;
-        processorId: string;
+        processorId: string | null;
         email: string;
         password: string;
         name: string | null;

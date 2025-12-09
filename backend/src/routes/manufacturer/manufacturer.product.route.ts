@@ -3,6 +3,7 @@ import {
   createProduct,
   deleteProduct,
   getProductById,
+  getFullProductDetails,
   listProducts,
   updateProduct,
 } from "../../controllers/manufacturer/manufacturer.product.js";
@@ -12,6 +13,7 @@ const manufacturerProductRouter = Router();
 
 manufacturerProductRouter.post("/", verifyJwt, createProduct);
 manufacturerProductRouter.get("/", verifyJwt, listProducts);
+
 manufacturerProductRouter.get("/:id", verifyJwt, getProductById);
 manufacturerProductRouter.put("/:id", verifyJwt, updateProduct);
 manufacturerProductRouter.delete("/:id", verifyJwt, deleteProduct);

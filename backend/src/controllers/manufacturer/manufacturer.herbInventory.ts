@@ -10,11 +10,11 @@ export async function createHerbInventory(req: AuthenticatedRequest, res: Respon
       return res.status(401).json({ msg: "Unauthorized" });
     }
 
-    const { processorInventoryId, quantityReceived } = req.body;
+    const { processorInventoryId, quantityReceived, productInventoryId } = req.body;
 
-    if (!processorInventoryId || !quantityReceived) {
+    if (!processorInventoryId || !quantityReceived || !productInventoryId) {
       return res.status(400).json({
-        msg: "processorInventoryId and quantityReceived are required",
+        msg: "processorInventoryId, quantityReceived and productInventoryId are required",
       });
     }
 
@@ -27,10 +27,25 @@ export async function createHerbInventory(req: AuthenticatedRequest, res: Respon
       return res.status(404).json({ msg: "ProcessorInventory not found" });
     }
 
+    // Verify productInventory exists and belongs to current manufacturer
+    const productInventory = await db.productInventory.findUnique({
+      where: { id: productInventoryId },
+      include: { product: true },
+    });
+
+    if (!productInventory) {
+      return res.status(404).json({ msg: "ProductInventory not found" });
+    }
+
+    if (productInventory.product.manufacturerId !== userId) {
+      return res.status(403).json({ msg: "You are not authorized to add herb inventory to this product inventory" });
+    }
+
     const result = await db.herbInventory.create({
       data: {
         processorInventoryId,
         quantityReceived,
+        productInventoryId,
       },
     });
 
@@ -62,7 +77,7 @@ export async function listHerbInventories(req: AuthenticatedRequest, res: Respon
           include: {
             Inventories: {
               include: {
-                herbInventory: {
+                HerbInventories: {
                   include: {
                     processorInventory: true,
                   },
@@ -80,7 +95,7 @@ export async function listHerbInventories(req: AuthenticatedRequest, res: Respon
 
     // Extract all herb inventories from products
     const herbInventories = manufacturer.products.flatMap((product) =>
-      product.Inventories.map((inventory) => inventory.herbInventory).filter(Boolean)
+      product.Inventories.flatMap((inventory) => inventory.HerbInventories)
     );
 
     return res.status(200).json({

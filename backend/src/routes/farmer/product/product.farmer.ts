@@ -1,11 +1,11 @@
 import { Router } from "express";
 import { verifyJwt } from "../../../middlewares/jwt.verify.js";
-import { deleteFarmerLandInfo } from "../../../controllers/farmer/updates.farmer.js";
+import { addHerb } from "../../../controllers/farmer/product.farmer.js";
 
 
 const productFarmerRouter = Router();
 
 
-productFarmerRouter.post('/deletelandinfo' , verifyJwt , deleteFarmerLandInfo);
+productFarmerRouter.post('/herbdata' , verifyJwt , addHerb);
 
 export default productFarmerRouter;

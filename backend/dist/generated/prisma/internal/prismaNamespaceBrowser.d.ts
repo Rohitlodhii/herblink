@@ -158,6 +158,8 @@ export declare const LabProcessorInputScalarFieldEnum: {
     readonly labId: "labId";
     readonly processorInventoryId: "processorInventoryId";
     readonly reportpath: "reportpath";
+    readonly description: "description";
+    readonly isDone: "isDone";
     readonly createdAt: "createdAt";
     readonly updatedAt: "updatedAt";
 };
@@ -197,6 +199,11 @@ export declare const ProcessorInventoryScalarFieldEnum: {
     readonly specie: "specie";
     readonly finalQuantity: "finalQuantity";
     readonly sendedToLab: "sendedToLab";
+    readonly moisture: "moisture";
+    readonly soilType: "soilType";
+    readonly WaterType: "WaterType";
+    readonly Season: "Season";
+    readonly Location: "Location";
     readonly createdAt: "createdAt";
     readonly updatedAt: "updatedAt";
 };
@@ -241,7 +248,6 @@ export declare const ProductInventoryScalarFieldEnum: {
     readonly id: "id";
     readonly productId: "productId";
     readonly HerbName: "HerbName";
-    readonly herbInventoryId: "herbInventoryId";
     readonly createdAt: "createdAt";
     readonly updatedAt: "updatedAt";
 };
@@ -250,6 +256,7 @@ export declare const HerbInventoryScalarFieldEnum: {
     readonly id: "id";
     readonly processorInventoryId: "processorInventoryId";
     readonly quantityReceived: "quantityReceived";
+    readonly productInventoryId: "productInventoryId";
     readonly createdAt: "createdAt";
     readonly updatedAt: "updatedAt";
 };

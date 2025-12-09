@@ -14,6 +14,7 @@ export type HerbInventoryMinAggregateOutputType = {
     id: string | null;
     processorInventoryId: string | null;
     quantityReceived: string | null;
+    productInventoryId: string | null;
     createdAt: Date | null;
     updatedAt: Date | null;
 };
@@ -21,6 +22,7 @@ export type HerbInventoryMaxAggregateOutputType = {
     id: string | null;
     processorInventoryId: string | null;
     quantityReceived: string | null;
+    productInventoryId: string | null;
     createdAt: Date | null;
     updatedAt: Date | null;
 };
@@ -28,6 +30,7 @@ export type HerbInventoryCountAggregateOutputType = {
     id: number;
     processorInventoryId: number;
     quantityReceived: number;
+    productInventoryId: number;
     createdAt: number;
     updatedAt: number;
     _all: number;
@@ -36,6 +39,7 @@ export type HerbInventoryMinAggregateInputType = {
     id?: true;
     processorInventoryId?: true;
     quantityReceived?: true;
+    productInventoryId?: true;
     createdAt?: true;
     updatedAt?: true;
 };
@@ -43,6 +47,7 @@ export type HerbInventoryMaxAggregateInputType = {
     id?: true;
     processorInventoryId?: true;
     quantityReceived?: true;
+    productInventoryId?: true;
     createdAt?: true;
     updatedAt?: true;
 };
@@ -50,6 +55,7 @@ export type HerbInventoryCountAggregateInputType = {
     id?: true;
     processorInventoryId?: true;
     quantityReceived?: true;
+    productInventoryId?: true;
     createdAt?: true;
     updatedAt?: true;
     _all?: true;
@@ -120,6 +126,7 @@ export type HerbInventoryGroupByOutputType = {
     id: string;
     processorInventoryId: string;
     quantityReceived: string;
+    productInventoryId: string | null;
     createdAt: Date;
     updatedAt: Date;
     _count: HerbInventoryCountAggregateOutputType | null;
@@ -136,6 +143,7 @@ export type HerbInventoryWhereInput = {
     id?: Prisma.StringFilter<"HerbInventory"> | string;
     processorInventoryId?: Prisma.StringFilter<"HerbInventory"> | string;
     quantityReceived?: Prisma.StringFilter<"HerbInventory"> | string;
+    productInventoryId?: Prisma.StringNullableFilter<"HerbInventory"> | string | null;
     createdAt?: Prisma.DateTimeFilter<"HerbInventory"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"HerbInventory"> | Date | string;
     processorInventory?: Prisma.XOR<Prisma.ProcessorInventoryScalarRelationFilter, Prisma.ProcessorInventoryWhereInput>;
@@ -145,6 +153,7 @@ export type HerbInventoryOrderByWithRelationInput = {
     id?: Prisma.SortOrder;
     processorInventoryId?: Prisma.SortOrder;
     quantityReceived?: Prisma.SortOrder;
+    productInventoryId?: Prisma.SortOrderInput | Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
     processorInventory?: Prisma.ProcessorInventoryOrderByWithRelationInput;
@@ -157,6 +166,7 @@ export type HerbInventoryWhereUniqueInput = Prisma.AtLeast<{
     NOT?: Prisma.HerbInventoryWhereInput | Prisma.HerbInventoryWhereInput[];
     processorInventoryId?: Prisma.StringFilter<"HerbInventory"> | string;
     quantityReceived?: Prisma.StringFilter<"HerbInventory"> | string;
+    productInventoryId?: Prisma.StringNullableFilter<"HerbInventory"> | string | null;
     createdAt?: Prisma.DateTimeFilter<"HerbInventory"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"HerbInventory"> | Date | string;
     processorInventory?: Prisma.XOR<Prisma.ProcessorInventoryScalarRelationFilter, Prisma.ProcessorInventoryWhereInput>;
@@ -166,6 +176,7 @@ export type HerbInventoryOrderByWithAggregationInput = {
     id?: Prisma.SortOrder;
     processorInventoryId?: Prisma.SortOrder;
     quantityReceived?: Prisma.SortOrder;
+    productInventoryId?: Prisma.SortOrderInput | Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
     _count?: Prisma.HerbInventoryCountOrderByAggregateInput;
@@ -179,6 +190,7 @@ export type HerbInventoryScalarWhereWithAggregatesInput = {
     id?: Prisma.StringWithAggregatesFilter<"HerbInventory"> | string;
     processorInventoryId?: Prisma.StringWithAggregatesFilter<"HerbInventory"> | string;
     quantityReceived?: Prisma.StringWithAggregatesFilter<"HerbInventory"> | string;
+    productInventoryId?: Prisma.StringNullableWithAggregatesFilter<"HerbInventory"> | string | null;
     createdAt?: Prisma.DateTimeWithAggregatesFilter<"HerbInventory"> | Date | string;
     updatedAt?: Prisma.DateTimeWithAggregatesFilter<"HerbInventory"> | Date | string;
 };
@@ -188,15 +200,15 @@ export type HerbInventoryCreateInput = {
     createdAt?: Date | string;
     updatedAt?: Date | string;
     processorInventory: Prisma.ProcessorInventoryCreateNestedOneWithoutHerbInventoriesInput;
-    productInventory?: Prisma.ProductInventoryCreateNestedOneWithoutHerbInventoryInput;
+    productInventory?: Prisma.ProductInventoryCreateNestedOneWithoutHerbInventoriesInput;
 };
 export type HerbInventoryUncheckedCreateInput = {
     id?: string;
     processorInventoryId: string;
     quantityReceived: string;
+    productInventoryId?: string | null;
     createdAt?: Date | string;
     updatedAt?: Date | string;
-    productInventory?: Prisma.ProductInventoryUncheckedCreateNestedOneWithoutHerbInventoryInput;
 };
 export type HerbInventoryUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -204,20 +216,21 @@ export type HerbInventoryUpdateInput = {
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     processorInventory?: Prisma.ProcessorInventoryUpdateOneRequiredWithoutHerbInventoriesNestedInput;
-    productInventory?: Prisma.ProductInventoryUpdateOneWithoutHerbInventoryNestedInput;
+    productInventory?: Prisma.ProductInventoryUpdateOneWithoutHerbInventoriesNestedInput;
 };
 export type HerbInventoryUncheckedUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     processorInventoryId?: Prisma.StringFieldUpdateOperationsInput | string;
     quantityReceived?: Prisma.StringFieldUpdateOperationsInput | string;
+    productInventoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    productInventory?: Prisma.ProductInventoryUncheckedUpdateOneWithoutHerbInventoryNestedInput;
 };
 export type HerbInventoryCreateManyInput = {
     id?: string;
     processorInventoryId: string;
     quantityReceived: string;
+    productInventoryId?: string | null;
     createdAt?: Date | string;
     updatedAt?: Date | string;
 };
@@ -231,6 +244,7 @@ export type HerbInventoryUncheckedUpdateManyInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     processorInventoryId?: Prisma.StringFieldUpdateOperationsInput | string;
     quantityReceived?: Prisma.StringFieldUpdateOperationsInput | string;
+    productInventoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -242,14 +256,11 @@ export type HerbInventoryListRelationFilter = {
 export type HerbInventoryOrderByRelationAggregateInput = {
     _count?: Prisma.SortOrder;
 };
-export type HerbInventoryScalarRelationFilter = {
-    is?: Prisma.HerbInventoryWhereInput;
-    isNot?: Prisma.HerbInventoryWhereInput;
-};
 export type HerbInventoryCountOrderByAggregateInput = {
     id?: Prisma.SortOrder;
     processorInventoryId?: Prisma.SortOrder;
     quantityReceived?: Prisma.SortOrder;
+    productInventoryId?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
 };
@@ -257,6 +268,7 @@ export type HerbInventoryMaxOrderByAggregateInput = {
     id?: Prisma.SortOrder;
     processorInventoryId?: Prisma.SortOrder;
     quantityReceived?: Prisma.SortOrder;
+    productInventoryId?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
 };
@@ -264,6 +276,7 @@ export type HerbInventoryMinOrderByAggregateInput = {
     id?: Prisma.SortOrder;
     processorInventoryId?: Prisma.SortOrder;
     quantityReceived?: Prisma.SortOrder;
+    productInventoryId?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
 };
@@ -305,31 +318,57 @@ export type HerbInventoryUncheckedUpdateManyWithoutProcessorInventoryNestedInput
     updateMany?: Prisma.HerbInventoryUpdateManyWithWhereWithoutProcessorInventoryInput | Prisma.HerbInventoryUpdateManyWithWhereWithoutProcessorInventoryInput[];
     deleteMany?: Prisma.HerbInventoryScalarWhereInput | Prisma.HerbInventoryScalarWhereInput[];
 };
-export type HerbInventoryCreateNestedOneWithoutProductInventoryInput = {
-    create?: Prisma.XOR<Prisma.HerbInventoryCreateWithoutProductInventoryInput, Prisma.HerbInventoryUncheckedCreateWithoutProductInventoryInput>;
-    connectOrCreate?: Prisma.HerbInventoryCreateOrConnectWithoutProductInventoryInput;
-    connect?: Prisma.HerbInventoryWhereUniqueInput;
+export type HerbInventoryCreateNestedManyWithoutProductInventoryInput = {
+    create?: Prisma.XOR<Prisma.HerbInventoryCreateWithoutProductInventoryInput, Prisma.HerbInventoryUncheckedCreateWithoutProductInventoryInput> | Prisma.HerbInventoryCreateWithoutProductInventoryInput[] | Prisma.HerbInventoryUncheckedCreateWithoutProductInventoryInput[];
+    connectOrCreate?: Prisma.HerbInventoryCreateOrConnectWithoutProductInventoryInput | Prisma.HerbInventoryCreateOrConnectWithoutProductInventoryInput[];
+    createMany?: Prisma.HerbInventoryCreateManyProductInventoryInputEnvelope;
+    connect?: Prisma.HerbInventoryWhereUniqueInput | Prisma.HerbInventoryWhereUniqueInput[];
 };
-export type HerbInventoryUpdateOneRequiredWithoutProductInventoryNestedInput = {
-    create?: Prisma.XOR<Prisma.HerbInventoryCreateWithoutProductInventoryInput, Prisma.HerbInventoryUncheckedCreateWithoutProductInventoryInput>;
-    connectOrCreate?: Prisma.HerbInventoryCreateOrConnectWithoutProductInventoryInput;
-    upsert?: Prisma.HerbInventoryUpsertWithoutProductInventoryInput;
-    connect?: Prisma.HerbInventoryWhereUniqueInput;
-    update?: Prisma.XOR<Prisma.XOR<Prisma.HerbInventoryUpdateToOneWithWhereWithoutProductInventoryInput, Prisma.HerbInventoryUpdateWithoutProductInventoryInput>, Prisma.HerbInventoryUncheckedUpdateWithoutProductInventoryInput>;
+export type HerbInventoryUncheckedCreateNestedManyWithoutProductInventoryInput = {
+    create?: Prisma.XOR<Prisma.HerbInventoryCreateWithoutProductInventoryInput, Prisma.HerbInventoryUncheckedCreateWithoutProductInventoryInput> | Prisma.HerbInventoryCreateWithoutProductInventoryInput[] | Prisma.HerbInventoryUncheckedCreateWithoutProductInventoryInput[];
+    connectOrCreate?: Prisma.HerbInventoryCreateOrConnectWithoutProductInventoryInput | Prisma.HerbInventoryCreateOrConnectWithoutProductInventoryInput[];
+    createMany?: Prisma.HerbInventoryCreateManyProductInventoryInputEnvelope;
+    connect?: Prisma.HerbInventoryWhereUniqueInput | Prisma.HerbInventoryWhereUniqueInput[];
+};
+export type HerbInventoryUpdateManyWithoutProductInventoryNestedInput = {
+    create?: Prisma.XOR<Prisma.HerbInventoryCreateWithoutProductInventoryInput, Prisma.HerbInventoryUncheckedCreateWithoutProductInventoryInput> | Prisma.HerbInventoryCreateWithoutProductInventoryInput[] | Prisma.HerbInventoryUncheckedCreateWithoutProductInventoryInput[];
+    connectOrCreate?: Prisma.HerbInventoryCreateOrConnectWithoutProductInventoryInput | Prisma.HerbInventoryCreateOrConnectWithoutProductInventoryInput[];
+    upsert?: Prisma.HerbInventoryUpsertWithWhereUniqueWithoutProductInventoryInput | Prisma.HerbInventoryUpsertWithWhereUniqueWithoutProductInventoryInput[];
+    createMany?: Prisma.HerbInventoryCreateManyProductInventoryInputEnvelope;
+    set?: Prisma.HerbInventoryWhereUniqueInput | Prisma.HerbInventoryWhereUniqueInput[];
+    disconnect?: Prisma.HerbInventoryWhereUniqueInput | Prisma.HerbInventoryWhereUniqueInput[];
+    delete?: Prisma.HerbInventoryWhereUniqueInput | Prisma.HerbInventoryWhereUniqueInput[];
+    connect?: Prisma.HerbInventoryWhereUniqueInput | Prisma.HerbInventoryWhereUniqueInput[];
+    update?: Prisma.HerbInventoryUpdateWithWhereUniqueWithoutProductInventoryInput | Prisma.HerbInventoryUpdateWithWhereUniqueWithoutProductInventoryInput[];
+    updateMany?: Prisma.HerbInventoryUpdateManyWithWhereWithoutProductInventoryInput | Prisma.HerbInventoryUpdateManyWithWhereWithoutProductInventoryInput[];
+    deleteMany?: Prisma.HerbInventoryScalarWhereInput | Prisma.HerbInventoryScalarWhereInput[];
+};
+export type HerbInventoryUncheckedUpdateManyWithoutProductInventoryNestedInput = {
+    create?: Prisma.XOR<Prisma.HerbInventoryCreateWithoutProductInventoryInput, Prisma.HerbInventoryUncheckedCreateWithoutProductInventoryInput> | Prisma.HerbInventoryCreateWithoutProductInventoryInput[] | Prisma.HerbInventoryUncheckedCreateWithoutProductInventoryInput[];
+    connectOrCreate?: Prisma.HerbInventoryCreateOrConnectWithoutProductInventoryInput | Prisma.HerbInventoryCreateOrConnectWithoutProductInventoryInput[];
+    upsert?: Prisma.HerbInventoryUpsertWithWhereUniqueWithoutProductInventoryInput | Prisma.HerbInventoryUpsertWithWhereUniqueWithoutProductInventoryInput[];
+    createMany?: Prisma.HerbInventoryCreateManyProductInventoryInputEnvelope;
+    set?: Prisma.HerbInventoryWhereUniqueInput | Prisma.HerbInventoryWhereUniqueInput[];
+    disconnect?: Prisma.HerbInventoryWhereUniqueInput | Prisma.HerbInventoryWhereUniqueInput[];
+    delete?: Prisma.HerbInventoryWhereUniqueInput | Prisma.HerbInventoryWhereUniqueInput[];
+    connect?: Prisma.HerbInventoryWhereUniqueInput | Prisma.HerbInventoryWhereUniqueInput[];
+    update?: Prisma.HerbInventoryUpdateWithWhereUniqueWithoutProductInventoryInput | Prisma.HerbInventoryUpdateWithWhereUniqueWithoutProductInventoryInput[];
+    updateMany?: Prisma.HerbInventoryUpdateManyWithWhereWithoutProductInventoryInput | Prisma.HerbInventoryUpdateManyWithWhereWithoutProductInventoryInput[];
+    deleteMany?: Prisma.HerbInventoryScalarWhereInput | Prisma.HerbInventoryScalarWhereInput[];
 };
 export type HerbInventoryCreateWithoutProcessorInventoryInput = {
     id?: string;
     quantityReceived: string;
     createdAt?: Date | string;
     updatedAt?: Date | string;
-    productInventory?: Prisma.ProductInventoryCreateNestedOneWithoutHerbInventoryInput;
+    productInventory?: Prisma.ProductInventoryCreateNestedOneWithoutHerbInventoriesInput;
 };
 export type HerbInventoryUncheckedCreateWithoutProcessorInventoryInput = {
     id?: string;
     quantityReceived: string;
+    productInventoryId?: string | null;
     createdAt?: Date | string;
     updatedAt?: Date | string;
-    productInventory?: Prisma.ProductInventoryUncheckedCreateNestedOneWithoutHerbInventoryInput;
 };
 export type HerbInventoryCreateOrConnectWithoutProcessorInventoryInput = {
     where: Prisma.HerbInventoryWhereUniqueInput;
@@ -359,6 +398,7 @@ export type HerbInventoryScalarWhereInput = {
     id?: Prisma.StringFilter<"HerbInventory"> | string;
     processorInventoryId?: Prisma.StringFilter<"HerbInventory"> | string;
     quantityReceived?: Prisma.StringFilter<"HerbInventory"> | string;
+    productInventoryId?: Prisma.StringNullableFilter<"HerbInventory"> | string | null;
     createdAt?: Prisma.DateTimeFilter<"HerbInventory"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"HerbInventory"> | Date | string;
 };
@@ -380,14 +420,57 @@ export type HerbInventoryCreateOrConnectWithoutProductInventoryInput = {
     where: Prisma.HerbInventoryWhereUniqueInput;
     create: Prisma.XOR<Prisma.HerbInventoryCreateWithoutProductInventoryInput, Prisma.HerbInventoryUncheckedCreateWithoutProductInventoryInput>;
 };
-export type HerbInventoryUpsertWithoutProductInventoryInput = {
+export type HerbInventoryCreateManyProductInventoryInputEnvelope = {
+    data: Prisma.HerbInventoryCreateManyProductInventoryInput | Prisma.HerbInventoryCreateManyProductInventoryInput[];
+    skipDuplicates?: boolean;
+};
+export type HerbInventoryUpsertWithWhereUniqueWithoutProductInventoryInput = {
+    where: Prisma.HerbInventoryWhereUniqueInput;
     update: Prisma.XOR<Prisma.HerbInventoryUpdateWithoutProductInventoryInput, Prisma.HerbInventoryUncheckedUpdateWithoutProductInventoryInput>;
     create: Prisma.XOR<Prisma.HerbInventoryCreateWithoutProductInventoryInput, Prisma.HerbInventoryUncheckedCreateWithoutProductInventoryInput>;
-    where?: Prisma.HerbInventoryWhereInput;
 };
-export type HerbInventoryUpdateToOneWithWhereWithoutProductInventoryInput = {
-    where?: Prisma.HerbInventoryWhereInput;
+export type HerbInventoryUpdateWithWhereUniqueWithoutProductInventoryInput = {
+    where: Prisma.HerbInventoryWhereUniqueInput;
     data: Prisma.XOR<Prisma.HerbInventoryUpdateWithoutProductInventoryInput, Prisma.HerbInventoryUncheckedUpdateWithoutProductInventoryInput>;
+};
+export type HerbInventoryUpdateManyWithWhereWithoutProductInventoryInput = {
+    where: Prisma.HerbInventoryScalarWhereInput;
+    data: Prisma.XOR<Prisma.HerbInventoryUpdateManyMutationInput, Prisma.HerbInventoryUncheckedUpdateManyWithoutProductInventoryInput>;
+};
+export type HerbInventoryCreateManyProcessorInventoryInput = {
+    id?: string;
+    quantityReceived: string;
+    productInventoryId?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type HerbInventoryUpdateWithoutProcessorInventoryInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    quantityReceived?: Prisma.StringFieldUpdateOperationsInput | string;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    productInventory?: Prisma.ProductInventoryUpdateOneWithoutHerbInventoriesNestedInput;
+};
+export type HerbInventoryUncheckedUpdateWithoutProcessorInventoryInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    quantityReceived?: Prisma.StringFieldUpdateOperationsInput | string;
+    productInventoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type HerbInventoryUncheckedUpdateManyWithoutProcessorInventoryInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    quantityReceived?: Prisma.StringFieldUpdateOperationsInput | string;
+    productInventoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type HerbInventoryCreateManyProductInventoryInput = {
+    id?: string;
+    processorInventoryId: string;
+    quantityReceived: string;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
 };
 export type HerbInventoryUpdateWithoutProductInventoryInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -403,28 +486,9 @@ export type HerbInventoryUncheckedUpdateWithoutProductInventoryInput = {
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
-export type HerbInventoryCreateManyProcessorInventoryInput = {
-    id?: string;
-    quantityReceived: string;
-    createdAt?: Date | string;
-    updatedAt?: Date | string;
-};
-export type HerbInventoryUpdateWithoutProcessorInventoryInput = {
+export type HerbInventoryUncheckedUpdateManyWithoutProductInventoryInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
-    quantityReceived?: Prisma.StringFieldUpdateOperationsInput | string;
-    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    productInventory?: Prisma.ProductInventoryUpdateOneWithoutHerbInventoryNestedInput;
-};
-export type HerbInventoryUncheckedUpdateWithoutProcessorInventoryInput = {
-    id?: Prisma.StringFieldUpdateOperationsInput | string;
-    quantityReceived?: Prisma.StringFieldUpdateOperationsInput | string;
-    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
-    productInventory?: Prisma.ProductInventoryUncheckedUpdateOneWithoutHerbInventoryNestedInput;
-};
-export type HerbInventoryUncheckedUpdateManyWithoutProcessorInventoryInput = {
-    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    processorInventoryId?: Prisma.StringFieldUpdateOperationsInput | string;
     quantityReceived?: Prisma.StringFieldUpdateOperationsInput | string;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
@@ -433,6 +497,7 @@ export type HerbInventorySelect<ExtArgs extends runtime.Types.Extensions.Interna
     id?: boolean;
     processorInventoryId?: boolean;
     quantityReceived?: boolean;
+    productInventoryId?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
     processorInventory?: boolean | Prisma.ProcessorInventoryDefaultArgs<ExtArgs>;
@@ -442,35 +507,42 @@ export type HerbInventorySelectCreateManyAndReturn<ExtArgs extends runtime.Types
     id?: boolean;
     processorInventoryId?: boolean;
     quantityReceived?: boolean;
+    productInventoryId?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
     processorInventory?: boolean | Prisma.ProcessorInventoryDefaultArgs<ExtArgs>;
+    productInventory?: boolean | Prisma.HerbInventory$productInventoryArgs<ExtArgs>;
 }, ExtArgs["result"]["herbInventory"]>;
 export type HerbInventorySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
     processorInventoryId?: boolean;
     quantityReceived?: boolean;
+    productInventoryId?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
     processorInventory?: boolean | Prisma.ProcessorInventoryDefaultArgs<ExtArgs>;
+    productInventory?: boolean | Prisma.HerbInventory$productInventoryArgs<ExtArgs>;
 }, ExtArgs["result"]["herbInventory"]>;
 export type HerbInventorySelectScalar = {
     id?: boolean;
     processorInventoryId?: boolean;
     quantityReceived?: boolean;
+    productInventoryId?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
 };
-export type HerbInventoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "processorInventoryId" | "quantityReceived" | "createdAt" | "updatedAt", ExtArgs["result"]["herbInventory"]>;
+export type HerbInventoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "processorInventoryId" | "quantityReceived" | "productInventoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["herbInventory"]>;
 export type HerbInventoryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     processorInventory?: boolean | Prisma.ProcessorInventoryDefaultArgs<ExtArgs>;
     productInventory?: boolean | Prisma.HerbInventory$productInventoryArgs<ExtArgs>;
 };
 export type HerbInventoryIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     processorInventory?: boolean | Prisma.ProcessorInventoryDefaultArgs<ExtArgs>;
+    productInventory?: boolean | Prisma.HerbInventory$productInventoryArgs<ExtArgs>;
 };
 export type HerbInventoryIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     processorInventory?: boolean | Prisma.ProcessorInventoryDefaultArgs<ExtArgs>;
+    productInventory?: boolean | Prisma.HerbInventory$productInventoryArgs<ExtArgs>;
 };
 export type $HerbInventoryPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     name: "HerbInventory";
@@ -482,6 +554,7 @@ export type $HerbInventoryPayload<ExtArgs extends runtime.Types.Extensions.Inter
         id: string;
         processorInventoryId: string;
         quantityReceived: string;
+        productInventoryId: string | null;
         createdAt: Date;
         updatedAt: Date;
     }, ExtArgs["result"]["herbInventory"]>;
@@ -843,6 +916,7 @@ export interface HerbInventoryFieldRefs {
     readonly id: Prisma.FieldRef<"HerbInventory", 'String'>;
     readonly processorInventoryId: Prisma.FieldRef<"HerbInventory", 'String'>;
     readonly quantityReceived: Prisma.FieldRef<"HerbInventory", 'String'>;
+    readonly productInventoryId: Prisma.FieldRef<"HerbInventory", 'String'>;
     readonly createdAt: Prisma.FieldRef<"HerbInventory", 'DateTime'>;
     readonly updatedAt: Prisma.FieldRef<"HerbInventory", 'DateTime'>;
 }

@@ -3,6 +3,7 @@ import {
   addLabProcessorInput,
   listLabProcessorInputs,
   listLabProcessorInputsWithoutReport,
+  updateLabProcessorInput,
 } from "../../controllers/lab/lab.processorInput.js";
 import { verifyJwt } from "../../middlewares/jwt.verify.js";
 
@@ -15,6 +16,7 @@ labProcessorInputRouter.get(
   verifyJwt,
   listLabProcessorInputsWithoutReport
 );
+labProcessorInputRouter.put("/:id", verifyJwt, updateLabProcessorInput);
 
 export default labProcessorInputRouter;
 

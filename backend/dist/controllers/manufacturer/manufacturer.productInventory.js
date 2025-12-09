@@ -6,10 +6,10 @@ export async function createProductInventory(req, res) {
         if (!userId) {
             return res.status(401).json({ msg: "Unauthorized" });
         }
-        const { productId, HerbName, herbInventoryId } = req.body;
-        if (!productId || !HerbName || !herbInventoryId) {
+        const { productId, HerbName } = req.body;
+        if (!productId || !HerbName) {
             return res.status(400).json({
-                msg: "productId, HerbName, and herbInventoryId are required",
+                msg: "productId and HerbName are required",
             });
         }
         // Verify product belongs to manufacturer
@@ -19,18 +19,10 @@ export async function createProductInventory(req, res) {
         if (!product) {
             return res.status(404).json({ msg: "Product not found for manufacturer" });
         }
-        // Verify herbInventory exists
-        const herbInventory = await db.herbInventory.findUnique({
-            where: { id: herbInventoryId },
-        });
-        if (!herbInventory) {
-            return res.status(404).json({ msg: "HerbInventory not found" });
-        }
         const result = await db.productInventory.create({
             data: {
                 productId,
                 HerbName,
-                herbInventoryId,
             },
         });
         return res.status(201).json({
@@ -66,7 +58,7 @@ export async function listProductInventories(req, res) {
         const inventories = await db.productInventory.findMany({
             where: { productId: productId },
             include: {
-                herbInventory: {
+                HerbInventories: {
                     include: {
                         processorInventory: true,
                     },
@@ -101,7 +93,7 @@ export async function getProductInventoryById(req, res) {
             where: { id: id },
             include: {
                 product: true,
-                herbInventory: {
+                HerbInventories: {
                     include: {
                         processorInventory: true,
                     },
@@ -134,7 +126,7 @@ export async function updateProductInventory(req, res) {
     try {
         const userId = req.userId;
         const { id } = req.params;
-        const { HerbName, herbInventoryId } = req.body;
+        const { HerbName } = req.body;
         if (!userId) {
             return res.status(401).json({ msg: "Unauthorized" });
         }
@@ -157,16 +149,6 @@ export async function updateProductInventory(req, res) {
         const updateData = {};
         if (HerbName !== undefined)
             updateData.HerbName = HerbName;
-        if (herbInventoryId !== undefined) {
-            // Verify herbInventory exists
-            const herbInventory = await db.herbInventory.findUnique({
-                where: { id: herbInventoryId },
-            });
-            if (!herbInventory) {
-                return res.status(404).json({ msg: "HerbInventory not found" });
-            }
-            updateData.herbInventoryId = herbInventoryId;
-        }
         const result = await db.productInventory.update({
             where: { id: id },
             data: updateData,

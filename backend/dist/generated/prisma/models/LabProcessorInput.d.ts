@@ -15,6 +15,8 @@ export type LabProcessorInputMinAggregateOutputType = {
     labId: string | null;
     processorInventoryId: string | null;
     reportpath: string | null;
+    description: string | null;
+    isDone: boolean | null;
     createdAt: Date | null;
     updatedAt: Date | null;
 };
@@ -23,6 +25,8 @@ export type LabProcessorInputMaxAggregateOutputType = {
     labId: string | null;
     processorInventoryId: string | null;
     reportpath: string | null;
+    description: string | null;
+    isDone: boolean | null;
     createdAt: Date | null;
     updatedAt: Date | null;
 };
@@ -31,6 +35,8 @@ export type LabProcessorInputCountAggregateOutputType = {
     labId: number;
     processorInventoryId: number;
     reportpath: number;
+    description: number;
+    isDone: number;
     createdAt: number;
     updatedAt: number;
     _all: number;
@@ -40,6 +46,8 @@ export type LabProcessorInputMinAggregateInputType = {
     labId?: true;
     processorInventoryId?: true;
     reportpath?: true;
+    description?: true;
+    isDone?: true;
     createdAt?: true;
     updatedAt?: true;
 };
@@ -48,6 +56,8 @@ export type LabProcessorInputMaxAggregateInputType = {
     labId?: true;
     processorInventoryId?: true;
     reportpath?: true;
+    description?: true;
+    isDone?: true;
     createdAt?: true;
     updatedAt?: true;
 };
@@ -56,6 +66,8 @@ export type LabProcessorInputCountAggregateInputType = {
     labId?: true;
     processorInventoryId?: true;
     reportpath?: true;
+    description?: true;
+    isDone?: true;
     createdAt?: true;
     updatedAt?: true;
     _all?: true;
@@ -127,6 +139,8 @@ export type LabProcessorInputGroupByOutputType = {
     labId: string;
     processorInventoryId: string;
     reportpath: string | null;
+    description: string | null;
+    isDone: boolean;
     createdAt: Date;
     updatedAt: Date;
     _count: LabProcessorInputCountAggregateOutputType | null;
@@ -144,6 +158,8 @@ export type LabProcessorInputWhereInput = {
     labId?: Prisma.StringFilter<"LabProcessorInput"> | string;
     processorInventoryId?: Prisma.StringFilter<"LabProcessorInput"> | string;
     reportpath?: Prisma.StringNullableFilter<"LabProcessorInput"> | string | null;
+    description?: Prisma.StringNullableFilter<"LabProcessorInput"> | string | null;
+    isDone?: Prisma.BoolFilter<"LabProcessorInput"> | boolean;
     createdAt?: Prisma.DateTimeFilter<"LabProcessorInput"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"LabProcessorInput"> | Date | string;
     lab?: Prisma.XOR<Prisma.LabScalarRelationFilter, Prisma.LabWhereInput>;
@@ -154,6 +170,8 @@ export type LabProcessorInputOrderByWithRelationInput = {
     labId?: Prisma.SortOrder;
     processorInventoryId?: Prisma.SortOrder;
     reportpath?: Prisma.SortOrderInput | Prisma.SortOrder;
+    description?: Prisma.SortOrderInput | Prisma.SortOrder;
+    isDone?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
     lab?: Prisma.LabOrderByWithRelationInput;
@@ -167,6 +185,8 @@ export type LabProcessorInputWhereUniqueInput = Prisma.AtLeast<{
     labId?: Prisma.StringFilter<"LabProcessorInput"> | string;
     processorInventoryId?: Prisma.StringFilter<"LabProcessorInput"> | string;
     reportpath?: Prisma.StringNullableFilter<"LabProcessorInput"> | string | null;
+    description?: Prisma.StringNullableFilter<"LabProcessorInput"> | string | null;
+    isDone?: Prisma.BoolFilter<"LabProcessorInput"> | boolean;
     createdAt?: Prisma.DateTimeFilter<"LabProcessorInput"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"LabProcessorInput"> | Date | string;
     lab?: Prisma.XOR<Prisma.LabScalarRelationFilter, Prisma.LabWhereInput>;
@@ -177,6 +197,8 @@ export type LabProcessorInputOrderByWithAggregationInput = {
     labId?: Prisma.SortOrder;
     processorInventoryId?: Prisma.SortOrder;
     reportpath?: Prisma.SortOrderInput | Prisma.SortOrder;
+    description?: Prisma.SortOrderInput | Prisma.SortOrder;
+    isDone?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
     _count?: Prisma.LabProcessorInputCountOrderByAggregateInput;
@@ -191,12 +213,16 @@ export type LabProcessorInputScalarWhereWithAggregatesInput = {
     labId?: Prisma.StringWithAggregatesFilter<"LabProcessorInput"> | string;
     processorInventoryId?: Prisma.StringWithAggregatesFilter<"LabProcessorInput"> | string;
     reportpath?: Prisma.StringNullableWithAggregatesFilter<"LabProcessorInput"> | string | null;
+    description?: Prisma.StringNullableWithAggregatesFilter<"LabProcessorInput"> | string | null;
+    isDone?: Prisma.BoolWithAggregatesFilter<"LabProcessorInput"> | boolean;
     createdAt?: Prisma.DateTimeWithAggregatesFilter<"LabProcessorInput"> | Date | string;
     updatedAt?: Prisma.DateTimeWithAggregatesFilter<"LabProcessorInput"> | Date | string;
 };
 export type LabProcessorInputCreateInput = {
     id?: string;
     reportpath?: string | null;
+    description?: string | null;
+    isDone?: boolean;
     createdAt?: Date | string;
     updatedAt?: Date | string;
     lab: Prisma.LabCreateNestedOneWithoutLabProcessorInputsInput;
@@ -207,12 +233,16 @@ export type LabProcessorInputUncheckedCreateInput = {
     labId: string;
     processorInventoryId: string;
     reportpath?: string | null;
+    description?: string | null;
+    isDone?: boolean;
     createdAt?: Date | string;
     updatedAt?: Date | string;
 };
 export type LabProcessorInputUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     reportpath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     lab?: Prisma.LabUpdateOneRequiredWithoutLabProcessorInputsNestedInput;
@@ -223,6 +253,8 @@ export type LabProcessorInputUncheckedUpdateInput = {
     labId?: Prisma.StringFieldUpdateOperationsInput | string;
     processorInventoryId?: Prisma.StringFieldUpdateOperationsInput | string;
     reportpath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -231,12 +263,16 @@ export type LabProcessorInputCreateManyInput = {
     labId: string;
     processorInventoryId: string;
     reportpath?: string | null;
+    description?: string | null;
+    isDone?: boolean;
     createdAt?: Date | string;
     updatedAt?: Date | string;
 };
 export type LabProcessorInputUpdateManyMutationInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     reportpath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -245,6 +281,8 @@ export type LabProcessorInputUncheckedUpdateManyInput = {
     labId?: Prisma.StringFieldUpdateOperationsInput | string;
     processorInventoryId?: Prisma.StringFieldUpdateOperationsInput | string;
     reportpath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -261,6 +299,8 @@ export type LabProcessorInputCountOrderByAggregateInput = {
     labId?: Prisma.SortOrder;
     processorInventoryId?: Prisma.SortOrder;
     reportpath?: Prisma.SortOrder;
+    description?: Prisma.SortOrder;
+    isDone?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
 };
@@ -269,6 +309,8 @@ export type LabProcessorInputMaxOrderByAggregateInput = {
     labId?: Prisma.SortOrder;
     processorInventoryId?: Prisma.SortOrder;
     reportpath?: Prisma.SortOrder;
+    description?: Prisma.SortOrder;
+    isDone?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
 };
@@ -277,6 +319,8 @@ export type LabProcessorInputMinOrderByAggregateInput = {
     labId?: Prisma.SortOrder;
     processorInventoryId?: Prisma.SortOrder;
     reportpath?: Prisma.SortOrder;
+    description?: Prisma.SortOrder;
+    isDone?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
 };
@@ -359,6 +403,8 @@ export type LabProcessorInputUncheckedUpdateManyWithoutProcessorInventoryNestedI
 export type LabProcessorInputCreateWithoutLabInput = {
     id?: string;
     reportpath?: string | null;
+    description?: string | null;
+    isDone?: boolean;
     createdAt?: Date | string;
     updatedAt?: Date | string;
     processorInventory: Prisma.ProcessorInventoryCreateNestedOneWithoutLabProcessorInputsInput;
@@ -367,6 +413,8 @@ export type LabProcessorInputUncheckedCreateWithoutLabInput = {
     id?: string;
     processorInventoryId: string;
     reportpath?: string | null;
+    description?: string | null;
+    isDone?: boolean;
     createdAt?: Date | string;
     updatedAt?: Date | string;
 };
@@ -399,12 +447,16 @@ export type LabProcessorInputScalarWhereInput = {
     labId?: Prisma.StringFilter<"LabProcessorInput"> | string;
     processorInventoryId?: Prisma.StringFilter<"LabProcessorInput"> | string;
     reportpath?: Prisma.StringNullableFilter<"LabProcessorInput"> | string | null;
+    description?: Prisma.StringNullableFilter<"LabProcessorInput"> | string | null;
+    isDone?: Prisma.BoolFilter<"LabProcessorInput"> | boolean;
     createdAt?: Prisma.DateTimeFilter<"LabProcessorInput"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"LabProcessorInput"> | Date | string;
 };
 export type LabProcessorInputCreateWithoutProcessorInventoryInput = {
     id?: string;
     reportpath?: string | null;
+    description?: string | null;
+    isDone?: boolean;
     createdAt?: Date | string;
     updatedAt?: Date | string;
     lab: Prisma.LabCreateNestedOneWithoutLabProcessorInputsInput;
@@ -413,6 +465,8 @@ export type LabProcessorInputUncheckedCreateWithoutProcessorInventoryInput = {
     id?: string;
     labId: string;
     reportpath?: string | null;
+    description?: string | null;
+    isDone?: boolean;
     createdAt?: Date | string;
     updatedAt?: Date | string;
 };
@@ -441,12 +495,16 @@ export type LabProcessorInputCreateManyLabInput = {
     id?: string;
     processorInventoryId: string;
     reportpath?: string | null;
+    description?: string | null;
+    isDone?: boolean;
     createdAt?: Date | string;
     updatedAt?: Date | string;
 };
 export type LabProcessorInputUpdateWithoutLabInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     reportpath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     processorInventory?: Prisma.ProcessorInventoryUpdateOneRequiredWithoutLabProcessorInputsNestedInput;
@@ -455,6 +513,8 @@ export type LabProcessorInputUncheckedUpdateWithoutLabInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     processorInventoryId?: Prisma.StringFieldUpdateOperationsInput | string;
     reportpath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -462,6 +522,8 @@ export type LabProcessorInputUncheckedUpdateManyWithoutLabInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     processorInventoryId?: Prisma.StringFieldUpdateOperationsInput | string;
     reportpath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -469,12 +531,16 @@ export type LabProcessorInputCreateManyProcessorInventoryInput = {
     id?: string;
     labId: string;
     reportpath?: string | null;
+    description?: string | null;
+    isDone?: boolean;
     createdAt?: Date | string;
     updatedAt?: Date | string;
 };
 export type LabProcessorInputUpdateWithoutProcessorInventoryInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     reportpath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     lab?: Prisma.LabUpdateOneRequiredWithoutLabProcessorInputsNestedInput;
@@ -483,6 +549,8 @@ export type LabProcessorInputUncheckedUpdateWithoutProcessorInventoryInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     labId?: Prisma.StringFieldUpdateOperationsInput | string;
     reportpath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -490,6 +558,8 @@ export type LabProcessorInputUncheckedUpdateManyWithoutProcessorInventoryInput =
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     labId?: Prisma.StringFieldUpdateOperationsInput | string;
     reportpath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -498,6 +568,8 @@ export type LabProcessorInputSelect<ExtArgs extends runtime.Types.Extensions.Int
     labId?: boolean;
     processorInventoryId?: boolean;
     reportpath?: boolean;
+    description?: boolean;
+    isDone?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
     lab?: boolean | Prisma.LabDefaultArgs<ExtArgs>;
@@ -508,6 +580,8 @@ export type LabProcessorInputSelectCreateManyAndReturn<ExtArgs extends runtime.T
     labId?: boolean;
     processorInventoryId?: boolean;
     reportpath?: boolean;
+    description?: boolean;
+    isDone?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
     lab?: boolean | Prisma.LabDefaultArgs<ExtArgs>;
@@ -518,6 +592,8 @@ export type LabProcessorInputSelectUpdateManyAndReturn<ExtArgs extends runtime.T
     labId?: boolean;
     processorInventoryId?: boolean;
     reportpath?: boolean;
+    description?: boolean;
+    isDone?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
     lab?: boolean | Prisma.LabDefaultArgs<ExtArgs>;
@@ -528,10 +604,12 @@ export type LabProcessorInputSelectScalar = {
     labId?: boolean;
     processorInventoryId?: boolean;
     reportpath?: boolean;
+    description?: boolean;
+    isDone?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
 };
-export type LabProcessorInputOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "labId" | "processorInventoryId" | "reportpath" | "createdAt" | "updatedAt", ExtArgs["result"]["labProcessorInput"]>;
+export type LabProcessorInputOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "labId" | "processorInventoryId" | "reportpath" | "description" | "isDone" | "createdAt" | "updatedAt", ExtArgs["result"]["labProcessorInput"]>;
 export type LabProcessorInputInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     lab?: boolean | Prisma.LabDefaultArgs<ExtArgs>;
     processorInventory?: boolean | Prisma.ProcessorInventoryDefaultArgs<ExtArgs>;
@@ -555,6 +633,8 @@ export type $LabProcessorInputPayload<ExtArgs extends runtime.Types.Extensions.I
         labId: string;
         processorInventoryId: string;
         reportpath: string | null;
+        description: string | null;
+        isDone: boolean;
         createdAt: Date;
         updatedAt: Date;
     }, ExtArgs["result"]["labProcessorInput"]>;
@@ -917,6 +997,8 @@ export interface LabProcessorInputFieldRefs {
     readonly labId: Prisma.FieldRef<"LabProcessorInput", 'String'>;
     readonly processorInventoryId: Prisma.FieldRef<"LabProcessorInput", 'String'>;
     readonly reportpath: Prisma.FieldRef<"LabProcessorInput", 'String'>;
+    readonly description: Prisma.FieldRef<"LabProcessorInput", 'String'>;
+    readonly isDone: Prisma.FieldRef<"LabProcessorInput", 'Boolean'>;
     readonly createdAt: Prisma.FieldRef<"LabProcessorInput", 'DateTime'>;
     readonly updatedAt: Prisma.FieldRef<"LabProcessorInput", 'DateTime'>;
 }
