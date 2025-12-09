@@ -261,3 +261,7 @@ Please make sure your database server is running at `ep-rapid-sun-a1bbjf28-poole
     at TwilioService.sendOTP (file:///D:/herblinkfinal/herblink/backend/dist/config/twilio.js:17:19)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async FarmerLogin (file:///D:/herblinkfinal/herblink/backend/dist/controllers/farmer/auth.farmer.js:81:13)
+2025-12-09 16:06:42 [[31merror[39m]: Error: Failed to send Otp
+    at TwilioService.sendOTP (file:///D:/herblinkfinal/herblink/backend/dist/config/twilio.js:17:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async FarmerLogin (file:///D:/herblinkfinal/herblink/backend/dist/controllers/farmer/auth.farmer.js:81:13)
