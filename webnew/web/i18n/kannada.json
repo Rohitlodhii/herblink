@@ -1,0 +1,364 @@
+{
+  "Home": "ಮುಖಪುಟ",
+  "navbar": {
+    "accessBarHeaderLeft": "ಭಾರತ ಸರ್ಕಾರ",
+    "accessBarRightSkipButton": "ಮುಖ್ಯ ವಿಷಯಕ್ಕೆ ಹೋಗಿ",
+    "NavLoginBtn": "ನಿರ್ವಹಣೆ ಲಾಗಿನ್",
+    "DDOrgs": "ಸಂಸ್ಥೆಗಳು",
+    "ddorgs1": "ರೈತ ಪೋರ್ಟಲ್",
+    "ddorgs2": "ಪ್ರೊಸೆಸರ್ ಪೋರ್ಟಲ್",
+    "ddorgs3": "ಪ್ರಯೋಗಾಲಯ ಪೋರ್ಟಲ್",
+    "ddorgs4": "ಉತ್ಪಾದಕ ಪೋರ್ಟಲ್",
+    "DDabout": "ಐಡಿ ಹುಡುಕಿ",
+    "DDHelp": "ಚೈನ್ ನೋಡಿ",
+    "DDScan": "ಉತ್ಪನ್ನ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ",
+    "DDcomplain": "ದೂರು"
+  },
+  "quickActions": {
+    "title": "ತ್ವರಿತ ಕ್ರಿಯೆಗಳು",
+    "viewLiveChain": "ಲೈವ್ ಚೈನ್ ನೋಡಿ",
+    "raiseComplain": "ದೂರು ದಾಖಲಿಸಿ",
+    "scanProductQR": "ಉತ್ಪನ್ನ QR ಸ್ಕ್ಯಾನ್ ಮಾಡಿ",
+    "working": "ಕೆಲಸ ನಡೆಯುತ್ತಿದೆ"
+  },
+  "footer": {
+    "copyright": "© {{year}} HerbLink",
+    "optimisers": "ಆಪ್ಟಿಮೈಸರ್ಸ್"
+  },
+  "chain": {
+    "details": "ವಿವರಗಳು",
+    "fullRecordDetails": "ಸಂಪೂರ್ಣ ದಾಖಲೆ ವಿವರಗಳು",
+    "name": "ಹೆಸರು",
+    "location": "ಸ್ಥಳ",
+    "otherData": "ಇತರೆ ಮಾಹಿತಿ",
+    "noAdditionalData": "ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ.",
+    "farmID": "ಫಾರ್ಮ್ ಐಡಿ",
+    "herb": "ಔಷಧಿ",
+    "harvestDate": "ಪೆರೆಯ ದಿನಾಂಕ",
+    "quantity": "ಪ್ರಮಾಣ",
+    "landSize": "ಭೂಮಿ ಗಾತ್ರ",
+    "processorId": "ಪ್ರೊಸೆಸರ್ ಐಡಿ",
+    "buyDate": "ಖರೀದಿಸಿದ ದಿನಾಂಕ",
+    "grinding": "ಜರಕು",
+    "moisture": "ತೇವಾಂಶ",
+    "manufacturerId": "ಉತ್ಪಾದಕ ಐಡಿ",
+    "productionDate": "ಉತ್ಪಾದನಾ ದಿನಾಂಕ",
+    "batchNumber": "ಬ್ಯಾಚ್ ಸಂಖ್ಯೆ",
+    "productType": "ಉತ್ಪನ್ನ ಪ್ರಕಾರ",
+    "labId": "ಪ್ರಯೋಗಾಲಯ ಐಡಿ",
+    "testDate": "ಪರೀಕ್ಷಾ ದಿನಾಂಕ",
+    "purity": "ಶುದ್ಧತೆ",
+    "passed": "ಉತ್ತೀರ್ಣ",
+    "yes": "ಹೌದು",
+    "no": "ಇಲ್ಲ"
+  },
+  "faq": {
+    "title": "ಪದೇ ಪದೇ ಕೇಳಲಾಗುವ ಪ್ರಶ್ನೆಗಳು",
+    "subtitle": "ನಿಮಗೆ ಪ್ರಶ್ನೆಗಳಿವೆಯೇ? ನಮಗೆ ಉತ್ತರಗಳಿವೆ. ನೀವು ಹುಡುಕುತ್ತಿರುವುದನ್ನು ಕಂಡುಹಿಡಿಯದಿದ್ದರೆ, ದಯವಿಟ್ಟು ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+    "items": {
+      "q1": "ಬೋಟಾನಿಕಲ್ ಟ್ರೇಸಬಿಲಿಟಿ ಎಂದರೇನು?",
+      "a1": "ಬೋಟಾನಿಕಲ್ ಟ್ರೇಸಬಿಲಿಟಿ ಎಂದರೆ, ಒಂದು ಸಸ್ಯ ಅಥವಾ ಔಷಧಿಯನ್ನು ಅದರ ಮೂಲವಾದ ಫಾರ್ಮ್/ಕಾಡಿನಿಂದ ಅಂತಿಮ ಉತ್ಪನ್ನದವರೆಗೆ ಟ್ರಾಕ್ ಮಾಡುವ ಪ್ರಕ್ರಿಯೆ. ಇದು ನೈಜತೆ, ಗುಣಮಟ್ಟ ಮತ್ತು ಸುರಕ್ಷತೆಯನ್ನು ಖಚಿತಪಡಿಸುತ್ತದೆ.",
+      "q2": "ಔಷಧೀಯ ಸಸ್ಯಗಳಿಗೆ ಟ್ರೇಸಬಿಲಿಟಿ ಏಕೆ ಮುಖ್ಯ?",
+      "a2": "ಅನೇಕ ಔಷಧೀಯ ಸಸ್ಯಗಳು ಒಂದೇ ರೀತಿ ಕಾಣುತ್ತವೆ ಮತ್ತು ತಪ್ಪಾಗಿ ಬದಲಾಯಿಸಬಹುದು. ಟ್ರೇಸಬಿಲಿಟಿ ಸರಿಯಾದ, ಶುದ್ಧ, ಮತ್ತು ನೈತಿಕವಾಗಿ ಪಡೆದ ಸಸ್ಯವನ್ನು ನಿಮಗೆ ದೊರೆಯುವಂತೆ ಖಚಿತಪಡಿಸುತ್ತದೆ.",
+      "q3": "ನಿಮ್ಮ ತಂತ್ರಜ್ಞಾನ ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ?",
+      "a3": "ನಾವು ಡಿಎನ್‌ಎ ಬಾರ್ಕೋಡಿಂಗ್ ಮತ್ತು ಜಿಯೋ-ಟ್ಯಾಗಿಂಗ್ ಬಳಸುತ್ತೇವೆ. ಪ್ರತಿಯೊಂದು ಬ್ಯಾಚ್‌ಗೆ ಯೂನಿಕ್ ಕೋಡ್ ನೀಡಲಾಗುತ್ತದೆ, ಇದು ನಿಮ್ಮಿಂದ ಸ್ಕ್ಯಾನ್ ಮಾಡಬಹುದು.",
+      "q4": "ನಿಮ್ಮ ಪಾಲುದಾರಿ ಫಾರ್ಮ್‌ಗಳು ಆರ್ಗ್ಯಾನಿಕ್ ಆಗಿವೆಯೇ?",
+      "a4": "ನಾವು ಆರ್ಗ್ಯಾನಿಕ್ ಮತ್ತು ಸಸ್ತುನಿಷ್ಠ ಫಾರ್ಮ್‌ಗಳನ್ನು ಆದ್ಯತೆ ನೀಡುತ್ತೇವೆ. ಪ್ರತಿಯೊಂದು ಸಸ್ಯದ ವರದಿಯಲ್ಲಿ ನೀವು ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ನೋಡಬಹುದು."
+    }
+  },
+  "howItWorks": {
+    "title": "ನಿಮ್ಮ ಔಷಧಿಯ ಪ್ರತಿಯೊಂದು ಹಂತವನ್ನು — ಫಾರ್ಮ್‌ನಿಂದ ಗ್ರಾಹಕರಿಗೆ — ಸಂಪೂರ್ಣ ಪಾರದರ್ಶಕತೆಯೊಂದಿಗೆ ಟ್ರೇಸ್ ಮಾಡಿ.",
+    "button": "HerbLink ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ ನೋಡಿ"
+  },
+  "kisanlogincard": {
+    "title": "ಮೊಬೈಲ್ ಸಂಖ್ಯೆಯಿಂದ ಲಾಗಿನ್ ಮಾಡಿ",
+    "mobinput": "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ",
+    "submitbtn": "ಸಲ್ಲಿಸು",
+    "captcha": "ದಯವಿಟ್ಟು ಕ್ಯಾಪ್ಚಾ ತುಂಬಿ",
+    "loading": "ಸಲ್ಲಿಸಲಾಗುತ್ತಿದೆ",
+    "refreshcaptcha": "ಕ್ಯಾಪ್ಚಾ ಮರುತುಂಬಿ",
+    "enterOtp": "OTP ನಮೂದಿಸಿ",
+    "verifyOtp": "OTP ಪರಿಶೀಲಿಸಿ",
+    "otpSent": "OTP ಯಶಸ್ವಿಯಾಗಿ ಕಳುಹಿಸಲಾಗಿದೆ!",
+    "otpVerified": "OTP ಯಶಸ್ವಿಯಾಗಿ ಪರಿಶೀಲಿಸಲಾಗಿದೆ!",
+    "error": "ಏನೋ ತಪ್ಪಾಗಿದೆ",
+    "errorGeneric": "ಏನೋ ತಪ್ಪಾಗಿದೆ. ದಯವಿಟ್ಟು ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+    "mobileOrOtpRequired": "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಅಥವಾ OTP ಬೇಕು",
+    "loadingCaptcha": "ಕ್ಯಾಪ್ಚಾ ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
+    "captchaPlaceholder": "ಕ್ಯಾಪ್ಚಾ ನಮೂದಿಸಿ",
+    "otpPlaceholder": "OTP ನಮೂದಿಸಿ"
+  },
+
+  "quicklinks": {
+    "title": "ತ್ವರಿತ ಲಿಂಕುಗಳು",
+    "livechain": "ಲೈವ್ ಔಷಧಿ ಬ್ಲಾಕ್‌ಚೈನ್ ನೋಡಿ",
+    "scanproduct": "QR ಸ್ಕ್ಯಾನ್ ಮಾಡಿ",
+    "KisanLogin": "ರೈತ ಲಾಗಿನ್",
+    "seeppt": "ಪ್ರೆಸೆಂಟೇಶನ್ ನೋಡಿ"
+  },
+
+  "about": {
+    "title": "HerbLink",
+    "para": "HerbLink ಒಂದು ಬ್ಲಾಕ್‌ಚೈನ್ ಆಧಾರಿತ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಆಗಿದ್ದು, ಆಯುರ್ವೇದ ಉದ್ಯಮದಲ್ಲಿ ನಂಬಿಕೆಯ ಕೊರತೆ ಎಂಬ ಮುಖ್ಯ ಸಮಸ್ಯೆಯನ್ನು ಪರಿಹರಿಸಲು ನಿರ್ಮಿಸಲಾಗಿದೆ. ..."
+  },
+
+  "product": {
+    "noherb": "ವಿವರಗಳನ್ನು ನೋಡಲು ದಯವಿಟ್ಟು ಮೇಲಿನ ಯಾವುದೇ ಸಸ್ಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ"
+  },
+
+  "complain": {
+    "title": "ದೂರು ಸಲ್ಲಿಸಿ",
+    "blockchainId": "ಬ್ಲಾಕ್‌ಚೈನ್ ಐಡಿ",
+    "blockchainPlaceholder": "ಉತ್ಪನ್ನ ಪ್ಯಾಕೇಜಿಂಗ್‌ನಲ್ಲಿ ಕಂಡು ಬರುವ ಐಡಿ ನಮೂದಿಸಿ",
+    "type": "ದೂರು ಪ್ರಕಾರ",
+    "selectCategory": "ವರ್ಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+    "details": "ದೂರು ವಿವರ",
+    "detailsPlaceholder": "ದಯವಿಟ್ಟು ಸಾಧ್ಯವಾದಷ್ಟು ವಿವರವಾಗಿ ಸಮಸ್ಯೆಯನ್ನು ವಿವರಿಸಿ...",
+    "attachImage": "ಚಿತ್ರವನ್ನು ಅಟ್ಯಾಚ್ ಮಾಡಿ (ಐಚ್ಛಿಕ)",
+    "removeImage": "ಚಿತ್ರ ತೆಗೆದುಹಾಕಿ",
+    "uploadFile": "ಫೈಲ್ ಅಪ್ಲೋಡ್ ಮಾಡಿ",
+    "changeFile": "ಫೈಲ್ ಬದಲಿಸಿ",
+    "orDragDrop": "ಅಥವಾ ಡ್ರ್ಯಾಗ್ ಮತ್ತು ಡ್ರಾಪ್ ಮಾಡಿ",
+    "fileLimit": "PNG, JPG 10MB ವರೆಗೆ",
+    "submit": "ದೂರು ಸಲ್ಲಿಸಿ",
+    "submitting": "ಸಲ್ಲಿಸಲಾಗುತ್ತಿದೆ...",
+    "successMessage": "ಧನ್ಯವಾದ! ನಿಮ್ಮ ದೂರು ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಲಾಗಿದೆ.",
+    "options": {
+      "packaging": "ಪ್ಯಾಕೇಜಿಂಗ್ ಸಮಸ್ಯೆ",
+      "quality": "ಉತ್ಪನ್ನ ಗುಣಮಟ್ಟ",
+      "incorrectInfo": "ತಪ್ಪು ಮಾಹಿತಿ",
+      "allergy": "ಅಲರ್ಜಿ ಪ್ರತಿಕ್ರಿಯೆ",
+      "other": "ಇತರೆ"
+    }
+  },
+
+  "working": {
+    "title": "HerbLink ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ",
+    "subtitle": "HerbLink ಔಷಧಿ ಸರಬರಾಜು ಸರಪಳಿಯ ಪ್ರತಿಯೊಂದು ಹಂತವನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುತ್ತದೆ...",
+    "steps": {
+      "farmer": {
+        "title": "ರೈತ",
+        "description": "ರೈತರು ನೋಂದಣಿ ಮಾಡುತ್ತಾರೆ ಮತ್ತು ಡಿಜಿಟಲ್ ಐಡಿ ಪಡೆಯುತ್ತಾರೆ.",
+        "detailsLabel": "ಅವರು ನೀಡುವ ವಿವರಗಳು:",
+        "details": {
+          "herbName": "ಸಸ್ಯದ ಹೆಸರು",
+          "cultivationDate": "ಬೆಳೆ ದಿನಾಂಕ",
+          "pesticidesUsed": "ಕೀಟನಾಶಕ ಬಳಕೆ",
+          "waterUsage": "ನೀರಿನ ಬಳಕೆ",
+          "climateConditions": "ಹವಾಮಾನ ಪರಿಸ್ಥಿತಿಗಳು",
+          "location": "ಸ್ಥಳ (ಜಿಯೋ-ಟ್ಯಾಗ್)",
+          "fieldImages": "ಹಾಲು ಮತ್ತು ಬೆಳೆಯ ಚಿತ್ರಗಳು"
+        },
+        "outcome": "ಪ್ರತಿ ಬ್ಯಾಚ್‌ಗೆ QR/Asset ID ನೀಡಲಾಗುತ್ತದೆ."
+      },
+
+      "processor": {
+        "title": "ಪ್ರೊಸೆಸರ್",
+        "description": "QR ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ರೈತರಿಂದ ಬಂದ ಡೇಟಾ ಪರಿಶೀಲಿಸಲಾಗುತ್ತದೆ.",
+        "detailsLabel": "ಅವರು ನೀಡುವ ವಿವರಗಳು:",
+        "details": {
+          "timeOfProcessing": "ಪ್ರಕ್ರಿಯೆ ಸಮಯ",
+          "methodsUsed": "ಬಳಸಿದ ವಿಧಾನಗಳು",
+          "quantityBeforeAfter": "ಪ್ರಕ್ರಿಯೆ ಮೊದಲು & ನಂತರ ಪ್ರಮಾಣ"
+        },
+        "verificationProcess": "ಪರಿಶೀಲನೆ ಪ್ರಕ್ರಿಯೆ:",
+        "verificationCorrect": "ಸರಿಯಾದರೆ → ಬ್ಯಾಚ್ ಅಂಗೀಕಾರ",
+        "verificationIncorrect": "ತಪ್ಪಾದರೆ → ರೈತರಿಗೆ ಹಿಂತಿರುಗಿಸಲಾಗುತ್ತದೆ",
+        "outcome": "ಎಲ್ಲಾ ಮಾಹಿತಿ ಬ್ಲಾಕ್‌ಚೈನ್‌ನಲ್ಲಿ ಉಳಿಸಲಾಗುತ್ತದೆ."
+      },
+
+      "laboratory": {
+        "title": "ಪ್ರಯೋಗಾಲಯ",
+        "description": "QR ಸ್ಕ್ಯಾನ್ ಮಾಡಿದ ನಂತರ ಪರೀಕ್ಷಾ ವರದಿಗಳು ಸೇರಿಸಲಾಗುತ್ತವೆ.",
+        "detailsLabel": "ಅವರು ನೀಡುವ ವಿವರಗಳು:",
+        "details": {
+          "qualityTestReports": "ಗುಣಮಟ್ಟ ಪರೀಕ್ಷಾ ವರದಿಗಳು",
+          "certificates": "ಪ್ರಮಾಣಪತ್ರಗಳು",
+          "safetyApprovals": "ಸುರಕ್ಷತಾ ಅನುಮೋದನೆ"
+        },
+        "verificationProcess": "ಪರಿಶೀಲನೆ:",
+        "verificationCorrect": "ಮಾನ್ಯ → ಅಂಗೀಕಾರ",
+        "verificationIncorrect": "ಅಮಾನ್ಯ → ಹಿಂತಿರುಗಿಸಲಾಗುತ್ತದೆ",
+        "outcome": "ಬ್ಲಾಕ್‌ಚೈನ್ಗೆ ಸೇರಿಸಲಾಗುತ್ತದೆ."
+      },
+
+      "manufacturer": {
+        "title": "ಉತ್ಪಾದಕ",
+        "description": "ಪ್ರಮಾಣೀಕೃತ ಬ್ಯಾಚ್ ಅನ್ನು ಸ್ವೀಕರಿಸಿ ಅಂತಿಮ ಉತ್ಪನ್ನ ತಯಾರಿಸುತ್ತಾರೆ.",
+        "detailsLabel": "ಅವರು ನೀಡುವ ವಿವರಗಳು:",
+        "details": {
+          "productionDetails": "ಉತ್ಪಾದನಾ ವಿವರಗಳು",
+          "packagingInformation": "ಪ್ಯಾಕೇಜಿಂಗ್ ಮಾಹಿತಿ",
+          "expiryBatchData": "ಅವಧಿ & ಬ್ಯಾಚ್ ಮಾಹಿತಿ"
+        },
+        "outcome": "ಅಂತಿಮ ಉತ್ಪನ್ನಕ್ಕೆ ಹೊಸ QR ಕೋಡ್ ನೀಡಲಾಗುತ್ತದೆ."
+      },
+
+      "consumer": {
+        "title": "ಗ್ರಾಹಕ",
+        "description": "ಉತ್ಪನ್ನ QR ಸ್ಕ್ಯಾನ್ ಮಾಡಿದ ನಂತರ ಸಂಪೂರ್ಣ ಟ್ರೇಸಬಿಲಿಟಿ ಕಾಣಬಹುದು.",
+        "viewableLabel": "ಅವರು ನೋಡಬಹುದಾದ ವಿವರಗಳು:",
+        "viewable": {
+          "farmOrigin": "ಫಾರ್ಮ್ ಮೂಲ",
+          "processingDetails": "ಪ್ರಕ್ರಿಯೆ ವಿವರಗಳು",
+          "labTestReports": "ಲ್ಯಾಬ್ ವರದಿಗಳು",
+          "manufacturingData": "ಉತ್ಪಾದನಾ ಮಾಹಿತಿ"
+        },
+        "outcome": "100% ಪಾರದರ್ಶಕತೆ ಮತ್ತು ನಂಬಿಕೆ."
+      }
+    },
+    "outcome": "ಫಲಿತಾಂಶ:",
+    "summaryTitle": "ಸಂಪೂರ್ಣ ಪಾರದರ್ಶಕ ಸರಪಳಿ",
+    "summaryText": "HerbLink ಸಂಪೂರ್ಣ ವಿಶ್ವಾಸಾರ್ಹತೆ ಮತ್ತು ಪಾರದರ್ಶಕತೆಯನ್ನು ಖಚಿತಪಡಿಸುತ್ತದೆ."
+  },
+
+  "chainSearch": {
+    "viewLiveChain": "ಲೈವ್ ಚೈನ್ ನೋಡಿ",
+    "searchTitle": "ಬ್ಲಾಕ್‌ಚೈನ್ ಡೇಟಾ ಹುಡುಕಿ",
+    "blockchainIdPlaceholder": "ಬ್ಲಾಕ್‌ಚೈನ್ ಐಡಿ",
+    "fromDatePlaceholder": "ಪ್ರಾರಂಭ ದಿನಾಂಕ",
+    "toDatePlaceholder": "ಕೊನೆಯ ದಿನಾಂಕ",
+    "searchButton": "ಹುಡುಕಿ",
+    "resetButton": "ಮರುಹೊಂದಿಸಿ",
+    "noResults": "ಹೊಂದಾಣಿಕೆಯ ದಾಖಲೆಗಳು ಇಲ್ಲ.",
+    "blockchainIdLabel": "ಬ್ಲಾಕ್‌ಚೈನ್ ಐಡಿ:",
+    "nameLabel": "ಹೆಸರು:",
+    "eventTypeLabel": "ಈವೆಂಟ್ ಪ್ರಕಾರ:",
+    "timestampLabel": "ಸಮಯ ಮುದ್ರಣೆ:",
+    "locationLabel": "ಸ್ಥಳ:"
+  },
+
+  "chainTable": {
+    "eventType": "ಈವೆಂಟ್ ಪ್ರಕಾರ",
+    "timestamp": "ಸಮಯ",
+    "blockchainId": "ಬ್ಲಾಕ್‌ಚೈನ್ ಐಡಿ",
+    "name": "ಹೆಸರು",
+    "details": "ವಿವರಗಳು",
+    "copyFullId": "ಪೂರ್ಣ ಐಡಿ ನಕಲಿಸಿ",
+    "previous": "ಹಿಂದಿನ",
+    "next": "ಮುಂದಿನ",
+    "page": "ಪುಟ"
+  },
+
+  "forms": {
+    "organization": {
+      "namePlaceholder": "ಸಂಸ್ಥೆಯ ಹೆಸರು ನಮೂದಿಸಿ",
+      "registrationPlaceholder": "MFG-XXXX-XXXX",
+      "addressPlaceholder": "ಪಿನ್ ಕೋಡ್ ಸಹಿತ ಪೂರ್ಣ ವಿಳಾಸ ನಮೂದಿಸಿ",
+      "productsPlaceholder": "ಉತ್ಪಾದಿಸುವ ಮುಖ್ಯ ಉತ್ಪನ್ನಗಳು",
+      "yearPlaceholder": "ವರ್ಷ ಆಯ್ಕೆಮಾಡಿ",
+      "rangePlaceholder": "ಶ್ರೇಣಿಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+      "certificationPlaceholder": "ಪ್ರಮಾಣೀಕರಣ ಮಟ್ಟ ಆಯ್ಕೆಮಾಡಿ",
+      "additionalInfoPlaceholder": "ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಬಗ್ಗೆ ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ"
+    },
+    "workers": {
+      "totalPlaceholder": "ಒಟ್ಟು ಸಂಖ್ಯೆ ನಮೂದಿಸಿ",
+      "malePlaceholder": "ಪುರುಷರ ಸಂಖ್ಯೆ",
+      "femalePlaceholder": "ಸ್ತ್ರೀಯರ ಸಂಖ್ಯೆ",
+      "skilledPlaceholder": "ಪಂಡಿತರ ಸಂಖ್ಯೆ",
+      "unskilledPlaceholder": "ಅಪಂಡಿತರ ಸಂಖ್ಯೆ",
+      "hoursPlaceholder": "ಗಂಟೆಗಳು ಆಯ್ಕೆಮಾಡಿ",
+      "shiftsPlaceholder": "ಶಿಫ್ಟ್‌ಗಳು ಆಯ್ಕೆಮಾಡಿ",
+      "daysPlaceholder": "ದಿನಗಳು ಆಯ್ಕೆಮಾಡಿ",
+      "avgSalaryPlaceholder": "₹ ಸರಾಸರಿ ಸಂಬಳ",
+      "minWagePlaceholder": "₹ ಕನಿಷ್ಠ ವೇತನ",
+      "maxWagePlaceholder": "₹ ಗರಿಷ್ಠ ವೇತನ",
+      "benefitsPlaceholder": "ಸದಸ್ಯರ ಲಾಭಗಳು (PF, ESI, ಬೋನಸ್ ಇತ್ಯಾದಿ)",
+      "safetyPlaceholder": "ಸುರಕ್ಷತಾ ತರಬೇತಿ ವಿವರ",
+      "conditionsPlaceholder": "ಕೆಲಸದ ಪರಿಸ್ಥಿತಿ ವಿವರಣೆ"
+    },
+    "certificates": {
+      "qualityTitle": "ಗುಣಮಟ್ಟ ಪ್ರಮಾಣಪತ್ರಗಳು",
+      "qualityDescription": "ಗುಣಮಟ್ಟ ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ",
+      "qualityExamples": "ISO 9001:2015, BIS ಮೊದಲಾದವು",
+      "safetyTitle": "ಸುರಕ್ಷತಾ ಪ್ರಮಾಣಪತ್ರಗಳು",
+      "safetyDescription": "ಸುರಕ್ಷತಾ ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ",
+      "safetyExamples": "ISO 45001:2018, ಫೈರ್ ಸೇಫ್ಟಿ ಇತ್ಯಾದಿ",
+      "environmentalTitle": "ಪರಿಸರ ಪ್ರಮಾಣಪತ್ರಗಳು",
+      "environmentalDescription": "ಪರಿಸರ ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ",
+      "environmentalExamples": "ISO 14001:2015, PCBC ಇತ್ಯಾದಿ",
+      "otherTitle": "ಇತರೆ ಪ್ರಮಾಣಪತ್ರಗಳು",
+      "otherDescription": "ಯಾವುದೇ ಇತರೆ ಸಂಬಂಧಿತ ಪ್ರಮಾಣಪತ್ರಗಳು",
+      "otherExamples": "ವ್ಯಾಪಾರ ಪರವಾನಗಿ, GST ಪ್ರಮಾಣಪತ್ರ, ಇತ್ಯಾದಿ",
+      "savedMessage": "ಪ್ರಮಾಣಪತ್ರಗಳು ಉಳಿಸಲಾಗಿದೆ",
+      "saving": "ಉಳಿಸಲಾಗುತ್ತಿದೆ...",
+      "saveButton": "ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಉಳಿಸಿ",
+      "uploaded": "ಅಪ್ಲೋಡ್ ಮಾಡಲಾಗಿದೆ"
+    }
+  },
+
+  "entities": {
+    "manufacturer": {
+      "title": "ಉತ್ಪಾದಕ ನೋಂದಣಿ",
+      "step": "ಹಂತ",
+      "of": "ಗೆ",
+      "registrationSteps": "ನೋಂದಣಿ ಹಂತಗಳು",
+      "completeAllSteps": "ನೋಂದಣಿಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಎಲ್ಲಾ ಹಂತಗಳನ್ನು ಮುಗಿಸಿ",
+      "overallProgress": "ಒಟ್ಟು ಪ್ರಗತಿ",
+      "stepsCompleted": "ಹಂತಗಳು ಪೂರ್ಣಗೊಂಡಿವೆ",
+      "steps": {
+        "organization": {
+          "title": "ಸಂಸ್ಥೆ ಮಾಹಿತಿ",
+          "description": "ಮೂಲ ಕಂಪನಿಯ ವಿವರಗಳು"
+        },
+        "certificates": {
+          "title": "ಪ್ರಮಾಣಪತ್ರಗಳು",
+          "description": "ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ"
+        },
+        "workers": {
+          "title": "ಕಾರ್ಮಿಕ ಮಾಹಿತಿ",
+          "description": "ಸಿಬ್ಬಂದಿ ವಿವರಗಳು"
+        },
+        "manager": {
+          "title": "ಮ್ಯಾನೇಜರ್ ವಿವರಗಳು",
+          "description": "ನಿರ್ವಹಣಾ ಮಾಹಿತಿ"
+        }
+      },
+      "registrationSuccess": "ನೋಂದಣಿ ಯಶಸ್ವಿ\nನಿಮ್ಮ ಉತ್ಪಾದಕ ನೋಂದಣಿ ಪೂರ್ಣಗೊಂಡಿದೆ.",
+      "registrationIncomplete": "ಅಪೂರ್ಣ ನೋಂದಣಿ\nಸಲ್ಲಿಸುವ ಮೊದಲು ಎಲ್ಲಾ 4 ಹಂತಗಳನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ.",
+      "registrationComplete": "ನೋಂದಣಿ ಪೂರ್ಣಗೊಂಡಿದೆ!",
+      "registrationApproved": "ನಿಮ್ಮ ನೋಂದಣಿ ಮಂಜೂರಾಗಿದೆ!",
+      "desktopCredentials": "ಡೆಸ್ಕ್‌ಟಾಪ್ ಬಳಕೆದಾರ ವಿವರಗಳು",
+      "email": "ಇಮೇಲ್",
+      "password": "ಪಾಸ್ವರ್ಡ್",
+      "important": "ಮುಖ್ಯ",
+      "saveCredentials": "ಈ ವಿವರಗಳನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಉಳಿಸಿ. ಡೆಸ್ಕ್‌ಟಾಪ್ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಲಾಗಿನ್ ಮಾಡಲು ಬಳಸಬೇಕು.",
+      "readyToSubmit": "ಸಲ್ಲಿಸಲು ಸಿದ್ಧ",
+      "allFormsCompleted": "ಎಲ್ಲ ಫಾರ್ಮ್‌ಗಳು ಪೂರ್ಣಗೊಂಡಿವೆ. ಕೆಳಗೆ ಕ್ಲಿಕ್ಿಸಿ ಸಲ್ಲಿಸಿ.",
+      "submitRegistration": "ನೋಂದಣಿ ಸಲ್ಲಿಸಿ"
+    },
+
+    "processor": {
+      "title": "ಪ್ರೊಸೆಸರ್ ನೋಂದಣಿ ಪೋರ್ಟಲ್",
+      "subtitle": "ನೋಂದಣಿಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ ಸಿಸ್ಟಂ ಪ್ರವೇಶ ಪಡೆಯಿರಿ",
+      "registrationTitle": "ಪ್ರೊಸೆಸರ್ ನೋಂದಣಿ",
+      "completeAllSteps": "ನೋಂದಣಿ ಪೂರ್ಣಗೊಳಿಸಲು ಎಲ್ಲಾ ಹಂತಗಳನ್ನು ಮುಗಿಸಿ",
+      "overallProgress": "ಒಟ್ಟು ಪ್ರಗತಿ",
+      "of": "ಮಧ್ಯೆ",
+      "stepsCompleted": "ಹಂತಗಳು ಪೂರ್ಣಗೊಂಡಿವೆ"
+    },
+
+    "lab": {
+      "title": "ಹೊಸ ಪ್ರಯೋಗಾಲಯ ನೋಂದಣಿ",
+      "labName": "ಲ್ಯಾಬ್ ಹೆಸರು",
+      "address": "ವಿಳಾಸ",
+      "contactEmail": "ಸಂಪರ್ಕ ಇಮೇಲ್",
+      "contactPhone": "ಸಂಪರ್ಕ ಸಂಖ್ಯೆ",
+      "accreditation": "ಪ್ರಮಾಣೀಕರಣ (ಉದಾ: NABL)",
+      "licenseNumber": "ಪರವಾನಗಿ ಸಂಖ್ಯೆ",
+      "registering": "ನೋಂದಣಿ ನಡೆಯುತ್ತಿದೆ...",
+      "registerButton": "ಲ್ಯಾಬ್ ನೋಂದಣಿ",
+      "error": "ಏನೋ ತಪ್ಪಾಗಿದೆ",
+      "registrationSuccess": "ಲ್ಯಾಬ್ ಯಶಸ್ವಿಯಾಗಿ ನೋಂದಣಿಯಾಗಿದೆ!",
+      "labId": "ಲ್ಯಾಬ್ ಐಡಿ",
+      "adminId": "ಅಡ್ಮಿನ್ ಐಡಿ",
+      "email": "ಇಮೇಲ್",
+      "password": "ಪಾಸ್ವರ್ಡ್",
+      "credentialsWarning": "ಈ ಐಡಿ ಮತ್ತು ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ಒಂದು ಸಲ ಮಾತ್ರ ನೀಡಲಾಗುತ್ತದೆ. ಮೊದಲ ಲಾಗಿನ್‌ಗೆ ಮಾತ್ರ ಬಳಸಿರಿ."
+    },
+
+    "kisan": {
+      "portal": "ರೈತ ಪೋರ್ಟಲ್"
+    }
+  }
+}

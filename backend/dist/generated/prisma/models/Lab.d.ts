@@ -15,18 +15,21 @@ export type LabMinAggregateOutputType = {
     labId: string | null;
     password: string | null;
     email: string | null;
+    isVerified: boolean | null;
 };
 export type LabMaxAggregateOutputType = {
     id: string | null;
     labId: string | null;
     password: string | null;
     email: string | null;
+    isVerified: boolean | null;
 };
 export type LabCountAggregateOutputType = {
     id: number;
     labId: number;
     password: number;
     email: number;
+    isVerified: number;
     _all: number;
 };
 export type LabMinAggregateInputType = {
@@ -34,18 +37,21 @@ export type LabMinAggregateInputType = {
     labId?: true;
     password?: true;
     email?: true;
+    isVerified?: true;
 };
 export type LabMaxAggregateInputType = {
     id?: true;
     labId?: true;
     password?: true;
     email?: true;
+    isVerified?: true;
 };
 export type LabCountAggregateInputType = {
     id?: true;
     labId?: true;
     password?: true;
     email?: true;
+    isVerified?: true;
     _all?: true;
 };
 export type LabAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -115,6 +121,7 @@ export type LabGroupByOutputType = {
     labId: string | null;
     password: string;
     email: string;
+    isVerified: boolean;
     _count: LabCountAggregateOutputType | null;
     _min: LabMinAggregateOutputType | null;
     _max: LabMaxAggregateOutputType | null;
@@ -130,6 +137,7 @@ export type LabWhereInput = {
     labId?: Prisma.StringNullableFilter<"Lab"> | string | null;
     password?: Prisma.StringFilter<"Lab"> | string;
     email?: Prisma.StringFilter<"Lab"> | string;
+    isVerified?: Prisma.BoolFilter<"Lab"> | boolean;
     labinfo?: Prisma.XOR<Prisma.LabInfoNullableScalarRelationFilter, Prisma.LabInfoWhereInput> | null;
     LabWorkers?: Prisma.LabWorkerListRelationFilter;
     LabProcessorInputs?: Prisma.LabProcessorInputListRelationFilter;
@@ -139,6 +147,7 @@ export type LabOrderByWithRelationInput = {
     labId?: Prisma.SortOrderInput | Prisma.SortOrder;
     password?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
+    isVerified?: Prisma.SortOrder;
     labinfo?: Prisma.LabInfoOrderByWithRelationInput;
     LabWorkers?: Prisma.LabWorkerOrderByRelationAggregateInput;
     LabProcessorInputs?: Prisma.LabProcessorInputOrderByRelationAggregateInput;
@@ -151,6 +160,7 @@ export type LabWhereUniqueInput = Prisma.AtLeast<{
     AND?: Prisma.LabWhereInput | Prisma.LabWhereInput[];
     OR?: Prisma.LabWhereInput[];
     NOT?: Prisma.LabWhereInput | Prisma.LabWhereInput[];
+    isVerified?: Prisma.BoolFilter<"Lab"> | boolean;
     labinfo?: Prisma.XOR<Prisma.LabInfoNullableScalarRelationFilter, Prisma.LabInfoWhereInput> | null;
     LabWorkers?: Prisma.LabWorkerListRelationFilter;
     LabProcessorInputs?: Prisma.LabProcessorInputListRelationFilter;
@@ -160,6 +170,7 @@ export type LabOrderByWithAggregationInput = {
     labId?: Prisma.SortOrderInput | Prisma.SortOrder;
     password?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
+    isVerified?: Prisma.SortOrder;
     _count?: Prisma.LabCountOrderByAggregateInput;
     _max?: Prisma.LabMaxOrderByAggregateInput;
     _min?: Prisma.LabMinOrderByAggregateInput;
@@ -172,12 +183,14 @@ export type LabScalarWhereWithAggregatesInput = {
     labId?: Prisma.StringNullableWithAggregatesFilter<"Lab"> | string | null;
     password?: Prisma.StringWithAggregatesFilter<"Lab"> | string;
     email?: Prisma.StringWithAggregatesFilter<"Lab"> | string;
+    isVerified?: Prisma.BoolWithAggregatesFilter<"Lab"> | boolean;
 };
 export type LabCreateInput = {
     id?: string;
     labId?: string | null;
     password: string;
     email: string;
+    isVerified?: boolean;
     labinfo?: Prisma.LabInfoCreateNestedOneWithoutLabIdInput;
     LabWorkers?: Prisma.LabWorkerCreateNestedManyWithoutLabIdInput;
     LabProcessorInputs?: Prisma.LabProcessorInputCreateNestedManyWithoutLabInput;
@@ -187,6 +200,7 @@ export type LabUncheckedCreateInput = {
     labId?: string | null;
     password: string;
     email: string;
+    isVerified?: boolean;
     labinfo?: Prisma.LabInfoUncheckedCreateNestedOneWithoutLabIdInput;
     LabWorkers?: Prisma.LabWorkerUncheckedCreateNestedManyWithoutLabIdInput;
     LabProcessorInputs?: Prisma.LabProcessorInputUncheckedCreateNestedManyWithoutLabInput;
@@ -196,6 +210,7 @@ export type LabUpdateInput = {
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
+    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     labinfo?: Prisma.LabInfoUpdateOneWithoutLabIdNestedInput;
     LabWorkers?: Prisma.LabWorkerUpdateManyWithoutLabIdNestedInput;
     LabProcessorInputs?: Prisma.LabProcessorInputUpdateManyWithoutLabNestedInput;
@@ -205,6 +220,7 @@ export type LabUncheckedUpdateInput = {
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
+    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     labinfo?: Prisma.LabInfoUncheckedUpdateOneWithoutLabIdNestedInput;
     LabWorkers?: Prisma.LabWorkerUncheckedUpdateManyWithoutLabIdNestedInput;
     LabProcessorInputs?: Prisma.LabProcessorInputUncheckedUpdateManyWithoutLabNestedInput;
@@ -214,36 +230,42 @@ export type LabCreateManyInput = {
     labId?: string | null;
     password: string;
     email: string;
+    isVerified?: boolean;
 };
 export type LabUpdateManyMutationInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
+    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
 };
 export type LabUncheckedUpdateManyInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
+    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
 };
 export type LabCountOrderByAggregateInput = {
     id?: Prisma.SortOrder;
     labId?: Prisma.SortOrder;
     password?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
+    isVerified?: Prisma.SortOrder;
 };
 export type LabMaxOrderByAggregateInput = {
     id?: Prisma.SortOrder;
     labId?: Prisma.SortOrder;
     password?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
+    isVerified?: Prisma.SortOrder;
 };
 export type LabMinOrderByAggregateInput = {
     id?: Prisma.SortOrder;
     labId?: Prisma.SortOrder;
     password?: Prisma.SortOrder;
     email?: Prisma.SortOrder;
+    isVerified?: Prisma.SortOrder;
 };
 export type LabScalarRelationFilter = {
     is?: Prisma.LabWhereInput;
@@ -290,6 +312,7 @@ export type LabCreateWithoutLabinfoInput = {
     labId?: string | null;
     password: string;
     email: string;
+    isVerified?: boolean;
     LabWorkers?: Prisma.LabWorkerCreateNestedManyWithoutLabIdInput;
     LabProcessorInputs?: Prisma.LabProcessorInputCreateNestedManyWithoutLabInput;
 };
@@ -298,6 +321,7 @@ export type LabUncheckedCreateWithoutLabinfoInput = {
     labId?: string | null;
     password: string;
     email: string;
+    isVerified?: boolean;
     LabWorkers?: Prisma.LabWorkerUncheckedCreateNestedManyWithoutLabIdInput;
     LabProcessorInputs?: Prisma.LabProcessorInputUncheckedCreateNestedManyWithoutLabInput;
 };
@@ -319,6 +343,7 @@ export type LabUpdateWithoutLabinfoInput = {
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
+    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     LabWorkers?: Prisma.LabWorkerUpdateManyWithoutLabIdNestedInput;
     LabProcessorInputs?: Prisma.LabProcessorInputUpdateManyWithoutLabNestedInput;
 };
@@ -327,6 +352,7 @@ export type LabUncheckedUpdateWithoutLabinfoInput = {
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
+    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     LabWorkers?: Prisma.LabWorkerUncheckedUpdateManyWithoutLabIdNestedInput;
     LabProcessorInputs?: Prisma.LabProcessorInputUncheckedUpdateManyWithoutLabNestedInput;
 };
@@ -335,6 +361,7 @@ export type LabCreateWithoutLabWorkersInput = {
     labId?: string | null;
     password: string;
     email: string;
+    isVerified?: boolean;
     labinfo?: Prisma.LabInfoCreateNestedOneWithoutLabIdInput;
     LabProcessorInputs?: Prisma.LabProcessorInputCreateNestedManyWithoutLabInput;
 };
@@ -343,6 +370,7 @@ export type LabUncheckedCreateWithoutLabWorkersInput = {
     labId?: string | null;
     password: string;
     email: string;
+    isVerified?: boolean;
     labinfo?: Prisma.LabInfoUncheckedCreateNestedOneWithoutLabIdInput;
     LabProcessorInputs?: Prisma.LabProcessorInputUncheckedCreateNestedManyWithoutLabInput;
 };
@@ -364,6 +392,7 @@ export type LabUpdateWithoutLabWorkersInput = {
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
+    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     labinfo?: Prisma.LabInfoUpdateOneWithoutLabIdNestedInput;
     LabProcessorInputs?: Prisma.LabProcessorInputUpdateManyWithoutLabNestedInput;
 };
@@ -372,6 +401,7 @@ export type LabUncheckedUpdateWithoutLabWorkersInput = {
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
+    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     labinfo?: Prisma.LabInfoUncheckedUpdateOneWithoutLabIdNestedInput;
     LabProcessorInputs?: Prisma.LabProcessorInputUncheckedUpdateManyWithoutLabNestedInput;
 };
@@ -380,6 +410,7 @@ export type LabCreateWithoutLabProcessorInputsInput = {
     labId?: string | null;
     password: string;
     email: string;
+    isVerified?: boolean;
     labinfo?: Prisma.LabInfoCreateNestedOneWithoutLabIdInput;
     LabWorkers?: Prisma.LabWorkerCreateNestedManyWithoutLabIdInput;
 };
@@ -388,6 +419,7 @@ export type LabUncheckedCreateWithoutLabProcessorInputsInput = {
     labId?: string | null;
     password: string;
     email: string;
+    isVerified?: boolean;
     labinfo?: Prisma.LabInfoUncheckedCreateNestedOneWithoutLabIdInput;
     LabWorkers?: Prisma.LabWorkerUncheckedCreateNestedManyWithoutLabIdInput;
 };
@@ -409,6 +441,7 @@ export type LabUpdateWithoutLabProcessorInputsInput = {
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
+    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     labinfo?: Prisma.LabInfoUpdateOneWithoutLabIdNestedInput;
     LabWorkers?: Prisma.LabWorkerUpdateManyWithoutLabIdNestedInput;
 };
@@ -417,6 +450,7 @@ export type LabUncheckedUpdateWithoutLabProcessorInputsInput = {
     labId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
     password?: Prisma.StringFieldUpdateOperationsInput | string;
     email?: Prisma.StringFieldUpdateOperationsInput | string;
+    isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     labinfo?: Prisma.LabInfoUncheckedUpdateOneWithoutLabIdNestedInput;
     LabWorkers?: Prisma.LabWorkerUncheckedUpdateManyWithoutLabIdNestedInput;
 };
@@ -457,6 +491,7 @@ export type LabSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = ru
     labId?: boolean;
     password?: boolean;
     email?: boolean;
+    isVerified?: boolean;
     labinfo?: boolean | Prisma.Lab$labinfoArgs<ExtArgs>;
     LabWorkers?: boolean | Prisma.Lab$LabWorkersArgs<ExtArgs>;
     LabProcessorInputs?: boolean | Prisma.Lab$LabProcessorInputsArgs<ExtArgs>;
@@ -467,20 +502,23 @@ export type LabSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extension
     labId?: boolean;
     password?: boolean;
     email?: boolean;
+    isVerified?: boolean;
 }, ExtArgs["result"]["lab"]>;
 export type LabSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
     labId?: boolean;
     password?: boolean;
     email?: boolean;
+    isVerified?: boolean;
 }, ExtArgs["result"]["lab"]>;
 export type LabSelectScalar = {
     id?: boolean;
     labId?: boolean;
     password?: boolean;
     email?: boolean;
+    isVerified?: boolean;
 };
-export type LabOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "labId" | "password" | "email", ExtArgs["result"]["lab"]>;
+export type LabOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "labId" | "password" | "email" | "isVerified", ExtArgs["result"]["lab"]>;
 export type LabInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     labinfo?: boolean | Prisma.Lab$labinfoArgs<ExtArgs>;
     LabWorkers?: boolean | Prisma.Lab$LabWorkersArgs<ExtArgs>;
@@ -501,6 +539,7 @@ export type $LabPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
         labId: string | null;
         password: string;
         email: string;
+        isVerified: boolean;
     }, ExtArgs["result"]["lab"]>;
     composites: {};
 };
@@ -862,6 +901,7 @@ export interface LabFieldRefs {
     readonly labId: Prisma.FieldRef<"Lab", 'String'>;
     readonly password: Prisma.FieldRef<"Lab", 'String'>;
     readonly email: Prisma.FieldRef<"Lab", 'String'>;
+    readonly isVerified: Prisma.FieldRef<"Lab", 'Boolean'>;
 }
 /**
  * Lab findUnique

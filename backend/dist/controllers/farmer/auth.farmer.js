@@ -1,7 +1,7 @@
 import db from "../../config/db.js";
-import { TwilioService } from "../../config/twilio.js";
 import { JwtToken } from "../../config/jwt.js";
 import logger from "../../config/logger.js";
+import { TwilioService } from "../../config/twilio.js";
 const otpController = new TwilioService();
 const JwtTokenInstance = new JwtToken();
 export async function FarmerSignUp(req, res) {
@@ -77,7 +77,15 @@ export async function FarmerLogin(req, res) {
                 msg: "Account not found"
             });
         }
-        await otpController.sendOTP(mobileNumber);
+        try {
+            await otpController.sendOTP(mobileNumber);
+        }
+        catch (err) {
+            logger.error("Farmer_login_sendOTP_failed", { error: err.message, stack: err.stack });
+            return res.status(500).json({
+                msg: "Failed to send OTP. Please try again shortly."
+            });
+        }
         return res.status(200).json({
             msg: "OTP sent successfully"
         });

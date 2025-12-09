@@ -1,13 +1,14 @@
 import DialogProvider from '@/components/helper/DialogProvider'
 
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { Beaker, ChevronDown, Factory, Hamburger, HamburgerIcon, Menu, Pickaxe, Tractor } from 'lucide-react'
-import { useTranslation, UseTranslation } from 'next-i18next'
+import { Beaker, ChevronDown, Menu, Pickaxe, Tractor, Factory } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import Image from 'next/image'
 import LoginDialog from '../login/LoginDialog'
 import DrawerProvider from '@/components/helper/DrawerProvider'
 import DrawerPrimaryNav from './DrawerPrimaryNav'
 import MobileNav from './MobileNav'
+import { useRouter } from 'next/navigation'
 
 
 
@@ -15,6 +16,7 @@ import MobileNav from './MobileNav'
 export const OrganisationPopover = ( ) => {
 
     const { t } = useTranslation("common")
+    const router = useRouter()
     return ( 
         <Popover>
             <PopoverTrigger className='flex gap-1 items-center justify-center hover:bg-blue-100 dark:hover:bg-blue-900 p-2 py-1 cursor-pointer rounded-md '>
@@ -22,7 +24,7 @@ export const OrganisationPopover = ( ) => {
                 <span><ChevronDown className='size-4'/></span>
             </PopoverTrigger>
             <PopoverContent className='w-[200px] p-1 space-y-1'>
-                <div className='border border-border cursor-pointer hover:bg-secondary rounded-md h-8 w-full flex items-center p-1 gap-2'>
+                <div onClick={()=>router.push('/farmer/login')} className='border border-border cursor-pointer hover:bg-secondary rounded-md h-8 w-full flex items-center p-1 gap-2'>
                     <div className='border border-border p-1 rounded-sm'>
                         <Tractor className='size-4'/>
                     </div>
@@ -30,7 +32,7 @@ export const OrganisationPopover = ( ) => {
                         {t("primary.org1")}
                     </span>
                 </div>
-                <div className='border border-border cursor-pointer hover:bg-secondary rounded-md h-8 w-full flex items-center p-1 gap-2'>
+                <div onClick={()=>router.push('/processor/login')} className='border border-border cursor-pointer hover:bg-secondary rounded-md h-8 w-full flex items-center p-1 gap-2'>
                     <div className='border border-border p-1 rounded-sm'>
                         <Pickaxe className='size-4'/>
                     </div>

@@ -1,9 +1,9 @@
 import { Request ,Response } from "express";
 import db from "../../config/db.js";
-import { TwilioService } from "../../config/twilio.js";
 import { JwtToken } from "../../config/jwt.js";
 import logger from "../../config/logger.js";
 import { log } from "console";
+import { TwilioService } from "../../config/twilio.js";
 
 
 const otpController = new TwilioService();
@@ -97,7 +97,14 @@ export async function FarmerLogin(req :Request , res: Response){
             })
         }
         
-        await otpController.sendOTP(mobileNumber);
+        try {
+            await otpController.sendOTP(mobileNumber);
+        } catch (err) {
+            logger.error("Farmer_login_sendOTP_failed", { error: (err as Error).message, stack: (err as Error).stack });
+            return res.status(500).json({
+                msg: "Failed to send OTP. Please try again shortly."
+            });
+        }
 
         return res.status(200).json({
             msg: "OTP sent successfully"

@@ -1,42 +1,84 @@
 {
-    "access" : {
-        "goi" : "Government of India" ,
-        "skip" : "Skip to main content",
-        "A+" : "A+",
-        "tpA+" : "Large Font",
-        "A-" : "A-",
-        "tpA-" : "Small Font",
-        "A"  : "A",
-        "tpA" : "Normal Font"
-    },
-    "primary" : {
-        "org" : "Organistation",
-        "org1" :"Farmer Portal",
-        "org2": "Processor Portal",
-        "org3": "Lab Portal",
-        "org4": "Factory Portal",
-        "sc" : "See Chain",
-        "Scp" : "Scan Product",
-        "cpt" : "Complaint",
-        "mobile" : "Menu"
-    },
-    "login" : {
-        "trigger" : "Login",
-       
-        "title" : "Login to your account"
-    },
-    "noacc": {
-        "farm" : "Apply for farmer license",
-        "process" : "Apply for Processor license",
-        "lab" : "Apply for lab license",
-        "factory" : "Apply for Factory license",
-        "title" : "Don't have an account?"
-    },
-    "farmer" : {
-        "login" : {
-            "farmer" : "Herblink Farmer Portal",
-            "goback" : "Go back",
-            "title" : "Login to Farmer Account"
-        }
+  "access": {
+    "goi": "Government of India",
+    "skip": "Skip to main content",
+    "A+": "A+",
+    "tpA+": "Large Font",
+    "A-": "A-",
+    "tpA-": "Small Font",
+    "A": "A",
+    "tpA": "Normal Font"
+  },
+  "primary": {
+    "org": "Organistation",
+    "org1": "Farmer Portal",
+    "org2": "Processor Portal",
+    "org3": "Lab Portal",
+    "org4": "Factory Portal",
+    "sc": "See Chain",
+    "Scp": "Scan Product",
+    "cpt": "Complaint",
+    "mobile": "Menu"
+  },
+  "login": {
+    "trigger": "Login",
+    "title": "Login to your account"
+  },
+  "noacc": {
+    "farm": "Apply for farmer license",
+    "process": "Apply for Processor license",
+    "lab": "Apply for lab license",
+    "factory": "Apply for Factory license",
+    "title": "Don't have an account?"
+  },
+  "farmer": {
+    "login": {
+      "farmer": "Herblink Farmer Portal",
+      "goback": "Go back",
+      "title": "Login to Farmer Account"
     }
+  },
+  "Home": "Home",
+  "navbar": {
+    "accessBarHeaderLeft": "Government of India",
+    "accessBarRightSkipButton": "Skip to main content",
+    "NavLoginBtn": "Admin Login",
+    "DDOrgs": "Organisations",
+    "ddorgs1": "Farmers Portal",
+    "ddorgs2": "Processor Portal",
+    "ddorgs3": "Lab Portal",
+    "ddorgs4": "Manufacturer Portal",
+    "DDabout": "Search ID",
+    "DDHelp": "See Chain",
+    "DDScan": "Scan Product",
+    "DDcomplain": "Complain"
+  },
+  "quickActions": {
+    "title": "Quick Actions",
+    "viewLiveChain": "View LiveChain",
+    "raiseComplain": "Raise Complain",
+    "scanProductQR": "Scan Product QR",
+    "working": "Working"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Have questions? We have answers. If you can't find what you're looking for, feel free to contact us.",
+    "items": {
+      "q1": "What is botanical traceability?",
+      "a1": "Botanical traceability is the process of tracking a plant or herb from its source of origin (the farm or forest) all the way to the final consumer product. This ensures authenticity, quality, and safety.",
+      "q2": "Why is traceability important for Ayurvedic herbs?",
+      "a2": "Many Ayurvedic herbs look similar and can be easily substituted or adulterated. Traceability guarantees you're getting the correct, potent herb, free from contaminants, and sourced ethically.",
+      "q3": "How does your technology work?",
+      "a3": "We use a combination of DNA barcoding to genetically verify the plant species and geo-tagging to confirm its origin. Each batch is given a unique code that you can use to view its journey.",
+      "q4": "Are your partnered farms organic?",
+      "a4": "We prioritize partnerships with farms that follow organic and sustainable practices. You can view the specific certifications for each herb on its traceability report."
+    }
+  },
+  "howItWorks": {
+    "title": "Trace every step of your herbs — from farm to consumer — with complete transparency and trust.",
+    "button": "See How HerbLink Works"
+  },
+  "footer": {
+    "optimisers": "optimisers"
+  }
 }

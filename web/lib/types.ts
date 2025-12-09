@@ -1,76 +1,97 @@
 export type ISO = string;
 
 export interface Processor {
-  id: string;
-  name: string;
+  id?: string;
+  processorId?: string;
+  name?: string;
   contactEmail?: string;
+  email?: string;
   phone?: string;
-  createdAt: ISO;
-  updatedAt: ISO;
+  organization?: string;
+  createdAt?: ISO;
+  updatedAt?: ISO;
 }
 
 export interface ProcessorFarmerItem {
-  id: string;
-  farmerId: string;
-  quantity: number;
+  id?: string;
+  farmerId?: string;
+  eventId?: string;
+  specie?: string;
+  quantity?: number | string;
   unit?: string;
   notes?: string;
-  createdAt: ISO;
-  updatedAt: ISO;
+  createdAt?: ISO;
+  updatedAt?: ISO;
 }
 
 export interface ProcessorInventory {
-  id: string;
-  processedQuantity?: number;
-  processor: Processor;
-  items: ProcessorFarmerItem[];
-  createdAt: ISO;
-  updatedAt: ISO;
+  id?: string;
+  inventoryName?: string;
+  assignedGrade?: string;
+  processedQuantity?: number | string;
+  finalQuantity?: string;
+  processor?: Processor;
+  processorid?: Processor;
+  items?: ProcessorFarmerItem[];
+  Items?: ProcessorFarmerItem[];
+  LabProcessorInputs?: any[];
+  createdAt?: ISO;
+  updatedAt?: ISO;
 }
 
 export interface HerbInventory {
-  id: string;
-  quantityReceived: number;
+  id?: string;
+  quantityReceived?: number | string;
   unit?: string;
   processorInventoryId?: string;
   processorInventory?: ProcessorInventory;
-  createdAt: ISO;
-  updatedAt: ISO;
+  productInventoryId?: string;
+  createdAt?: ISO;
+  updatedAt?: ISO;
 }
 
 export interface ProductInventory {
-  id: string;
-  herbName: string;
+  id?: string;
+  herbName?: string;
+  HerbName?: string;
   herbInventories: HerbInventory[];
-  createdAt: ISO;
-  updatedAt: ISO;
+  HerbInventories?: HerbInventory[];
+  createdAt?: ISO;
+  updatedAt?: ISO;
 }
 
 export interface Manufacturer {
-  id: string;
-  name: string;
+  id?: string;
+  manufacturerId?: string;
+  name?: string;
   address?: string;
   contactEmail?: string;
+  email?: string;
   phone?: string;
-  createdAt: ISO;
-  updatedAt: ISO;
+  organization?: string;
+  status?: string;
+  createdAt?: ISO;
+  updatedAt?: ISO;
 }
 
 export interface Product {
-  id: string;
-  manufacturerId: string;
-  productName: string;
+  id?: string;
+  manufacturerId?: string;
+  productName?: string;
   productDescription?: string;
   productImage?: string;
   productionDate?: string;
   productionBatch?: string;
-  createdAt: ISO;
-  updatedAt: ISO;
-  manufacturer: Manufacturer;
+  createdAt?: ISO;
+  updatedAt?: ISO;
+  manufacturer?: Manufacturer;
   inventories: ProductInventory[];
+  Inventories?: ProductInventory[];
 }
 
 export interface FullProductResponse {
-  msg: string;
+  msg?: string;
+  message?: string;
+  success?: boolean;
   data: Product;
 }

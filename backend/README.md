@@ -241,3 +241,32 @@ Authentication uses JWT. When a route indicates `Auth: Required`, include header
   - A `Product` has many `ProductInventory` (`Inventories`).
   - A `ProductInventory` has many `HerbInventory` (`HerbInventories`).
   - `HerbInventory` references `ProcessorInventory` via `processorInventoryId` and links back to `ProductInventory` via `productInventoryId`.
+
+## Admin Verification
+
+- GET `/api/admin/farmers/not-verified`
+  - Response: `{ success: true, count, farmers }`
+- POST `/api/admin/farmers/:id/verify`
+  - Response: `{ success: true, message: "Farmer verified", farmer }`
+- POST `/api/admin/farmers/:id/reject`
+  - Response: `{ success: true, message: "Farmer rejected", farmer }`
+- GET `/api/admin/labs/not-verified`
+  - Response: `{ success: true, count, labs }`
+- POST `/api/admin/labs/:id/verify`
+  - Response: `{ success: true, message: "Lab verified", lab }`
+- POST `/api/admin/labs/:id/reject`
+  - Response: `{ success: true, message: "Lab rejected", lab }`
+- GET `/api/admin/processors/not-verified`
+  - Response: `{ success: true, count, processors }`
+- POST `/api/admin/processors/:id/verify`
+  - Response: `{ success: true, message: "Processor verified", processor }`
+- POST `/api/admin/processors/:id/reject`
+  - Response: `{ success: true, message: "Processor rejected", processor }`
+- GET `/api/admin/manufacturers/not-verified`
+  - Response: `{ success: true, count, manufacturers }`
+- POST `/api/admin/manufacturers/:id/verify`
+  - Response: `{ success: true, message: "Manufacturer verified", manufacturer }`
+- POST `/api/admin/manufacturers/:id/reject`
+  - Response: `{ success: true, message: "Manufacturer rejected", manufacturer }`
+- GET `/api/admin/products/:id/details`
+  - Response: `{ success: true, message: "Product details retrieved successfully", product }` (includes manufacturer, inventories, herb inventories, processor inventory with processor info/items/lab inputs, and linked product inventory)

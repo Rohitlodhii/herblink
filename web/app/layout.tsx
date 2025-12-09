@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import "@/i18n/index"
 import { Toaster } from "@/components/ui/sonner";
+import { FontSizeProvider } from "@/components/context/FontSizeContext";
+import { I18nProvider } from "@/components/providers/I18nProvider";
 
 const noto = Noto_Sans({
   weight : ['100','200','400','600','800','900']
@@ -30,8 +31,14 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-        {children}
-        <Toaster />
+        <I18nProvider>
+          <FontSizeProvider>
+            <main style={{ position: 'relative', zIndex: 1 }}>
+              {children}
+            </main>
+            <Toaster />
+          </FontSizeProvider>
+        </I18nProvider>
         </ThemeProvider>
       </body>
     </html>

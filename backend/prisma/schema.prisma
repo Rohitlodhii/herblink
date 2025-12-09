@@ -124,6 +124,8 @@ model Lab {
   email    String   @unique
   labinfo  LabInfo?
 
+
+  isVerified  Boolean @default(false)
   LabWorkers         LabWorker[]
   LabProcessorInputs LabProcessorInput[]
 }

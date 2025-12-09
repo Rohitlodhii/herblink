@@ -1,0 +1,570 @@
+{
+    "Home" : "Home",
+    "navbar" : {
+        "accessBarHeaderLeft" : "Government of India",
+        "accessBarRightSkipButton" : "Skip to main content",
+        "NavLoginBtn" : "Admin Login",
+        "DDOrgs" : "Organisations",
+        "ddorgs1" : "Farmers Portal",
+        "ddorgs2" : "Processor Portal",
+        "ddorgs3" : "Lab Portal",
+        "ddorgs4" : "Manufacturer Portal",
+        "DDabout" : "Search ID",
+        "DDHelp" : "See Chain",
+        "DDScan" : "Scan Product",
+        "DDcomplain" : "Complain"
+    },
+    "quickActions" : {
+        "title" : "Quick Actions",
+        "viewLiveChain" : "View LiveChain",
+        "raiseComplain" : "Raise Complain",
+        "scanProductQR" : "Scan Product QR",
+        "working" : "Working"
+    },
+    "footer" : {
+        "copyright" : "© {{year}} Herblink",
+        "optimisers" : "optimisers"
+    },
+    "primary": {
+        "org": "Organisations",
+        "org1": "Farmers Portal",
+        "org2": "Processor Portal",
+        "org3": "Lab Portal",
+        "org4": "Manufacturer Portal",
+        "sc": "Scan Product",
+        "Scp": "Complain",
+        "cpt": "Search ID"
+    },
+    "login": {
+        "trigger": "Login"
+    },
+    "chain" : {
+        "details" : "Details",
+        "fullRecordDetails" : "Full record details",
+        "name" : "Name",
+        "location" : "Location",
+        "otherData" : "Other Data",
+        "noAdditionalData" : "No additional data available.",
+        "farmID" : "Farm ID",
+        "herb" : "Herb",
+        "harvestDate" : "Harvest Date",
+        "quantity" : "Quantity",
+        "landSize" : "Land Size",
+        "processorId" : "Processor ID",
+        "buyDate" : "Buy Date",
+        "grinding" : "Grinding",
+        "moisture" : "Moisture",
+        "manufacturerId" : "Manufacturer ID",
+        "productionDate" : "Production Date",
+        "batchNumber" : "Batch Number",
+        "productType" : "Product Type",
+        "labId" : "Lab ID",
+        "testDate" : "Test Date",
+        "purity" : "Purity",
+        "passed" : "Passed",
+        "yes" : "Yes",
+        "no" : "No"
+    },
+    "faq" : {
+        "title" : "Frequently Asked Questions",
+        "subtitle" : "Have questions? We have answers. If you can't find what you're looking for, feel free to contact us.",
+        "items" : {
+            "q1" : "What is botanical traceability?",
+            "a1" : "Botanical traceability is the process of tracking a plant or herb from its source of origin (the farm or forest) all the way to the final consumer product. This ensures authenticity, quality, and safety.",
+            "q2" : "Why is traceability important for Ayurvedic herbs?",
+            "a2" : "Many Ayurvedic herbs look similar and can be easily substituted or adulterated. Traceability guarantees you're getting the correct, potent herb, free from contaminants, and sourced ethically.",
+            "q3" : "How does your technology work?",
+            "a3" : "We use a combination of DNA barcoding to genetically verify the plant species and geo-tagging to confirm its origin. Each batch is given a unique code that you can use to view its journey.",
+            "q4" : "Are your partnered farms organic?",
+            "a4" : "We prioritize partnerships with farms that follow organic and sustainable practices. You can view the specific certifications for each herb on its traceability report."
+        }
+    },
+    "howItWorks" : {
+        "title" : "Trace every step of your herbs — from farm to consumer — with complete transparency and trust.",
+        "button" : "See How HerbLink Works"
+    },
+    "kisanlogincard" : {
+        "title" : "Login with mobile number",
+        "mobinput" : "Enter Mobile number",
+        "submitbtn" : "Submit",
+        "captcha" : "Please fill captcha",
+        "loading" : "Submitting",
+        "refreshcaptcha" : "Refresh Captcha",
+        "enterOtp" : "Enter OTP",
+        "verifyOtp": "Verify OTP",
+        "otpSent": "OTP sent successfully!",
+        "otpVerified": "OTP verified successfully!",
+        "error": "Something went wrong",
+        "errorGeneric": "Something went wrong. Try again later.",
+        "mobileOrOtpRequired": "Mobile number or OTP required",
+        "loadingCaptcha": "Loading captcha...",
+        "captchaPlaceholder": "Enter captcha",
+        "otpPlaceholder": "Enter the OTP"
+    },
+    "quicklinks"  : {
+        "title" : "Quick Links",
+        "livechain" : "See Live Herb blockchain",
+        "scanproduct" : "Scan a QR Code",
+        "KisanLogin" : "Login as a Kisnan",
+        "seeppt" : "See Presentation"
+    },
+    "about" :  {
+        "title" :"HerbLink",
+        "para": "HerbLink is an innovative blockchain-powered platform created to solve one of the most pressing challenges in the Ayurvedic industry—trust.\nToday, consumers often face uncertainty when it comes to the authenticity, purity, and safety of herbal products.\nIssues such as unverified sourcing, unsafe farming practices with hidden chemical usage, lack of lab-based quality data, and unreliable supply chains put both consumer health and the credibility of Ayurveda at risk.\nManufacturers, too, face difficulties in ensuring their herbs are genuinely pure and ethically sourced, leading to compromised products reaching the market.\n\nHerbLink steps in as a complete traceability and transparency solution.\nEvery product integrated into our system comes with a unique QR code, which, when scanned, reveals the entire journey of the herb—from the farmer who cultivated it, to the lab where it was tested, to the manufacturer who prepared the final product.\nThis journey is not just a story, but a verified chain of data stored securely on a tamper-proof blockchain ledger.\nThis means no third party can manipulate or hide information, ensuring that consumers always receive reliable and truthful insights.\n\nBeyond traceability, HerbLink ensures authentication at every stage of the process.\nFarmers, labs, and manufacturers are verified through our authority-backed system, with additional support from SMS gateways to confirm authenticity.\nThis eliminates the risk of herbs being sourced from unreliable suppliers and guarantees that only verified, safe, and pure products reach the consumer.\n\nMost importantly, HerbLink brings clarity and confidence to a space that desperately needs it.\nBy making the entire process transparent, we empower consumers to make informed health decisions while giving farmers and manufacturers a chance to build genuine credibility in the global market.\nWith HerbLink, Ayurveda can stay true to its roots of natural healing—restoring trust, safety, and purity in every herb that reaches your hands."
+      },
+    "product" : {
+        "noherb" : "Please select any herb above to view details"
+    },
+    "complain": {
+    "title": "File a Complaint",
+    "blockchainId": "Blockchain ID",
+    "blockchainPlaceholder": "Enter the ID found on the product packaging",
+    "type": "Type of Complaint",
+    "selectCategory": "Select a category",
+    "details": "Complaint Details",
+    "detailsPlaceholder": "Please describe the issue in as much detail as possible...",
+    "attachImage": "Attach an Image (optional)",
+    "removeImage": "Remove image",
+    "uploadFile": "Upload a file",
+    "changeFile": "Change file",
+    "orDragDrop": "or drag and drop",
+    "fileLimit": "PNG, JPG up to 10MB",
+    "submit": "Submit Complaint",
+    "submitting": "Submitting...",
+    "successMessage": "Thank you! Your complaint has been submitted successfully.",
+    "options": {
+      "packaging": "Packaging Issue",
+      "quality": "Product Quality",
+      "incorrectInfo": "Incorrect Information",
+      "allergy": "Allergic Reaction",
+      "other": "Other"
+    }
+  },
+  "working": {
+    "title": "How HerbLink Works",
+    "subtitle": "HerbLink ensures end-to-end transparency in the herbal supply chain — from farm to consumer. Each stage is tracked, verified, and stored on a blockchain ledger for trust and authenticity.",
+    "steps": {
+      "farmer": {
+        "title": "Farmer",
+        "description": "Farmers register on the platform and receive a unique digital ID.",
+        "detailsLabel": "They submit/add details such as:",
+        "details": {
+          "herbName": "Herb name",
+          "cultivationDate": "Cultivation date",
+          "pesticidesUsed": "Pesticides used",
+          "waterUsage": "Water usage",
+          "climateConditions": "Climate conditions",
+          "location": "Location (geo-tagged)",
+          "fieldImages": "Field and crop images"
+        },
+        "outcome": "HerbLink generates a unique Asset ID / QR code for each batch, tagging the raw materials."
+      },
+      "processor": {
+        "title": "Processor",
+        "description": "Farmers' batches are delivered to processors who scan the QR code to access farmer-submitted data.",
+        "detailsLabel": "They submit/add details such as:",
+        "details": {
+          "timeOfProcessing": "Time of processing",
+          "methodsUsed": "Methods used",
+          "quantityBeforeAfter": "Quantity before & after processing"
+        },
+        "verificationProcess": "Verification Process:",
+        "verificationCorrect": "If correct → batch is approved",
+        "verificationIncorrect": "If incorrect → batch is returned to the farmer",
+        "outcome": "All updates are stored on the blockchain ledger, linked to the same Asset ID."
+      },
+      "laboratory": {
+        "title": "Laboratory",
+        "description": "Lab scientists scan the QR code to view farmer and processor records.",
+        "detailsLabel": "They submit/add details such as:",
+        "details": {
+          "qualityTestReports": "Quality test reports",
+          "certificates": "Certificates",
+          "safetyApprovals": "Safety approvals"
+        },
+        "verificationProcess": "Verification Process:",
+        "verificationCorrect": "If valid → batch is approved",
+        "verificationIncorrect": "If invalid → batch is returned",
+        "outcome": "These verified records are stored on the blockchain under the same Asset ID."
+      },
+      "manufacturer": {
+        "title": "Manufacturer",
+        "description": "Manufacturers receive approved batches and verify farmer, processor, and lab records.",
+        "detailsLabel": "They submit/add details such as:",
+        "details": {
+          "productionDetails": "Production details",
+          "packagingInformation": "Packaging information",
+          "expiryBatchData": "Expiry & batch data"
+        },
+        "outcome": "A new product-level QR code is generated, linking back to the original herb batch."
+      },
+      "consumer": {
+        "title": "Consumer",
+        "description": "Consumers scan the QR code on the final product using HerbLink.",
+        "viewableLabel": "Consumers can instantly view:",
+        "viewable": {
+          "farmOrigin": "Farm origin",
+          "processingDetails": "Processing details",
+          "labTestReports": "Lab test reports",
+          "manufacturingData": "Manufacturing data"
+        },
+        "outcome": "This creates trust and transparency, strengthening consumer confidence in the product."
+      }
+    },
+    "outcome": "Outcome:",
+    "summaryTitle": "Complete Supply Chain Transparency",
+    "summaryText": "Through this comprehensive 5-step process, HerbLink creates an unbreakable chain of trust from farm to consumer, ensuring every herbal product can be traced back to its origins with complete transparency and verification."
+  },
+  "chainSearch": {
+    "viewLiveChain": "View Live Chain",
+    "searchTitle": "Search Blockchain Data",
+    "blockchainIdPlaceholder": "Blockchain ID",
+    "fromDatePlaceholder": "From Date",
+    "toDatePlaceholder": "To Date",
+    "searchButton": "Search",
+    "resetButton": "Reset",
+    "noResults": "No matching records found.",
+    "blockchainIdLabel": "Blockchain ID:",
+    "nameLabel": "Name:",
+    "eventTypeLabel": "Event Type:",
+    "timestampLabel": "Timestamp:",
+    "locationLabel": "Location:"
+  },
+  "chainTable": {
+    "eventType": "Event Type",
+    "timestamp": "Timestamp",
+    "blockchainId": "Blockchain ID",
+    "name": "Name",
+    "details": "Details",
+    "copyFullId": "Copy full ID",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page"
+  },
+  "forms": {
+    "organization": {
+      "namePlaceholder": "Enter organization name",
+      "registrationPlaceholder": "MFG-XXXX-XXXX",
+      "addressPlaceholder": "Enter complete address with PIN code",
+      "productsPlaceholder": "List the main products manufactured",
+      "yearPlaceholder": "Select year",
+      "rangePlaceholder": "Select range",
+      "certificationPlaceholder": "Select certification level",
+      "additionalInfoPlaceholder": "Any additional information about your organization"
+    },
+    "workers": {
+      "totalPlaceholder": "Enter total number",
+      "malePlaceholder": "Number of male workers",
+      "femalePlaceholder": "Number of female workers",
+      "skilledPlaceholder": "Number of skilled workers",
+      "unskilledPlaceholder": "Number of unskilled workers",
+      "hoursPlaceholder": "Select hours",
+      "shiftsPlaceholder": "Select shifts",
+      "daysPlaceholder": "Select days",
+      "avgSalaryPlaceholder": "₹ Average salary",
+      "minWagePlaceholder": "₹ Minimum wage",
+      "maxWagePlaceholder": "₹ Maximum wage",
+      "benefitsPlaceholder": "List benefits like PF, ESI, medical insurance, bonus, etc.",
+      "safetyPlaceholder": "Describe safety training and protocols",
+      "conditionsPlaceholder": "Describe working conditions, facilities, etc."
+    },
+    "certificates": {
+      "qualityTitle": "Quality Certificates",
+      "qualityDescription": "Upload quality-related certificates",
+      "qualityExamples": "ISO 9001:2015, BIS Certification, Quality Management",
+      "safetyTitle": "Safety Certificates",
+      "safetyDescription": "Upload safety-related certificates",
+      "safetyExamples": "ISO 45001:2018, Fire Safety Certificate, Factory Safety License",
+      "environmentalTitle": "Environmental Certificates",
+      "environmentalDescription": "Upload environmental certificates",
+      "environmentalExamples": "ISO 14001:2015, Pollution Control Board, Environmental Clearance",
+      "otherTitle": "Other Certificates",
+      "otherDescription": "Upload any other relevant certificates",
+      "otherExamples": "Trade License, GST Certificate, Import-Export License",
+      "savedMessage": "Certificates Saved\nYour certificates have been successfully uploaded and saved.",
+      "saving": "Saving...",
+      "saveButton": "Save Certificates",
+      "uploaded": "Uploaded"
+    },
+        "processor": {
+            "certificatesPlaceholder": "List any additional certificates or provide notes about your certifications"
+        }
+    },
+    "entities": {
+        "manufacturer": {
+            "title": "Manufacturer Registration",
+            "step": "Step",
+            "of": "of",
+            "registrationSteps": "Registration Steps",
+            "completeAllSteps": "Complete all steps to finish registration",
+            "overallProgress": "Overall Progress",
+            "stepsCompleted": "steps completed",
+            "steps": {
+                "organization": {
+                    "title": "Organization Info",
+                    "description": "Basic company details"
+                },
+                "certificates": {
+                    "title": "Certificates",
+                    "description": "Upload certifications"
+                },
+                "workers": {
+                    "title": "Worker Information",
+                    "description": "Staff and operations"
+                },
+                "manager": {
+                    "title": "Manager Details",
+                    "description": "Management information"
+                }
+            },
+            "registrationSuccess": "Registration Successful\nYour manufacturer registration has been completed.",
+            "registrationIncomplete": "Incomplete Registration\nPlease complete all 4 steps before submitting.",
+            "registrationComplete": "Registration Complete!",
+            "registrationApproved": "Your manufacturer registration has been successfully submitted and approved.",
+            "desktopCredentials": "Desktop App Credentials",
+            "email": "Email",
+            "password": "Password",
+            "important": "Important",
+            "saveCredentials": "Please save these credentials securely. Use them to login to the manufacturer desktop application.",
+            "readyToSubmit": "Ready to Submit Registration",
+            "allFormsCompleted": "All forms have been completed successfully. Click below to submit your registration.",
+            "submitRegistration": "Submit Registration",
+            "organization": {
+                "title": "Organization Information",
+                "description": "Provide details about your manufacturing organization",
+                "name": "Organization Name *",
+                "manufacturerId": "Manufacturer ID *",
+                "address": "Complete Address *",
+                "productsMade": "Products Manufactured *",
+                "establishedYear": "Established Year",
+                "annualTurnover": "Annual Turnover",
+                "certificationLevel": "Quality Certification Level",
+                "additionalInfo": "Additional Information",
+                "saving": "Saving...",
+                "saveButton": "Save Organization Information",
+                "missingInfo": "Missing Information\nPlease fill in all required fields.",
+                "saved": "Organization Information Saved\nYour organization details have been successfully saved.",
+                "turnover": {
+                    "0-1cr": "₹0 - 1 Crore",
+                    "1-5cr": "₹1 - 5 Crores",
+                    "5-10cr": "₹5 - 10 Crores",
+                    "10-50cr": "₹10 - 50 Crores",
+                    "50cr+": "₹50+ Crores"
+                },
+                "certification": {
+                    "iso-9001": "ISO 9001",
+                    "iso-14001": "ISO 14001",
+                    "iso-45001": "ISO 45001",
+                    "bis": "BIS Certification",
+                    "other": "Other",
+                    "none": "No Certification"
+                }
+            },
+            "workers": {
+                "title": "Worker Information",
+                "description": "Provide details about your workforce and working conditions",
+                "workforceComposition": "Workforce Composition",
+                "totalWorkers": "Total Workers *",
+                "maleWorkers": "Male Workers",
+                "femaleWorkers": "Female Workers",
+                "skilledWorkers": "Skilled Workers",
+                "unskilledWorkers": "Unskilled Workers",
+                "workingHoursSchedule": "Working Hours & Schedule",
+                "workingHours": "Working Hours/Day *",
+                "shiftsPerDay": "Shifts per Day *",
+                "workingDays": "Working Days/Week *",
+                "salaryInformation": "Salary Information",
+                "averageSalary": "Average Monthly Salary *",
+                "minimumWage": "Minimum Wage",
+                "maximumWage": "Maximum Wage",
+                "benefitsProvided": "Benefits Provided to Workers",
+                "safetyTraining": "Safety Training Programs",
+                "workEnvironment": "Work Environment Description",
+                "saving": "Saving...",
+                "saveButton": "Save Worker Information",
+                "missingInfo": "Missing Information\nPlease fill in all required fields.",
+                "invalidData": "Invalid Data\nMale + Female workers cannot exceed total workers.",
+                "saved": "Worker Information Saved\nYour worker details have been successfully saved.",
+                "hours": {
+                    "8": "8 Hours",
+                    "9": "9 Hours",
+                    "10": "10 Hours",
+                    "12": "12 Hours"
+                },
+                "shifts": {
+                    "1": "1 Shift",
+                    "2": "2 Shifts",
+                    "3": "3 Shifts"
+                },
+                "days": {
+                    "5": "5 Days",
+                    "6": "6 Days",
+                    "7": "7 Days"
+                }
+            },
+            "manager": {
+                "title": "Manager Information",
+                "description": "Provide details about the authorized manager or contact person",
+                "photoUploadHint": "Upload manager's photo (JPG/PNG, max 2MB)",
+                "personalInfo": "Personal Information",
+                "fullName": "Full Name *",
+                "fullNamePlaceholder": "Enter full name",
+                "designation": "Designation *",
+                "designationPlaceholder": "e.g., Plant Manager, Operations Head",
+                "contactInfo": "Contact Information",
+                "email": "Email Address *",
+                "emailPlaceholder": "manager@company.com",
+                "mobile": "Mobile Number *",
+                "mobilePlaceholder": "10-digit mobile number",
+                "emergencyContact": "Emergency Contact Number",
+                "emergencyContactPlaceholder": "Alternative contact number",
+                "address": "Complete Address *",
+                "addressPlaceholder": "Enter complete address with PIN code",
+                "professionalDetails": "Professional Details",
+                "qualification": "Educational Qualification",
+                "qualificationPlaceholder": "e.g., B.Tech, MBA, Diploma",
+                "experience": "Years of Experience",
+                "experiencePlaceholder": "Years in manufacturing",
+                "additionalInfo": "Additional Information",
+                "additionalInfoPlaceholder": "Any additional relevant information about the manager",
+                "saving": "Saving...",
+                "saveButton": "Save Manager Information",
+                "missingInfo": "Missing Information\nPlease fill in all required fields.",
+                "invalidMobile": "Invalid Mobile Number\nPlease enter a valid 10-digit mobile number.",
+                "invalidEmail": "Invalid Email\nPlease enter a valid email address.",
+                "saved": "Manager Information Saved\nManager details have been successfully saved.",
+                "fileTooLarge": "File too large\nPlease upload a photo smaller than 2MB.",
+                "invalidFileType": "Invalid file type\nPlease upload a JPG or PNG image.",
+                "photoUploaded": "Photo uploaded\nManager photo has been successfully uploaded."
+            }
+        },
+        "processor": {
+            "title": "Processor Registration Portal",
+            "subtitle": "Complete your registration to get system access",
+            "registrationTitle": "Processor Registration",
+            "completeAllSteps": "Complete all steps to finish registration",
+            "overallProgress": "Overall Progress",
+            "of": "of",
+            "stepsCompleted": "steps completed",
+            "steps": {
+                "personal": {
+                    "title": "Personal Information",
+                    "description": "Basic details and GST info"
+                },
+                "certificates": {
+                    "title": "Certificates",
+                    "description": "Upload certifications"
+                },
+                "contracts": {
+                    "title": "Contracts & Sellers",
+                    "description": "Villages and farmer contracts"
+                }
+            },
+            "formSaved": "Form Saved\nStep {{step}} has been completed successfully",
+            "registrationSubmitted": "Registration Submitted\nYour processor registration has been submitted successfully",
+            "copiedToClipboard": "Copied to clipboard\nCredentials copied to clipboard",
+            "registrationComplete": "Registration Complete!",
+            "desktopCredentials": "Desktop App Credentials",
+            "useCredentials": "Use these credentials to login to the desktop application",
+            "email": "Email",
+            "password": "Password",
+            "important": "Important",
+            "saveCredentials": "Save these credentials securely. You'll need them to access the desktop application.",
+            "readyToSubmit": "Ready to Submit",
+            "allFormsCompleted": "All forms have been completed. Click below to submit your registration.",
+            "sendRegistration": "Send Registration",
+            "personal": {
+                "title": "Personal Information",
+                "description": "Provide your basic details and processing plant information",
+                "fullName": "Full Name",
+                "fullNamePlaceholder": "Enter your full name",
+                "email": "Email Address",
+                "emailPlaceholder": "Enter your email",
+                "phone": "Phone Number",
+                "phonePlaceholder": "Enter your phone number",
+                "gstNumber": "GST Number",
+                "gstNumberPlaceholder": "Enter 15-digit GST number",
+                "plantNumber": "Processing Plant Number",
+                "plantNumberPlaceholder": "Enter plant number/ID",
+                "plantCapacity": "Plant Capacity (tons/day)",
+                "plantCapacityPlaceholder": "Enter processing capacity",
+                "yearsInBusiness": "Years in Business",
+                "yearsInBusinessPlaceholder": "Enter years of experience",
+                "businessType": "Business Type",
+                "businessTypePlaceholder": "e.g., Rice Mill, Oil Processing, etc.",
+                "address": "Complete Address",
+                "addressPlaceholder": "Enter your complete address",
+                "businessDescription": "Business Description (Optional)",
+                "businessDescriptionPlaceholder": "Brief description of your processing business",
+                "saving": "Saving...",
+                "saveButton": "Save & Continue",
+                "saved": "Personal Information Saved\nYour personal information has been saved successfully"
+            },
+            "contracts": {
+                "title": "Contracts & Sellers",
+                "description": "Information about villages, farmers under contract, and your sellers",
+                "totalVillages": "Total Villages Connected",
+                "totalVillagesPlaceholder": "Enter number of villages",
+                "totalFarmers": "Total Farmers Under Contract",
+                "totalFarmersPlaceholder": "Enter number of farmers",
+                "farmerContracts": "Farmer Contracts",
+                "addContract": "Add Contract",
+                "contractNumber": "Contract #{{number}}",
+                "farmerName": "Farmer Name",
+                "farmerNamePlaceholder": "Enter farmer name",
+                "village": "Village",
+                "villagePlaceholder": "Enter village name",
+                "contactNumber": "Contact Number",
+                "contactNumberPlaceholder": "Enter contact number",
+                "contractType": "Contract Type",
+                "contractTypePlaceholder": "e.g., Rice Supply, Wheat Supply",
+                "quantity": "Quantity (tons/year)",
+                "quantityPlaceholder": "Enter quantity",
+                "sellers": "Sellers & Suppliers",
+                "addSeller": "Add Seller",
+                "sellerNumber": "Seller #{{number}}",
+                "sellerName": "Seller Name",
+                "sellerNamePlaceholder": "Enter seller name",
+                "businessName": "Business Name",
+                "businessNamePlaceholder": "Enter business name",
+                "location": "Location",
+                "locationPlaceholder": "Enter location",
+                "productsSupplied": "Products Supplied",
+                "productsSuppliedPlaceholder": "e.g., Raw Rice, Wheat, Agricultural Equipment",
+                "additionalInfo": "Additional Information (Optional)",
+                "additionalInfoPlaceholder": "Any additional information about your contracts, partnerships, or supply chain",
+                "saving": "Saving...",
+                "saveButton": "Save & Continue",
+                "saved": "Contracts & Sellers Information Saved\nYour contracts and sellers information has been saved successfully"
+            }
+        },
+        "lab": {
+            "title": "Register New Lab",
+            "labName": "Lab Name",
+            "address": "Address",
+            "contactEmail": "Contact Email",
+            "contactPhone": "Contact Phone",
+            "accreditation": "Accreditation (e.g. NABL)",
+            "licenseNumber": "License Number",
+            "registering": "Registering...",
+            "registerButton": "Register Lab",
+            "error": "Something went wrong",
+            "registrationSuccess": "Lab registered successfully!",
+            "labId": "Lab ID",
+            "adminId": "Admin ID",
+            "email": "Email",
+            "password": "Password",
+            "credentialsWarning": "Please note: The above Admin ID and Password are provided only once during registration. This password must be used only once for initial login and verification. After verification, the Admin should reset their password for security."
+        },
+        "kisan": {
+            "portal": "Kisan Portal"
+        }
+    },
+    "common": {
+        "secure": "Secure",
+        "verified": "Verified",
+        "welcomeBack": "Welcome Back",
+        "enterDetailsForRegistration": "Enter your details to continue with registration",
+        "signInToContinue": "Sign in to register your manufacturing unit"
+    }
+}

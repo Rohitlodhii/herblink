@@ -1640,6 +1640,7 @@ export declare const LabScalarFieldEnum: {
     readonly labId: "labId";
     readonly password: "password";
     readonly email: "email";
+    readonly isVerified: "isVerified";
 };
 export type LabScalarFieldEnum = (typeof LabScalarFieldEnum)[keyof typeof LabScalarFieldEnum];
 export declare const LabInfoScalarFieldEnum: {

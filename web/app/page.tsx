@@ -1,16 +1,17 @@
 "use client";
 
-import { useTranslation } from "react-i18next";
-import "@/i18n/index"
 import Navbar from "@/components/core/Navbar/Navbar";
+import Heropage from "@/components/shared/Heropage";
+import FAQ from "@/components/shared/faq";
+import Footer from "@/components/shared/Footer";
 
 export default function Home() {
-
-  const { t } = useTranslation("common");
-
   return (
-      <div className="max-w-6xl mx-auto w-full border border-border">    
-          <Navbar/>
-      </div>
+    <div>
+      <Navbar />
+      <Heropage />
+      <FAQ />
+      <Footer />
+    </div>
   );
 }

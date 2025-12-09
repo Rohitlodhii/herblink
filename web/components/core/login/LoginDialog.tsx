@@ -70,7 +70,7 @@ const LoginDialog = () => {
                 <li onClick={()=>router.push('/farmer/login')} className='relative bg-secondary px-2 py-2 rounded-sm border border-primary/30 overflow-hidden hover:outline hover:outline-blue-500 cursor-pointer '>Farmer Account
                     <Image className='absolute top-0 right-0' src={'/farm.png'} alt='FarmImage' height={40} width={200}/>
                 </li>
-                <li className='relative bg-secondary px-2 py-2 rounded-sm border border-primary/30 overflow-hidden hover:outline hover:outline-blue-500 cursor-pointer '>Processor Account
+                <li onClick={()=>router.push('/processor/login')} className='relative bg-secondary px-2 py-2 rounded-sm border border-primary/30 overflow-hidden hover:outline hover:outline-blue-500 cursor-pointer '>Processor Account
                     <Image className='absolute top-0 right-0' src={'/processor.png'} alt='FarmImage' height={40} width={200}/>
                 </li>
                 <li className='relative bg-secondary px-2 py-2 rounded-sm border border-primary/30 overflow-hidden hover:outline hover:outline-blue-500 cursor-pointer '>Lab Account

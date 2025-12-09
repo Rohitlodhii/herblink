@@ -1,0 +1,42 @@
+{
+    "access" : {
+        "goi" : "Government of India" ,
+        "skip" : "Skip to main content",
+        "A+" : "A+",
+        "tpA+" : "Large Font",
+        "A-" : "A-",
+        "tpA-" : "Small Font",
+        "A"  : "A",
+        "tpA" : "Normal Font"
+    },
+    "primary" : {
+        "org" : "Organistation",
+        "org1" :"Farmer Portal",
+        "org2": "Processor Portal",
+        "org3": "Lab Portal",
+        "org4": "Factory Portal",
+        "sc" : "See Chain",
+        "Scp" : "Scan Product",
+        "cpt" : "Complaint",
+        "mobile" : "Menu"
+    },
+    "login" : {
+        "trigger" : "Login",
+       
+        "title" : "Login to your account"
+    },
+    "noacc": {
+        "farm" : "Apply for farmer license",
+        "process" : "Apply for Processor license",
+        "lab" : "Apply for lab license",
+        "factory" : "Apply for Factory license",
+        "title" : "Don't have an account?"
+    },
+    "farmer" : {
+        "login" : {
+            "farmer" : "Herblink Farmer Portal",
+            "goback" : "Go back",
+            "title" : "Login to Farmer Account"
+        }
+    }
+}

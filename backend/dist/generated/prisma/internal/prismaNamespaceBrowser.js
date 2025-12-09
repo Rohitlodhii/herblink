@@ -122,7 +122,8 @@ export const LabScalarFieldEnum = {
     id: 'id',
     labId: 'labId',
     password: 'password',
-    email: 'email'
+    email: 'email',
+    isVerified: 'isVerified'
 };
 export const LabInfoScalarFieldEnum = {
     id: 'id',
